@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'Home@dashboard');
+Route::get('/login', 'Home@login');
+Route::get('/main', 'Home@main');
