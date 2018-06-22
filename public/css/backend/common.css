@@ -1,0 +1,28 @@
+.table td.aside, .table td.side, .table td.desc,.table th {
+    background-color: #fdfdfd;
+}
+.table td.aside, .table td.desc {
+    width: 20%;
+}
+.tb-center td {
+    vertical-align: middle !important;
+    padding: 6px 8px;
+    text-align: center;
+}
+table th {
+    color: #F03C02;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.table td.side, .table td.aside {
+    text-align: right;
+}
+@media screen and (max-width: 767px) {
+    div.dataTables_length,
+    div.dataTables_filter,
+    div.dataTables_info,
+    div.dataTables_paginate {
+        text-align: center;
+    }
+}
