@@ -5,6 +5,8 @@
         <link href="/css/backend/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/backend/common.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/backend/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="/js/backend/jquery.min.js"></script>
         <script type="text/javascript" src="/js/backend/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script>

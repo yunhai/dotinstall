@@ -18,4 +18,9 @@ class Home
     {
         return view('backend.home.main');
     }
+    
+    public function list()
+    {
+        return view('backend.home.list');
+    }
 }
