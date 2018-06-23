@@ -118,7 +118,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                        <a class="nav-link" href="/backend/changePassword/">
                             <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
                         </a>
                     </li>
