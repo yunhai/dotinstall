@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header"><i class="fa fa-edit"></i> My Dashboard</div>
         <div class="card-body">
-            <form action="/" id="MessageAdminIndexForm" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+            <form action="/" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
