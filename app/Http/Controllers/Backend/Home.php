@@ -14,6 +14,11 @@ class Home
         return view('backend.home.login');
     }
     
+    public function changePassword()
+    {
+        return view('backend.home.changePassword');
+    }
+    
     public function main()
     {
         return view('backend.home.main');

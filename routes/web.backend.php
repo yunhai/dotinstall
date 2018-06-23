@@ -13,5 +13,6 @@
 
 Route::get('/', 'Home@dashboard');
 Route::get('/login', 'Home@login');
+Route::get('/changePassword', 'Home@changePassword');
 Route::get('/main', 'Home@main');
 Route::get('/list', 'Home@list');
