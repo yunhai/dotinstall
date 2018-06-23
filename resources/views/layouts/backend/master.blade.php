@@ -182,6 +182,12 @@
             <!-- <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script> -->
             <script type="text/javascript" src="/js/backend/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/js/backend/sb-admin.min.js"></script>
+            <script type="text/javascript" src="/js/backend/bootstrap.file-input.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('input[type=file]').bootstrapFileInput();
+                });
+            </script>
         </div>
     </body>
 </html>
