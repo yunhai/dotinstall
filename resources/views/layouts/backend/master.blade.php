@@ -1,22 +1,21 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>@yield('title')</title>
         <link href="/css/backend/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="/js/backend/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/backend/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script>
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="#">管理画面</a>
+            <a class="navbar-brand" href="/backend/">管理画面</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
@@ -150,6 +149,14 @@
                     </div>
                 </div>
             </footer>
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+            <script type="text/javascript" src="/js/backend/jquery.min.js"></script>
+            <script type="text/javascript" src="/js/backend/bootstrap.min.js"></script>
+            <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="/js/backend/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/js/backend/sb-admin.min.js"></script>
         </div>
     </body>
