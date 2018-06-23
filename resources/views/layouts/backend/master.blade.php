@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>@yield('title')</title>
         <link href="/css/backend/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -117,6 +118,28 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-fw fa-user"></i>
+                            <span class="d-lg-none">管理者パスワード変更
+                                
+                            </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
+                            <a class="dropdown-item" href="/backend/changePassword/">
+                                <div class="dropdown-message small">
+                                    <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <div class="dropdown-message small">
+                                    <i class="fa fa-fw fa-sign-out"></i>ログアウト
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- 
                     <li class="nav-item">
                         <a class="nav-link" href="/backend/changePassword/">
                             <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
@@ -127,6 +150,7 @@
                             <i class="fa fa-fw fa-sign-out"></i>ログアウト
                         </a>
                     </li>
+                     -->
                 </ul>
             </div>
         </nav>
@@ -155,7 +179,7 @@
             </a>
             <script type="text/javascript" src="/js/backend/jquery.min.js"></script>
             <script type="text/javascript" src="/js/backend/bootstrap.min.js"></script>
-            <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script>
+            <!-- <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script> -->
             <script type="text/javascript" src="/js/backend/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/js/backend/sb-admin.min.js"></script>
         </div>
