@@ -20,25 +20,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Dashboard">
                         <a class="nav-link" href="index.html">
                             <i class="fa fa-fw fa-dashboard"></i>
                             <span class="nav-link-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Charts">
                         <a class="nav-link" href="charts.html">
                             <i class="fa fa-fw fa-area-chart"></i>
                             <span class="nav-link-text">Charts</span>
                         </a>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Tables">
                           <a class="nav-link" href="tables.html">
                                 <i class="fa fa-fw fa-table"></i>
                                 <span class="nav-link-text">Tables</span>
                           </a>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Components">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-wrench"></i>
                             <span class="nav-link-text">Components</span>
@@ -52,7 +52,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Example Pages">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-file"></i>
                             <span class="nav-link-text">Example Pages</span>
@@ -72,7 +72,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Menu Levels">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-sitemap"></i>
                             <span class="nav-link-text">Menu Levels</span>
@@ -103,7 +103,7 @@
                         </li>
                         </ul>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Link">
                         <a class="nav-link" href="#">
                             <i class="fa fa-fw fa-link"></i>
                             <span class="nav-link-text">Link</span>
