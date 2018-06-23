@@ -2,7 +2,7 @@
 @section('title', 'List')
 @section('content')
     <div class="card">
-        <div class="card-header">LIST</div>
+        <div class="card-header"><i class="fa fa-list"></i> LIST</div>
         <div class="card-body">
             <div class="table-responsive">
                 <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
@@ -28,7 +28,7 @@
                                     </td>
                                     <td style="width: 20%;" class="text-center">
                                         <a class="btn btn-info btn-sm text-white">閲覧</a>
-                                        <a class="btn btn-info btn-sm text-white">更新</a>
+                                        <!-- <a class="btn btn-info btn-sm text-white">更新</a> -->
                                     </td>
                                 </tr>
                             </tbody>

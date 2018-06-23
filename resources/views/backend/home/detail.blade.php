@@ -2,7 +2,7 @@
 @section('title', 'Detail')
 @section('content')
     <div class="card">
-        <div class="card-header">My Dashboard</div>
+        <div class="card-header"><i class="fa fa-list"></i> Detail</div>
         <div class="card-body">
             <form action="/" id="MessageAdminIndexForm" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                 <table class="table table-bordered">
