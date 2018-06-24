@@ -27,9 +27,9 @@
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="" data-placement="right" title="Charts">
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="/backend/category">
                             <i class="fa fa-fw fa-area-chart"></i>
-                            <span class="nav-link-text">Charts</span>
+                            <span class="nav-link-text">カテゴリー</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="" data-placement="right" title="Tables">

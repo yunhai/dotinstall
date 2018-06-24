@@ -17,3 +17,5 @@ Route::get('/changePassword', 'Home@changePassword');
 Route::get('/main', 'Home@main');
 Route::get('/list', 'Home@list');
 Route::get('/detail', 'Home@detail');
+Route::get('/category', 'MsCategory@index');
+Route::get('/category/create', 'MsCategory@create');
