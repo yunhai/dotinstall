@@ -2,8 +2,13 @@
 @section('title', 'List')
 @section('content')
     <div class="card">
-        <div class="card-header"><i class="fa fa-list"></i> LIST</div>
+        <div class="card-header"><i class="fa fa-list"></i> ユーザー</div>
         <div class="card-body">
+            <div class="col-lg-12">
+                <div class="form-group float-right">
+                    <a class="btn btn-primary btn-sm" href="">新規</a>
+                </div>
+            </div>
             <div class="table-responsive">
                 <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                     <div class="row">
@@ -11,8 +16,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>header 1</th>
-                                    <th>header 2</th>
+                                    <th>ユーザー名</th>
+                                    <th>メールアドレス</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -22,9 +27,25 @@
                                         1
                                     </td>
                                     <td style="width: 25%">
+                                        username
                                     </td>
                                     <td>
-                                        lorem ipsum
+                                        your@example.com
+                                    </td>
+                                    <td style="width: 20%;" class="text-center">
+                                        <a class="btn btn-info btn-sm text-white">閲覧</a>
+                                        <!-- <a class="btn btn-info btn-sm text-white">更新</a> -->
+                                    </td>
+                                </tr>
+                                <tr class="old">
+                                    <td style="width: 5%">
+                                        2
+                                    </td>
+                                    <td style="width: 25%">
+                                        username
+                                    </td>
+                                    <td>
+                                        your@example.com
                                     </td>
                                     <td style="width: 20%;" class="text-center">
                                         <a class="btn btn-info btn-sm text-white">閲覧</a>
