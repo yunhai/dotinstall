@@ -17,7 +17,7 @@ class CreateMsCategoriesTable extends Migration
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
             $table->string('name', 256);
-            $table->integer('sort')->nullable();
+            $table->integer('sort')->nullable()->default(1);
             $table->integer('created_user_id')->nullable();
             $table->integer('updated_user_id')->nullable();
             $table->timestamps();

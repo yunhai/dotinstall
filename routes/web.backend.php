@@ -12,10 +12,14 @@
 */
 
 Route::get('/', 'Home@dashboard');
-Route::get('/login', 'Home@login');
-Route::get('/changePassword', 'Home@changePassword');
-Route::get('/main', 'Home@main');
-Route::get('/list', 'Home@list');
-Route::get('/detail', 'Home@detail');
-Route::get('/category', 'MsCategory@index');
-Route::get('/category/create', 'MsCategory@create');
+Route::get('login', 'Home@login');
+Route::get('changePassword', 'Home@changePassword');
+Route::get('main', 'Home@main');
+Route::get('list', 'Home@list');
+Route::get('detail', 'Home@detail');
+
+Route::get('ms_category', 'MsCategory@index')->name('ms_category.index');
+Route::get('ms_category/create', 'MsCategory@getCreate')->name('ms_category.create');
+Route::post('ms_category/create', 'MsCategory@postCreate');
+Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('ms_category.edit');
+Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit');

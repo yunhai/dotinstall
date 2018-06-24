@@ -1,22 +1,40 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\Backend;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Backend\MsCategory\PostInput;
+use App\Models\Backend\MsCategory as MsCategoryModel;
 
-
-class MsCategory extends Controller
+class MsCategory extends Base
 {
+    public function __construct(
+        MsCategoryModel $ms_category_model
+    ) {
+        $this->model = $ms_category_model;
+    }
+
     public function index()
     {
-        $ms_categories = DB::table('ms_categories')->orderBy('sort', 'asc')->paginate(20);
-        return view('backend.MsCategory.index', ['ms_categories' => $ms_categories]);
+        $ms_categories = $this->model->paginate(20);
+        return $this->render('ms_category.index', compact('ms_categories'));
     }
-    
-    public function create()
+
+    public function getEdit($id)
     {
-        return view('backend.MsCategory.create');
+        $target = $this->model->get($id);
+        return $this->render('ms_category.input', compact('target'));
+    }
+
+    public function getCreate()
+    {
+        return $this->render('ms_category.input');
+    }
+
+    public function postCreate(PostInput $request)
+    {
+        $input = $request->all();
+        $this->model->create($input);
+
+        return redirect()->route('ms_category.index');
     }
 }
