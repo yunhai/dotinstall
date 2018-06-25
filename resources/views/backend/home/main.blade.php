@@ -1,4 +1,4 @@
-@extends('layouts.backend.master')
+@extends('backend.layout.master')
 @section('content')
     <div class="card">
         <div class="card-header"><i class="fa fa-edit"></i> My Dashboard</div>

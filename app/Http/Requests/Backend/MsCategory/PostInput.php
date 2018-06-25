@@ -10,6 +10,7 @@ class PostInput extends Base
     {
         return [
             'ms_category.name' => 'required|max:255',
+            'ms_category.sort' => 'nullable|integer',
         ];
     }
 }

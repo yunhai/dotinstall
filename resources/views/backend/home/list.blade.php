@@ -1,4 +1,4 @@
-@extends('layouts.backend.master')
+@extends('backend.layout.master')
 @section('title', 'List')
 @section('content')
     <div class="card">

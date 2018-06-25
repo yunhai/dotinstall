@@ -1,4 +1,4 @@
-@extends('layouts.backend.master')
+@extends('backend.layout.master')
 @section('title', '管理者パスワード変更')
 @section('content')
     <div class="card">

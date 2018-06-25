@@ -1,4 +1,4 @@
-@extends('layouts.backend.master')
+@extends('backend.layout.master')
 @section('title', 'カテゴリー')
 @section('content')
     <div class="card">
@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="col-lg-12">
                 <div class="form-group float-right">
-                    <a class="btn btn-primary btn-sm" href="/backend/category/create">新規</a>
+                    <a class="btn btn-primary btn-sm" href="/backend/ms_category/create">新規</a>
                 </div>
             </div>
             <div class="table-responsive">
