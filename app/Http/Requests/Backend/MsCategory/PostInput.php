@@ -9,8 +9,8 @@ class PostInput extends Base
     public function rules()
     {
         return [
-            'ms_category.name' => 'required|max:255',
-            'ms_category.sort' => 'nullable|integer',
+            'name' => 'required|max:255',
+            'sort' => 'nullable|integer',
         ];
     }
 }

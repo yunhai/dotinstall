@@ -25,14 +25,13 @@ class Base extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function create(array $input) {
-        $key = Str::singular($this->getTable());
-        return parent::create($input[$key]);
-    }
-
-    public function get(int $id)
+    public function get(int $id, $array_flag = true)
     {
-        return $this->findOrFail($id);
+        $result = $this->findOrFail($id);
+        if ($array_flag) {
+            return $result->toArray();
+        }
+        return $result;
     }
 
     public function getListByIds(array $ids)

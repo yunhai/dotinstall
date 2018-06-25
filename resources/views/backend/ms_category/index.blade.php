@@ -34,7 +34,7 @@
                                         {{ $category->sort }}
                                     </td>
                                     <td style="width: 20%;" class="text-center">
-                                        <a class="btn btn-info btn-sm" href="/backend/category/edit/{{ $category->id }}">編集</a>
+                                        <a class="btn btn-info btn-sm" href="/backend/ms_category/{{ $category->id }}/edit">編集</a>
                                     </td>
                                 </tr>
                                 @endforeach
