@@ -35,9 +35,7 @@
                                     </td>
                                     <td style="width: 20%;" class="text-center">
                                         <a class="btn btn-info btn-sm" href="/backend/ms_category/{{ $category->id }}/edit">編集</a>
-                                        <form action="/backend/ms_category/{{ $category->id }}/delete" method="post" class="d-inline-block">
-                                            <button type="submit" class="btn btn-danger btn-sm">削除</button>
-                                        </form>
+                                        <a href="/backend/ms_category/{{ $category->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('削除してよろしいですか？');">削除</a>
                                     </td>
                                 </tr>
                                 @endforeach
