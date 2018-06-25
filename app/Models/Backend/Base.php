@@ -34,6 +34,13 @@ class Base extends Model
         return $result;
     }
 
+    public function edit(int $id, array $data = [])
+    {
+        $this->findOrFail($id);
+        $this->where('id', $id)->update($data);
+        return true;
+    }
+
     public function getListByIds(array $ids)
     {
         return $this->whereIn('id', $ids)->get();
