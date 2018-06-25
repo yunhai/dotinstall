@@ -22,4 +22,4 @@ Route::get('ms_category', 'MsCategory@index')->name('ms_category.index');
 Route::get('ms_category/create', 'MsCategory@getCreate')->name('ms_category.create');
 Route::post('ms_category/create', 'MsCategory@postCreate');
 Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('ms_category.edit');
-Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit');
+Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');

@@ -24,6 +24,17 @@ class MsCategory extends Base
         $target = $this->model->get($id);
         return $this->render('ms_category.input', compact('target'));
     }
+    
+    public function postEdit(PostInput $request, $id)
+    {
+        $input = $request->all();
+        $model = MsCategoryModel::findOrFail($id);
+        $model->name = $input['name'];
+        $model->sort = $input['sort'];
+        $model->save($input);
+        
+        return redirect()->route('ms_category.index');
+    }
 
     public function getCreate()
     {
@@ -34,7 +45,7 @@ class MsCategory extends Base
     {
         $input = $request->all();
         $this->model->create($input);
-
+        
         return redirect()->route('ms_category.index');
     }
 }
