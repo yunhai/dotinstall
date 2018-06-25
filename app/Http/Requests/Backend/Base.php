@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 // use Illuminate\Support\Facades\Gate;
 
 class Base extends FormRequest
@@ -29,12 +30,13 @@ class Base extends FormRequest
         ];
     }
 
-    public function all($keys = null) {
+    public function all($keys = null)
+    {
         $list = array_keys($this->rules());
         $input = parent::all($keys);
 
         $result = [];
-        foreach($list as $path) {
+        foreach ($list as $path) {
             if (array_has($input, $path)) {
                 array_set($result, $path, array_get($input, $path));
             }
