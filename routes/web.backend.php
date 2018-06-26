@@ -31,3 +31,6 @@ Route::post('lesson/create', 'Lesson@postCreate');
 Route::get('lesson/{lesson_id}/edit', 'Lesson@getEdit')->name('lesson.edit');
 Route::post('lesson/{lesson_id}/edit', 'Lesson@postEdit');
 Route::get('lesson/{lesson_id}/delete', 'Lesson@getDelete');
+Route::get('lesson/{lesson_id}/detail', 'Lesson@getDetail')->name('lesson.detail');
+Route::get('lesson/{lesson_id}/detail/edit', 'Lesson@getDetailEdit')->name('lesson.edit');
+Route::post('lesson/{lesson_id}/detail/edit', 'Lesson@postDetailEdit');

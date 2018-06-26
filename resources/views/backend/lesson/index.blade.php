@@ -35,6 +35,7 @@
                                     </td>
                                     <td style="width: 20%;" class="text-center">
                                         <a class="btn btn-info btn-sm" href="/backend/lesson/{{ $lesson->id }}/edit">編集</a>
+                                        <a class="btn btn-info btn-sm" href="/backend/lesson/{{ $lesson->id }}/detail">閲覧</a>
                                         <a href="/backend/lesson/{{ $lesson->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('削除してよろしいですか？');">削除</a>
                                     </td>
                                 </tr>

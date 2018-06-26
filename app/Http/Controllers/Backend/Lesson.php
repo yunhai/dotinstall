@@ -52,4 +52,10 @@ class Lesson extends Base
         $this->model->destroy($id);
         return redirect()->route('lesson.index');
     }
+    
+    public function getDetail($id)
+    {
+        $lesson_media = LessonModel::find($id)->lesson_media()->paginate(20);
+        return $this->render('lesson.detail', compact('id', 'lesson_media'));
+    }
 }

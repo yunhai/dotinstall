@@ -9,4 +9,9 @@ class Lesson extends Base
         'media_count',
         'user_id'
     ];
+    
+    public function lesson_media()
+    {
+        return $this->hasMany('App\Models\Backend\LessonMedia');
+    }
 }
