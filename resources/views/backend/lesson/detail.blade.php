@@ -31,7 +31,7 @@
                                         {{ $media->name }}
                                     </td>
                                     <td style="width: 25%">
-                                        {{ $media->media_count }}
+                                        {{ $lesson['name'] }}
                                     </td>
                                     <td style="width: 20%;" class="text-center">
                                         <a class="btn btn-info btn-sm" href="/backend/lesson/{{ $id }}/detail/{{ $media->id }}/edit">編集</a>

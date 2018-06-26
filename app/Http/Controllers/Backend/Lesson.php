@@ -55,7 +55,8 @@ class Lesson extends Base
     
     public function getDetail($id)
     {
+        $lesson = $this->model->get($id);
         $lesson_media = LessonModel::find($id)->lesson_media()->paginate(20);
-        return $this->render('lesson.detail', compact('id', 'lesson_media'));
+        return $this->render('lesson.detail', compact('id', 'lesson', 'lesson_media'));
     }
 }
