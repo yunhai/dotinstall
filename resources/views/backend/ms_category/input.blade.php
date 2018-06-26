@@ -2,7 +2,6 @@
 @php
     $target = $target ?? [];
     $form = [
-        'form_action' => '',
         'form_btn' => '更新',
         'form_label' => 'カテゴリー',
         'form_field' => [
@@ -17,7 +16,10 @@
                 'field_name' => 'sort',
                 'field_value' => array_get($target, 'sort', ''),
                 'field_type' => 'text'
-            ],
+            ]
+        ],
+        'form_attribute' => [
+            'enctype' => 'multipart/form-data'
         ]
     ];
 @endphp
