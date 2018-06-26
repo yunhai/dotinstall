@@ -4,7 +4,11 @@
         {{ $form_label }}
     </div>
     <div class="card-body">
-        <form method="post" action="{{ $form_action }}">
+        <form method="post"
+            @foreach ($form_attribute as $key => $value)
+                {{ $key }}="{{ $value }}"
+            @endforeach
+        >
             @csrf
 
             <table class="table table-bordered">

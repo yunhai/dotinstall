@@ -64,6 +64,12 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'video' => [
+            'driver' => 'local',
+            'root' => storage_path('app/media/video'),
+            'url' => env('APP_URL').'/media/video',
+            'visibility' => 'public',
+        ],
     ],
 
 ];

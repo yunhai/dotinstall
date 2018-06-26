@@ -45,7 +45,7 @@ class MsCategory extends Base
 
         return redirect()->route('ms_category.index');
     }
-    
+
     public function getDelete($id)
     {
         $this->model->destroy($id);

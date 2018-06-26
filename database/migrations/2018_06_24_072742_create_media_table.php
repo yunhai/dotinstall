@@ -16,11 +16,13 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->string('name', 256);
             $table->string('path', 512);
+            $table->string('original_name', 512);
             $table->integer('size');
-            $table->string('mime', 64);
+            $table->string('mime', 128);
             $table->string('extension', 16);
+            $table->string('location', 256);
+            $table->string('hash_name', 256);
             $table->timestamps();
             $table->softDeletes();
         });
