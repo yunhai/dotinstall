@@ -1,8 +1,8 @@
 @extends('backend.layout.master')
-@section('title', 'lesson_media一覧')
+@section('title', 'レッスン詳細')
 @section('content')
     <div class="card">
-        <div class="card-header"><i class="fa fa-list"></i> lesson_media一覧</div>
+        <div class="card-header"><i class="fa fa-list"></i> レッスン詳細</div>
         <div class="card-body">
             <div class="col-lg-12">
                 <div class="form-group float-right">

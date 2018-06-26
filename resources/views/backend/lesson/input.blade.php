@@ -3,7 +3,7 @@
     $target = $target ?? [];
     $form = [
         'form_action' => '',
-        'form_btn' => '更新',
+        'form_btn' => '保存',
         'form_label' => 'レッスン一編集',
         'form_field' => [
             'name' => [

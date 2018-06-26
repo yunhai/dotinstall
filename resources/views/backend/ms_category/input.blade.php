@@ -2,7 +2,7 @@
 @php
     $target = $target ?? [];
     $form = [
-        'form_btn' => '更新',
+        'form_btn' => '保存',
         'form_label' => 'カテゴリー',
         'form_field' => [
             'name' => [
