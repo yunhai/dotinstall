@@ -16,13 +16,7 @@
                 'field_name' => 'sort',
                 'field_value' => array_get($target, 'sort', ''),
                 'field_type' => 'text'
-            ],
-            'video' => [
-                'field_label' => 'Testing',
-                'field_name' => 'video',
-                'field_value' => array_get($target, 'video', ''),
-                'field_type' => 'file'
-            ],
+            ]
         ],
         'form_attribute' => [
             'enctype' => 'multipart/form-data'
