@@ -18,6 +18,9 @@
                 'field_value' => array_get($target, 'media_count', ''),
                 'field_type' => 'text'
             ],
+        ],
+        'form_attribute' => [
+            'enctype' => 'multipart/form-data'
         ]
     ];
 @endphp
