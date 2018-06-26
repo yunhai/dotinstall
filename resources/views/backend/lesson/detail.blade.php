@@ -22,20 +22,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($lesson_media as $lesson)
+                                @foreach ($lesson_media as $media)
                                 <tr class="even">
                                     <td style="width: 5%">
-                                        {{ $lesson->id }}
+                                        {{ $media->id }}
                                     </td>
                                     <td style="width: 25%">
-                                        {{ $lesson->name }}
+                                        {{ $media->name }}
                                     </td>
                                     <td style="width: 25%">
-                                        {{ $lesson->media_count }}
+                                        {{ $media->media_count }}
                                     </td>
                                     <td style="width: 20%;" class="text-center">
-                                        <a class="btn btn-info btn-sm" href="/backend/lesson/{{ $lesson->id }}/detail/edit">編集</a>
-                                        <a href="/backend/lesson/{{ $lesson->id }}/detail/delete" class="btn btn-danger btn-sm" onclick="return confirm('削除してよろしいですか？');">削除</a>
+                                        <a class="btn btn-info btn-sm" href="/backend/lesson/{{ $id }}/detail/{{ $media->id }}/edit">編集</a>
+                                        <a href="/backend/lesson/{{ $id }}/detail/{{ $media->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('削除してよろしいですか？');">削除</a>
                                     </td>
                                 </tr>
                                 @endforeach

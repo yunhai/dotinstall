@@ -6,5 +6,6 @@ class LessonMedia extends Base
 {
     public $fillable = [
         'name',
+        'lesson_id'
     ];    
 }
