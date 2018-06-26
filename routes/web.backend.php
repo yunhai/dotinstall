@@ -25,3 +25,9 @@ Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('ms_
 Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');
 Route::get('ms_category/{ms_category_id}/delete', 'MsCategory@getDelete');
 Route::get('user', 'User@index')->name('user.index');
+Route::get('lesson', 'Lesson@index')->name('lesson.index');
+Route::get('lesson/create', 'Lesson@getCreate')->name('lesson.create');
+Route::post('lesson/create', 'Lesson@postCreate');
+Route::get('lesson/{lesson_id}/edit', 'Lesson@getEdit')->name('lesson.edit');
+Route::post('lesson/{lesson_id}/edit', 'Lesson@postEdit');
+Route::get('lesson/{lesson_id}/delete', 'Lesson@getDelete');
