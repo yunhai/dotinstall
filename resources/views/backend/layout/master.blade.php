@@ -28,6 +28,12 @@
                     </li>
                     <li class="nav-item" data-toggle="" data-placement="right" title="Charts">
                         <a class="nav-link" href="/backend/ms_category">
+                            <i class="fa fa-fw fa-user"></i>
+                            <span class="nav-link-text">ユーザー</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="" data-placement="right" title="Charts">
+                        <a class="nav-link" href="/backend/ms_category">
                             <i class="fa fa-fw fa-area-chart"></i>
                             <span class="nav-link-text">カテゴリー</span>
                         </a>

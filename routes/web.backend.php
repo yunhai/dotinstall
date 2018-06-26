@@ -24,3 +24,4 @@ Route::post('ms_category/create', 'MsCategory@postCreate');
 Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('ms_category.edit');
 Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');
 Route::get('ms_category/{ms_category_id}/delete', 'MsCategory@getDelete');
+Route::get('user', 'User@index')->name('user.index');
