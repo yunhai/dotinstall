@@ -26,10 +26,22 @@
                             <span class="nav-link-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item" data-toggle="" data-placement="right" title="Charts">
+                    <li class="nav-item" data-toggle="" data-placement="right" title="ユーザー">
+                        <a class="nav-link" href="/backend/user">
+                            <i class="fa fa-fw fa-user"></i>
+                            <span class="nav-link-text">ユーザー</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="" data-placement="right" title="カテゴリー">
                         <a class="nav-link" href="/backend/ms_category">
-                            <i class="fa fa-fw fa-area-chart"></i>
+                            <i class="fa fa-cog fa-fw"></i>
                             <span class="nav-link-text">カテゴリー</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="" data-placement="right" title="レッスン一覧">
+                        <a class="nav-link" href="/backend/lesson">
+                            <i class="fa fa-book fa-fw"></i>
+                            <span class="nav-link-text">レッスン一覧</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="" data-placement="right" title="Tables">

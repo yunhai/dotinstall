@@ -4,7 +4,7 @@
         {{ $form_label }}
     </div>
     <div class="card-body">
-        <form method="post">
+        <form method="post" action="{{ $form_action }}">
             @csrf
 
             <table class="table table-bordered">
