@@ -136,13 +136,13 @@
                             <span class="d-lg-none">管理者パスワード変更</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
-                            <a class="dropdown-item" href="/backend/changePassword/">
+                            <a class="dropdown-item" href="/backend/changePassword">
                                 <div class="dropdown-message small">
                                     <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/backend/logout">
                                 <div class="dropdown-message small">
                                     <i class="fa fa-fw fa-sign-out"></i>ログアウト
                                 </div>
