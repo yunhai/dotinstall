@@ -13,3 +13,6 @@ class Media extends Base
         return response()->json($info);
     }
 }
+
+#mklink /j /path/to/laravel/public/avatars /path/to/laravel/storage/avatars
+#ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"

@@ -50,5 +50,4 @@ if ($fileUpload.length > 0 && $fileUploadDrop.length > 0) {
             $('.progress-bar').css({width: Math.floor(resumable.progress() * 100) + '%'});
         });
     }
-
 }
