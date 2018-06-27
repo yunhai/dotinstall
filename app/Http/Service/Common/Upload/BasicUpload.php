@@ -9,14 +9,14 @@ class BasicUpload
 {
     protected function generatePath(string $path = null)
     {
-        $prefix = date('y/m');
+        $prefix = date('y/m/W');
         if ($path) {
             return $prefix . '/' .  $path;
         }
         return $prefix;
     }
 
-    public function upload(UploadedFile $file, string $disk_name, string $path = null)
+    protected function store(UploadedFile $file, string $disk_name, string $path = null)
     {
         $location = $this->generatePath($path);
 
@@ -34,7 +34,7 @@ class BasicUpload
 
     public function save(UploadedFile $file, string $disk_name, string $path = null)
     {
-        $result = $this->upload($file, $disk_name, $path);
+        $result = $this->store($file, $disk_name, $path);
         $target = (new Media())->create($result);
 
         return $target->toArray();

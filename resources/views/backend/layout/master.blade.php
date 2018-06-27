@@ -133,9 +133,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-fw fa-user"></i>
-                            <span class="d-lg-none">管理者パスワード変更
-                                
-                            </span>
+                            <span class="d-lg-none">管理者パスワード変更</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
                             <a class="dropdown-item" href="/backend/changePassword/">
@@ -151,7 +149,7 @@
                             </a>
                         </div>
                     </li>
-                    <!-- 
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link" href="/backend/changePassword/">
                             <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
@@ -181,7 +179,7 @@
             <footer class="sticky-footer">
                 <div class="container">
                     <div class="text-center">
-                        <small>Copyright © <?php echo date("Y"); ?></small>
+                        <small>Copyright © <?php echo date('Y'); ?></small>
                     </div>
                 </div>
             </footer>
@@ -195,9 +193,11 @@
             <script type="text/javascript" src="/js/backend/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/js/backend/sb-admin.min.js"></script>
             <script type="text/javascript" src="/js/backend/bootstrap.file-input.js"></script>
+            <script type="text/javascript" src="/js/backend/upload/resumable.js"></script>
+            <script type="text/javascript" src="/js/backend/upload/upload.js"></script>
             <script type="text/javascript">
                 $(document).ready(function () {
-                    $('input[type=file]').bootstrapFileInput();
+                    // $('input[type=file]').bootstrapFileInput();
                 });
             </script>
         </div>

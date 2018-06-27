@@ -37,3 +37,5 @@ Route::post('lesson/{lesson_id}/detail/create', 'LessonMedia@postCreate');
 Route::get('lesson/{lesson_id}/detail/{lesson_media_id}/edit', 'LessonMedia@getEdit')->name('lesson_media.edit');
 Route::post('lesson/{lesson_id}/detail/{lesson_media_id}/edit', 'LessonMedia@postEdit');
 Route::get('lesson/{lesson_id}/detail/{lesson_media_id}/delete', 'LessonMedia@getDelete');
+
+Route::post('media/chunk', 'Media@postChunk');
