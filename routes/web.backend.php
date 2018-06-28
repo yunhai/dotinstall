@@ -42,6 +42,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('lesson/{lesson_id}/detail/{lesson_media_id}/edit', 'LessonMedia@getEdit')->name('lesson_media.edit');
     Route::post('lesson/{lesson_id}/detail/{lesson_media_id}/edit', 'LessonMedia@postEdit');
     Route::get('lesson/{lesson_id}/detail/{lesson_media_id}/delete', 'LessonMedia@getDelete');
+    Route::get('/changePassword','Auth\LoginController@getChangePassword')->name('changePassword');
+    Route::post('/changePassword','Auth\LoginController@postChangePassword');
     
     Route::post('media/chunk', 'Media@postChunk');
 });

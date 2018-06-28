@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Backend\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Requests\Backend\Admin\PostInput;
 use App\Models\Backend\Admin;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Rules\checkCurrentPasswordRule;
 
 class LoginController extends Controller
 {
@@ -40,7 +43,7 @@ class LoginController extends Controller
         $this->middleware('web.backend')->except('logout');
     }
     
-    public function getLogin () {
+    public function getLogin() {
         if (Auth::check()) {
             return redirect('/');
         } else {
@@ -62,5 +65,29 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect('backend/login');
+    }
+    
+    public function getChangePassword() {
+        return view('backend.auth.changepassword');
+    }
+    
+    public function postChangePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => [
+                'required', 
+                new checkCurrentPasswordRule()
+            ],
+            'new_password' => 'required|min:6|confirmed',
+            'new_password_confirmation' => 'required',
+        ]);
+ 
+        //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new_password'));
+        $user->save();
+ 
+        return redirect()->back()->with('success', '保存しました');
+ 
     }
 }
