@@ -13,84 +13,65 @@ use App\Rules\checkCurrentPasswordRule;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'backend';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('web.backend')->except('logout');
+        $this->role = USER_ROLE_BACKEND;
     }
-    
-    public function getLogin() {
-        if (isset(Auth::user()->role) && Auth::user()->role == 2) {
+
+    public function getLogin()
+    {
+        if (isset(Auth::user()->role) && Auth::user()->role === $this->role) {
             return redirect('backend');
-        } else {
-            return view('backend.auth.login');
         }
+        return view('backend.auth.login');
     }
-    
+
     public function postLogin(PostInput $request)
     {
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
-            'role' => 2
+            'role' => $this->role,
+            'mode' => USER_MODE_ENABLE,
         ];
         if (Auth::attempt($credentials)) {
             return redirect('backend');
-        } else {
-            return redirect()->back()->with('status', 'メールアドレスかパスワードが間違っています');
         }
+        return redirect()->back()->with('status', 'メールアドレスかパスワードが間違っています');
     }
-    
+
     public function getLogout()
     {
         auth('admin')->logout();
         return redirect('backend/login');
     }
-    
-    public function getChangePassword() {
+
+    public function getChangePassword()
+    {
         return view('backend.auth.changepassword');
     }
-    
+
     public function postChangePassword(Request $request)
     {
         $request->validate([
             'current_password' => [
-                'required', 
+                'required',
                 new checkCurrentPasswordRule()
             ],
             'new_password' => 'required|min:6|confirmed',
             'new_password_confirmation' => 'required',
         ]);
- 
+
         //Change Password
         $user = Auth::user();
         $user->password = bcrypt($request->get('new_password'));
         $user->save();
- 
+
         return redirect()->back()->with('success', '保存しました');
     }
 }
