@@ -14,37 +14,36 @@
         <!-- /HEADER -->
         <span class="d-block px-3 py-2 text-left text-bold text-white old-bv">簡単な実戦でプログラミングを習得５分動画学習</span>
         <nav class="navbar navbar-expand-sm">
-            <!--<a class="navbar-brand" href="#">Programing&nbsp;<img class="cogwheel" src="images/cogwheel.jpg" alt="cogwheel">&nbsp;go</a>-->
-            <a class="navbar-brand" href="/"><img class="cogwheel" src="images/logo_header.jpg" alt="cogwheel"></a>
+            <a class="navbar-brand" href="/"><img class="img-logo" src="images/logo_header.jpg" alt="cogwheel"></a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="navbar-collapse collapse" id="navbars">
                 <ul class="navbar-nav ml-auto form-inline text-center">
-                    <li class="nav-item active pad_r25">
+                    <li class="nav-item active pad_r20">
                         <a class="nav-link" href="#">
-                            <p><img class="img-fluid" src="images/diamond.jpg" alt="cogwheel"></p>
-                            <p>ダイヤモンド会員</p>
+                            <p><img class="img-fluid img-diamond" src="images/diamond.jpg" alt="ダイヤモンド会員"></p>
+                            <span>ダイヤモンド会員</span>
                             <span class="sr-only">(current)</span>          
                         </a>
                     </li>
-                    <li class="nav-item pad_r25">
+                    <li class="nav-item pad_r20">
                         <a class="nav-link" href="#">
-                            <p><img class="img-fluid" src="images/video-header.jpg" alt="cogwheel"></p>
-                            <p>レッスン一覧</p>
+                            <p><img class="img-fluid img-video" src="images/video-header.jpg" alt="レッスン一覧"></p>
+                            <span>レッスン一覧</span>
                         </a>
                     </li>
-                    <li class="nav-item pad_r25">
+                    <li class="nav-item pad_r20">
                         <a class="nav-link" href="#">
-                            <p><img class="img-fluid" src="images/user.jpg" alt="cogwheel"></p>
-                            <p>ログイン</p>
+                            <p><img class="img-fluid img-user" src="images/user.jpg" alt="ログイン"></p>
+                            <span>ログイン</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <p><img class="img-fluid" src="images/party.jpg" alt="cogwheel"></p>
-                            <p>新規登録</p>
+                            <p><img class="img-fluid img-party" src="images/party.jpg" alt="新規登録"></p>
+                            <span>新規登録</span>
                         </a>
                     </li>
                 </ul>
@@ -68,10 +67,9 @@
                 <div class="footer-container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 text-center footer-container-left">
-                            <h5 class="mar_b30">5分動画で実践的にプログラミングを習得！</h5>
+                            <h6 class="mar_b10">5分動画で実践的にプログラミングを習得！</h6>
                             <h4 class="title-widget">
-                                <!--<a class="" href="#">Programing&nbsp;<img class="cogwheel" src="images/cogwheel_fooer.png" alt="cogwheel">&nbsp;go</a>-->
-                                <a class="" href="#"><img class="cogwheel" src="images/logo_footer.png" alt="cogwheel"></a>
+                                <a class="" href="/"><img class="img-logo" src="images/logo_footer.png" alt="cogwheel"></a>
                             </h4>
                         </div>
                         <div class="col-lg-3 col-md-3">
