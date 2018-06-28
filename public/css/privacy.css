@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* --------------------
+
+ * PRIVACY - プライバシーポリシー・利用規約 -
+ 
+-------------------- */
+
+#mainContents {
+	margin-top: -1rem;
+}
+#mainContents .bkgFrameCommon .boxPrivacy{
+	padding: 10px 20px;	
+}
+#mainContents .bkgFrameCommon  h3{
+	font-size:18px;
+	line-height:30px;
+	padding-bottom:20px;
+}
+#mainContents .bkgFrameCommon .txtPrivacy{
+	padding: 0 0 10px 0;
+}
+.ttlCommon {
+    font-size: 0.875rem;
+	padding: 10px 20px;
+	border-bottom: 1px solid #bca9af;
+	font-weight: bold;
+}
