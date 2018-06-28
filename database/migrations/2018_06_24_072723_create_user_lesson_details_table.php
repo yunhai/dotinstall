@@ -13,11 +13,14 @@ class CreateUserLessonMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_lesson_media', function (Blueprint $table) {
+        Schema::create('user_lesson_details', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->integer('lesson_media_id');
+            $table->integer('user_id');
+            $table->integer('lesson_detail_id');
             $table->tinyInteger('mode');
+            $table->integer('created_user_id')->default(0);
+            $table->integer('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

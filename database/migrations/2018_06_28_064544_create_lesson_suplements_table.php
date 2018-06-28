@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLessonMediaTable extends Migration
+class CreateLessonSuplementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateLessonMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('lesson_media', function (Blueprint $table) {
-            $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
+        Schema::create('lesson_suplements', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 256);
-            $table->integer('lesson_id');
+            $table->string('title', 512);
+            $table->text('caption');
+            $table->integer('created_user_id')->default(0);
+            $table->integer('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +31,6 @@ class CreateLessonMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lesson_media');
+        Schema::dropIfExists('lesson_suplement');
     }
 }

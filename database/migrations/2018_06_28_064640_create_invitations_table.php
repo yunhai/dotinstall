@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMsCategoriesTable extends Migration
+class CreateUserInvitationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateMsCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ms_categories', function (Blueprint $table) {
-            $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
+        Schema::create('invitations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 256);
-            $table->integer('sort')->nullable()->default(1);
+            $table->integer('author_id');
+            $table->integer('recipient_id')->default(0);
+            $table->string('code', 256);
+            $table->tinyInteger('mode')->default(1);
             $table->integer('created_user_id')->default(0);
             $table->integer('updated_user_id')->default(0);
             $table->timestamps();
@@ -32,6 +33,6 @@ class CreateMsCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ms_categories');
+        Schema::dropIfExists('user_invitations');
     }
 }
