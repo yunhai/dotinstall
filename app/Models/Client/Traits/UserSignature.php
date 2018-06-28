@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Backend\Traits;
+namespace App\Models\Client\Traits;
 
 use Auth;
 use Carbon\Carbon;
