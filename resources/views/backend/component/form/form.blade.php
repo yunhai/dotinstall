@@ -4,6 +4,11 @@
         {{ $form_label }}
     </div>
     <div class="card-body">
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <form method="post"
             @foreach ($form_attribute as $key => $value)
                 {{ $key }}="{{ $value }}"
