@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ class User extends Base
     ) {
         $this->model = $user_model;
     }
-    
+
     public function index()
     {
         $users = $this->model->paginate(20);
