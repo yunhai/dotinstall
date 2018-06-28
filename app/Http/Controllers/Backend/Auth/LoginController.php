@@ -44,8 +44,8 @@ class LoginController extends Controller
     }
     
     public function getLogin() {
-        if (Auth::check()) {
-            return redirect('/');
+        if (isset(Auth::user()->role) && Auth::user()->role == 2) {
+            return redirect('backend');
         } else {
             return view('backend.auth.login');
         }
@@ -53,9 +53,13 @@ class LoginController extends Controller
     
     public function postLogin(PostInput $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => 2
+        ];
         if (Auth::attempt($credentials)) {
-            return redirect('/');
+            return redirect('backend');
         } else {
             return redirect()->back()->with('status', 'メールアドレスかパスワードが間違っています');
         }
@@ -63,7 +67,7 @@ class LoginController extends Controller
     
     public function getLogout()
     {
-        Auth::logout();
+        auth('admin')->logout();
         return redirect('backend/login');
     }
     
@@ -88,6 +92,5 @@ class LoginController extends Controller
         $user->save();
  
         return redirect()->back()->with('success', '保存しました');
- 
     }
 }

@@ -11,11 +11,12 @@
 |
 */
 
-/*Route::get('/', 'Home@dashboard');
-Route::get('login', 'Home@login');
-Route::get('changePassword', 'Home@changePassword');
-Route::get('main', 'Home@main');
-Route::get('list', 'Home@list');
-Route::get('detail', 'Home@detail');*/
+Route::get('login','Auth\LoginController@getLogin')->name('login');
+Route::post('login','Auth\LoginController@postLogin');
+Route::get('logout','Auth\LoginController@getLogout');
 
-Route::get('/', 'Home@dashboard');
+Route::group(['middleware' => ['client']], function () {
+    Route::get('/', 'Home@dashboard');
+    Route::get('/changePassword','Auth\LoginController@getChangePassword')->name('changePassword');
+    Route::post('/changePassword','Auth\LoginController@postChangePassword');
+});
