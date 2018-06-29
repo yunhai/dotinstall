@@ -37,13 +37,91 @@ body {
 }
 .btn-line {
     color: #fff;
-    background-color: #00C300;
-    border-color: #00C300;
+    background-color: #04e734;
+    border-color: #04e734;
 }
 .btn-line:hover {
     color: #fff;
     background-color: #00E000;
     border-color: #00E000;
+}
+.btn-twitter {
+    display: table;
+    padding: 0;
+    color: #fff;
+    background-color: #1da1f3;
+}
+.btn-twitter span img {
+    display: inline-block;
+}
+.btn-twitter .btn-twitter-label {
+    display: table-cell;
+    text-align: left;
+    width: 75%;
+    background-color: #1da1f3;
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+}
+.btn-twitter:hover {
+    color: #fff;
+}
+.btn-facebook {
+    display: table;
+    padding: 0;
+    color: #fff;
+    background-color: #3b579d;
+}
+.btn-facebook span img {
+    display: inline-block;
+}
+.btn-facebook .btn-facebook-label {
+    display: table-cell;
+    text-align: left;
+    width: 75%;
+    background-color: #3b579d;
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+}
+.btn-facebook:hover {
+    color: #fff;
+}
+.btn-yahoo {
+    display: table;
+    padding: 0;
+    color: #fff;
+    background-color: #fff;
+    border: 1px solid #ff0033;
+}
+.btn-yahoo span img {
+    display: inline-block;
+}
+.btn-yahoo .btn-yahoo-label {
+    display: table-cell;
+    width: 75%;
+    background-color: #ff0033;
+    padding: .375rem .75rem;
+}
+.btn-yahoo:hover {
+    color: #fff;
+}
+.btn-google {
+    display: table;
+    padding: 0;
+    color: #fff;
+    background-color: #fff;
+    border: 1px solid #93aed6;
+}
+.btn-google span img {
+    display: inline-block;
+}
+.btn-google .btn-google-label {
+    display: table-cell;
+    width: 75%;
+    background-color: #4484f3;
+    padding: .375rem .75rem;
+}
+.btn-google:hover {
+    color: #fff;
 }
 /* TOP
 ------------------------------------------------------------ */
