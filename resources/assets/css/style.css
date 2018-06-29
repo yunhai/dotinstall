@@ -15,8 +15,8 @@ body {
 .form-control {
     font-size: 0.8125rem;
 }
-.btn {
-    font-size: 0.8125rem;
+.navbar-light .navbar-nav .nav-link {
+    color: #0090ff !important;
 }
 .nav-pills .nav-link {
     border-right: 1px solid #ddd;
@@ -29,11 +29,17 @@ body {
     border: 1px solid #ddd;
     border-right-color: transparent;
 }
+.nav-link-header-title {
+    vertical-align: bottom;
+}
 .ttlCommon {
     font-size: 0.875rem;
     padding: 10px 20px;
     border-bottom: 1px solid #bca9af;
     font-weight: bold;
+}
+.btn {
+    font-size: 0.8125rem;
 }
 .btn-line {
     color: #fff;
@@ -160,30 +166,30 @@ body {
 
 /* HEADER
 ------------------------------------------------------------ */
-.navbar {
+/*.navbar {
     padding: 0 2rem;
-}
+}*/
 .old-bv {
     background-color: #263147;
 }
 .img-diamond {
-    width: 50px;
-    max-width: 50px;
+    width: 40px;
+    max-width: 40px;
     height: auto;
 }
 .img-video {
-    width: 33px;
-    max-width: 33px;
+    width: 23px;
+    max-width: 23px;
     height: auto;
 }
 .img-user {
-    width: 33px;
-    max-width: 33px;
+    width: 23px;
+    max-width: 23px;
     height: auto;
 }
 .img-party {
-    width: 33px;
-    max-width: 33px;
+    width: 23px;
+    max-width: 23px;
     height: auto;
 }
 .img-logo {
