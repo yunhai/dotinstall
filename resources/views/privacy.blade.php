@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title', 'プライバシーポリシー')
+
 @section('content')
-    <!-- HEADER -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">トップ</li>
