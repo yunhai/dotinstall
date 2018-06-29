@@ -4,10 +4,46 @@ body {
     font-family: "メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS P Gothic",Verdana,sans-serif;
     font-size: 0.8125rem;
 }
+#content {
+    margin-top: -1rem;
+}
 .form-inline {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
+}
+.form-control {
+    font-size: 0.8125rem;
+}
+.btn {
+    font-size: 0.8125rem;
+}
+.nav-pills .nav-link {
+    border-right: 1px solid #ddd;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #808080;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-right-color: transparent;
+}
+.ttlCommon {
+    font-size: 0.875rem;
+    padding: 10px 20px;
+    border-bottom: 1px solid #bca9af;
+    font-weight: bold;
+}
+.btn-line {
+    color: #fff;
+    background-color: #00C300;
+    border-color: #00C300;
+}
+.btn-line:hover {
+    color: #fff;
+    background-color: #00E000;
+    border-color: #00E000;
 }
 /* TOP
 ------------------------------------------------------------ */
@@ -130,16 +166,6 @@ body {
 }
 /* MARGIN
 ------------------------------------------------------------ */
-.mar_b0 {
-    margin-bottom: 0px;
-}
-.mar_b30 {
-    margin-bottom: 30px;
-}
-.mar_b10 {
-    margin-bottom: 10px;
-}
-
 .mar_l5 {
     margin-left:5px;
 }
@@ -215,8 +241,14 @@ body {
 .mar_t40 {
     margin-top:40px;
 }
+.mar_b0 {
+    margin-bottom: 0px;
+}
 .mar_b5 {
     margin-bottom:5px;
+}
+.mar_b10 {
+    margin-bottom: 10px;
 }
 .mar_b15 {
     margin-bottom:15px;
@@ -226,6 +258,9 @@ body {
 }
 .mar_b25 {
     margin-bottom:25px;
+}
+.mar_b30 {
+    margin-bottom: 30px;
 }
 .mar_b35 {
     margin-bottom:35px;

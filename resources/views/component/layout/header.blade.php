@@ -22,13 +22,13 @@
                 </a>
             </li>
             <li class="nav-item pad_r20">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/login">
                     <p><img class="img-fluid img-user" src="img/user.jpg" alt="ログイン"></p>
                     <span>ログイン</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/register">
                     <p><img class="img-fluid img-party" src="img/party.jpg" alt="新規登録"></p>
                     <span>新規登録</span>
                 </a>
