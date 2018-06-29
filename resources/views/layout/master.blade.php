@@ -8,6 +8,7 @@
         <title>@yield('title')</title>
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/privacy.css" media="all" rel="stylesheet" type="text/css" />
         @stack('css')

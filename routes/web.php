@@ -14,6 +14,7 @@
 Route::get('/', 'Home@index');
 Route::get('/terms', 'Home@getTerms');
 Route::get('/privacy', 'Home@getPrivacy');
+Auth::routes();
 
 Route::get('/demo', function () {
     return view('demo');
