@@ -5,82 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>@yield('title')</title>
-        <link href="/css/backend/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/backend/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/backend/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/backend/common.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/backend/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/client/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/client/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/client/sb-admin/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/client/common.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/client/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
+        @stack('css')
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="/client/">管理画面</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                    <li class="nav-item" data-toggle="" data-placement="right" title="Dashboard">
-                        <a class="nav-link" href="index.html">
-                            <i class="fa fa-fw fa-dashboard"></i>
-                            <span class="nav-link-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="" data-placement="right" title="Components">
-                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                            <i class="fa fa-fw fa-wrench"></i>
-                            <span class="nav-link-text">Components</span>
-                        </a>
-                        <ul class="sidenav-second-level collapse" id="collapseComponents">
-                            <li>
-                                <a href="navbar.html">Navbar</a>
-                            </li>
-                            <li>
-                                <a href="cards.html">Cards</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navbar-nav sidenav-toggler">
-                    <li class="nav-item">
-                        <a class="nav-link text-center" id="sidenavToggler">
-                            <i class="fa fa-fw fa-angle-left"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-fw fa-user"></i>
-                            <span class="d-lg-none">管理者パスワード変更</span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
-                            <a class="dropdown-item" href="/client/changePassword">
-                                <div class="dropdown-message small">
-                                    <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
-                                </div>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/client/logout">
-                                <div class="dropdown-message small">
-                                    <i class="fa fa-fw fa-sign-out"></i>ログアウト
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        @include('client.component.layout.sidebar');
 
         <div class="content-wrapper">
             <div class="container-fluid">
                 <!-- Breadcrumbs-->
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                      <a href="#">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active">My Dashboard</li>
-                </ol>
+                @include('client.component.layout.breadcrumb')
                 @yield('content')
             </div>
             <footer class="sticky-footer">
@@ -94,19 +33,11 @@
             <a class="scroll-to-top rounded" href="#page-top">
                 <i class="fa fa-angle-up"></i>
             </a>
-            <script type="text/javascript" src="/js/backend/jquery.min.js"></script>
-            <script type="text/javascript" src="/js/backend/bootstrap.min.js"></script>
-            <!-- <script type="text/javascript" src="/js/backend/bootstrap.bundle.min.js"></script> -->
-            <script type="text/javascript" src="/js/backend/jquery.easing.min.js"></script>
-            <script type="text/javascript" src="/js/backend/sb-admin.min.js"></script>
-            <script type="text/javascript" src="/js/backend/bootstrap.file-input.js"></script>
-            <script type="text/javascript" src="/js/backend/upload/resumable.js"></script>
-            <script type="text/javascript" src="/js/backend/upload/upload.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    // $('input[type=file]').bootstrapFileInput();
-                });
-            </script>
+            <script type="text/javascript" src="/vendor/client/jquery/jquery-3.3.1.min.js"></script>
+            <script type="text/javascript" src="/vendor/client/jquery/jquery.easing.min.js"></script>
+            <script type="text/javascript" src="/vendor/client/bootstrap/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="/vendor/client/sb-admin/sb-admin.min.js"></script>
+            @stack('js')
         </div>
     </body>
 </html>

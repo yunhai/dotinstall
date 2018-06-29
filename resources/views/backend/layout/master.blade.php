@@ -6,9 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>@yield('title')</title>
         <link href="/vendor/backend/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/vendor/backend/fontawesome/css/fontawesome.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/backend/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/backend/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/backend/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/backend/sb-admin/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
         @stack('css')
@@ -37,17 +36,8 @@
             <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
-
-            <script type="text/javascript" src="/js/backend/sb-admin.min.js"></script>
-            <script type="text/javascript" src="/js/backend/bootstrap.file-input.js"></script>
-            <script type="text/javascript" src="/js/backend/upload/resumable.js"></script>
-            <script type="text/javascript" src="/js/backend/upload/upload.js"></script>
+            <script type="text/javascript" src="/vendor/backend/sb-admin/sb-admin.min.js"></script>
             @stack('js')
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    // $('input[type=file]').bootstrapFileInput();
-                });
-            </script>
         </div>
     </body>
 </html>
