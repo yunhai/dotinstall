@@ -2,13 +2,20 @@
 
 namespace App\Models\Backend;
 
+use App\Models\Backend\Traits\Deleting;
+use App\Models\Backend\Traits\UserSignature;
+use App\Models\Backend\Traits\Sanitize;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Base extends Model
 {
-    use SoftDeletes;
+    use Deleting, UserSignature, Sanitize;
+
+    protected $relations = [
+        'lession_details'
+    ];
 
     public function __construct(array $attributes = [])
     {
@@ -36,8 +43,15 @@ class Base extends Model
 
     public function edit(int $id, array $data = [])
     {
-        $this->findOrFail($id);
-        $this->where('id', $id)->update($data);
+        $this
+           ->findOrFail($id)
+           ->update($data);
+        return true;
+    }
+
+    public function remove(int $id)
+    {
+        $this->findOrFail($id)->delete($id);
         return true;
     }
 

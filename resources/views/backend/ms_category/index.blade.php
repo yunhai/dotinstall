@@ -13,26 +13,20 @@
         $table = [
             'title' => 'カテゴリー',
             'header' => [
-                'ID',
                 'カテゴリー名',
                 '表示順序',
                 '',
             ],
             'body' => [
-                'id' => [
-                    'field' => 'id',
-                    'attr' => [
-                        'style' => 'width:5%',
-                    ]
-                ],
                 'name' => [
                     'field' => 'name',
-                    'attr' => [
-                        'style' => 'width:25%',
-                    ]
                 ],
                 'sort' => [
                     'field' => 'sort',
+                    'attr' => [
+                        'style' => 'width:10%',
+                        'class' => 'text-center'
+                    ]
                 ],
                 'button' => [
                     'field' => '',
@@ -44,7 +38,7 @@
                         ':id' => 'id'
                     ],
                     'attr' => [
-                        'style' => 'width:25%',
+                        'style' => 'width:20%',
                         'class' => 'text-center'
                     ]
                 ]

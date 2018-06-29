@@ -19,6 +19,9 @@
             <table class="table table-bordered">
                 <tbody>
                     @foreach ($form_field as $field)
+                        @php
+                            $field['field_value'] = @old($field['field_name'], $field['field_value']);
+                        @endphp
                         @include('backend.component.form.' . $field['field_type'], $field)
                     @endforeach
                 </tbody>

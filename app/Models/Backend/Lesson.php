@@ -6,12 +6,10 @@ class Lesson extends Base
 {
     public $fillable = [
         'name',
-        'media_count',
-        'user_id'
+        'caption',
+        'image_id',
+        'note',
+        'attachment_id',
+        'video_count',
     ];
-    
-    public function lesson_media()
-    {
-        return $this->hasMany('App\Models\Backend\LessonMedia');
-    }
 }

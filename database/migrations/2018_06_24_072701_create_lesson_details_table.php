@@ -17,7 +17,7 @@ class CreateLessonDetailsTable extends Migration
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
             $table->string('name', 256);
-            $table->string('caption', 1024);
+            $table->text('caption');
             $table->integer('lesson_id');
             $table->integer('video_id');
             $table->integer('created_user_id')->default(0);

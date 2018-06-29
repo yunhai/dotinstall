@@ -10,8 +10,9 @@ class PostInput extends Base
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'media_count' => 'nullable|integer',
+            'name' => 'required|max:256',
+            'caption' => 'nullable',
+            'note' => 'nullable'
         ];
     }
 }

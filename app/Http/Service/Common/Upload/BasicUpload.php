@@ -40,7 +40,7 @@ class BasicUpload
     public function save($file, string $disk_name, string $path = null)
     {
         $result = $this->store($file, $disk_name, $path);
-        return $this->saveDb();
+        return $this->saveDb($result);
     }
 
     protected function saveDb($result)

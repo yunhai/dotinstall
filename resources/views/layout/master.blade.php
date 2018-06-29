@@ -20,7 +20,7 @@
                 @yield('content')
             </div>
 
-            @include('component.layout.footer');
+            @include('component.layout.footer')
             <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>

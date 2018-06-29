@@ -10,37 +10,45 @@ trait UserSignature
     public static function bootUserSignature()
     {
         static::creating(function ($model) {
-            $model->setUser(true);
-            $model->setDate(true);
+            $model->setUser();
+            $model->setDate();
         });
 
         static::updating(function ($model) {
-            $model->setUser(false);
-            $model->setDate(false);
+            if ($model->deleted_user_id) {
+                return;
+            }
+            $model->setUser('updated_user_id', false);
+            $model->setDate('updated_at', false);
         });
 
         static::deleting(function ($model) {
-            $model->saveTrash();
-            $model->setUser(false);
-            $model->save();
+            $column = [
+                'deleted_at' => Carbon::now(),
+                'deleted_user_id' => Auth::user()->id,
+            ];
+
+            $model->update($column);
+
+            return false;
         });
     }
 
-    protected function setUser(bool $is_creating)
+    protected function setUser(string $field = 'created_user_id', bool $update = true)
     {
         $user = Auth::user();
-        if ($is_creating) {
-            $this->created_user_id = $user->id;
+        $this->$field = $user->id;
+        if ($update) {
+            $this->updated_user_id = $user->id;
         }
-        $this->updated_user_id = $user->id;
     }
 
-    protected function setDate(bool $is_creating)
+    protected function setDate(string $field = 'created_at', bool $update = true)
     {
         $now = Carbon::now();
-        if ($is_creating) {
-            $this->created_at = $now;
+        $this->$field = $now;
+        if ($update) {
+            $this->updated_at = $now;
         }
-        $this->updated_at = $now;
     }
 }

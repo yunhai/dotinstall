@@ -70,6 +70,20 @@ return [
             'url' => env('APP_URL').'/media/video',
             'visibility' => 'public',
         ],
+
+        'avatar' => [
+            'driver' => 'local',
+            'root' => storage_path('app/media/avatar'),
+            'url' => env('APP_URL').'/media/avatar',
+            'visibility' => 'public',
+        ],
+
+        'attachment' => [
+            'driver' => 'local',
+            'root' => storage_path('app/media/attachment'),
+            'url' => env('APP_URL').'/media/attachment',
+            'visibility' => 'public',
+        ],
     ],
 
 ];
