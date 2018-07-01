@@ -25,6 +25,17 @@
             <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
+            <script>
+                $( document ).ready(function() {
+                    var count_elements = $('.col-video').length;
+                    if(count_elements % 5 === 0) {
+                        var i;
+                        for (i = 1; i <= 5; ++i) {
+                            $('.col-video:nth-child('+i+')').css( "border-bottom", "1px solid #bca9af" );
+                        }
+                    }
+                });
+            </script>
         </div>
     </body>
 </html>

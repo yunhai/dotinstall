@@ -149,13 +149,14 @@ body {
     border: none;
     border-radius: 0;
 }
-.col-video {
+.col-lesson {
     margin-top: 30px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #bca9af;
 }
+/*.col-lesson:nth-child(-n+5) {
+	border-bottom: 1px solid #bca9af;
+}*/
 @media (min-width: 992px) {
-	.col-video.col-lg-3 {
+	.col-lesson.col-lg-3 {
 	    -webkit-box-flex: 0;
 	    -ms-flex: 0 0 20%;
 	    flex: 0 0 20%;
@@ -163,7 +164,7 @@ body {
 	}
 }
 @media (min-width: 768px) {
-	.col-video.col-md-3 {
+	.col-lesson.col-md-3 {
 	    -webkit-box-flex: 0;
 	    -ms-flex: 0 0 20%;
 	    flex: 0 0 20%;
@@ -171,7 +172,17 @@ body {
 	}
 }
 .box .card .btn-request {
+    padding: 0;
     font-size: 0.8125rem;
+}
+.box .card .btn-request .btn-to-complete {
+    border: 2px solid #dfdfe0;
+}
+.box .card .btn-request .btn-sorce-conformation {
+    border: 2px solid #fbc276;
+}
+.box .card .btn-request .btn-completion {
+    border: 2px solid #25dced;
 }
 .box .card .card-title-header {
     font-size: 2.5rem;

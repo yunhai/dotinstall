@@ -38,75 +38,183 @@
     <div class="card card-video-list">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-completion" src="img/btn_completion.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-video col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
-                            <a href="#" class="btn btn-primary btn-request">ソース確認</a>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                    <div class="card">
+                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                    <div class="card">
+                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-to-complete" src="img/btn_to_complete.png">
+                                </a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" class="btn btn-sm btn-request">
+                                    <img class="card-img-top btn-sorce-conformation" src="img/btn_sorce_conformation.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
