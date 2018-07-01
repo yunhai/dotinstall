@@ -145,6 +145,10 @@ body {
     margin-right: -15px;
     margin-bottom: 30px;
 }
+.box:last-child {
+    margin-bottom: 0;
+    border-top: 1px solid #bca9af;
+}
 .box .card {
     border: none;
     border-radius: 0;

@@ -223,6 +223,15 @@
         </div>
     </div>
 </div>
+<div class="box">
+    <div class="card">
+        <div class="card-body text-center">
+            <p class="card-text">
+                <a href="#" class="btn btn-sm btn-request">全てのレッスンを見る（５０）</a>
+            </p>
+        </div>
+    </div>
+</div>
 <!-- 
 <div class="panel">
     <div class="container">
