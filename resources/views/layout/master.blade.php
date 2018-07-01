@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta http-equiv="Content-Style-Type" content="text/css">
         <meta name="robots" content="noydir,noodp,index,follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content='IE=edge' http-equiv='X-UA-Compatible' />
+        <meta content='width=device-width, initial-scale=1' name='viewport' />
         <title>@yield('title')</title>
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />

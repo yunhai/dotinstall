@@ -1,5 +1,8 @@
 @charset "utf-8";
-
+html {
+    position: relative;
+    min-height: 100%;
+}
 body {
     font-family: "メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS P Gothic",Verdana,sans-serif;
     font-size: 0.8125rem;
@@ -44,7 +47,7 @@ body {
     border-bottom: 1px solid #bca9af;
     font-weight: bold;
 }
-.btn {
+#v-pills-tabContent .btn {
     font-size: 0.8125rem;
 }
 .btn-line {
@@ -137,10 +140,60 @@ body {
 }
 /* TOP
 ------------------------------------------------------------ */
+.box {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 30px;
+}
+.box .card {
+    border: none;
+    border-radius: 0;
+}
+.col-video {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #bca9af;
+}
+@media (min-width: 992px) {
+	.col-video.col-lg-3 {
+	    -webkit-box-flex: 0;
+	    -ms-flex: 0 0 20%;
+	    flex: 0 0 20%;
+	    max-width: 20%;
+	}
+}
+@media (min-width: 768px) {
+	.col-video.col-md-3 {
+	    -webkit-box-flex: 0;
+	    -ms-flex: 0 0 20%;
+	    flex: 0 0 20%;
+	    max-width: 20%;
+	}
+}
+.box .card .btn-request {
+    font-size: 0.8125rem;
+}
+.box .card .card-title-header {
+    font-size: 2.5rem;
+    padding-top: 3%;
+}
+.box .card .card-body .row {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.box .card .card-body .row .card-sign {
+    margin-top: 5%;
+}
+.box .card .card-body .row .card-sign .card-text-sign {
+    font-size: 1.2rem;
+    color: #4a4949;
+}
+.box .card .card-body .row .card-sign .card-sign-button {
+    margin-top: 8%;
+}
+
 .panel {
-    background-image: url("img/panel.jpg");
-    /*height: 606px;
-    background-position: center;*/
+    background-image: url("../../img/panel.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -163,11 +216,71 @@ body {
 }
 .lession-heading {
     background-color: #f3f4f6;
-    padding: 0.5rem 2rem;
-    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+.lession-heading img {
+    height: 30px;
 }
 .lession-heading-url {
-    margin-top: 10px;
+    margin-top: 5px;
+}
+@media (max-width: 767.98px) {
+    .box .card .card-body {
+        padding: 0;
+    }
+    .box .card .card-title-header {
+        font-size: 0.8125rem !important;
+        margin-bottom: 0;
+    }
+	.box .card-body .row .card-sign {
+        margin-top: 0 !important;
+        text-align: center;
+    }
+    .box .card .card-body .row .card-sign .card-text-sign {
+        font-size: 0.8125rem;
+        color: #4a4949;
+    }
+    .box .card .card-body .row .card-sign .card-text-sign.last {
+        margin-bottom: 0 !important;
+    }
+    .box .card .card-body .row .card-sign .card-sign-button {
+        font-size: 0.8125rem;
+        margin-top: 0;
+    }
+    .box .card-body .row .card-video {
+        display: none;
+    }
+}
+@media (max-width: 991.98px) {
+    .box .card .card-title-header {
+        font-size: 1.2rem;
+        padding-top: 0;
+    }
+    .box .card .card-body .row {
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .box .card-body .row p {
+        margin-bottom: 0.2rem;
+    }
+    .box .card .card-body .row .card-sign {
+        text-align: center;
+        margin-top: 0;
+	}
+    .box .card .card-body .row .card-sign .card-text-sign {
+        font-size: 0.8125rem;
+        color: #4a4949;
+    }
+    .box .card .card-body .row .card-sign .card-text-sign.last {
+        margin-bottom: 1.2rem;
+    }
+    .box .card .card-body .row .card-sign .card-sign-button {
+        font-size: 0.8125rem;
+        margin-top: 0;
+    }
+	.box .card-body .row .card-video {
+        display: none;
+    }
 }
 
 /* HEADER
@@ -210,10 +323,8 @@ body {
     background-color: #0d6dc4;
 }
 .footer .footer-container {
-    /*margin-right: 10px;
-    margin-left: 10px;*/
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .footer .container {
     /*margin-right: 10px;
