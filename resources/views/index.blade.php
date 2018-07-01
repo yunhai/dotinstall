@@ -40,7 +40,8 @@
             <div class="row">
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="pickup" src="img/pickup.png">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -58,7 +59,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -76,7 +77,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -94,7 +95,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -112,7 +113,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -130,7 +131,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -148,7 +149,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -166,7 +167,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -184,7 +185,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
@@ -202,7 +203,7 @@
                 </div>
                 <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="img/lession_video.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
                             <p class="card-text text-left">xcode説明-1xcode説明-1xcode説明-1</p>
                             <p class="card-text">
