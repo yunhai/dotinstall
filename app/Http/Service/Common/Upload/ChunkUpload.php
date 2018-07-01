@@ -35,7 +35,8 @@ class ChunkUpload extends BasicUpload
     {
         $result = $this->upload($request, $disk_name, $path);
         if ($result['done'] === 100) {
-            return $this->saveDb($result);
+            $result = $this->saveDb($result);
+            $result['url'] = '/media/video/' . $result['path'];
         }
         return $result;
     }

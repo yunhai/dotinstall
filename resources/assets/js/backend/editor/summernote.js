@@ -1,5 +1,5 @@
 $('.j-editor').summernote({
-    height: 250,
+    height: 150,
     lang: 'ja-JP',
     toolbar: [
        ['style', ['bold', 'italic', 'underline', 'clear']],

@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class Base extends Model
 {
-    use Deleting, UserSignature, Sanitize;
+    use Deleting, UserSignature, Sanitize, SoftDeletes;
 
     protected $relations = [
         'lession_details'

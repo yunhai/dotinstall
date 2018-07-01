@@ -1,4 +1,5 @@
 <?php
+#INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `mode`, `remember_token`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('99', 'pandog', 'yunhaihuang@gmail.com', '$2y$10$7zy2vsWqV2QnTJYYGZKe4eiRGFlPYhHO3HfFZZSkRnSUqgl1mzPfy', '2', '1', NULL, '0', '0', NULL, NULL, NULL);
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;

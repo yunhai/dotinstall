@@ -7,9 +7,8 @@ class Lesson extends Base
     public $fillable = [
         'name',
         'caption',
-        'image_id',
+        'poster',
         'note',
-        'attachment_id',
         'video_count',
     ];
 }

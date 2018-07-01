@@ -1,0 +1,1 @@
+#ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"

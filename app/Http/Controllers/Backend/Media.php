@@ -8,8 +8,14 @@ class Media extends Base
 {
     public function postChunk(Request $request)
     {
+        $media_type = $request->query('resumableType');
+        $type = $request->query('type');
+        
         $uploader = new ChunkUpload();
         $info = $uploader->save($request, 'video');
+        
+        
+        $info = array_merge($info, compact('type', 'media_type'));
         return response()->json($info);
     }
 }

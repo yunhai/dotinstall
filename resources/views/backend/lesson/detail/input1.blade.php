@@ -3,12 +3,24 @@
     $target = $target ?? [];
     $form = [
         'form_btn' => '保存',
-        'form_label' => 'lesson_media',
+        'form_label' => 'lesson_detail',
         'form_field' => [
             'name' => [
-                'field_label' => 'lesson_media名 ',
+                'field_label' => '動画の題名',
                 'field_name' => 'name',
                 'field_value' => array_get($target, 'name', ''),
+                'field_type' => 'text'
+            ],
+            'caption' => [
+                'field_label' => 'Caption',
+                'field_name' => 'caption',
+                'field_value' => array_get($target, 'caption', ''),
+                'field_type' => 'editor'
+            ],
+            'sort' => [
+                'field_label' => 'Sort',
+                'field_name' => 'sort',
+                'field_value' => array_get($target, 'sort', ''),
                 'field_type' => 'text'
             ],
         ],
@@ -18,11 +30,11 @@
     ];
 @endphp
 
-@section('content1')
+@section('content')
     @include('backend.component.form.form', $form)
 @stop
 
-@section('content')
+@section('content1')
 <div class="container">
     <h2>Example</h2>
     <div class="text-center" >

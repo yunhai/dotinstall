@@ -15,22 +15,12 @@ trait UserSignature
         });
 
         static::updating(function ($model) {
-            if ($model->deleted_user_id) {
-                return;
-            }
             $model->setUser('updated_user_id', false);
             $model->setDate('updated_at', false);
         });
 
         static::deleting(function ($model) {
-            $column = [
-                'deleted_at' => Carbon::now(),
-                'deleted_user_id' => Auth::user()->id,
-            ];
-
-            $model->update($column);
-
-            return false;
+            $model->update();
         });
     }
 
