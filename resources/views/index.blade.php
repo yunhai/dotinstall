@@ -38,7 +38,7 @@
     <div class="card card-video-list">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="pickup" src="img/pickup.png">
                         <img class="card-img-top" src="img/lession_video.png">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -165,7 +165,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -183,7 +183,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">
@@ -201,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lesson col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                     <div class="card">
                         <img class="card-img-top" src="img/lession_video.png">
                         <div class="card-body text-center">

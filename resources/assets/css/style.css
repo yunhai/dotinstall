@@ -47,7 +47,7 @@ body {
     border-bottom: 1px solid #bca9af;
     font-weight: bold;
 }
-#v-pills-tabContent .btn {
+#v-pills-tabContent .btn, .nav-pills .btn {
     font-size: 0.8125rem;
 }
 .btn-line {
@@ -156,9 +156,6 @@ body {
 .col-lesson {
     margin-top: 30px;
 }
-/*.col-lesson:nth-child(-n+5) {
-	border-bottom: 1px solid #bca9af;
-}*/
 @media (min-width: 992px) {
 	.col-lesson.col-lg-3 {
 	    -webkit-box-flex: 0;
@@ -174,6 +171,14 @@ body {
 	    flex: 0 0 20%;
 	    max-width: 20%;
 	}
+}
+@media (max-width: 575.98px) {
+	.col-lesson.col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
 }
 .box .card .btn-request {
     padding: 0;
@@ -205,29 +210,6 @@ body {
 }
 .box .card .card-body .row .card-sign .card-sign-button {
     margin-top: 8%;
-}
-
-.panel {
-    background-image: url("../../img/panel.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.panel .card-body .card-title {
-    margin-bottom: 0;
-}
-.panel .card-body .row {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.panel .card-body .row .card-signUp {
-    margin-top: 90px;
-}
-.panel .card-body .row .card-video {
-    margin: auto;
-}
-.panel .card-body .row button {
-    margin-top: 90px;
-    margin-bottom: 40px;
 }
 .lession-heading {
     background-color: #f3f4f6;
