@@ -33,6 +33,18 @@
                                         <form method="POST" action="" aria-label="新規ユーザー登録">
                                             @csrf
                     
+                                            @if(app('request')->input('provider') == 'facebook')
+                                            <div class="form-group row">
+                                                <label for="name" class="col-md-4 col-form-label text-md-right">Facebookアカウント</label>
+                    
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control float-left w-75 mr-1" value="{{ app('request')->input('name') }}" disabled>
+                                                    <input type="hidden" name="provider" value="{{ app('request')->input('provider') }}">
+                                                    <input type="hidden" name="provider_user_id" value="{{ app('request')->input('provider_user_id') }}">
+                                                    <img class="img-fluid" src="img/facebook.png" style="vertical-align: -15px;">
+                                                </div>
+                                            </div>
+                                            @endif
                                             <div class="form-group row">
                                                 <label for="name" class="col-md-4 col-form-label text-md-right">ユーザー名</label>
                     
@@ -95,10 +107,18 @@
         
                         <div class="card-body">
                             <a href="" class="btn btn-line btn-block">LINEログイン</a>
-                            <a href="" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>
-                            <a href="" class="btn btn-facebook btn-block"><span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span></a>
-                            <a href="" class="btn btn-yahoo btn-block"><span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">ログイン</span></a>
-                            <a href="" class="btn btn-google btn-block"><span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleログイン</span></a>
+                            <a href="/auth/twitter" class="btn btn-twitter btn-block">
+                                <span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterで登録</span>
+                            </a>
+                            <a href="/auth/facebook" class="btn btn-facebook btn-block">
+                                <span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookで登録</span>
+                            </a>
+                            <a href="" class="btn btn-yahoo btn-block">
+                                <span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">で登録</span>
+                            </a>
+                            <a href="/auth/google" class="btn btn-google btn-block">
+                                <span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleで登録</span>
+                            </a>
                             <p class="mar_t10 mar_b0 text-danger">ログイン時に SNS に勝手に投稿されることはありません</p>
                         </div>
                     </div>
