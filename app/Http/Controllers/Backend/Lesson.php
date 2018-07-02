@@ -68,14 +68,13 @@ class Lesson extends Base
     public function getDelete($id)
     {
         $this->model->remove($id);
-        exit;
         return redirect()->route('lesson.index');
     }
 
     public function getDetail($id)
     {
         $lesson = $this->model->get($id);
-        $lesson_media = LessonModel::find($id)->lesson_media()->paginate(20);
+        // $lesson_media = LessonModel::find($id)->lesson_media()->paginate(20);
         return $this->render('lesson.detail', compact('id', 'lesson', 'lesson_media'));
     }
 }

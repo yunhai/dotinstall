@@ -1,0 +1,21 @@
+.dd-progress_bar {
+    height: 10px;
+    border: solid 1px #ccc;
+    background: #888;
+}
+.dd-browser {
+    border: dashed 1px #888;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.dd-callback__item {
+    margin: 5px 0;
+}
+.dd-completed .dd-progress_bar{
+    display: none;
+}
+.dd-preview {
+    margin-top: 5px;
+}

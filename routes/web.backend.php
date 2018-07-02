@@ -18,7 +18,6 @@ Route::get('logout', 'Auth\LoginController@getLogout')->name('logout');;
 Route::group(['middleware' => ['admin']], function () {
     Route::get('', 'Home@dashboard')->name('home.dashboard');
 
-
     Route::get('ms_category', 'MsCategory@index')->name('ms_category.index');
     Route::get('ms_category/create', 'MsCategory@getCreate')->name('ms_category.create');
     Route::post('ms_category/create', 'MsCategory@postCreate');
@@ -33,14 +32,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('lesson/{lesson_id}/edit', 'Lesson@getEdit')->name('lesson.edit');
     Route::post('lesson/{lesson_id}/edit', 'Lesson@postEdit');
     Route::get('lesson/{lesson_id}/delete', 'Lesson@getDelete')->name('lesson.delete');
-    Route::get('lesson/{lesson_id}/detail', 'Lesson@getDetail')->name('lesson.detail');
-
-    Route::get('lesson/{lesson_id}/detail/create', 'LessonMedia@getCreate')->name('lesson_media.input');
-    Route::post('lesson/{lesson_id}/detail/create', 'LessonMedia@postCreate');
-    Route::get('lesson/{lesson_id}/detail/{lesson_media_id}/edit', 'LessonMedia@getEdit')->name('lesson_media.edit');
-    Route::post('lesson/{lesson_id}/detail/{lesson_media_id}/edit', 'LessonMedia@postEdit');
-    Route::get('lesson/{lesson_id}/detail/{lesson_media_id}/delete', 'LessonMedia@getDelete');
-
+    
+    // Route::get('lesson/{lesson_id}/detail', 'Lesson@getDetail')->name('lesson_detail.index');
+    Route::get('lesson/{lesson_id}/detail/create', 'Lesson\Detail\LessonDetail@getCreate')->name('lesson_detail.index');
 
     Route::get('changePassword', 'Auth\LoginController@getChangePassword')->name('changePassword');
     Route::post('changePassword', 'Auth\LoginController@postChangePassword');
