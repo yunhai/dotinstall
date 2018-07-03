@@ -106,14 +106,14 @@
                         <div class="card-header">その他の方法でログイン</div>
         
                         <div class="card-body">
-                            <a href="" class="btn btn-line btn-block">LINEログイン</a>
+                            <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
                             <a href="/auth/twitter" class="btn btn-twitter btn-block">
                                 <span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterで登録</span>
                             </a>
                             <a href="/auth/facebook" class="btn btn-facebook btn-block">
                                 <span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookで登録</span>
                             </a>
-                            <a href="" class="btn btn-yahoo btn-block">
+                            <a href="/auth/yahoo" class="btn btn-yahoo btn-block">
                                 <span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">で登録</span>
                             </a>
                             <a href="/auth/google" class="btn btn-google btn-block">
