@@ -4,7 +4,7 @@
             <div class="col-lg-6 col-md-6 text-center footer-container-left">
                 <h6 class="mar_b10">5分動画で実践的にプログラミングを習得！</h6>
                 <h4 class="title-widget">
-                    <a class="" href="/"><img class="img-logo" src="img/logo_footer.png" alt="cogwheel"></a>
+                    <a class="" href="/"><img class="img-logo" src="/img/logo_footer.png" alt="cogwheel"></a>
                 </h4>
             </div>
             <div class="col-lg-3 col-md-3">
