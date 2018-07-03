@@ -14,7 +14,7 @@
                     <li><a href="/terms">利用規約</a></li>
                     <li><a href="/privacy">プライバシーポリシー</a></li>
                     <li><a href="#">運営企業情報</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="/contact">お問い合わせ</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3">

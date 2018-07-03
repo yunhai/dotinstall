@@ -47,7 +47,10 @@ body {
     border-bottom: 1px solid #bca9af;
     font-weight: bold;
 }
-#v-pills-tabContent .btn, .nav-pills .btn {
+.required {
+    color: #fa283c;
+}
+#v-pills-tabContent .btn, .nav-pills .btn, .form-c .btn {
     font-size: 0.8125rem;
 }
 .btn-line {

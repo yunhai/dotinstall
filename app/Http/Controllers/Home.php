@@ -18,4 +18,9 @@ class Home
     {
         return view('privacy');
     }
+    
+    public function getContact()
+    {
+        return view('contact');
+    }
 }

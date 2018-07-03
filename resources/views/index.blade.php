@@ -31,7 +31,7 @@
 <div class="box">
     <div class="card">
         <div class="lession-heading w-100">
-            <img class="img-fluid" src="images/light-bulb.png" alt="cogwheel"><span>【ステージ1】xcode説明と使い方</span>
+            <img class="img-fluid" src="img/light-bulb.png"><span>【ステージ1】xcode説明と使い方</span>
             <a href="" class="lession-heading-url float-right">レッスン一覧</a>
         </div>
     </div>
