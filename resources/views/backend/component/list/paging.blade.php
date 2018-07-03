@@ -33,9 +33,13 @@
                                         @if (empty($row['tpl_arg']))
                                             {{ $row['tpl'] }}
                                         @else
-                                            @foreach($row['tpl_arg'] as $key => $value)
-                                                {!! str_replace($key, $item[$value], $row['tpl']) !!}
-                                            @endforeach
+                                            @php
+                                                $html = $row['tpl'];
+                                                foreach($row['tpl_arg'] as $key => $value) {
+                                                    $html = str_replace($key, $item[$value], $html);
+                                                }
+                                                echo $html;
+                                            @endphp
                                         @endif
                                     @endif
                                 </td>

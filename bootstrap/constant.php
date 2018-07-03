@@ -1,4 +1,11 @@
 <?php
+
+define('MODE_CREATE', 1);
+define('MODE_EDIT', 2);
+
+define('LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE', 1);
+define('LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE', 2);
+
 define('USER_ROLE_PUBLIC', 1);
 define('USER_ROLE_BACKEND', 2);
 define('USER_ROLE_CLIENT', 3);

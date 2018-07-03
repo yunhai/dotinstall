@@ -13,7 +13,7 @@ class MsCategory extends Base
         $this->model = $ms_category_model;
     }
 
-    public function index()
+    public function getIndex()
     {
         $ms_categories = $this->model->paginate(20);
         return $this->render('ms_category.index', compact('ms_categories'));

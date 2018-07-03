@@ -23,6 +23,7 @@ class CreateMediaTable extends Migration
             $table->string('extension', 16);
             $table->string('location', 256);
             $table->string('hash_name', 256);
+            $table->string('type', 16)->default('video');
             $table->integer('created_user_id')->default(0);
             $table->integer('updated_user_id')->default(0);
             $table->timestamps();

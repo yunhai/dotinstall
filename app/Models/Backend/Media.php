@@ -12,16 +12,14 @@ class Media extends Base
         'hash_name',
         'extension',
         'size',
+        'type',
     ];
 
-    public $hidden = [
-        'location',
-        'mime',
+    public $visible = [
+        'id',
+        'path',
         'original_name',
-        'hash_name',
-        'extension',
-        'size',
-        'updated_at',
-        'created_at',
+        'mime',
+        'type',
     ];
 }

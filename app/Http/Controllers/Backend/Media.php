@@ -2,21 +2,32 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Service\Common\Upload\ChunkUpload;
+use App\Models\Backend\Media as MediaModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Media extends Base
 {
+    public function __construct(
+        MediaModel $media_model
+    ) {
+        $this->model = $media_model;
+    }
+
     public function postChunk(Request $request)
     {
-        $media_type = $request->query('resumableType');
-        $type = $request->query('type');
-        
         $uploader = new ChunkUpload();
-        $info = $uploader->save($request, 'video');
-        
-        
-        $info = array_merge($info, compact('type', 'media_type'));
+        $info = $uploader->save($request, 'media');
         return response()->json($info);
+    }
+
+    public function getDownload(int $media_id)
+    {
+        $target = $this->model->get($media_id);
+
+        return response(Storage::disk('media')->get($target['path']))
+            ->header('Content-Type', $target['mime'])
+            ->header('Content-Disposition', 'attachment; filename="' . $target['original_name'] . '"');
     }
 }
 

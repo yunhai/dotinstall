@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Storage;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,13 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-
-        // $this->app->resolving(Controller::class, function () {
-        //     // dd(view()->shared);
-        //     // View::share('js', ['pandog']);
-        //     dd(request()->route()->getActionName());
-        //     // $controller->setHtmlViewRenderer(app(HtmlViewRenderer::class));
-        // });
+        Blade::directive('media_path', function (string $path) {
+            return '<?php echo "' . Storage::disk('media')->url($path) . '"; ?>';
+        });
     }
 }

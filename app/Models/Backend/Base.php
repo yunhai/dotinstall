@@ -13,10 +13,6 @@ class Base extends Model
 {
     use Deleting, UserSignature, Sanitize, SoftDeletes;
 
-    protected $relations = [
-        'lession_details'
-    ];
-
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);

@@ -6,9 +6,9 @@
 .dd-browser {
     border: dashed 1px #888;
     cursor: pointer;
-    width: 100%;
     padding: 10px;
     text-align: center;
+    width: 100%;
 }
 .dd-callback__item {
     margin: 5px 0;

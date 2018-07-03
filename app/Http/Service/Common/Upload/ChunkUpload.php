@@ -2,6 +2,7 @@
 
 namespace App\Http\Service\Common\Upload;
 
+use Illuminate\Support\Facades\Storage;
 use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
 use Pion\Laravel\ChunkUpload\Handler\AbstractHandler;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
@@ -35,8 +36,10 @@ class ChunkUpload extends BasicUpload
     {
         $result = $this->upload($request, $disk_name, $path);
         if ($result['done'] === 100) {
+            $result['type'] = $request->query('media_type');
             $result = $this->saveDb($result);
-            $result['url'] = '/media/video/' . $result['path'];
+
+            $result['url'] = Storage::disk($disk_name)->url($result['path']);
         }
         return $result;
     }

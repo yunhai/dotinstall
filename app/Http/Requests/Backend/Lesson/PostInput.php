@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Backend\Lesson;
 
 use App\Http\Requests\Backend\Base;
-use App\Models\Backend\Lesson as LessonModel;
 
 class PostInput extends Base
 {

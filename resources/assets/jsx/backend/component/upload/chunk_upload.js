@@ -4,20 +4,20 @@ export default class ChuckUpload {
     bind($target, query = {}) {
         const url = $target.data('url');
 
-        const resumable = new Resumable({
+        const option = {
             chunkSize: 1 * 1024 * 1024, // 1MB
             simultaneousUploads: 3,
             testChunks: false,
             throttleProgressCallbacks: 1,
             target: url,
-            query: query
-        })
+            query: query,
+            maxFiles: $target.data('max_file_upload'),
+        };
+        const resumable = new Resumable(option);
 
         if (resumable.support) {
             const $browser = $target.find('.dd-browser');
             const $callback = $target.find('.dd-callback');
-            // const $status = $target.find('.dd-callback__progress');
-            // const $preview = $target.find('.dd-preview');
 
             this.assign(resumable, $target, $browser);
             this.bindFileAdded(resumable, $target, $callback);
@@ -29,46 +29,129 @@ export default class ChuckUpload {
         }
         alert('not support');
     }
-    
+
     assign(resumable, $target, $browser) {
         resumable.assignDrop($target);
         resumable.assignBrowse($browser);
     }
-    
-    callback(obj, $target) {
+
+    callback(obj, $target, $callback) {
+        const type = $target.data('type');
+        const maxFileUpload = $target.data('max_file_upload');
+        const list = $target.find('.dd-callback__item');
+
+        if (list.length == maxFileUpload) {
+            $(list[0]).remove();
+        }
+        switch (type) {
+            case 'video':
+                this.callbackVideo(obj, $target, $callback);
+                break;
+            case 'image':
+                this.callbackImage(obj, $target, $callback);
+                break;
+            case 'document':
+                this.callbackDocument(obj, $target, $callback);
+                break;
+        }
+    }
+
+    callbackVideo(obj, $target, $callback) {
         const name = $target.data('name');
-        
+
         const html = `
-            <input type='hidden' value='${obj.id}' name='${name}'/>
+            <input type='hidden' value='${obj.id}' name='${name}[${obj.id}][id]'/>
+            <input type='hidden' value='video' name='${name}[${obj.id}][type]'/>
+            <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
+            <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
+
             <video width="400" controls>
-              <source src="${obj.url}" type="${obj.media_type}">
+              <source src="${obj.url}" type="video/mp4">
               Your browser does not support HTML5 video.
             </video>
+            <div class='dd-control'>
+                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
+                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
+            </div>
         `;
-        $target.find('.dd-preview').append(html);
+
+        $callback.find('.dd-preview').append(html);
     }
-    
+
+    callbackImage(obj, $target, $callback) {
+        const name = $target.data('name');
+        const html = `
+            <input type='hidden' value='${obj.id}' name='${name}[${obj.id}][id]'/>
+            <input type='hidden' value='image' name='${name}[${obj.id}][type]'/>
+            <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
+            <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
+            <img width="400" src="${obj.url}" />
+            <div class='dd-control'>
+                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
+                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
+            </div>
+        `;
+
+        $callback.find('.dd-preview').append(html);
+    }
+
+    callbackDocument(obj, $target, $callback) {
+        const name = $target.data('name');
+
+        const html = `
+            <input type='hidden' value='${obj.id}' name='${name}[${obj.id}][id]'/>
+            <input type='hidden' value='document' name='${name}[${obj.id}][type]'/>
+            <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
+            <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
+            <div class='dd-control'>
+                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
+                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
+            </div>
+        `;
+
+        $callback.find('.dd-preview').append(html);
+    }
+
+    validate(target, mediaType) {
+        const fileName = target.fileName;
+        const extMap = {
+            'video': ['mp4'],
+            'image': ['jpg', 'jpeg', 'png'],
+            'document': ['zip', 'docx', 'doc'],
+        }
+        const ext = fileName.substr(fileName.lastIndexOf('.') + 1);
+        const allow = extMap[mediaType] || [];
+        if (allow.indexOf(ext) === -1) {
+            alert('Unsupport file extension');
+            return false;
+        }
+        return true;
+    }
+
     bindFileAdded(resumable, $target, $callback) {
         resumable.on('fileAdded', (file) => {
-            const html = `
-                <div class='dd-callback__item dd-callback__${file.uniqueIdentifier}'>
-                    <span class="dd-callback__filename">[${file.fileName}]</span>
-                    <span class="dd-callback__progress"></span>
-                    <div class='dd-progress_bar'></div>
-                    <div class='dd-preview'></div>
-                </div>
-            `;
-            $callback.append(html);
-            resumable.upload();
+            if (this.validate(file, $target.data('type'))) {
+                const html = `
+                    <div class='dd-callback__item dd-callback__${file.uniqueIdentifier}'>
+                        <span class="dd-callback__filename">[${file.fileName}]</span>
+                        <span class="dd-callback__progress"></span>
+                        <div class='dd-progress_bar'></div>
+                        <div class='dd-preview'></div>
+                    </div>
+                `;
+                $callback.append(html);
+                resumable.upload();
+            }
         });
     }
+
     bindFileSuccess(resumable, $target, $callback) {
         resumable.on('fileSuccess', (file, message) => {
-            const $callback = $(`.dd-callback__${file.uniqueIdentifier}`);
-            $callback.find('.dd-callback__progress').html(`completed`);
+            const $callback = $target.find(`.dd-callback__${file.uniqueIdentifier}`);
+            $callback.find('.dd-callback__progress').html('');
             $callback.addClass('dd-completed');
             const obj = JSON.parse(message);
-            this.callback(obj, $target);
+            this.callback(obj, $target, $callback);
         });
     }
     bindFileError(resumable, $target, $callback) {

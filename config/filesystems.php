@@ -64,24 +64,10 @@ return [
             'url' => env('AWS_URL'),
         ],
 
-        'video' => [
+        'media' => [
             'driver' => 'local',
-            'root' => storage_path('app/media/video'),
-            'url' => env('APP_URL').'/media/video',
-            'visibility' => 'public',
-        ],
-
-        'avatar' => [
-            'driver' => 'local',
-            'root' => storage_path('app/media/avatar'),
-            'url' => env('APP_URL').'/media/avatar',
-            'visibility' => 'public',
-        ],
-
-        'attachment' => [
-            'driver' => 'local',
-            'root' => storage_path('app/media/attachment'),
-            'url' => env('APP_URL').'/media/attachment',
+            'root' => storage_path('app/media'),
+            'url' => env('APP_URL').'/media',
             'visibility' => 'public',
         ],
     ],

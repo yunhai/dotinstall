@@ -10,7 +10,6 @@
         <script src="/js/backend/editor/summernote.js"></script>
         <script src="/js/backend/backend.js"></script>
     @endpush
-
     @php
         $target = $target ?? [];
         $form = [
@@ -38,23 +37,53 @@
                 'video' => [
                     'field_label' => '動画',
                     'field_name' => 'video',
-                    'field_value' => array_get($target, 'video', ''),
+                    'field_value' => array_get($target, 'videos', ''),
                     'field_type' => 'file_dd',
                     'field_attribute' => [
                         'data-url' => '/backend/media/chunk/',
-                        'data-query' => '{"type":"video"}',
-                        'data-preview' => 1
+                        'data-preview' => 1,
+                        'data-query' => '{"media_type": "video"}',
+                        'data-type' => 'video',
+                        'data-max_file_upload' => 1
+                    ]
+                ],
+                'poster' => [
+                    'field_label' => 'サムネイル',
+                    'field_name' => 'poster',
+                    'field_value' => array_get($target, 'posters', ''),
+                    'field_type' => 'file_dd',
+                    'field_attribute' => [
+                        'data-url' => '/backend/media/chunk/',
+                        'data-preview' => 1,
+                        'data-query' => '{"media_type": "document"}',
+                        'data-type' => 'image',
+                        'data-max_file_upload' => 1
                     ]
                 ],
                 'source_code' => [
-                    'field_label' => '動画',
+                    'field_label' => 'ソースコード',
                     'field_name' => 'source_code',
-                    'field_value' => array_get($target, 'source_code', ''),
-                    'field_type' => 'file_dd',
+                    'field_value' => array_get($target, 'source_codes', ''),
+                    'field_type' => 'file_dd_multiple',
                     'field_attribute' => [
                         'data-url' => '/backend/media/chunk/',
-                        'data-query' => '{"type":"attachment"}',
-                        'data-preview' => 1
+                        'data-download' => 1,
+                        'data-query' => '{"media_type": "document"}',
+                        'data-type' => 'document',
+                        'data-max_file_upload' => 10
+                    ]
+                ],
+                'resource' => [
+                    'field_label' => 'Resource',
+                    'field_name' => 'resource',
+                    'field_value' => array_get($target, 'resources', ''),
+                    'field_type' => 'file_dd_multiple',
+                    'field_attribute' => [
+                        'data-url' => '/backend/media/chunk/',
+                        'data-download' => 1,
+                        'data-query' => '{"media_type": "document"}',
+                        'data-type' => 'document',
+                        'data-max_file_upload' => 10
                     ]
                 ],
             ],
