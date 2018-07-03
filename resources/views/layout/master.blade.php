@@ -27,11 +27,11 @@
             <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
             <script>
                 $( document ).ready(function() {
-                    var count_elements = $('.col-video').length;
+                    var count_elements = $('.col-lesson').length;
                     if(count_elements % 5 === 0) {
                         var i;
                         for (i = 1; i <= 5; ++i) {
-                            $('.col-video:nth-child('+i+')').css( "border-bottom", "1px solid #bca9af" );
+                            $('.col-lesson:nth-child('+i+')').css( "border-bottom", "1px solid #bca9af" );
                         }
                     }
                 });

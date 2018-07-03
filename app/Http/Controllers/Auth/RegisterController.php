@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Socialite;
+use App\Http\Service\SocialAccountService;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -69,6 +72,35 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role' => USER_ROLE_PUBLIC,
+            'provider' => isset($data['provider']) ? $data['provider'] : '',
+            'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
         ]);
+    }
+    
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+         
+    }
+    
+    public function handleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->user();
+        //$user = Socialite::driver($provider)->stateless();
+        $social_account_service = SocialAccountService::createOrGetUser($user, $provider);
+        $id = $user->id;
+        $name = $user->name;
+        $email = $user->email;
+        if (!empty($social_account_service)) {
+            Auth::attempt(['name' => $name, 'email' => $email]);
+            return redirect('/');
+        }
+        return redirect()->route('register', [
+            'provider' => $provider,
+            'provider_user_id' => $id, 
+            'name' => $name, 
+            'email' => $email
+            ]
+        );
     }
 }
