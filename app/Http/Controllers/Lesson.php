@@ -10,4 +10,9 @@ class Lesson extends Controller
     {
         return view('lesson');
     }
+    
+    public function getDetail()
+    {
+        return view('detail');
+    }
 }
