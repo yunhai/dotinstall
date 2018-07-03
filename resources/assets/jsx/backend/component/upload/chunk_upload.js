@@ -38,11 +38,7 @@ export default class ChuckUpload {
     callback(obj, $target, $callback) {
         const type = $target.data('type');
         const maxFileUpload = $target.data('max_file_upload');
-        const list = $target.find('.dd-callback__item');
 
-        if (list.length == maxFileUpload) {
-            $(list[0]).remove();
-        }
         switch (type) {
             case 'video':
                 this.callbackVideo(obj, $target, $callback);
@@ -53,6 +49,12 @@ export default class ChuckUpload {
             case 'document':
                 this.callbackDocument(obj, $target, $callback);
                 break;
+        }
+        const list = $target.find('.dd-callback__item');
+        console.log(list.length , maxFileUpload);
+
+        if (list.length > maxFileUpload) {
+            $(list[0]).remove();
         }
     }
 
@@ -85,7 +87,7 @@ export default class ChuckUpload {
             <input type='hidden' value='image' name='${name}[${obj.id}][type]'/>
             <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
             <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
-            <img width="400" src="${obj.url}" />
+            <img width="400" src="${obj.url}" class='dd-preview-image'/>
             <div class='dd-control'>
                 <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
                 <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>

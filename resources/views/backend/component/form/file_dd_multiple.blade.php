@@ -45,7 +45,7 @@
                                       Your browser does not support HTML5 video.
                                     </video>
                                 @elseif ($target['type'] === 'image')
-                                    <img width="400" src="@media_path($media_path)" />
+                                    <img width="400" src="@media_path($media_path)" class='dd-preview-image' />
                                 @endif
                                 <div class='dd-control'>
                                     <a href='/backend/media/download/{{ $target["id"] }}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
