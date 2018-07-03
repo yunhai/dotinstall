@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('/contact', 'Home@getContact');
+Route::get('lesson', 'Lesson@getLesson')->name('lesson');
 
 
 Route::get('/demo', function () {

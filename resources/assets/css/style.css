@@ -186,6 +186,7 @@ body {
 .box .card .btn-request {
     padding: 0;
     font-size: 0.8125rem;
+    max-width: 50%;
 }
 .box .card .btn-request .btn-to-complete {
     border: 2px solid #dfdfe0;
@@ -225,6 +226,7 @@ body {
     margin-top: 5px;
 }
 .pickup {
+    max-width: 20%;
     position: absolute;
     right: -20px;
     top: -20px;
