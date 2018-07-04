@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Base extends Model
 {
-    use  UserSignature, SoftDeletes;
+    use UserSignature, SoftDeletes;
 
     public function get(int $id, $array_flag = true)
     {
