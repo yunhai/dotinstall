@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
 @section('content')
-<div class="box">
+<div class="box mb-0">
     <div class="card">
         <img class="card-img" src="/img/panel.jpg">
         <div class="card-img-overlay">
@@ -31,8 +31,8 @@
 <div class="box">
     <div class="card">
         <div class="lession-heading w-100">
-            <img class="img-fluid" src="/img/light-bulb.png"><span>【ステージ1】{{ $lesson['name'] }}</span>
-            <a href="" class="lession-heading-url float-right">レッスン一覧</a>
+            <img class="img-fluid" src="/img/light-bulb.png"><span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
+            <a href="{{ route('lesson') }}" class="lession-heading-url float-right">レッスン一覧</a>
         </div>
     </div>
     <div class="card card-video-list">

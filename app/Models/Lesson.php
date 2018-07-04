@@ -8,4 +8,9 @@ class Lesson extends Base
     {
         return $this->hasMany(LessonDetail::class);
     }
+
+    public function ms_categories()
+    {
+        return $this->hasOne('App\Models\MsCategory', 'id', 'category_id');
+    }
 }
