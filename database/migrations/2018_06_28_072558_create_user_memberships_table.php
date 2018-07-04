@@ -15,12 +15,12 @@ class CreateUserMembershipsTable extends Migration
     {
         Schema::create('user_memberships', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('payment_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('payment_id');
             $table->datetime('effective_date');
             $table->datetime('expiry_date');
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

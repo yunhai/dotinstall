@@ -15,10 +15,10 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
             $table->dateTime('payment_date');
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

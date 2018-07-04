@@ -19,11 +19,11 @@ class CreateLessonsTable extends Migration
             $table->string('name', 256);
             $table->text('caption');
             $table->text('note');
-            $table->integer('poster')->default(0);
-            $table->integer('category_id')->default(0);
-            $table->integer('video_count')->default(0);
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('poster')->default(0);
+            $table->unsignedInteger('category_id')->default(0);
+            $table->unsignedInteger('video_count')->default(0);
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -16,11 +16,11 @@ class CreateLessionAttachments extends Migration
         Schema::create('lesson_attachments', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->integer('lession_id');
-            $table->integer('media_id');
-            $table->tinyInteger('type');
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('lession_id');
+            $table->unsignedInteger('media_id');
+            $table->unsignedTinyInteger('type');
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

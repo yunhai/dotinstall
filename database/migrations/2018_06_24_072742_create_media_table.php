@@ -18,14 +18,14 @@ class CreateMediaTable extends Migration
             $table->increments('id');
             $table->string('path', 512);
             $table->string('original_name', 512);
-            $table->integer('size');
+            $table->unsignedInteger('size');
             $table->string('mime', 128);
             $table->string('extension', 16);
             $table->string('location', 256);
             $table->string('hash_name', 256);
             $table->string('type', 16)->default('video');
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

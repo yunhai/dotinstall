@@ -19,11 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->tinyInteger('role');
-            $table->tinyInteger('mode');
+            $table->unsignedTinyInteger('role');
+            $table->unsignedTinyInteger('mode');
             $table->rememberToken();
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,12 +15,12 @@ class CreateInvitationsTable extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id');
-            $table->integer('recipient_id')->default(0);
+            $table->unsignedInteger('author_id');
+            $table->unsignedInteger('recipient_id')->default(0);
             $table->string('code', 256);
-            $table->tinyInteger('mode')->default(1);
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedTinyInteger('mode')->default(1);
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

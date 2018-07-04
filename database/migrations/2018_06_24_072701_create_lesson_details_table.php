@@ -18,12 +18,12 @@ class CreateLessonDetailsTable extends Migration
             $table->increments('id');
             $table->string('name', 256);
             $table->text('caption');
-            $table->integer('video');
-            $table->integer('poster')->default(0);
-            $table->integer('sort')->default(1);
-            $table->integer('lesson_id');
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('video');
+            $table->unsignedInteger('poster')->default(0);
+            $table->unsignedInteger('sort')->default(1);
+            $table->unsignedInteger('lesson_id');
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

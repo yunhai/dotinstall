@@ -16,11 +16,11 @@ class CreateUserLessonDetailsTable extends Migration
         Schema::create('user_lesson_details', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('lesson_detail_id');
-            $table->tinyInteger('mode');
-            $table->integer('created_user_id')->default(0);
-            $table->integer('updated_user_id')->default(0);
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('lesson_detail_id');
+            $table->unsignedTinyInteger('mode');
+            $table->unsignedInteger('created_user_id')->default(0);
+            $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
