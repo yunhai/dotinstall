@@ -1,12 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Lesson as LessonModel;
 
-class Home
+class Home extends Controller
 {
+    public function __construct(
+        LessonModel $lesson_model
+    ) {
+        $this->model = $lesson_model;
+    }
+    
     public function index()
     {
-        return view('index');
+        $lessons = $this->model::with(['lesson_details' => function($q) {
+            $q->take(20);
+        }, 'lesson_details.media'])
+        ->inRandomOrder(2)
+        ->get();
+        if (!empty($lessons)) {
+            $lessons = $lessons->toArray();
+        }
+        return \View::make('index')->with(compact('lessons'));
     }
     
     public function getTerms()
