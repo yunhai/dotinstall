@@ -76,7 +76,12 @@ class LessonDetail extends Base
 
     public function getIndex($lesson_id)
     {
-        $data = $this->model->orderBy('sort')->paginate(20);
+        $data = $this
+                    ->model
+                    ->where('lesson_id', $lesson_id)
+                    ->orderBy('sort')
+                    ->paginate(20);
+
         return $this->render('lesson.lesson_detail.index', compact('data', 'lesson_id'));
     }
 

@@ -2,12 +2,18 @@
 
 @section('content')
     @push('css')
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+        <link href="/vendor/backend/summernote/summernote-bs4.css" rel="stylesheet">
+        <link href="/css/backend/upload/chunk.css" rel="stylesheet">
+        <link href="/vendor/backend/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
     @endpush
+
     @push('js')
         <script src="/vendor/backend/summernote/summernote-bs4.js"></script>
         <script src="/vendor/backend/summernote/lang/summernote-ja-JP.js"></script>
         <script src="/js/backend/editor/summernote.js"></script>
+        <script src="/vendor/backend/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="/js/backend/common/upload.js"></script>
+        <script src="/js/backend/common/select.js"></script>
     @endpush
 
     @php
@@ -35,13 +41,29 @@
                     'field_value' => array_get($target, 'note', ''),
                     'field_type' => 'editor'
                 ],
-                /*'image' => [
-                    'field_label' => 'Image',
-                    'field_name' => 'image',
-                    'field_value' => array_get($target, 'image', ''),
-                    'field_type' => 'file'
+                'poster' => [
+                    'field_label' => 'サムネイル',
+                    'field_name' => 'poster',
+                    'field_value' => array_get($target, 'posters', ''),
+                    'field_type' => 'file_dd',
+                    'field_attribute' => [
+                        'data-url' => '/backend/media/chunk/',
+                        'data-preview' => 1,
+                        'data-query' => '{"media_type": "image"}',
+                        'data-type' => 'image',
+                        'data-max_file_upload' => 1
+                    ]
                 ],
-                */
+                'category_id' => [
+                    'field_label' => 'カテゴリー',
+                    'field_name' => 'category_id',
+                    'field_value' => array_get($target, 'category_id', ''),
+                    'field_type' => 'select',
+                    'field_option' => $form['category'],
+                    'field_attribute' => [
+                        'title' => '選択なし'
+                    ]
+                ],
             ],
             'form_attribute' => [
                 'enctype' => 'multipart/form-data'

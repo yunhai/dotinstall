@@ -20,6 +20,7 @@ class CreateLessonsTable extends Migration
             $table->text('caption');
             $table->text('note');
             $table->integer('poster')->default(0);
+            $table->integer('category_id')->default(0);
             $table->integer('video_count')->default(0);
             $table->integer('created_user_id')->default(0);
             $table->integer('updated_user_id')->default(0);

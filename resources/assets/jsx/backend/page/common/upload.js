@@ -1,4 +1,4 @@
-import ChuckUpload from '../component/upload/chunk_upload';
+import ChuckUpload from '../../component/upload/chunk_upload';
 
 $(() => {
     const upload = new ChuckUpload();

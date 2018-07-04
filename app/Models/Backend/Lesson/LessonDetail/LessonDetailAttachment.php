@@ -13,13 +13,6 @@ class LessonDetailAttachment extends Base
         'type',
     ];
 
-    public $visible = [
-        'id',
-        'lesson_detail_id',
-        'media_id',
-        'type',
-    ];
-
     public function media()
     {
         return $this->hasOne(Media::class, 'id', 'media_id');
@@ -45,7 +38,7 @@ class LessonDetailAttachment extends Base
 
         $delete_media_id = array_diff($old, $input_media_id);
         $create_media_id = array_diff($input_media_id, $old);
-        
+
         foreach ($input as $item) {
             $media_id = $item['media_id'];
             if (in_array($media_id, $create_media_id)) {

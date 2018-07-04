@@ -8,7 +8,7 @@
         <script src="/vendor/backend/summernote/summernote-bs4.js"></script>
         <script src="/vendor/backend/summernote/lang/summernote-ja-JP.js"></script>
         <script src="/js/backend/editor/summernote.js"></script>
-        <script src="/js/backend/backend.js"></script>
+        <script src="/js/backend/common/upload.js"></script>
     @endpush
     @php
         $target = $target ?? [];
@@ -29,7 +29,7 @@
                     'field_type' => 'editor'
                 ],
                 'sort' => [
-                    'field_label' => 'Sort',
+                    'field_label' => '表示順序',
                     'field_name' => 'sort',
                     'field_value' => array_get($target, 'sort', ''),
                     'field_type' => 'text'
@@ -55,7 +55,7 @@
                     'field_attribute' => [
                         'data-url' => '/backend/media/chunk/',
                         'data-preview' => 1,
-                        'data-query' => '{"media_type": "document"}',
+                        'data-query' => '{"media_type": "image"}',
                         'data-type' => 'image',
                         'data-max_file_upload' => 1
                     ]

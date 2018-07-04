@@ -1,36 +1,14 @@
 <?php
 
-namespace App\Models\Backend;
+namespace App\Models;
 
-use App\Models\Backend\Traits\Deleting;
 use App\Models\Backend\Traits\UserSignature;
-use App\Models\Backend\Traits\Sanitize;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
 
 class Base extends Model
 {
-    use Deleting, UserSignature, Sanitize, SoftDeletes;
-
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-        if (empty($this->visible)) {
-            $this->visible = $this->fillable;
-            array_push($this->visible, 'id');
-        }
-    }
-
-    public function created_user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function updated_user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    use  UserSignature, SoftDeletes;
 
     public function get(int $id, $array_flag = true)
     {

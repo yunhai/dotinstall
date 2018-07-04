@@ -14,11 +14,25 @@
             'title' => 'カテゴリー',
             'header' => [
                 'レッスン一名',
+                'カテゴリー',
+                '動画',
                 '',
             ],
             'body' => [
                 'name' => [
                     'field' => 'name',
+                ],
+                'category' => [
+                    'field' => 'category_name',
+                    'attr' => [
+                        'style' => 'width:15%',
+                    ]
+                ],
+                'video_count' => [
+                    'field' => 'video_count',
+                    'attr' => [
+                        'style' => 'width:10%',
+                    ]
                 ],
                 'button' => [
                     'field' => '',

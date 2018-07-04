@@ -2,8 +2,6 @@
 
 namespace App\Models\Backend\Traits;
 
-use Auth;
-
 trait Deleting
 {
     public static function bootDeleting()

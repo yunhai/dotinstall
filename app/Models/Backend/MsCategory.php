@@ -8,4 +8,13 @@ class MsCategory extends Base
         'name',
         'sort',
     ];
+
+    public function availableList()
+    {
+        return $this
+            ->select('id', 'name')
+            ->get()
+            ->pluck('name', 'id')
+            ->toArray();
+    }
 }

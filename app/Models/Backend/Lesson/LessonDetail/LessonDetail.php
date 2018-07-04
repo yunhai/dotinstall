@@ -4,9 +4,12 @@ namespace App\Models\Backend\Lesson\LessonDetail;
 
 use App\Models\Backend\Base;
 use App\Models\Backend\Media;
+use App\Models\Backend\Traits\Lesson\LessonDetail\UpdateLessonVideoCount;
 
 class LessonDetail extends Base
 {
+    use UpdateLessonVideoCount;
+
     public $fillable = [
         'name',
         'caption',
@@ -14,23 +17,6 @@ class LessonDetail extends Base
         'video',
         'poster',
         'sort'
-    ];
-
-    public $visible = [
-        'id',
-        'name',
-        'caption',
-        'lesson_id',
-        'video',
-        'poster',
-        'sort'
-    ];
-
-    public $force_detele = [
-        'resources',
-        'source_codes',
-        'videos',
-        'posters',
     ];
 
     public function resources()

@@ -51,7 +51,6 @@ export default class ChuckUpload {
                 break;
         }
         const list = $target.find('.dd-callback__item');
-        console.log(list.length , maxFileUpload);
 
         if (list.length > maxFileUpload) {
             $(list[0]).remove();
@@ -119,12 +118,14 @@ export default class ChuckUpload {
         const extMap = {
             'video': ['mp4'],
             'image': ['jpg', 'jpeg', 'png'],
-            'document': ['zip', 'docx', 'doc'],
+            'document': ['zip', 'docx', 'doc', 'pdf', 'txt'],
         }
         const ext = fileName.substr(fileName.lastIndexOf('.') + 1);
         const allow = extMap[mediaType] || [];
-        if (allow.indexOf(ext) === -1) {
-            alert('Unsupport file extension');
+        if (allow.indexOf(ext) === -1)
+        {
+            const ext = allow.join(', ');
+            alert(`ファイルの拡張子を${ext}のいずれかにしてください。`);
             return false;
         }
         return true;

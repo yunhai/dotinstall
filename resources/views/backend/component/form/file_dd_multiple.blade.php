@@ -14,7 +14,6 @@
                 $field_value = $tmp;
             }
             $empty_flag = empty($field_value);
-
         @endphp
         <div class='dd-container'
             @foreach ($field_attribute as $key => $value)
