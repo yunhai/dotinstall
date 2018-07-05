@@ -19,7 +19,7 @@
                               <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
                           </a>
                       </div>
-                      <div class="col-6 float-right">
+                      <div class="col-6 text-right float-right">
                           <img class="img-fluid img-lesson-avatar" src="/img/avatar_1.png">
                           <img class="img-fluid img-lesson-avatar" src="/img/avatar.png">
                           <span>28,643 人が学習中です</span>
