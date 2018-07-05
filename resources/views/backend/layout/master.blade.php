@@ -17,8 +17,6 @@
         @include('backend.component.layout.sidebar')
         <div class="content-wrapper">
             <div class="container-fluid">
-                <!-- Breadcrumbs-->
-                @include('backend.component.layout.breadcrumb')
                 @yield('content')
             </div>
             <footer class="sticky-footer">
@@ -32,12 +30,12 @@
             <a class="scroll-to-top rounded" href="#page-top">
                 <i class="fa fa-angle-up"></i>
             </a>
-            <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
-            <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
-            <script type="text/javascript" src="/vendor/backend/bootstrap/js/popper.min.js"></script>
-            <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="/vendor/backend/sb-admin/sb-admin.min.js"></script>
-            @stack('js')
         </div>
+        <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="/vendor/backend/bootstrap/js/popper.min.js"></script>
+        <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/vendor/backend/sb-admin/sb-admin.min.js"></script>
+        @stack('js')
     </body>
 </html>
