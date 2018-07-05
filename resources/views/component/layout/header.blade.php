@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-lg-center" href="#">
+                <a class="nav-link text-lg-center" href="{{ route('lesson') }}">
                     <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
                     <span class="d-lg-none">レッスン一覧</span>
                     <span class="d-none d-lg-block">レッスン一覧</span>

@@ -291,12 +291,33 @@ body {
         display: none;
     }
 }
-
+/* lESSON
+------------------------------------------------------------ */
+.box-lesson {
+    height: 100vh;
+    background-color: #f5f3f3;
+}
+.box-lesson .list-group .list-group-item {
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #bca9af;
+    border-radius: 0;
+}
+.img-lesson-avatar {
+    max-width: 28px;
+    max-height: 28px;
+}
+.lession-nar {
+    background-color: #ece8e9;
+    padding: .75rem 1rem;
+}
+/* BREADCRUMB
+------------------------------------------------------------ */
+.breadcrumb {
+    background-color: #ece8e9;
+}
 /* HEADER
 ------------------------------------------------------------ */
-/*.navbar {
-    padding: 0 2rem;
-}*/
 .old-bv {
     background-color: #263147;
 }
