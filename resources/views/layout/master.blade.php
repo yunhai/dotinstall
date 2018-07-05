@@ -6,6 +6,7 @@
         <meta content='IE=edge' http-equiv='X-UA-Compatible' />
         <meta content='width=device-width, initial-scale=1' name='viewport' />
         <title>@yield('title')</title>
+        <link rel="icon" href="/img/cogwheel.jpg">
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
@@ -17,6 +18,15 @@
         @include('component.layout.header')
 
         <div class="content-wrapper">
+            @if(request()->route()->getActionMethod() != 'index')
+            <!-- HEADER -->
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">トップ</li>
+                <li class="breadcrumb-item active" aria-current="page"></li>
+              </ol>
+            </nav>
+            @endif
             <div class="container-fluid">
                 @yield('content')
             </div>
@@ -25,17 +35,6 @@
             <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
-            <script>
-                $( document ).ready(function() {
-                    var count_elements = $('.col-lesson').length;
-                    if(count_elements % 5 === 0) {
-                        var i;
-                        for (i = 1; i <= 5; ++i) {
-                            $('.col-lesson:nth-child('+i+')').css( "border-bottom", "1px solid #bca9af" );
-                        }
-                    }
-                });
-            </script>
         </div>
     </body>
 </html>

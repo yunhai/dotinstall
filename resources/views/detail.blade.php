@@ -19,10 +19,10 @@
                             <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                                 <div class="card">
                                     <img class="pickup" src="/img/pickup.png">
-                                    <a href=""><img class="card-img-top" src="@media_path($path)"></a>
-                                    <div class="card-body text-center">
+                                    <a href="{{ route('lesson_detail', ['lesson_id' => $lesson['id'], 'lesson_detail_id' => $row['id']] ) }}"><img class="card-img-top card-img-video" src="@media_path($path)"></a>
+                                    <div class="card-body text-center pl-0 pr-0">
                                         <p class="card-text text-left">{{ $row['name'] }}</p>
-                                        <p class="card-text">
+                                        <p class="card-text mb-1">
                                             <a href="#" class="btn btn-sm btn-request">
                                                 <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
                                             </a>

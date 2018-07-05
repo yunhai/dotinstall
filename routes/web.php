@@ -20,8 +20,7 @@ Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCa
 Route::get('/contact', 'Home@getContact');
 Route::get('lesson', 'Lesson@getLesson')->name('lesson');
 Route::get('lesson/{lesson_id}/detail', 'Lesson@getDetail')->name('lesson.detail');
-Route::get('lesson/detail', 'Lesson@getDetail');
-
+Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}', 'LessonDetail@getDetail')->name('lesson_detail');
 
 Route::get('/demo', function () {
     return view('demo');

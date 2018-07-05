@@ -44,10 +44,10 @@
                         <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                             <div class="card">
                                 <img class="pickup" src="/img/pickup.png">
-                                <a href=""><img class="card-img-top" src="@media_path($path)"></a>
-                                <div class="card-body text-center">
+                                <a href=""><img class="card-img-top card-img-video" src="@media_path($path)"></a>
+                                <div class="card-body text-center pl-0 pr-0">
                                     <p class="card-text text-left">{{ $row['name'] }}</p>
-                                    <p class="card-text">
+                                    <p class="card-text mb-1">
                                         <a href="#" class="btn btn-sm btn-request">
                                             <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
                                         </a>
@@ -68,12 +68,10 @@
 </div>
 @endforeach
 <div class="box">
-    <div class="card">
-        <div class="card-body text-center">
-            <p class="card-text">
-                <a href="#" class="btn btn-sm btn-request">全てのレッスンを見る（５０）</a>
-            </p>
-        </div>
+    <div class="card-lesson-total text-center">
+        <p class="card-text">
+            <a href="#" class="btn btn-sm btn-request">全てのレッスンを見る（５０）</a>
+        </p>
     </div>
 </div>
 @stop
