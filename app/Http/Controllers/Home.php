@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Lesson as LessonModel;
 
-class Home extends Controller
+class Home extends Base
 {
     public function __construct(
         LessonModel $lesson_model
@@ -13,29 +14,29 @@ class Home extends Controller
 
     public function index()
     {
-        $lessons = $this->model::with(['lesson_details' => function($q) {
+        $lessons = $this->model::with(['lesson_details' => function ($q) {
             $q->take(20);
-        }, 'lesson_details.media', 'ms_categories'])
+        }, 'lesson_details.media'])
         ->inRandomOrder(2)
         ->get();
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }
-        return \View::make('index')->with(compact('lessons'));
+        return $this->render('index', compact('lessons'));
     }
 
     public function getTerms()
     {
-        return view('terms');
+        return $this->render('terms');
     }
 
     public function getPrivacy()
     {
-        return view('privacy');
+        return $this->render('privacy');
     }
 
     public function getContact()
     {
-        return view('contact');
+        return $this->render('contact');
     }
 }

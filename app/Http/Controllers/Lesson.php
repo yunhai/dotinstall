@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Lesson as LessonModel;
 
-class Lesson extends Controller
+class Lesson extends Base
 {
     public function __construct(
         LessonModel $lesson_model
@@ -18,7 +17,8 @@ class Lesson extends Controller
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }
-        return \View::make('lesson')->with(compact('lessons'));
+
+        return $this->render('lesson', compact('lessons'));
     }
 
     public function getDetail($lesson_id)
@@ -29,6 +29,6 @@ class Lesson extends Controller
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }
-        return \View::make('detail')->with(compact('lessons'));
+        return $this->render('detail', compact('lessons'));
     }
 }

@@ -30,7 +30,7 @@ class MsCategory extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('ms_category.index');
+        return redirect()->route('backend.ms_category.index');
     }
 
     public function getCreate()
@@ -43,12 +43,12 @@ class MsCategory extends Base
         $input = $request->all();
         $this->model->create($input);
 
-        return redirect()->route('ms_category.index');
+        return redirect()->route('backend.ms_category.index');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('ms_category.index');
+        return redirect()->route('backend.ms_category.index');
     }
 }

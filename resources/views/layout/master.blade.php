@@ -19,7 +19,6 @@
 
         <div class="content-wrapper">
             @if(request()->route()->getActionMethod() != 'index')
-            <!-- HEADER -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">トップ</li>
@@ -27,14 +26,16 @@
               </ol>
             </nav>
             @endif
+
             <div class="container-fluid">
                 @yield('content')
             </div>
 
             @include('component.layout.footer')
-            <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
-            <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
-            <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
         </div>
+        <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
+        @stack('js')
     </body>
 </html>
