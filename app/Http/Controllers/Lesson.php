@@ -13,22 +13,13 @@ class Lesson extends Base
     }
     public function getLesson()
     {
-        $lessons = $this->model::with(['ms_categories'])->get();
-        if (!empty($lessons)) {
-            $lessons = $lessons->toArray();
-        }
-
+        $lessons = $this->model->getLessons();
         return $this->render('lesson', compact('lessons'));
     }
 
     public function getDetail($lesson_id)
     {
-        $lessons = $this->model::with(['lesson_details', 'lesson_details.media', 'ms_categories'])
-        ->where('id', $lesson_id)
-        ->first();
-        if (!empty($lessons)) {
-            $lessons = $lessons->toArray();
-        }
+        $lessons = $this->model->getLessonByLessonId($lesson_id);
         return $this->render('detail', compact('lessons'));
     }
 }

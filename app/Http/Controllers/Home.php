@@ -14,14 +14,7 @@ class Home extends Base
 
     public function index()
     {
-        $lessons = $this->model::with(['lesson_details' => function ($q) {
-            $q->take(20);
-        }, 'lesson_details.media', 'ms_categories'])
-        ->inRandomOrder(2)
-        ->get();
-        if (!empty($lessons)) {
-            $lessons = $lessons->toArray();
-        }
+        $lessons = $this->model->getLessonsForHome();
         return $this->render('index', compact('lessons'));
     }
 

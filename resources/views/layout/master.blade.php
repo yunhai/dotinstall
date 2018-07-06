@@ -6,7 +6,7 @@
         <meta content='IE=edge' http-equiv='X-UA-Compatible' />
         <meta content='width=device-width, initial-scale=1' name='viewport' />
         <title>@yield('title')</title>
-        <link rel="icon" href="/img/cogwheel.jpg">
+        <link rel="icon" href="/img/favicon.png">
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
