@@ -22,6 +22,12 @@ Breadcrumbs::for('company', function ($trail) {
     $trail->push('運営者情報', route('company'));
 });
 
+// お問い合わせ
+Breadcrumbs::for('contact', function ($trail) {
+    $trail->parent('home');
+    $trail->push('お問い合わせ', route('contact'));
+});
+
 // Home > Lesson
 Breadcrumbs::for('lesson', function ($trail) {
     $trail->parent('home');
