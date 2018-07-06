@@ -28,19 +28,21 @@
     </div>
 </div>
 @foreach ($lessons as $lesson)
-<div class="box">
-    <div class="card">
-        <div class="lession-heading w-100">
-            <img class="img-fluid" src="/img/light-bulb.png"><span>【{{ $lesson['ms_categories']['name'] ?? '' }}】{{ $lesson['name'] }}</span>
-            <a href="{{ route('lesson') }}" class="lession-heading-url float-right">レッスン一覧</a>
+    @if (!empty($lesson['lesson_details']))
+        <div class="box">
+            <div class="card">
+                <div class="lession-heading w-100">
+                    <img class="img-fluid" src="/img/light-bulb.png"><span>【{{ $lesson['ms_categories']['name'] ?? '' }}】{{ $lesson['name'] }}</span>
+                    <a href="{{ route('lesson') }}" class="lession-heading-url float-right">レッスン一覧</a>
+                </div>
+            </div>
+            <div class="card card-video-list">
+                <div class="container-fluid">
+                    @include('component.lesson.item', ['lesson_details' => array_chunk($lesson['lesson_details'], 5)])
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card card-video-list">
-        <div class="container-fluid">
-            @include('component.lesson.item', ['lesson_details' => array_chunk($lesson['lesson_details'], 5)])
-        </div>
-    </div>
-</div>
+    @endif
 @endforeach
 <div class="box">
     <div class="card-lesson-total text-center">
