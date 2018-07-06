@@ -4,7 +4,9 @@
             @php $path = $row['media'][0]['path'] ?? ''; @endphp
             <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                 <div class="card">
-                    <img class="pickup" src="/img/pickup.png">
+                    @if ($row['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
+                      <img class="pickup" src="/img/pickup.png">
+                    @endif
                     <a href="{{ route('lesson_detail', ['lesson_id' => $row['lesson_id'], 'lesson_detail_id' => $row['id']]) }}" title='{{ $row['name'] }}'>
                     @if ($path)
                         <img class="card-img-top card-img-video" src="@media_path($path)">
