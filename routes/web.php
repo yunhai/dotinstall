@@ -17,6 +17,7 @@ Route::get('privacy', 'Home@getPrivacy')->name('privacy');
 Route::get('company', 'Home@getCompany')->name('company');
 Route::get('contact', 'Home@getContact')->name('contact');
 
+Auth::routes();
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
