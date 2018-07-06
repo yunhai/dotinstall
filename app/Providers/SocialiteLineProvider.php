@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use Laravel\Socialite\Two\AbstractProvider;
+use Laravel\Socialite\Two\ProviderInterface;
+use Laravel\Socialite\Two\User;
+
 class SocialiteLineProvider extends AbstractProvider implements ProviderInterface
 {
     protected $scopeSeparator = ' ';
@@ -45,7 +49,7 @@ class SocialiteLineProvider extends AbstractProvider implements ProviderInterfac
             'email' => $user['email'] ?? null,
         ]);
     }
-    
+
     protected function getTokenFields($code)
     {
         return array_merge(parent::getTokenFields($code), [

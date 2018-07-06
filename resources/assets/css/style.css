@@ -141,6 +141,14 @@ body {
 .btn-google:hover {
     color: #fff;
 }
+.card {
+    border-color: #abaaaa;
+    border-radius: 0;
+}
+.card-header {
+    background-color: #ece8e9;
+    border-bottom: 1px solid #abaaaa;
+}
 /* TOP
 ------------------------------------------------------------ */
 .box {
