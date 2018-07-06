@@ -13,4 +13,34 @@ class Lesson extends Base
     {
         return $this->hasOne('App\Models\MsCategory', 'id', 'category_id');
     }
+
+    public function getLessonsForHome() {
+        $lessons = $this::with(['lesson_details' => function ($q) {
+            $q->take(20);
+        }, 'lesson_details.media', 'ms_categories'])
+        ->inRandomOrder(2)
+        ->get();
+        if (!empty($lessons)) {
+            $lessons = $lessons->toArray();
+        }
+        return $lessons;
+    }
+
+    public function getLessons() {
+        $lessons = $this::with(['ms_categories'])->get();
+        if (!empty($lessons)) {
+            $lessons = $lessons->toArray();
+        }
+        return $lessons;
+    }
+
+    public function getLessonByLessonId($lesson_id) {
+        $lessons = $this::with(['lesson_details', 'lesson_details.media', 'ms_categories'])
+        ->where('id', $lesson_id)
+        ->first();
+        if (!empty($lessons)) {
+            $lessons = $lessons->toArray();
+        }
+        return $lessons;
+    }
 }
