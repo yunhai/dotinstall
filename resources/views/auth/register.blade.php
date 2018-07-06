@@ -1,16 +1,9 @@
 @extends('layout.master')
 @section('title', '新規登録')
-
+@section('breadcrumbs', Breadcrumbs::render('register'))
 @section('content')
-<!-- HEADER -->
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">トップ</li>
-    <li class="breadcrumb-item active" aria-current="page">新規ユーザー登録</li>
-  </ol>
-</nav>
 <div id="content">
-    <h2 class="ttlCommon">プログラミングゴーにようこそ！</h2>
+    <div class="box mb-0"><h2 class="ttlCommon">プログラミングゴーにようこそ！</h2></div>
     <div class="container mar_b30">
         <p class="mar_t30 mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
         <div class="row">
@@ -28,15 +21,15 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header">新規ユーザー登録</div>
-                    
+
                                     <div class="card-body">
                                         <form method="POST" action="" aria-label="新規ユーザー登録">
                                             @csrf
-                    
+
                                             @if(app('request')->input('provider') == 'facebook')
                                             <div class="form-group row">
                                                 <label for="name" class="col-md-4 col-form-label text-md-right">Facebookアカウント</label>
-                    
+
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control float-left w-75 mr-1" value="{{ app('request')->input('name') }}" disabled>
                                                     <input type="hidden" name="provider" value="{{ app('request')->input('provider') }}">
@@ -47,10 +40,10 @@
                                             @endif
                                             <div class="form-group row">
                                                 <label for="name" class="col-md-4 col-form-label text-md-right">ユーザー名</label>
-                    
+
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-                    
+
                                                     @if ($errors->has('name'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('name') }}</strong>
@@ -58,13 +51,13 @@
                                                     @endif
                                                 </div>
                                             </div>
-                    
+
                                             <div class="form-group row">
                                                 <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
-                    
+
                                                 <div class="col-md-6">
                                                     <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-                    
+
                                                     @if ($errors->has('email'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('email') }}</strong>
@@ -72,13 +65,13 @@
                                                     @endif
                                                 </div>
                                             </div>
-                    
+
                                             <div class="form-group row">
                                                 <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
-                    
+
                                                 <div class="col-md-6">
                                                     <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-                    
+
                                                     @if ($errors->has('password'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('password') }}</strong>
@@ -86,7 +79,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                    
+
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-6 offset-md-4">
                                                     <button type="submit" class="btn btn-default">ユーザー登録する</button>
@@ -104,7 +97,7 @@
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                     <div class="card">
                         <div class="card-header">その他の方法でログイン</div>
-        
+
                         <div class="card-body">
                             <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
                             <a href="/auth/twitter" class="btn btn-twitter btn-block">
