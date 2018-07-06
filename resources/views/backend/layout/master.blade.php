@@ -13,7 +13,6 @@
         @stack('css')
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-        <!-- Navigation-->
         @include('backend.component.layout.sidebar')
         <div class="content-wrapper">
             <div class="container-fluid">

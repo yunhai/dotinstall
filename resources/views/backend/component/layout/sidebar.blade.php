@@ -51,31 +51,19 @@
                     <span class="d-lg-none">管理者パスワード変更</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
-                    <a class="dropdown-item" href="/backend/changePassword">
+                    <a class="dropdown-item" href="{{ route('backend.login.change_password') }}">
                         <div class="dropdown-message small">
                             <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/backend/logout">
+                    <a class="dropdown-item" href="{{ route('backend.login.logout') }}">
                         <div class="dropdown-message small">
                             <i class="fa fa-fw fa-sign-out"></i>ログアウト
                         </div>
                     </a>
                 </div>
             </li>
-            <!--
-            <li class="nav-item">
-                <a class="nav-link" href="/backend/changePassword/">
-                    <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>ログアウト
-                </a>
-            </li>
-             -->
         </ul>
     </div>
 </nav>

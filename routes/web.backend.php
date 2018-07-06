@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('login', 'Auth\LoginController@getLogin')->name('backend.login');
+Route::get('login', 'Auth\LoginController@getLogin')->name('backend.login.login');
 Route::post('login', 'Auth\LoginController@postLogin');
-Route::get('logout', 'Auth\LoginController@getLogout')->name('backend.logout');;
+Route::get('logout', 'Auth\LoginController@getLogout')->name('backend.login.logout');
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('', 'Home@dashboard')->name('backend.home.dashboard');
 
-    Route::get('changePassword', 'Auth\LoginController@getChangePassword')->name('backend.changePassword');
-    Route::post('changePassword', 'Auth\LoginController@postChangePassword');
+    Route::get('change_password', 'Auth\LoginController@getChangePassword')->name('backend.login.change_password');
+    Route::post('change_password', 'Auth\LoginController@postChangePassword');
 
     Route::get('lesson', 'Lesson\Lesson@getIndex')->name('backend.lesson.index');
     Route::get('lesson/create', 'Lesson\Lesson@getCreate')->name('backend.lesson.create');

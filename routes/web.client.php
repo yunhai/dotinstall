@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('login','Auth\LoginController@getLogin')->name('login');
-Route::post('login','Auth\LoginController@postLogin');
-Route::get('logout','Auth\LoginController@getLogout');
+Route::get('login', 'Auth\LoginController@getLogin')->name('client.login.login');
+Route::post('login', 'Auth\LoginController@postLogin');
+Route::get('logout', 'Auth\LoginController@getLogout')->name('client.login.logout');
 
 Route::group(['middleware' => ['client']], function () {
-    Route::get('/', 'Home@dashboard');
-    Route::get('/changePassword','Auth\LoginController@getChangePassword')->name('changePassword');
-    Route::post('/changePassword','Auth\LoginController@postChangePassword');
+    Route::get('/', 'Home@dashboard')->name('client.home.dashboard');
+    Route::get('/changePassword', 'Auth\LoginController@getChangePassword')->name('client.login.change_password');
+    Route::post('/changePassword', 'Auth\LoginController@postChangePassword');
 });
