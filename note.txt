@@ -12,3 +12,6 @@ print('<pre>');
 print_r($sql);
 print('</pre>');
 exit;
+
+https://dashboard.stripe.com/test/invoices
+https://stripe.com/docs/testing#cards

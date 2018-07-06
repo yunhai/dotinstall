@@ -1,7 +1,9 @@
 @foreach (array_chunk($lesson_details, 5) as $key => $lesson_detail)
     <div class="row" style='@if($key > 0) border-top: 1px solid #bca9af; @endif'>
         @foreach ($lesson_detail as $row)
-            @php $path = $row['media'][0]['path'] ?? ''; @endphp
+            @php
+                $path = $row['media'][0]['path'] ?? '';
+            @endphp
             <div class="col-lesson col-lg-3 col-md-3 col-sm-6">
                 <div class="card">
                     @if ($row['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
@@ -11,7 +13,7 @@
                     @if ($path)
                         <img class="card-img-top card-img-video" src="@media_path($path)">
                     @else
-                        <span class='j-captureVideo'></span>
+                        <span class='j-captureVideo' data-src="@media_path($path)"></span>
                     @endif
                     </a>
                     <div class="card-body text-center pl-0 pr-0">

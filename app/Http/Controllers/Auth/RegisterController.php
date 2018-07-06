@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Invitation;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -53,8 +55,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            //'password' => 'required|string|min:6|confirmed',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6',
         ]);
     }
@@ -67,14 +68,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $unique = str_random();
+        $model = new User();
+
+        $target = $model->create([
+            'name' => $unique . $data['name'],
+            'email' => $unique . $data['email'],
             'password' => Hash::make($data['password']),
             'role' => USER_ROLE_PUBLIC,
             'provider' => isset($data['provider']) ? $data['provider'] : '',
             'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
         ]);
+
+        if (!empty($data['token'])) {
+            $model->updateInvitation($data['token'], $target->id);
+        }
+
+        return $target;
     }
 
     public function redirectToProvider($provider)

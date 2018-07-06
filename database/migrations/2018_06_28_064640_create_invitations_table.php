@@ -15,9 +15,10 @@ class CreateInvitationsTable extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('author_id');
-            $table->unsignedInteger('recipient_id')->default(0);
-            $table->string('code', 256);
+            $table->unsignedInteger('invitor_id');
+            $table->unsignedInteger('participant_id')->default(0);
+            $table->date('effective_date')->nullable();
+            $table->string('token', 256);
             $table->unsignedTinyInteger('mode')->default(1);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);

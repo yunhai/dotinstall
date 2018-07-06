@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', 'Home@index')->name('home');
 Route::get('terms', 'Home@getTerms')->name('terms');
@@ -17,7 +18,6 @@ Route::get('privacy', 'Home@getPrivacy')->name('privacy');
 Route::get('company', 'Home@getCompany')->name('company');
 Route::get('contact', 'Home@getContact')->name('contact');
 
-Auth::routes();
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
