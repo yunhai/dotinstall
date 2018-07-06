@@ -18,15 +18,7 @@
         @include('component.layout.header')
 
         <div class="content-wrapper">
-            @if(request()->route()->getActionMethod() != 'index')
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">トップ</li>
-                <li class="breadcrumb-item active" aria-current="page"></li>
-              </ol>
-            </nav>
-            @endif
-
+            @yield('breadcrumbs')
             <div class="container-fluid">
                 @yield('content')
             </div>

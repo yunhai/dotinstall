@@ -39,4 +39,9 @@ class Home extends Base
     {
         return $this->render('contact');
     }
+
+    public function getStripe()
+    {
+        return $this->render('stripe');
+    }
 }

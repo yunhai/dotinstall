@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
 @section('content')
+@section('breadcrumbs', Breadcrumbs::render('lesson_detail'))
 <div id="content">
     <h2 class="ttlCommon border-bottom-0 mb-0 pl-0 pr-0">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</h2>
     <div class="box mb-0">
