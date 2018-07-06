@@ -1,16 +1,9 @@
 @extends('layout.master')
 @section('title', 'ログイン')
-
+@section('breadcrumbs', Breadcrumbs::render('login'))
 @section('content')
-<!-- HEADER -->
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">トップ</li>
-    <li class="breadcrumb-item active" aria-current="page">ログイン</li>
-  </ol>
-</nav>
 <div id="content">
-    <h2 class="ttlCommon">プログラミングゴーにようこそ！</h2>
+    <div class="box mb-0"><h2 class="ttlCommon">プログラミングゴーにようこそ！</h2></div>
     <div class="container mar_b30">
         <p class="mar_t30 mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
         <div class="row">
@@ -28,17 +21,17 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header">ログイン</div>
-                    
+
                                     <div class="card-body">
                                         <form method="POST" action="" aria-label="ログイン">
                                             @csrf
-                    
+
                                             <div class="form-group row">
                                                 <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
-                    
+
                                                 <div class="col-md-6">
                                                     <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-                    
+
                                                     @if ($errors->has('email'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('email') }}</strong>
@@ -46,13 +39,13 @@
                                                     @endif
                                                 </div>
                                             </div>
-                    
+
                                             <div class="form-group row">
                                                 <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
-                    
+
                                                 <div class="col-md-6">
                                                     <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-                    
+
                                                     @if ($errors->has('password'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('password') }}</strong>
@@ -60,7 +53,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                    
+
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-6 offset-md-4">
                                                     <button type="submit" class="btn btn-default">ログイン</button>
@@ -78,7 +71,7 @@
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                     <div class="card">
                         <div class="card-header">その他の方法でログイン</div>
-        
+
                         <div class="card-body">
                             <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
                             <a href="/auth/twitter" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>

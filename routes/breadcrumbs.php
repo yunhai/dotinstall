@@ -28,6 +28,18 @@ Breadcrumbs::for('contact', function ($trail) {
     $trail->push('お問い合わせ', route('contact'));
 });
 
+// ログイン
+Breadcrumbs::for('login', function ($trail) {
+    $trail->parent('home');
+    $trail->push('ログイン', route('login'));
+});
+
+// 新規ユーザー登録
+Breadcrumbs::for('register', function ($trail) {
+    $trail->parent('home');
+    $trail->push('新規ユーザー登録', route('register'));
+});
+
 // Home > Lesson
 Breadcrumbs::for('lesson', function ($trail) {
     $trail->parent('home');
