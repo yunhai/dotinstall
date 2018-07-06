@@ -25,7 +25,7 @@ class Lesson extends Base
     {
         $lessons = $this->model::with(['lesson_details', 'lesson_details.media', 'ms_categories'])
         ->where('id', $lesson_id)
-        ->get();
+        ->first();
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }

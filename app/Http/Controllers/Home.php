@@ -16,13 +16,18 @@ class Home extends Base
     {
         $lessons = $this->model::with(['lesson_details' => function ($q) {
             $q->take(20);
-        }, 'lesson_details.media'])
+        }, 'lesson_details.media', 'ms_categories'])
         ->inRandomOrder(2)
         ->get();
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }
         return $this->render('index', compact('lessons'));
+    }
+
+    public function getCompany()
+    {
+        return $this->render('company');
     }
 
     public function getTerms()
@@ -38,5 +43,10 @@ class Home extends Base
     public function getContact()
     {
         return $this->render('contact');
+    }
+
+    public function getStripe()
+    {
+        return $this->render('stripe');
     }
 }

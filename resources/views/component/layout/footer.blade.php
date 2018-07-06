@@ -11,10 +11,10 @@
                 <h6 class="title-widget">ご利用にあたって</h6>
                 <hr>
                 <ul class="pad_l20">
-                    <li><a href="/terms">利用規約</a></li>
-                    <li><a href="/privacy">プライバシーポリシー</a></li>
-                    <li><a href="#">運営企業情報</a></li>
-                    <li><a href="/contact">お問い合わせ</a></li>
+                    <li><a href="{{ route('terms') }}">利用規約</a></li>
+                    <li><a href="{{ route('privacy') }}">プライバシーポリシー</a></li>
+                    <li><a href="{{ route('company') }}">運営企業情報</a></li>
+                    <li><a href="{{ route('contact') }}">お問い合わせ</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3">
