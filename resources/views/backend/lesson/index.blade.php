@@ -50,7 +50,7 @@
                     'tpl' => '
                         <a class="btn btn-info btn-sm" href="' . route('backend.lesson_detail.index', ['lesson_id' => ':id']) . '">動画</a>
                         <a class="btn btn-info btn-sm" href="' . route('backend.lesson.edit', ['lesson_id' => ':id']) . '">編集</a>
-                        <a href="' . route('backend.lesson.edit', ['lesson_id' => ':id']) . '" class="btn btn-danger btn-sm" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
+                        <a href="' . route('backend.lesson.delete', ['lesson_id' => ':id']) . '" class="btn btn-danger btn-sm" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
                     ',
                     'tpl_arg' => [
                         ':id' => 'id'

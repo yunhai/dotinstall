@@ -28,6 +28,7 @@
         <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
         @stack('js')
     </body>
 </html>
