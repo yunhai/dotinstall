@@ -14,7 +14,8 @@
         $target = $target ?? [];
         $form = [
             'form_btn' => '保存',
-            'form_label' => 'lesson_detail',
+            'form_label' => '動画',
+            'form_back_url' => route('backend.lesson_detail.index', ['lesson_id' => $lesson_id]),
             'form_field' => [
                 'name' => [
                     'field_label' => '動画の題名',
@@ -27,6 +28,20 @@
                     'field_name' => 'caption',
                     'field_value' => array_get($target, 'caption', ''),
                     'field_type' => 'editor'
+                ],
+                'mode' => [
+                    'field_label' => '公開状況',
+                    'field_name' => 'mode',
+                    'field_value' => array_get($target, 'mode', ''),
+                    'field_type' => 'radio',
+                    'field_option' => $form['mode'],
+                ],
+                'free_mode' => [
+                    'field_label' => '無料状況',
+                    'field_name' => 'free_mode',
+                    'field_value' => array_get($target, 'free_mode', ''),
+                    'field_type' => 'radio',
+                    'field_option' => $form['free_mode'],
                 ],
                 'sort' => [
                     'field_label' => '表示順序',
@@ -88,7 +103,6 @@
                 ],
             ],
             'form_attribute' => [
-                'enctype' => 'multipart/form-data'
             ]
         ];
     @endphp

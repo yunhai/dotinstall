@@ -36,6 +36,7 @@
         <script type="text/javascript" src="/vendor/backend/bootstrap/js/popper.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/sb-admin/sb-admin.min.js"></script>
+        <script type="text/javascript" src="/js/backend/app.js"></script>
         @stack('js')
     </body>
 </html>

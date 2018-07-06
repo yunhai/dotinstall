@@ -13,6 +13,8 @@ class Lesson extends Base
         'caption',
         'poster',
         'note',
+        'mode',
+        'free_mode',
         'category_id',
         'video_count',
     ];

@@ -16,7 +16,9 @@ class LessonDetail extends Base
         'lesson_id',
         'video',
         'poster',
-        'sort'
+        'sort',
+        'mode',
+        'free_mode',
     ];
 
     public function resources()

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-class Home
+class Home extends Base
 {
     public function dashboard()
     {
-        return view('backend.home.dashboard');
+        return $this->render('home.dashboard');
     }
 }

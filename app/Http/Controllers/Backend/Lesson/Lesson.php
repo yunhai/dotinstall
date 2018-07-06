@@ -18,13 +18,9 @@ class Lesson extends Base
     public function getIndex()
     {
         $lessons = $this->model->paginate(20);
-        $category = $this->getCategory();
+        $form = $this->form();
 
-        foreach ($lessons as $item) {
-            $item->category_name = $category[$item->category_id] ?? '';
-        }
-
-        return $this->render('lesson.index', compact('lessons'));
+        return $this->render('lesson.index', compact('lessons', 'form'));
     }
 
     public function getEdit($id)
@@ -50,6 +46,7 @@ class Lesson extends Base
     {
         $option = [
             'form' => $this->form()
+
         ];
         return $this->render('lesson.input', $option);
     }
@@ -57,9 +54,10 @@ class Lesson extends Base
     public function postCreate(PostInput $request)
     {
         $input = $this->makeInput($request);
-        $this->model->create($input);
+        $target = $this->model->create($input);
 
-        return redirect()->route('backend.lesson.index');
+        $lesson_id = $target->id;
+        return redirect()->route('backend.lesson.edit', compact('lesson_id'));
     }
 
     public function getDelete($id)
@@ -76,16 +74,17 @@ class Lesson extends Base
         return $input;
     }
 
-    private function form()
+    private function form($available_category = true)
     {
-        $category = $this->getCategory();
-
-        return compact('category');
+        $category = $this->getAvailableCategory();
+        $mode = config('master.common.mode');
+        return compact('category', 'mode');
     }
 
-    private function getCategory()
+    private function getAvailableCategory($available_category = true)
     {
+        $func = $available_category ? 'availableList' : 'allList';
         $model = new MsCategoryModel();
-        return $model->availableList();
+        return $model->$func();
     }
 }

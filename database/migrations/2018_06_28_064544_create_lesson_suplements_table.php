@@ -17,6 +17,7 @@ class CreateLessonSuplementsTable extends Migration
             $table->increments('id');
             $table->string('title', 512);
             $table->text('caption');
+            $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();

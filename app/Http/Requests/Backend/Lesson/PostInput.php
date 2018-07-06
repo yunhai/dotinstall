@@ -13,7 +13,9 @@ class PostInput extends Base
             'category_id' => 'required|integer|exists:ms_categories,id',
             'poster' => 'nullable',
             'caption' => 'nullable',
-            'note' => 'nullable'
+            'note' => 'nullable',
+            'mode' => 'required|integer',
+            'free_mode' => 'nullable|integer',
         ];
     }
 }

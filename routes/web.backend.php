@@ -18,12 +18,8 @@ Route::get('logout', 'Auth\LoginController@getLogout')->name('backend.logout');;
 Route::group(['middleware' => ['admin']], function () {
     Route::get('', 'Home@dashboard')->name('backend.home.dashboard');
 
-    Route::get('ms_category', 'MsCategory@getIndex')->name('backend.ms_category.index');
-    Route::get('ms_category/create', 'MsCategory@getCreate')->name('backend.ms_category.create');
-    Route::post('ms_category/create', 'MsCategory@postCreate');
-    Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('backend.ms_category.edit');
-    Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');
-    Route::get('ms_category/{ms_category_id}/delete', 'MsCategory@getDelete')->name('backend.ms_category.delete');
+    Route::get('changePassword', 'Auth\LoginController@getChangePassword')->name('backend.changePassword');
+    Route::post('changePassword', 'Auth\LoginController@postChangePassword');
 
     Route::get('lesson', 'Lesson\Lesson@getIndex')->name('backend.lesson.index');
     Route::get('lesson/create', 'Lesson\Lesson@getCreate')->name('backend.lesson.create');
@@ -39,8 +35,15 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('lesson/{lesson_id}/lesson_detail/{lesson_detail_id}/edit', 'Lesson\LessonDetail\LessonDetail@postEdit');
     Route::get('lesson/{lesson_id}/lesson_detail/{lesson_detail_id}/delete', 'Lesson\LessonDetail\LessonDetail@getDelete')->name('backend.lesson_detail.delete');
 
-    Route::get('changePassword', 'Auth\LoginController@getChangePassword')->name('backend.changePassword');
-    Route::post('changePassword', 'Auth\LoginController@postChangePassword');
+    Route::post('media/chunk', 'Media@postChunk');
+    Route::get('media/download/{media_id}', 'Media@getDownload')->name('backend.media.download');
+
+    Route::get('ms_category', 'MsCategory@getIndex')->name('backend.ms_category.index');
+    Route::get('ms_category/create', 'MsCategory@getCreate')->name('backend.ms_category.create');
+    Route::post('ms_category/create', 'MsCategory@postCreate');
+    Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('backend.ms_category.edit');
+    Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');
+    Route::get('ms_category/{ms_category_id}/delete', 'MsCategory@getDelete')->name('backend.ms_category.delete');
 
     Route::get('user', 'User@getIndex')->name('backend.user.index');
     Route::get('user/create', 'User@getCreate')->name('backend.user.create');
@@ -49,7 +52,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('user/{user_id}/edit', 'User@postEdit');
     Route::get('user/{user_id}/delete', 'User@getDelete')->name('backend.user.delete');
 
-
-    Route::post('media/chunk', 'Media@postChunk');
-    Route::get('media/download/{media_id}', 'Media@getDownload')->name('backend.media.download');
+    Route::get('youtube_link', 'YoutubeLink@getIndex')->name('backend.youtube_link.index');
+    Route::get('youtube_link/create', 'YoutubeLink@getCreate')->name('backend.youtube_link.create');
+    Route::post('youtube_link/create', 'YoutubeLink@postCreate');
+    Route::get('youtube_link/{youtube_link_id}/edit', 'YoutubeLink@getEdit')->name('backend.youtube_link.edit');
+    Route::post('youtube_link/{youtube_link_id}/edit', 'YoutubeLink@postEdit');
+    Route::get('youtube_link/{youtube_link_id}/delete', 'YoutubeLink@getDelete')->name('backend.youtube_link.delete');
 });

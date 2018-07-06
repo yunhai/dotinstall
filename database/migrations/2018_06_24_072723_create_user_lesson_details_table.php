@@ -18,7 +18,7 @@ class CreateUserLessonDetailsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('lesson_detail_id');
-            $table->unsignedTinyInteger('mode');
+            $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();

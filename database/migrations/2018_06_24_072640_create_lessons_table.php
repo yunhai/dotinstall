@@ -19,6 +19,8 @@ class CreateLessonsTable extends Migration
             $table->string('name', 256);
             $table->text('caption');
             $table->text('note');
+            $table->unsignedTinyInteger('mode')->default(0);
+            $table->unsignedTinyInteger('free_mode')->default(1);
             $table->unsignedInteger('poster')->default(0);
             $table->unsignedInteger('category_id')->default(0);
             $table->unsignedInteger('video_count')->default(0);

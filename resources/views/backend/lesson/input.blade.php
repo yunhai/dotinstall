@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-
+@section('title', 'レッスン編集')
 @section('content')
     @push('css')
         <link href="/vendor/backend/summernote/summernote-bs4.css" rel="stylesheet">
@@ -22,6 +22,7 @@
             'form_action' => '',
             'form_btn' => '保存',
             'form_label' => 'レッスン一編集',
+            'form_back_url' => route('backend.lesson.index'),
             'form_field' => [
                 'name' => [
                     'field_label' => 'レッスン一名',
@@ -41,6 +42,23 @@
                     'field_value' => array_get($target, 'note', ''),
                     'field_type' => 'editor'
                 ],
+                'mode' => [
+                    'field_label' => '公開状況',
+                    'field_name' => 'mode',
+                    'field_value' => array_get($target, 'mode', ''),
+                    'field_type' => 'radio',
+                    'field_option' => $form['mode'],
+                ],
+                'category_id' => [
+                    'field_label' => 'カテゴリー',
+                    'field_name' => 'category_id',
+                    'field_value' => array_get($target, 'category_id', ''),
+                    'field_type' => 'select',
+                    'field_option' => $form['category'],
+                    'field_attribute' => [
+                        'title' => '選択なし'
+                    ]
+                ],
                 'poster' => [
                     'field_label' => 'サムネイル',
                     'field_name' => 'poster',
@@ -54,19 +72,8 @@
                         'data-max_file_upload' => 1
                     ]
                 ],
-                'category_id' => [
-                    'field_label' => 'カテゴリー',
-                    'field_name' => 'category_id',
-                    'field_value' => array_get($target, 'category_id', ''),
-                    'field_type' => 'select',
-                    'field_option' => $form['category'],
-                    'field_attribute' => [
-                        'title' => '選択なし'
-                    ]
-                ],
             ],
             'form_attribute' => [
-                'enctype' => 'multipart/form-data'
             ]
         ];
     @endphp

@@ -16,6 +16,7 @@
                 'レッスン一名',
                 'カテゴリー',
                 '動画',
+                '公開状況',
                 '',
             ],
             'body' => [
@@ -23,7 +24,8 @@
                     'field' => 'name',
                 ],
                 'category' => [
-                    'field' => 'category_name',
+                    'field' => 'category_id',
+                    'option' => $form['category'],
                     'attr' => [
                         'style' => 'width:15%',
                     ]
@@ -31,7 +33,16 @@
                 'video_count' => [
                     'field' => 'video_count',
                     'attr' => [
+                        'style' => 'width:6%',
+                        'class' => 'text-center'
+                    ]
+                ],
+                'mode' => [
+                    'field' => 'mode',
+                    'option' => $form['mode'],
+                    'attr' => [
                         'style' => 'width:10%',
+                        'class' => 'text-center'
                     ]
                 ],
                 'button' => [

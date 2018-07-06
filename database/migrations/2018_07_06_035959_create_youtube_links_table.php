@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserMembershipsTable extends Migration
+class CreateYoutubeLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUserMembershipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_memberships', function (Blueprint $table) {
+        Schema::create('youtube_links', function (Blueprint $table) {
+            $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('payment_id');
-            $table->datetime('effective_date');
-            $table->datetime('expiry_date');
+            $table->string('name', 256);
+            $table->string('link', 512);
+            $table->unsignedTinyInteger('mode')->default(1);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateUserMembershipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_memberships');
+        Schema::dropIfExists('youtube_links');
     }
 }

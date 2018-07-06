@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\MsCategory\PostInput;
-use App\Models\Backend\MsCategory as MsCategoryModel;
+use App\Http\Requests\Backend\YoutubeLink\PostInput;
+use App\Models\Backend\YoutubeLink as YoutubeLinkModel;
 
-class MsCategory extends Base
+class YoutubeLink extends Base
 {
     public function __construct(
-        MsCategoryModel $ms_category_model
+        YoutubeLinkModel $youtube_link_model
     ) {
-        $this->model = $ms_category_model;
+        $this->model = $youtube_link_model;
     }
 
     public function getIndex()
     {
-        $ms_categories = $this->model->paginate(20);
+        $data = $this->model->paginate(20);
         $form = $this->form();
-        return $this->render('ms_category.index', compact('ms_categories', 'form'));
+        return $this->render('youtube_link.index', compact('data', 'form'));
     }
 
     public function getEdit($id)
     {
         $target = $this->model->get($id);
         $form = $this->form();
-        return $this->render('ms_category.input', compact('target', 'form'));
+        return $this->render('youtube_link.input', compact('target', 'form'));
     }
 
     public function postEdit(PostInput $request, $id)
@@ -32,13 +32,13 @@ class MsCategory extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.ms_category.edit', ['ms_category_id' => $id]);
+        return redirect()->route('backend.youtube_link.edit', ['youtube_link_id' => $id]);
     }
 
     public function getCreate()
     {
         $form = $this->form();
-        return $this->render('ms_category.input', compact('form'));
+        return $this->render('youtube_link.input', compact('form'));
     }
 
     public function postCreate(PostInput $request)
@@ -46,14 +46,14 @@ class MsCategory extends Base
         $input = $request->all();
         $target = $this->model->create($input);
 
-        $ms_category_id = $target->id;
-        return redirect()->route('backend.ms_category.edit', compact('ms_category_id'));
+        $youtube_link_id = $target->id;
+        return redirect()->route('backend.youtube_link.edit', compact('youtube_link_id'));
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('backend.ms_category.index');
+        return redirect()->route('backend.youtube_link.index');
     }
 
     protected function form()

@@ -10,9 +10,11 @@
             </div>
         @endif
         <form method="post"
-            @foreach ($form_attribute as $key => $value)
-                {{ $key }}="{{ $value }}"
-            @endforeach
+            @if (!empty($form_attribute))
+                @foreach ($form_attribute as $key => $value)
+                    {{ $key }}="{{ $value }}"
+                @endforeach
+            @endif
         >
             @csrf
 
@@ -27,6 +29,7 @@
                 </tbody>
             </table>
             <div class="form-group text-center">
+                <span class="btn btn-secondary btn-sm j-goback" data-url={{ $form_back_url ?? '' }}>キャンセル</span>
                 <input type="submit" class="btn btn-primary btn-sm" value="{{ $form_btn }}">
             </div>
         </form>

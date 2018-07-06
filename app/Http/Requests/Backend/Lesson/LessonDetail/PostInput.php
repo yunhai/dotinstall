@@ -12,6 +12,8 @@ class PostInput extends Base
             'name' => 'required|max:256',
             'caption' => 'nullable',
             'sort' => 'integer',
+            'mode' => 'required|integer',
+            'free_mode' => 'required|integer',
             'video' => 'nullable',
             'poster' => 'nullable',
             'source_code' => 'nullable',

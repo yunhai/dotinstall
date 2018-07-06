@@ -15,9 +15,10 @@ class LessonDetail extends Base
         $this->model = $model;
     }
 
-    public function getCreate()
+    public function getCreate(int $lesson_id)
     {
-        return $this->render('lesson.lesson_detail.input');
+        $form = $this->form();
+        return $this->render('lesson.lesson_detail.input', compact('form', 'lesson_id'));
     }
 
     public function postCreate(PostInput $request, int $lesson_id)
@@ -31,38 +32,11 @@ class LessonDetail extends Base
         return redirect()->route('backend.lesson_detail.edit', compact('lesson_id', 'lesson_detail_id'));
     }
 
-    protected function format(array $input, int $lesson_id, int $lesson_detail_id = 0, bool $mode = MODE_CREATE)
-    {
-        $input['lesson_id'] = $lesson_id;
-
-        $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
-        $input['video'] = empty($input['video']) ? 0 : key($input['video']);
-
-        $map = [
-            'source_code' => LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE,
-            'resource' => LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE,
-        ];
-        $attachments = [];
-        foreach ($map as $key => $value) {
-            if (!empty($input[$key])) {
-                foreach ($input[$key] as $item) {
-                    $tmp = [
-                        'media_id' => $item['id'],
-                        'type' => $value
-                    ];
-                    array_push($attachments, $tmp);
-                }
-                unset($input[$key]);
-            }
-        }
-        $input['lesson_detail_attachments'] = $attachments;
-        return $input;
-    }
-
     public function getEdit($lesson_id, $lesson_media_id)
     {
+        $form = $this->form();
         $target = $this->model->getWithRelation($lesson_media_id, false);
-        return $this->render('lesson.lesson_detail.input', compact('target'));
+        return $this->render('lesson.lesson_detail.input', compact('target', 'form', 'lesson_id', 'lesson_media_id'));
     }
 
     public function postEdit(PostInput $request, $lesson_id, $lesson_detail_id)
@@ -82,12 +56,49 @@ class LessonDetail extends Base
                     ->orderBy('sort')
                     ->paginate(20);
 
-        return $this->render('lesson.lesson_detail.index', compact('data', 'lesson_id'));
+        $form = $this->form();
+        return $this->render('lesson.lesson_detail.index', compact('data', 'lesson_id', 'form'));
     }
 
     public function getDelete($lesson_id, $lesson_detail_id)
     {
         $this->model->remove($lesson_detail_id);
         return redirect()->route('backend.lesson_detail.index', compact('lesson_id'));
+    }
+
+    private function form()
+    {
+        $mode = config('master.common.mode');
+        $free_mode = config('master.lesson.lesson_detail.free_mode');
+        return compact('mode', 'free_mode');
+    }
+
+
+    private function format(array $input, int $lesson_id, int $lesson_detail_id = 0, bool $mode = MODE_CREATE)
+    {
+        $input['lesson_id'] = $lesson_id;
+
+        $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
+        $input['video'] = empty($input['video']) ? 0 : key($input['video']);
+
+        $map = [
+                'source_code' => LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE,
+                'resource' => LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE,
+            ];
+        $attachments = [];
+        foreach ($map as $key => $value) {
+            if (!empty($input[$key])) {
+                foreach ($input[$key] as $item) {
+                    $tmp = [
+                            'media_id' => $item['id'],
+                            'type' => $value
+                        ];
+                    array_push($attachments, $tmp);
+                }
+                unset($input[$key]);
+            }
+        }
+        $input['lesson_detail_attachments'] = $attachments;
+        return $input;
     }
 }

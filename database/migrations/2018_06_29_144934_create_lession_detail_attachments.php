@@ -18,7 +18,8 @@ class CreateLessionDetailAttachments extends Migration
             $table->increments('id');
             $table->unsignedInteger('lesson_detail_id');
             $table->unsignedInteger('media_id');
-            $table->unsignedTinyInteger('type');
+            $table->unsignedTinyInteger('type')->default(0);
+            $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();

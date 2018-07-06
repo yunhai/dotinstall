@@ -28,8 +28,12 @@
                                     @endif
                                 >
                                     @if ($row['field'])
-                                        {{ $item[$row['field']] }}
-                                    @elseif ($row['tpl'])
+                                        @if (empty($row['option']))
+                                            {{ $item[$row['field']] }}
+                                        @else
+                                            {{ $row['option'][$item[$row['field']]] ?? '' }}
+                                        @endif
+                                    @elseif (!empty($row['tpl']))
                                         @if (empty($row['tpl_arg']))
                                             {{ $row['tpl'] }}
                                         @else

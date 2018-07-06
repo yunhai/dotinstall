@@ -26,11 +26,9 @@
               </ol>
             </nav>
             @endif
-
             <div class="container-fluid">
                 @yield('content')
             </div>
-
             @include('component.layout.footer')
         </div>
         <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>

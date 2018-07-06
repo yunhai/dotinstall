@@ -20,6 +20,8 @@ class CreateLessonDetailsTable extends Migration
             $table->text('caption');
             $table->unsignedInteger('video');
             $table->unsignedInteger('poster')->default(0);
+            $table->unsignedTinyInteger('mode')->default(0);
+            $table->unsignedTinyInteger('free_mode')->default(1);
             $table->unsignedInteger('sort')->default(1);
             $table->unsignedInteger('lesson_id');
             $table->unsignedInteger('created_user_id')->default(0);
