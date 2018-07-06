@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -76,13 +76,12 @@ class RegisterController extends Controller
             'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
         ]);
     }
-    
+
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
-         
     }
-    
+
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
@@ -97,8 +96,8 @@ class RegisterController extends Controller
         }
         return redirect()->route('register', [
             'provider' => $provider,
-            'provider_user_id' => $id, 
-            'name' => $name, 
+            'provider_user_id' => $id,
+            'name' => $name,
             'email' => $email
             ]
         );

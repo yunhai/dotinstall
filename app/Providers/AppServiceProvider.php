@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+        $this->bootSocialiteLine();
     }
 
     /**
@@ -30,5 +31,17 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('media_path', function (string $path) {
             return '<?php echo "' . Storage::disk('media')->url($path) . '"; ?>';
         });
+    }
+
+    private function bootSocialiteLine()
+    {
+        $socialite = $this->app->make('Laravel\Socialite\Contracts\Factory');
+        $socialite->extend(
+            'line',
+            function ($app) use ($socialite) {
+                $config = $app['config']['services.line'];
+                return $socialite->buildProvider(SocialiteLineProvider::class, $config);
+            }
+        );
     }
 }
