@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
 use App\Providers\SocialiteLineProvider;
+use App\Providers\SocialiteYahooJpProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
         $this->bootSocialiteLine();
+        $this->bootSocialiteYahooJp();
     }
 
     /**
@@ -42,6 +44,18 @@ class AppServiceProvider extends ServiceProvider
             function ($app) use ($socialite) {
                 $config = $app['config']['services.line'];
                 return $socialite->buildProvider(SocialiteLineProvider::class, $config);
+            }
+        );
+    }
+
+    private function bootSocialiteYahooJp()
+    {
+        $socialite = $this->app->make('Laravel\Socialite\Contracts\Factory');
+        $socialite->extend(
+            'yahoo',
+            function ($app) use ($socialite) {
+                $config = $app['config']['services.yahoojp'];
+                return $socialite->buildProvider(SocialiteYahooJpProvider::class, $config);
             }
         );
     }
