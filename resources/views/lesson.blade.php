@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'プログラミングＧＯ')
+@section('title', 'レッスン一覧')
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('lesson'))
 <div id="content">
