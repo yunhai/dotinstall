@@ -37,7 +37,7 @@
     </div>
     <div class="card card-video-list">
         <div class="container-fluid">
-            @include('component.list.list', ['lesson_details' => $lesson['lesson_details']])
+            @include('component.lesson.lesson_detail.list', ['lesson_details' => $lesson['lesson_details']])
         </div>
     </div>
 </div>
