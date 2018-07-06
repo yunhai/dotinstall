@@ -32,7 +32,8 @@
         <div class="box">
             <div class="card">
                 <div class="lession-heading w-100">
-                    <img class="img-fluid" src="/img/light-bulb.png"><span>【{{ $lesson['ms_categories']['name'] ?? '' }}】{{ $lesson['name'] }}</span>
+                    <img class="img-fluid" src="/img/light-bulb.png" />
+                    <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
                     <a href="{{ route('lesson') }}" class="lession-heading-url float-right">レッスン一覧</a>
                 </div>
             </div>

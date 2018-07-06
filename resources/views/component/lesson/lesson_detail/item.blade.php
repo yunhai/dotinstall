@@ -3,13 +3,20 @@
         @if ($row['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
           <img class="pickup" src="/img/pickup.png">
         @endif
-        @php $path = $row['media'][0]['path'] ?? ''; @endphp
+        @php $path = $row['posters'][0]['path'] ?? ''; @endphp
         <a href="{{ route('lesson_detail', ['lesson_id' => $row['lesson_id'], 'lesson_detail_id' => $row['id']]) }}" title='{{ $row['name'] }}'>
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
         @else
-            @php $path = '18/07/27/yQkBhOXlZJv1zzKfptw4ObjbtQx7lrKtT9Cicn04.mp4'; @endphp
+            @php
+                $path = '';
+                if (!empty($row['videos'])) {
+                    $path = current($row['videos'])['path'];
+                }
+            @endphp
+            @if ($path)
             <span class='j-captureVideo' data-url="@media_path($path)"></span>
+            @endif
         @endif
         </a>
         <div class="card-body text-center pl-0 pr-0">

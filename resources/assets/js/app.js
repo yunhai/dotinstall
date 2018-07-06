@@ -1,52 +1,37 @@
 $(document).ready(function() {
     $('.j-captureVideo').each(function(index, item) {
-        // $target = $(item);
-        // $url = $target.data('url');
-        //
-        // const i = 0;
-        // var video = document.createElement('video');
-        // video.addEventListener(
-        //     'loadeddata',
-        //     function() {
-        //         video.currentTime = i;
-        //     },
-        //     false
-        // );
-        //
-        // video.addEventListener(
-        //     'seeked',
-        //     function() {
-        //         console.log(i);
-        //         if (i === 123) {
-        //             console.log('dd')
-        //             generateThumbnail($target);
-        //         }
-        //
-        //         // when frame is captured, increase
-        //         i++;
-        //
-        //         // if we are not passed end, seek to next interval
-        //         if (i <= video.duration) {
-        //             // this will trigger another seeked event
-        //             video.currentTime = i;
-        //         } else {
-        //             // DONE!, next action
-        //         }
-        //     },
-        //     false
-        // );
-        //
-        // video.preload = 'auto';
-        // video.src = $url;
-        //
-        // function generateThumbnail(thumbs) {
-        //     var c = document.createElement('canvas');
-        //     var ctx = c.getContext('2d');
-        //     c.width = 160;
-        //     c.height = 90;
-        //     ctx.drawImage(video, 0, 0, 160, 90);
-        //     // thumbs.append(c);
-        // }
+        const $target = $(item);
+
+        const video = document.createElement('video');
+        video.preload = 'auto';
+        video.src = $(item).data('url');
+
+        let i = 0;
+        video.addEventListener(
+            'loadeddata',
+            function() {
+                video.currentTime = i;
+            },
+            false
+        );
+
+        video.addEventListener(
+            'seeked',
+            function() {
+                if (i === 3) {
+                    var c = document.createElement('canvas');
+                    var ctx = c.getContext('2d');
+                    c.width = 240;
+                    c.height = 134;
+                    ctx.drawImage(video, 0, 0, 240, 134);
+                    $target.append(c);
+                }
+                i++;
+                if (i <= video.duration) {
+                    video.currentTime = i;
+                }
+            },
+            false
+        );
     });
-    console.log($('.j-captureVideo'));
 });
