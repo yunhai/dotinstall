@@ -39,7 +39,7 @@
             </div>
             <div class="card card-video-list">
                 <div class="container-fluid">
-                    @include('component.lesson.item', ['lesson_details' => array_chunk($lesson['lesson_details'], 5)])
+                    @include('component.lesson.item', ['lesson_details' => $lesson['lesson_details']])
                 </div>
             </div>
         </div>

@@ -1,6 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Lesson;
+
+use App\Models\Base;
+use App\Models\Lesson\LessonDetail\LessonDetail;
 
 class Lesson extends Base
 {

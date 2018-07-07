@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\Models\User\User;
 use App\Models\Invitation;
 
 use App\Http\Controllers\Controller;
@@ -104,7 +104,9 @@ class RegisterController extends Controller
             Auth::attempt(['name' => $name, 'email' => $email]);
             return redirect('/');
         }
-        return redirect()->route('register', [
+        return redirect()->route(
+            'register',
+            [
             'provider' => $provider,
             'provider_user_id' => $id,
             'name' => $name,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Backend\Traits;
+namespace App\Models\Traits;
 
 use Auth;
 use Carbon\Carbon;
@@ -24,7 +24,7 @@ trait UserSignature
         });
     }
 
-    protected function setUser(string $field = 'created_user_id', bool $update = false)
+    protected function setUser(string $field = 'created_user_id', bool $update = true)
     {
         $user = Auth::user();
         $this->$field = $user->id;
@@ -33,7 +33,7 @@ trait UserSignature
         }
     }
 
-    protected function setDate(string $field = 'created_at', bool $update = false)
+    protected function setDate(string $field = 'created_at', bool $update = true)
     {
         $now = Carbon::now();
         $this->$field = $now;

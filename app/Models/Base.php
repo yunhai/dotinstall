@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Backend\Traits\UserSignature;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Traits\UserSignature;
 
 class Base extends Model
 {

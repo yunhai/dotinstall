@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lesson as LessonModel;
+use App\Models\Lesson\Lesson as LessonModel;
 
 class Home extends Base
 {

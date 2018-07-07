@@ -19,7 +19,7 @@ class CreateUserLessonsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('lesson_id');
             $table->dateTime('enroll_date')->nullable();
-            $table->dateTime('finish_date')->nullable();
+            $table->dateTime('close_date')->nullable();
             $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
