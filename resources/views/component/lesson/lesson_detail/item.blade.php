@@ -4,7 +4,7 @@
           <img class="pickup" src="/img/pickup.png">
         @endif
         @php $path = $row['posters'][0]['path'] ?? ''; @endphp
-        <a href="{{ route('lesson_detail', ['lesson_id' => $row['lesson_id'], 'lesson_detail_id' => $row['id']]) }}" title='{{ $row['name'] }}'>
+        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $row['lesson_id'], 'lesson_detail_id' => $row['id']]) }}" title='{{ $row['name'] }}'>
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
         @else

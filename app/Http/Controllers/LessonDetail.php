@@ -15,14 +15,15 @@ class LessonDetail extends Controller
 
     public function getDetail($lesson_id, $lesson_detail_id)
     {
-        $lesson_details = $this->model::with(['media'])
+        $lesson_details = $this->model::with(['poster'])
         ->where('id', '<>', $lesson_detail_id)
         ->where('lesson_id', $lesson_id)
         ->get();
         if (!empty($lesson_details)) {
             $lesson_details = $lesson_details->toArray();
         }
-        return \View::make('lesson_detail')->with(compact(
+        return \View::make('lesson_detail')->with(
+            compact(
                 'lesson_id',
                 'lesson_details'
             )

@@ -28,11 +28,6 @@ class Lesson extends Base
             ->inRandomOrder(2)
             ->get()
             ->toArray();
-
-        if (!empty($lessons)) {
-            $lessons = $lessons->toArray();
-        }
-        return $lessons;
     }
 
     public function getLessons()
@@ -46,12 +41,10 @@ class Lesson extends Base
 
     public function getLessonByLessonId($lesson_id)
     {
-        $lessons = $this::with(['lesson_details', 'lesson_details.media', 'ms_categories'])
-        ->where('id', $lesson_id)
-        ->first();
-        if (!empty($lessons)) {
-            $lessons = $lessons->toArray();
-        }
-        return $lessons;
+        $with = ['lesson_details', 'lesson_details.posters', 'ms_categories'];
+        return $this::with($with)
+                        ->where('id', $lesson_id)
+                        ->first()
+                        ->toArray();
     }
 }
