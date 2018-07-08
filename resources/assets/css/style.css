@@ -163,6 +163,9 @@ body {
     border: none;
     border-radius: 0;
 }
+.box.box-panel .card .card-img {
+    border-radius: 0;
+}
 .col-lesson {
     margin-top: 30px;
 }

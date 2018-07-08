@@ -5,7 +5,7 @@
 <div id="content">
     <div class="box mb-0"><h2 class="ttlCommon">プログラミングゴーにようこそ！</h2></div>
     <div class="container mar_b30">
-        <p class="mar_t30 mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
+        <p class="mar_t30 mar_b30">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
         <div class="row">
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
