@@ -3,14 +3,52 @@
 @section('breadcrumbs', Breadcrumbs::render('register'))
 @section('content')
 <div id="content">
-    <div class="box mb-0"><h2 class="ttlCommon">プログラミングゴーにようこそ！</h2></div>
+    @if (app('request')->input('provider') == 'line')
+        @php
+            $provider_ttl = 'LINEアカウントで登録します';
+            $provider_lbl = 'LINEアカウント';
+        @endphp
+    @elseif (app('request')->input('provider') == 'twitter')
+        @php
+            $provider_ttl = 'Twitterアカウントで登録します';
+            $provider_lbl = 'Twitterアカウント';
+        @endphp
+    @elseif (app('request')->input('provider') == 'facebook')
+        @php
+            $provider_ttl = 'Facebookアカウントで登録します';
+            $provider_lbl = 'Facebookアカウント';
+        @endphp
+    @elseif (app('request')->input('provider') == 'yahoo')
+        @php
+            $provider_ttl = 'Yahooアカウントで登録します';
+            $provider_lbl = 'Yahooアカウント';
+        @endphp
+    @elseif (app('request')->input('provider') == 'google')
+        @php
+            $provider_ttl = 'Googleアカウントで登録します';
+            $provider_lbl = 'Googleアカウント';
+        @endphp
+    @else
+        @php
+            $provider_ttl = 'プログラミングゴーにようこそ！';
+            $provider_lbl = '';
+        @endphp
+    @endif
+    <div class="box mb-0"><h2 class="ttlCommon">{{ $provider_ttl }}</h2></div>
     <div class="container mar_b30">
-        <p class="mar_t30 mar_b30">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
+        @if (!empty(app('request')->input('provider')))
+            <p class="alert alert-info mar_t30 mar_b30">この{{ $provider_lbl }}と連携したアカウントを新しく作成します。以下に必要事項を入力してください。
+                <br>
+                <span>（既にアカウントをお持ちの方はメールアドレスとパスワードでログインしたあとに「設定変更」から{{ $provider_lbl }}との連携をおこなってください。）</span>
+            </p>
+        @else
+            <p class="mar_t30 mar_b30">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
+        @endif
         <div class="row">
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                     <a class="nav-link" href="/login" role="tab">ログイン</a>
-                    <a class="nav-link active show" data-toggle="pill" href="/" role="tab">新規ユーザー登録</a>
+                    <a class="nav-link active show" data-toggle="pill" href="{{ route('register') }}" role="tab">新規ユーザー登録</a>
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab">パスワードを忘れた？</a>
                 </div>
             </div>
@@ -26,44 +64,24 @@
                                         <form method="POST" action="" aria-label="新規ユーザー登録">
                                             @csrf
 
-                                            @if (!empty(app('request')->input('provider')))
-                                            <div class="form-group row">
-                                                <label for="name" class="col-md-4 col-form-label text-md-right">
-                                                    @if (app('request')->input('provider') == 'line')
-                                                        Facebookアカウント
-                                                    @elseif (app('request')->input('provider') == 'twitter')
-                                                        Twitterアカウント
-                                                    @elseif (app('request')->input('provider') == 'facebook')
-                                                        Facebookアカウント
-                                                    @elseif (app('request')->input('provider') == 'yahoo')
-                                                        Yahooアカウント
-                                                    @else
-                                                        Googleアカウント
-                                                    @endif
-                                                </label>
+                                            @if (!empty($provider_lbl))
+                                                <div class="form-group row">
+                                                    <label for="name" class="col-md-4 col-form-label text-md-right">
+                                                        {{ $provider_lbl }}
+                                                    </label>
 
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control float-left w-75 mr-1" value="{{ app('request')->input('name') }}" disabled>
-                                                    <input type="hidden" name="provider" value="{{ app('request')->input('provider') }}">
-                                                    <input type="hidden" name="provider_user_id" value="{{ app('request')->input('provider_user_id') }}">
-                                                    @if (app('request')->input('provider') == 'line')
-                                                        <img class="img-fluid" src="img/twitter.png" style="vertical-align: -15px;">
-                                                    @elseif (app('request')->input('provider') == 'twitter')
-                                                        <img class="img-fluid" src="img/twitter.png" style="vertical-align: -15px;">
-                                                    @elseif (app('request')->input('provider') == 'facebook')
-                                                        <img class="img-fluid" src="img/facebook.png" style="vertical-align: -15px;">
-                                                    @elseif (app('request')->input('provider') == 'yahoo')
-                                                        <img class="img-fluid" src="img/yahoo.png" style="vertical-align: -15px;">
-                                                    @else
-                                                        <img class="img-fluid" src="img/google.png" style="vertical-align: -15px;">
-                                                    @endif
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control float-left w-75 mr-1" value="{{ app('request')->input('name') }}" disabled>
+                                                        <input type="hidden" name="provider" value="{{ app('request')->input('provider') }}">
+                                                        <input type="hidden" name="provider_user_id" value="{{ app('request')->input('provider_user_id') }}">
+                                                        <img class="img-fluid" src="img/{{ app('request')->input('provider') }}.png" style="vertical-align: -15px;">
+                                                    </div>
                                                 </div>
-                                            </div>
                                             @endif
                                             <div class="form-group row">
                                                 <label for="name" class="col-md-4 col-form-label text-md-right">ユーザー名</label>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-7">
                                                     <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                                     @if ($errors->has('name'))
@@ -77,8 +95,8 @@
                                             <div class="form-group row">
                                                 <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
 
-                                                <div class="col-md-6">
-                                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                                <div class="col-md-7">
+                                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') ? old('email') : app('request')->input('email') }}" required>
 
                                                     @if ($errors->has('email'))
                                                         <span class="invalid-feedback" role="alert">
@@ -88,11 +106,13 @@
                                                 </div>
                                             </div>
 
+                                            @if (empty(app('request')->input('provider')))
                                             <div class="form-group row">
                                                 <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-7">
                                                     <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                                    <div class="form-text">パスワードは6文字以上にしてください。</div>
 
                                                     @if ($errors->has('password'))
                                                         <span class="invalid-feedback" role="alert">
@@ -101,9 +121,10 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            @endif
 
                                             <div class="form-group row mb-0">
-                                                <div class="col-md-6 offset-md-4">
+                                                <div class="col-md-7 offset-md-4">
                                                     <button type="submit" class="btn btn-default">ユーザー登録する</button>
                                                 </div>
                                             </div>
@@ -118,7 +139,7 @@
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header text-center">
                             @if (!empty(app('request')->input('provider')))
                                 なぜ入力が必要なの？
                             @else
