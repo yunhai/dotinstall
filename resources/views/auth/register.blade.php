@@ -26,15 +26,37 @@
                                         <form method="POST" action="" aria-label="新規ユーザー登録">
                                             @csrf
 
-                                            @if(app('request')->input('provider') == 'facebook')
+                                            @if (!empty(app('request')->input('provider')))
                                             <div class="form-group row">
-                                                <label for="name" class="col-md-4 col-form-label text-md-right">Facebookアカウント</label>
+                                                <label for="name" class="col-md-4 col-form-label text-md-right">
+                                                    @if (app('request')->input('provider') == 'line')
+                                                        Facebookアカウント
+                                                    @elseif (app('request')->input('provider') == 'twitter')
+                                                        Twitterアカウント
+                                                    @elseif (app('request')->input('provider') == 'facebook')
+                                                        Facebookアカウント
+                                                    @elseif (app('request')->input('provider') == 'yahoo')
+                                                        Yahooアカウント
+                                                    @else
+                                                        Googleアカウント
+                                                    @endif
+                                                </label>
 
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control float-left w-75 mr-1" value="{{ app('request')->input('name') }}" disabled>
                                                     <input type="hidden" name="provider" value="{{ app('request')->input('provider') }}">
                                                     <input type="hidden" name="provider_user_id" value="{{ app('request')->input('provider_user_id') }}">
-                                                    <img class="img-fluid" src="img/facebook.png" style="vertical-align: -15px;">
+                                                    @if (app('request')->input('provider') == 'line')
+                                                        <img class="img-fluid" src="img/twitter.png" style="vertical-align: -15px;">
+                                                    @elseif (app('request')->input('provider') == 'twitter')
+                                                        <img class="img-fluid" src="img/twitter.png" style="vertical-align: -15px;">
+                                                    @elseif (app('request')->input('provider') == 'facebook')
+                                                        <img class="img-fluid" src="img/facebook.png" style="vertical-align: -15px;">
+                                                    @elseif (app('request')->input('provider') == 'yahoo')
+                                                        <img class="img-fluid" src="img/yahoo.png" style="vertical-align: -15px;">
+                                                    @else
+                                                        <img class="img-fluid" src="img/google.png" style="vertical-align: -15px;">
+                                                    @endif
                                                 </div>
                                             </div>
                                             @endif
@@ -96,23 +118,34 @@
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                     <div class="card">
-                        <div class="card-header">その他の方法でログイン</div>
+                        <div class="card-header">
+                            @if (!empty(app('request')->input('provider')))
+                                なぜ入力が必要なの？
+                            @else
+                                その他の方法でログイン
+                            @endif
+                        </div>
 
                         <div class="card-body">
-                            <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
-                            <a href="/auth/twitter" class="btn btn-twitter btn-block">
-                                <span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterで登録</span>
-                            </a>
-                            <a href="/auth/facebook" class="btn btn-facebook btn-block">
-                                <span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookで登録</span>
-                            </a>
-                            <a href="/auth/yahoo" class="btn btn-yahoo btn-block">
-                                <span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">で登録</span>
-                            </a>
-                            <a href="/auth/google" class="btn btn-google btn-block">
-                                <span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleで登録</span>
-                            </a>
-                            <p class="mar_t10 mar_b0 text-danger">ログイン時に SNS に勝手に投稿されることはありません</p>
+                            @if (!empty(app('request')->input('provider')))
+                                <p>メールアドレスは運営側からの連絡をする際に必要となります。</p>
+                                <p class="mar_b0">パスワードを設定したい場合は、ユーザー登録後に設定変更画面からおこなってください。</p>
+                            @else
+                                <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
+                                <a href="/auth/twitter" class="btn btn-twitter btn-block">
+                                    <span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterで登録</span>
+                                </a>
+                                <a href="/auth/facebook" class="btn btn-facebook btn-block">
+                                    <span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookで登録</span>
+                                </a>
+                                <a href="/auth/yahoo" class="btn btn-yahoo btn-block">
+                                    <span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">で登録</span>
+                                </a>
+                                <a href="/auth/google" class="btn btn-google btn-block">
+                                    <span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleで登録</span>
+                                </a>
+                                <p class="mar_t10 mar_b0 text-danger">ログイン時に SNS に勝手に投稿されることはありません</p>
+                            @endif
                         </div>
                     </div>
                 </div>
