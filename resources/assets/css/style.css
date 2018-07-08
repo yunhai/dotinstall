@@ -172,6 +172,9 @@ body {
 .col-lesson .card-img-video {
     height: 134px;
 }
+.col-lesson .card-text-name {
+    height: 74px;
+}
 @media (min-width: 992px) {
 	.col-lesson.col-lg-3 {
 	    -webkit-box-flex: 0;

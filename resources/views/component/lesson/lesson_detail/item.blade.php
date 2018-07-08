@@ -22,7 +22,7 @@
         @endif
         </a>
         <div class="card-body text-center pl-0 pr-0">
-            <p class="card-text text-left">{{ $target['name'] }}</p>
+            <p class="card-text card-text-name text-left">{{ $target['name'] }}</p>
             <p class="card-text mb-1">
                 <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
                     <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
