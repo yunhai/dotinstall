@@ -125,10 +125,8 @@
                                                             <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">学習レポートメールを受け取る
                                                         </label>
                                                     </p>
-                                                    <p class="form-check mt-3 mb-0">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">利用規約に同意
-                                                        </label>
+                                                    <p class="mt-3 mb-0">
+                                                        <a href="{{ route('terms') }}" target="_blank">利用規約に同意</a>
                                                     </p>
                                                 </div>
                                             </div>
