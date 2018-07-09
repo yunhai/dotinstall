@@ -169,10 +169,8 @@ body {
 .col-lesson {
     margin-top: 30px;
 }
-.col-lesson .card-img-top {
-    max-height: 134px;
-}
 .col-lesson .card-img-video {
+    border-radius: 0;
     height: 134px;
 }
 .col-lesson .card-text-name {

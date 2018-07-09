@@ -51,6 +51,12 @@
                                                             <strong>{{ $errors->first('password') }}</strong>
                                                         </span>
                                                     @endif
+
+                                                    <p class="form-check mt-3 mb-0">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
+                                                        </label>
+                                                    </p>
                                                 </div>
                                             </div>
 
