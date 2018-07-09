@@ -42,4 +42,9 @@ class Home extends Base
     {
         return $this->render('stripe');
     }
+
+    public function getAffiliate()
+    {
+        return $this->render('affiliate');
+    }
 }

@@ -327,7 +327,7 @@ body {
 /* lESSON
 ------------------------------------------------------------ */
 .box-lesson {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #f5f3f3;
 }
 .box-lesson .list-group .list-group-item {

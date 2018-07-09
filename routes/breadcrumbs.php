@@ -46,6 +46,12 @@ Breadcrumbs::for('stripe', function ($trail) {
     $trail->push('クレジットカード決済', route('stripe'));
 });
 
+// アフィリエイト
+Breadcrumbs::for('affiliate', function ($trail) {
+    $trail->parent('home');
+    $trail->push('アフィリエイト', route('affiliate'));
+});
+
 // Home > Lesson
 Breadcrumbs::for('lesson', function ($trail) {
     $trail->parent('home');

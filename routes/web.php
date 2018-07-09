@@ -16,6 +16,7 @@ Route::get('', 'Home@index')->name('home');
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::get('affiliate', 'Home@getAffiliate')->name('affiliate');
 
 Route::get('contact', 'Home@getContact')->name('contact');
 Route::get('company', 'Home@getCompany')->name('company');
