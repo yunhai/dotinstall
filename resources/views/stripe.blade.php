@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
 @section('content')
-
+@section('breadcrumbs', Breadcrumbs::render('stripe'))
 <div id="content">
     <div class="box"><h2 class="ttlCommon mb-0">マイページ</h2></div>
     <div class="container col-8 mar_b30">

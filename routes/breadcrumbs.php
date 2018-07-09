@@ -40,6 +40,12 @@ Breadcrumbs::for('register', function ($trail) {
     $trail->push('新規ユーザー登録', route('register'));
 });
 
+// クレジットカード決済
+Breadcrumbs::for('stripe', function ($trail) {
+    $trail->parent('home');
+    $trail->push('クレジットカード決済', route('stripe'));
+});
+
 // Home > Lesson
 Breadcrumbs::for('lesson', function ($trail) {
     $trail->parent('home');
