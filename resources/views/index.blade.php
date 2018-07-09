@@ -50,7 +50,7 @@
 <div class="box">
     <div class="card-lesson-total text-center">
         <p class="card-text">
-            <a href="#" class="btn btn-sm btn-request">全てのレッスンを見る（５０）</a>
+            <a href="{{ route('lesson') }}" class="btn btn-sm btn-request">全てのレッスンを見る（{{ $total_lessons }}）</a>
         </p>
     </div>
 </div>

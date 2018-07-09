@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
 use App\Providers\SocialiteLineProvider;
 use App\Providers\SocialiteYahooJpProvider;
+use Illuminate\Support\Facades\View;
+use App\Models\Lesson\Lesson;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         $this->bootSocialiteLine();
         $this->bootSocialiteYahooJp();
+        View::share('total_lessons', $this->totalLessons());
     }
 
     /**
@@ -58,5 +61,10 @@ class AppServiceProvider extends ServiceProvider
                 return $socialite->buildProvider(SocialiteYahooJpProvider::class, $config);
             }
         );
+    }
+
+    private function totalLessons()
+    {
+        return Lesson::count();
     }
 }
