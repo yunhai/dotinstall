@@ -72,6 +72,6 @@ Breadcrumbs::for('lesson.detail', function ($trail, $name) {
 
 // Home > Lesson
 Breadcrumbs::for('lesson_detail', function ($trail) {
-    $trail->parent('home');
+    $trail->parent('top');
     $trail->push('レッスン一覧', route('lesson'), ['display_link' => true]);
 });
