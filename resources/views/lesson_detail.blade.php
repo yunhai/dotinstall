@@ -38,15 +38,27 @@
                 @endif
                 <div class="container-fluid">
                     <div class="row box-request">
-                        <a href="#" class="btn-request mr-2">
-                            <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
-                        </a>
-                        <a href="#" class="btn-request mr-2">
-                            <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
-                        </a>
-                        <a href="#" class="btn-request">
-                            <img class="card-img-top btn-diamond" src="/img/btn_diamond.png">
-                        </a>
+                        <div class="col-7">
+                            <a href="#" class="btn-request">
+                                <img class="btn-to-complete" src="/img/btn_to_complete.png">
+                            </a>
+                            <a href="#" class="btn-request">
+                                <img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                            </a>
+                            <a href="#" class="btn-request">
+                                <img class="btn-diamond" src="/img/btn_diamond.png">
+                            </a>
+                        </div>
+                        <div class="col-5 text-right">
+                            <a href="#">
+                                <img class="btn-prev" src="/img/btn-prev.png">
+                            </a>
+                            <a href="#">
+                                <img class="btn-next" src="/img/btn-next.png">
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
                 @include('component.lesson.item', ['lesson_details' => $lesson_details])
