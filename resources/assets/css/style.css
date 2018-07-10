@@ -347,6 +347,11 @@ body {
 .form-group-stripe {
     border-bottom: 1px solid #bca9af;
 }
+/* mypage
+------------------------------------------------------------ */
+.card.card-mypage .card-body {
+    height: 172px;
+}
 /* BREADCRUMB
 ------------------------------------------------------------ */
 .breadcrumb {

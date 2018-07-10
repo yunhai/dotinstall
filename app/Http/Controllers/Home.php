@@ -47,4 +47,9 @@ class Home extends Base
     {
         return $this->render('affiliate');
     }
+
+    public function getMyPage()
+    {
+        return $this->render('home');
+    }
 }

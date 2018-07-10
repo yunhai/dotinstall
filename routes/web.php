@@ -12,11 +12,10 @@
 */
 Auth::routes();
 
-Route::get('', 'Home@index')->name('home');
+Route::get('', 'Home@index')->name('top');
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
-Route::get('affiliate', 'Home@getAffiliate')->name('affiliate');
 
 Route::get('contact', 'Home@getContact')->name('contact');
 Route::get('company', 'Home@getCompany')->name('company');
@@ -39,5 +38,6 @@ Route::group(['middleware' => ['user']], function () {
 });
 
 //////////////////////////////////////////////////
-
+Route::get('affiliate', 'Home@getAffiliate')->name('affiliate');
+Route::get('home', 'Home@getMyPage')->name('home');
 Route::get('stripe', 'Home@getStripe')->name('stripe');
