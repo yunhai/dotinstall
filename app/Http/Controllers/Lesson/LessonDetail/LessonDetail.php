@@ -19,12 +19,23 @@ class LessonDetail extends Base
 
     public function getDetail(int $lesson_id, int $lesson_detail_id)
     {
+        $user_id = Auth::check() ? Auth::user()->id : 0;
+        if ($user_id) {
+            if (!$this->user_lesson_detail_model->learned($user_id, $lesson_id, $lesson_detail_id)) {
+                $this->user_lesson_detail_model->learn($user_id, $lesson_id, $lesson_detail_id);
+            }
+        }
         $lesson_details = $this->model->getAll($lesson_id);
+        
+        foreach ($lesson_details as $key => $detail) {
+            $lesson_details[$key]['is_closeable'] = $user_id
+                && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
+        }
         
         $target = [];
         $prev_video = [];
         $next_video = [];
-        
+
         $prev_id = -1;
         foreach ($lesson_details as $key => $detail) {
             if ($prev_id === $lesson_detail_id) {
@@ -41,29 +52,28 @@ class LessonDetail extends Base
 
             $prev_id = $detail['id'];
         }
-        // dd($lesson_details);
-        return $this->render('lesson_detail', compact('lesson_id', 'lesson_detail_id', 'lesson_details', 'target', 'prev_video', 'next_video'));
+
+        return $this->render(
+            'lesson_detail',
+            compact(
+                'lesson_id',
+                'lesson_detail_id',
+                'lesson_details',
+                'target',
+                'prev_video',
+                'next_video'
+            )
+        );
     }
 
-    public function getLearn(int $lesson_id, int $lesson_detail_id)
-    {
-        $user_id = Auth::user()->id;
-
-        if (!$this->user_lesson_detail_model->learned($user_id, $lesson_id, $lesson_detail_id)) {
-            $this->user_lesson_detail_model->learn($user_id, $lesson_id, $lesson_detail_id);
-        }
-
-        return $this->back('lesson_detail.detail', ['lesson_id' => $lesson_id, 'lesson_detail_id' => $lesson_detail_id]);
-    }
-    
     public function getClose(int $lesson_id, int $lesson_detail_id)
     {
         $user_id = Auth::user()->id;
-
+        
         if (!$this->user_lesson_detail_model->closed($user_id, $lesson_id, $lesson_detail_id)) {
             $this->user_lesson_detail_model->close($user_id, $lesson_id, $lesson_detail_id);
         }
-
+        
         return $this->back('lesson_detail.detail', ['lesson_id' => $lesson_id, 'lesson_detail_id' => $lesson_detail_id]);
     }
 }

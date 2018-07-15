@@ -23,11 +23,13 @@
         </a>
         <div class="card-body text-center pl-0 pr-0">
             <p class="card-text card-text-name text-left">{{ $target['name'] }}</p>
+            @if (!empty($target['is_closeable']))
             <p class="card-text mb-1">
                 <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
                     <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
                 </a>
             </p>
+            @endif
             <p class="card-text">
                 <a href="#" class="btn btn-sm btn-request">
                     <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">

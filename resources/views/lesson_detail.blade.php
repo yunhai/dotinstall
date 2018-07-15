@@ -39,9 +39,11 @@
                 <div class="container-fluid">
                     <div class="row box-request">
                         <div class="col-7">
-                            <a href="#" class="btn-request">
+                            @if ($target['is_closeable'])
+                            <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-request">
                                 <img class="btn-to-complete" src="/img/btn_to_complete.png">
                             </a>
+                            @endif
                             <a href="#" class="btn-request">
                                 <img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                             </a>
@@ -50,15 +52,17 @@
                             </a>
                         </div>
                         <div class="col-5 text-right">
-                            <a href="#">
+                            @if ($prev_video)
+                            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
                                 <img class="btn-prev" src="/img/btn-prev.png">
                             </a>
-                            <a href="#">
+                            @endif
+                            @if ($next_video)
+                            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">
                                 <img class="btn-next" src="/img/btn-next.png">
                             </a>
+                            @endif
                         </div>
-
-
                     </div>
                 </div>
                 @include('component.lesson.item', ['lesson_details' => $lesson_details])

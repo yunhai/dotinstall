@@ -36,22 +36,34 @@ class UserLessonDetail extends Base
 
     public function close(int $user_id, int $lesson_id, int $lesson_detail_id)
     {
+        $now = Carbon::now()->format('Y-m-d H:i:s');
+        if ($this->learned($user_id, $lesson_id, $lesson_detail_id)) {
+            $data = [
+                'close_date' => $now,
+                'mode' => USER_LESSON_DETAIL_MODE_CLOSE
+            ];
+            $this
+                ->where('user_id', $user_id)
+                ->where('lesson_detail_id', $lesson_detail_id)
+                ->update($data);
+            return true;
+        }
+
         $data = [
-            'close_date' => Carbon::now()->format('Y-m-d H:i:s'),
+            'user_id' => $user_id,
+            'lesson_detail_id' => $lesson_detail_id,
+            'close_date' => $now,
+            'view_date' => $now,
             'mode' => USER_LESSON_DETAIL_MODE_CLOSE
         ];
-        $this
-            ->where('user_id', $user_id)
-            ->where('lesson_detail_id', $lesson_detail_id)
-            ->update($data);
-
+        $this->create($data);
         return true;
     }
     
     public function closed(int $user_id, int $lesson_id, int $lesson_detail_id)
     {
         return $this->where('user_id', $user_id)
-            ->where('lesson_detail_id', $lesson_id)
+            ->where('lesson_detail_id', $lesson_detail_id)
             ->where('mode', USER_LESSON_DETAIL_MODE_CLOSE)
             ->exists();
     }
