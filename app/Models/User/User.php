@@ -4,6 +4,7 @@ namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,6 +27,16 @@ class User extends Authenticatable
             $invitation = new Invitation();
             $invitation->flush($affiliator_token, $invitor->id, $participant_id);
         }
+
+        return true;
+    }
+
+    public function updateUserId(int $id)
+    {
+        $this->where('id', $id)
+            ->update([
+                'user_id' => !empty(Auth::user()->user_id) ? Auth::user()->user_id : $id
+              ]);
 
         return true;
     }

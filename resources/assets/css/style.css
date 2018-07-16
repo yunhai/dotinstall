@@ -41,6 +41,10 @@ body {
 .nav-link-header-title {
     vertical-align: bottom;
 }
+.nav-item-user .dropdown-toggle::after {
+    margin-left: -0.4em;
+    position: absolute;
+}
 .ttlCommon {
     font-size: 0.875rem;
     padding: 10px 20px;
