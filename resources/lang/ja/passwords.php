@@ -14,8 +14,8 @@ return [
     */
 
     'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
+    'reset' => 'パスワードが再設定されました。',
+    'sent' => '入力されたメールアドレス宛てにメールを送信しました。メールに記載された手順に従って、パスワードを再設定してください。',
     'token' => 'This password reset token is invalid.',
     'user' => "そのメールアドレスは登録されていません",
 
