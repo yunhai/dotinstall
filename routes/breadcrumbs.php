@@ -46,6 +46,12 @@ Breadcrumbs::for('register', function ($trail) {
     $trail->push('新規ユーザー登録', route('register'));
 });
 
+// パスワード再設定手続き
+Breadcrumbs::for('password.request', function ($trail) {
+    $trail->parent('top');
+    $trail->push('パスワード再設定手続き', route('password.request'));
+});
+
 // クレジットカード決済
 Breadcrumbs::for('stripe', function ($trail) {
     $trail->parent('top');
