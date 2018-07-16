@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('affiliator_token', 256)->default('');
             $table->string('provider', 256)->default('');
             $table->string('provider_user_id', 256)->default('');
+            $table->unsignedInteger('user_id');
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();
