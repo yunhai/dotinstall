@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +36,22 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('web')->except('logout');
+    }
+
+    protected function credentials(Request $request) {
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => USER_ROLE_PUBLIC,
+            'mode' => USER_MODE_ENABLE,
+            'deleted_at' => NULL
+        ];
+        return array_merge($credentials);
+    }
+
+    public function getLogout()
+    {
+        auth('web')->logout();
+        return redirect('/');
     }
 }

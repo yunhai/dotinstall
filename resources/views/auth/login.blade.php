@@ -9,9 +9,9 @@
         <div class="row">
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                    <a class="nav-link active show" href="/" role="tab">ログイン</a>
+                    <a class="nav-link active show" href="{{ route('login') }}" role="tab">ログイン</a>
                     <a class="nav-link" href="/register" role="tab">新規ユーザー登録</a>
-                    <a class="nav-link" href="#v-pills-messages" role="tab">パスワードを忘れた？</a>
+                    <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -29,8 +29,8 @@
                                             <div class="form-group row">
                                                 <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
 
-                                                <div class="col-md-6">
-                                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                                <div class="col-md-7">
+                                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                                                     @if ($errors->has('email'))
                                                         <span class="invalid-feedback" role="alert">
@@ -43,20 +43,27 @@
                                             <div class="form-group row">
                                                 <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
 
-                                                <div class="col-md-6">
-                                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                                <div class="col-md-7">
+                                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
                                                     @if ($errors->has('password'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('password') }}</strong>
                                                         </span>
                                                     @endif
+
+                                                    <p class="form-check mt-3 mb-0">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
+                                                        </label>
+                                                    </p>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row mb-0">
-                                                <div class="col-md-6 offset-md-4">
+                                                <div class="col-md-7 offset-md-4">
                                                     <button type="submit" class="btn btn-default">ログイン</button>
+                                                    <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                 </div>
                                             </div>
                                         </form>
@@ -70,7 +77,7 @@
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                     <div class="card">
-                        <div class="card-header">その他の方法でログイン</div>
+                        <div class="card-header text-center">その他の方法でログイン</div>
 
                         <div class="card-body">
                             <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>

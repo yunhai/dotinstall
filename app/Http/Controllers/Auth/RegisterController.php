@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\Models\User\User;
 use App\Models\Invitation;
 
 use App\Http\Controllers\Controller;
@@ -53,11 +53,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6',
-        ]);
+        ];
+        if (!empty($data['password'])) {
+            $validator['password'] = 'required|string|min:6';
+        }
+        return Validator::make($data, $validator);
     }
 
     /**
@@ -71,17 +74,26 @@ class RegisterController extends Controller
         $unique = str_random();
         $model = new User();
 
-        $target = $model->create([
-            'name' => $unique . $data['name'],
-            'email' => $unique . $data['email'],
-            'password' => Hash::make($data['password']),
+        $result = [
+            'name' => $data['name'],
+            'email' => $data['email'],
             'role' => USER_ROLE_PUBLIC,
             'provider' => isset($data['provider']) ? $data['provider'] : '',
             'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
-        ]);
+        ];
+
+        if (!empty($data['password'])) {
+            $result['password'] = Hash::make($data['password']);
+        }
+
+        $target = $model->create($result);
 
         if (!empty($data['token'])) {
             $model->updateInvitation($data['token'], $target->id);
+        }
+
+        if (!empty($target->id)) {
+            $model->updateUserId($target->id);
         }
 
         return $target;
@@ -104,7 +116,9 @@ class RegisterController extends Controller
             Auth::attempt(['name' => $name, 'email' => $email]);
             return redirect('/');
         }
-        return redirect()->route('register', [
+        return redirect()->route(
+            'register',
+            [
             'provider' => $provider,
             'provider_user_id' => $id,
             'name' => $name,

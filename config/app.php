@@ -160,7 +160,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        \Pion\Laravel\ChunkUpload\Providers\ChunkUploadServiceProvider::class
+        \Pion\Laravel\ChunkUpload\Providers\ChunkUploadServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
     ],
 
     /*
@@ -209,6 +210,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Notification' => Illuminate\Support\Facades\Notification::class,
 
     ],
 

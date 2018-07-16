@@ -17,7 +17,7 @@ class CreateInvitationsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('invitor_id');
             $table->unsignedInteger('participant_id')->default(0);
-            $table->date('effective_date')->nullable();
+            $table->dateTime('effective_date')->nullable();
             $table->string('token', 256);
             $table->unsignedTinyInteger('mode')->default(1);
             $table->unsignedInteger('created_user_id')->default(0);

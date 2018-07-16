@@ -41,6 +41,10 @@ body {
 .nav-link-header-title {
     vertical-align: bottom;
 }
+.nav-item-user .dropdown-toggle::after {
+    margin-left: -0.4em;
+    position: absolute;
+}
 .ttlCommon {
     font-size: 0.875rem;
     padding: 10px 20px;
@@ -163,14 +167,18 @@ body {
     border: none;
     border-radius: 0;
 }
+.box.box-panel .card .card-img {
+    border-radius: 0;
+}
 .col-lesson {
     margin-top: 30px;
 }
-.col-lesson .card-img-top {
-    max-height: 134px;
-}
 .col-lesson .card-img-video {
+    border-radius: 0;
     height: 134px;
+}
+.col-lesson .card-text-name {
+    height: 74px;
 }
 @media (min-width: 992px) {
 	.col-lesson.col-lg-3 {
@@ -206,20 +214,20 @@ body {
     font-size: 0.8125rem;
 }
 .box .card .btn-request .btn-to-complete {
-    border: 2px solid #dfdfe0;
-    max-width: 105px;
+    /*border: 2px solid #dfdfe0;
+    max-width: 105px;*/
 }
 .box .card .btn-request .btn-sorce-conformation {
-    border: 2px solid #fbc276;
-    max-width: 105px;
+    /*border: 2px solid #fbc276;
+    max-width: 105px;*/
 }
 .box .card .btn-request .btn-completion {
-    border: 2px solid #25dced;
-    max-width: 105px;
+    /*border: 2px solid #25dced;
+    max-width: 105px;*/
 }
 .box .card .btn-request .btn-diamond {
-    border: 2px solid #a689fb;
-    max-width: 242px;
+    /*border: 2px solid #a689fb;
+    max-width: 242px;*/
 }
 .box .card .card-title-header {
     font-size: 2.5rem;
@@ -321,7 +329,7 @@ body {
 /* lESSON
 ------------------------------------------------------------ */
 .box-lesson {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #f5f3f3;
 }
 .box-lesson .list-group .list-group-item {
@@ -342,6 +350,11 @@ body {
 ------------------------------------------------------------ */
 .form-group-stripe {
     border-bottom: 1px solid #bca9af;
+}
+/* mypage
+------------------------------------------------------------ */
+.card.card-mypage .card-body {
+    height: 172px;
 }
 /* BREADCRUMB
 ------------------------------------------------------------ */

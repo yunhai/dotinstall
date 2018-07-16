@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
 @section('content')
-
+@section('breadcrumbs', Breadcrumbs::render('stripe'))
 <div id="content">
     <div class="box"><h2 class="ttlCommon mb-0">マイページ</h2></div>
     <div class="container col-8 mar_b30">
@@ -20,44 +20,14 @@
                         <p>動画は全て見放題となります！動画は毎月増えます！</p>
                         <p>※ 毎月自動的に決済されます。<br>※ 購入後、設定変更画面から自動更新を停止することもできます。</p>
                     </div>
-                    <div class="form-group form-group-stripe">
-                        <p class="text-danger">ＳＮＳでシャエや投稿で、ずっと５００円！でお得に！<p>
-                        <p>１つ選んで決済に進んでください！</p>
-                    </div>
-                    <div class="form-group form-group-stripe">
-                        <div class="form-check">
-                            <p>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">通常のご料金、900円（税別）
-                                </label>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="form-group form-group-stripe">
-                        <div class="form-check">
-                            <p>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" style="margin-top: 1.25rem;">Facebookで投稿すると、ずっと月額500円（税別）
-                                    <br><span class="text-danger">投稿するとチェックできるようになります。</span>
-                                    <br><a href="#" class="btn btn-facebook"><span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">投稿する（未完）</span></a>
-                                </label>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="form-group form-group-stripe">
-                        <div class="form-check">
-                            <p>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" style="margin-top: 1.25rem;">Twitterでツイートすると、ずっと月額500円（税別）
-                                    <br><span class="text-danger">シャアするとチェックできるようになります。</span>
-                                    <br><a href="#" class="btn btn-twitter"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">シェアする（未完）</span></a>
-                                </label>
-                            </p>
-                        </div>
-                    </div>
                     <div class="form-group form-group-stripe mb-0 border-bottom-0">
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
+                            <p class="col-md-4 col-form-label text-md-left">ダイヤモンド会員、月額/980円（税別）<p>
+
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="card_number" class="col-md-4 col-form-label text-md-right">クレジットカード番号</label>
 
                             <div class="col-md-6">
                                 <p><input type="text" class="form-control" name="" value=""></p>
@@ -83,6 +53,11 @@
                                     <option value="mercedes">Mercedes</option>
                                     <option value="audi">Audi</option>
                                     </select>
+                                </p>
+                                <p class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">規約に同意
+                                    </label>
                                 </p>
                                 <p>
                                     <button type="submit" class="btn btn-primary">ダイヤモンド会員に登録する</button>

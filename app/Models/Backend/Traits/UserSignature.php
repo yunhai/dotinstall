@@ -15,8 +15,8 @@ trait UserSignature
         });
 
         static::updating(function ($model) {
-            $model->setUser('updated_user_id', false);
-            $model->setDate('updated_at', false);
+            $model->setUser('updated_user_id', true);
+            $model->setDate('updated_at', true);
         });
 
         static::deleting(function ($model) {
@@ -24,7 +24,7 @@ trait UserSignature
         });
     }
 
-    protected function setUser(string $field = 'created_user_id', bool $update = true)
+    protected function setUser(string $field = 'created_user_id', bool $update = false)
     {
         $user = Auth::user();
         $this->$field = $user->id;
@@ -33,7 +33,7 @@ trait UserSignature
         }
     }
 
-    protected function setDate(string $field = 'created_at', bool $update = true)
+    protected function setDate(string $field = 'created_at', bool $update = false)
     {
         $now = Carbon::now();
         $this->$field = $now;

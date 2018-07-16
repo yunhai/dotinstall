@@ -21,7 +21,7 @@ class Invitation extends Base
             'token' => $token,
             'effective_date' => Carbon::now()->format('Y-m-d H:i:s')
         ];
-        
+
         $this->create($data);
         return true;
     }

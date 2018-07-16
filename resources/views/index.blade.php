@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
 @section('content')
-<div class="box mb-0">
+<div class="box box-panel mb-0">
     <div class="card">
         <img class="card-img" src="/img/panel.jpg">
         <div class="card-img-overlay">
@@ -15,14 +15,16 @@
                         <a href="/" class="btn btn-primary btn-lg card-sign-button">新規登録で５個動画無料！</a>
                     </div>
                     <div class="card-video col-lg-7 d-none d-lg-block">
-                        <iframe width="100%" height="315"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="box">
+<div class="box box-panel">
     <div class="card">
         <img class="card-img" src="/img/panel_language.png">
     </div>
@@ -32,13 +34,14 @@
         <div class="box">
             <div class="card">
                 <div class="lession-heading w-100">
-                    <img class="img-fluid" src="/img/light-bulb.png"><span>【{{ $lesson['ms_categories']['name'] ?? '' }}】{{ $lesson['name'] }}</span>
+                    <img class="img-fluid" src="/img/light-bulb.png" />
+                    <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
                     <a href="{{ route('lesson') }}" class="lession-heading-url float-right">レッスン一覧</a>
                 </div>
             </div>
             <div class="card card-video-list">
                 <div class="container-fluid">
-                    @include('component.lesson.item', ['lesson_details' => array_chunk($lesson['lesson_details'], 5)])
+                    @include('component.lesson.item', ['lesson_details' => $lesson['lesson_details']])
                 </div>
             </div>
         </div>
@@ -47,7 +50,7 @@
 <div class="box">
     <div class="card-lesson-total text-center">
         <p class="card-text">
-            <a href="#" class="btn btn-sm btn-request">全てのレッスンを見る（５０）</a>
+            <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $total_lessons }}）</a>
         </p>
     </div>
 </div>

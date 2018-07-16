@@ -26,6 +26,40 @@ class SocialiteYahooJpProvider extends AbstractProvider implements ProviderInter
         return 'https://auth.login.yahoo.co.jp/yconnect/v1/token';
     }
 
+    /**
+     * Get the POST fields for the token request.
+     *
+     * @param  string  $code
+     * @return array
+     */
+    protected function getTokenFields($code)
+    {
+        return array_add(
+            parent::getTokenFields($code), 'grant_type', 'authorization_code'
+        );
+    }
+
+    //Token取得の際のオプション
+    //Basic認証と必要なPOSTパラメータを送付
+    public function getAccessTokenResponse($code)
+    {
+        $basic_auth_key = base64_encode($this->clientId.":".$this->clientSecret);
+        $response = $this->getHttpClient()->post($this->getTokenUrl(), [
+            //認証
+            'headers' => [
+                'Authorization' => 'Basic '.$basic_auth_key,
+            ],
+            // 直接記述
+            'form_params' => [
+                'grant_type' => 'authorization_code',
+                'code' => $code,
+                'redirect_uri' => $this->redirectUrl
+            ],
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
+
     protected function getUserByToken($token)
     {
         $response = $this->getHttpClient()->get(
@@ -40,18 +74,10 @@ class SocialiteYahooJpProvider extends AbstractProvider implements ProviderInter
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id' => $user['userId'] ?? $user['sub'] ?? null,
-            'nickname' => null,
-            'name' => $user['displayName'] ?? $user['name'] ?? null,
-            'avatar' => $user['pictureUrl'] ?? $user['picture'] ?? null,
-            'email' => $user['email'] ?? null,
+              'id' => $user['user_id'],
+              'name' => $user['name'],
+              'email' => $user['email'],
         ]);
     }
 
-    protected function getTokenFields($code)
-    {
-        return array_merge(parent::getTokenFields($code), [
-            'grant_type' => 'authorization_code',
-        ]);
-    }
 }
