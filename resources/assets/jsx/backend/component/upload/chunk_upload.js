@@ -1,11 +1,12 @@
 import Resumable from './resumable';
+import CaptureVideo from './capture_video';
 
 export default class ChuckUpload {
     bind($target, query = {}) {
         const url = $target.data('url');
 
         const option = {
-            chunkSize: 1 * 1024 * 1024, // 1MB
+            chunkSize: 2 * 1024 * 1024, // 1MB
             simultaneousUploads: 3,
             testChunks: false,
             throttleProgressCallbacks: 1,
@@ -59,7 +60,6 @@ export default class ChuckUpload {
 
     callbackVideo(obj, $target, $callback) {
         const name = $target.data('name');
-
         const html = `
             <input type='hidden' value='${obj.id}' name='${name}[${obj.id}][id]'/>
             <input type='hidden' value='video' name='${name}[${obj.id}][type]'/>
@@ -77,6 +77,25 @@ export default class ChuckUpload {
         `;
 
         $callback.find('.dd-preview').append(html);
+
+        const $target2 = $('.j-poster');
+        const $callback2 = $target2.find('.dd-callback');
+        if ($callback2.find('.dd-preview-image').length === 0) {
+            const html2 = `
+                <div class='dd-callback__item'>
+                    <span class="dd-callback__filename"></span>
+                    <span class="dd-callback__progress"></span>
+                    <div class='dd-progress_bar' style='display: none'></div>
+                    <div class='dd-preview'></div>
+                </div>
+            `;
+            $callback2.append(html2);
+
+            const captureVideo = new CaptureVideo();
+            const fcallback = this.callbackImage;
+
+            captureVideo.capture(obj, fcallback, $target2, $callback2);
+        }
     }
 
     callbackImage(obj, $target, $callback) {
@@ -157,12 +176,14 @@ export default class ChuckUpload {
             this.callback(obj, $target, $callback);
         });
     }
+
     bindFileError(resumable, $target, $callback) {
         resumable.on('fileError', (file, message) => {
             const $target = $(`.dd-callback__${file.uniqueIdentifier}`);
             $target.find('.dd-callback__progress').html(`Error: [${message}]`);
         });
     }
+
     bindFileProgress(resumable, $target, $callback) {
         resumable.on('fileProgress', (file) => {
             const $target = $(`.dd-callback__${file.uniqueIdentifier}`);

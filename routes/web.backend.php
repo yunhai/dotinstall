@@ -37,6 +37,8 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('media/chunk', 'Media@postChunk');
     Route::get('media/download/{media_id}', 'Media@getDownload')->name('backend.media.download');
+    Route::post('media/upload', 'Media@postUpload');
+    Route::post('media/content', 'Media@postContent');
 
     Route::get('ms_category', 'MsCategory@getIndex')->name('backend.ms_category.index');
     Route::get('ms_category/create', 'MsCategory@getCreate')->name('backend.ms_category.create');

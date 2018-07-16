@@ -67,6 +67,7 @@
                     'field_name' => 'poster',
                     'field_value' => array_get($target, 'posters', ''),
                     'field_type' => 'file_dd',
+                    'field_class' => 'j-poster',
                     'field_attribute' => [
                         'data-url' => '/backend/media/chunk/',
                         'data-preview' => 1,
