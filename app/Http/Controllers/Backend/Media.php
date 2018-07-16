@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Service\Common\Upload\ChunkUpload;
+use App\Http\Service\Common\Upload\ContentUpload;
 use App\Models\Backend\Media as MediaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -28,6 +29,13 @@ class Media extends Base
         return response(Storage::disk('media')->get($target['path']))
             ->header('Content-Type', $target['mime'])
             ->header('Content-Disposition', 'attachment; filename="' . $target['original_name'] . '"');
+    }
+
+    public function postContent(Request $request)
+    {
+        $uploader = new ContentUpload();
+        $info = $uploader->save($request->all(), 'media');
+        return response()->json($info);
     }
 }
 

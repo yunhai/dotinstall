@@ -16,7 +16,7 @@
             $empty_flag = empty($field_value);
         @endphp
 
-        <div class='dd-container'
+        <div class='dd-container {{ @$field_class }}'
             @foreach ($field_attribute as $key => $value)
                 {{ $key }}="{{ $value }}"
             @endforeach
