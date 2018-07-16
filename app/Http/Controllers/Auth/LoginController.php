@@ -44,7 +44,7 @@ class LoginController extends Controller
             'password' => $request->password,
             'role' => USER_ROLE_PUBLIC,
             'mode' => USER_MODE_ENABLE,
-            'deleted_at' => 'NULL'
+            'deleted_at' => NULL
         ];
         return array_merge($credentials);
     }

@@ -82,7 +82,7 @@
                                                 <label for="name" class="col-md-4 col-form-label text-md-right">ユーザー名</label>
 
                                                 <div class="col-md-7">
-                                                    <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                                    <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" autofocus>
 
                                                     @if ($errors->has('name'))
                                                         <span class="invalid-feedback" role="alert">
@@ -96,7 +96,7 @@
                                                 <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
 
                                                 <div class="col-md-7">
-                                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') ? old('email') : app('request')->input('email') }}" required>
+                                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') ? old('email') : app('request')->input('email') }}">
 
                                                     @if ($errors->has('email'))
                                                         <span class="invalid-feedback" role="alert">
@@ -111,7 +111,7 @@
                                                 <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
 
                                                 <div class="col-md-7">
-                                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
                                                     <div class="form-text">パスワードは6文字以上にしてください。</div>
 
                                                     @if ($errors->has('password'))
