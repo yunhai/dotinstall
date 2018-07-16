@@ -11,7 +11,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                     <a class="nav-link active show" href="{{ route('login') }}" role="tab">ログイン</a>
                     <a class="nav-link" href="/register" role="tab">新規ユーザー登録</a>
-                    <a class="nav-link" href="{{ route('password.email') }}" role="tab">パスワードを忘れた？</a>
+                    <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -63,7 +63,7 @@
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-7 offset-md-4">
                                                     <button type="submit" class="btn btn-default">ログイン</button>
-                                                    <div class="help-block mt-3"><a href="">パスワードを忘れた方はこちらへ</a></div>
+                                                    <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                 </div>
                                             </div>
                                         </form>

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title', 'パスワードの再設定')
-@section('breadcrumbs', Breadcrumbs::render('password.request'))
+@section('breadcrumbs', Breadcrumbs::render('password.reset'))
 @section('content')
 <div id="content">
     <div class="box mb-0"><h2 class="ttlCommon">パスワードの再設定</h2></div>
