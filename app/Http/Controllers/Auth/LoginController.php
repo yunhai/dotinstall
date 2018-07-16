@@ -36,4 +36,10 @@ class LoginController extends Controller
     {
         $this->middleware('web')->except('logout');
     }
+
+    public function getLogout()
+    {
+        auth('web')->logout();
+        return redirect('/');
+    }
 }

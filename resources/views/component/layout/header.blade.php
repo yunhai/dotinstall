@@ -43,7 +43,7 @@
                             <div class="dropdown-message small">ヘルプ</div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('logout') }}">
                             <div class="dropdown-message small">ログアウト</div>
                         </a>
                     </div>

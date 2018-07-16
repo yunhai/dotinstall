@@ -37,6 +37,8 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/close', 'Lesson\LessonDetail\LessonDetail@getClose')->name('lesson_detail.close');
 });
 
+Route::get('logout', 'Auth\LoginController@getLogout')->name('logout');
+
 //////////////////////////////////////////////////
 Route::get('affiliate', 'Home@getAffiliate')->name('affiliate');
 Route::get('home', 'Home@getMyPage')->name('home');
