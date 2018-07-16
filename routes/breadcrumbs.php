@@ -47,9 +47,15 @@ Breadcrumbs::for('register', function ($trail) {
 });
 
 // パスワード再設定手続き
+Breadcrumbs::for('password.email', function ($trail) {
+    $trail->parent('top');
+    $trail->push('パスワード再設定手続き', route('password.email'));
+});
+
+// パスワードの再設定
 Breadcrumbs::for('password.request', function ($trail) {
     $trail->parent('top');
-    $trail->push('パスワード再設定手続き', route('password.request'));
+    $trail->push('パスワードの再設定', route('password.request'));
 });
 
 // クレジットカード決済

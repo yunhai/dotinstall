@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title', 'パスワード再設定手続き')
-@section('breadcrumbs', Breadcrumbs::render('password.request'))
+@section('breadcrumbs', Breadcrumbs::render('password.email'))
 @section('content')
 <div id="content">
     <div class="box mb-0"><h2 class="ttlCommon">パスワード再設定手続き</h2></div>
@@ -11,7 +11,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                     <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
                     <a class="nav-link" href="/register" role="tab">新規ユーザー登録</a>
-                    <a class="nav-link active show" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
+                    <a class="nav-link active show" href="{{ route('password.email') }}" role="tab">パスワードを忘れた？</a>
                 </div>
             </div>
             <div class="col-lg-6">
