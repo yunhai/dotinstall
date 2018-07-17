@@ -41,14 +41,12 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->view(
-            'emails.reset', ['token' => $this->token]
-        );
-        /*return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');*/
-
+        return (new MailMessage)
+            ->from(MAIL_FROM_ADDRESS, MAIL_FROM_NAME)
+            ->subject(MAIL_SUBJECT_RESET_PASSWORD)
+            ->view(
+                'emails.reset', ['token' => $this->token]
+            );
     }
 
     /**
