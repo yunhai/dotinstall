@@ -22,19 +22,17 @@
     <div class="box border-top-0">
         <div class="card card-video-list">
             <div class="container-fluid">
-                @php 
+                @php
                     $video = [];
                     if (!empty($target['videos'])) {
                         $video = current($target['videos']);
                     }
                 @endphp
                 @if ($video)
-                <div class="embed-responsive embed-responsive-16by9">
-                    <video id="j-video" playsinline controls>
+                    <video controls crossorigin playsinline id="j-player">
                         @php $video_path = $video['path']; @endphp
-                        <source src="@media_path($video_path)" type="video/mp4">
+                        <source src="@media_path($video_path)" type="video/mp4" size="1080" >
                     </video>
-                </div>
                 @endif
                 <div class="container-fluid">
                     <div class="row box-request">
