@@ -17,17 +17,23 @@ class Lesson extends Base
         return $this->hasOne('App\Models\MsCategory', 'id', 'category_id');
     }
 
+    public function scopeEnable($query)
+    {
+        $query->where('mode', MODE_ENABLE);
+    }
+
     public function getLessonsForHome()
     {
         return $this::with(
             ['lesson_details' => function ($q) {
-                $q->take(20);
+                $q->enable()->take(20);
             },
                 'lesson_details.videos',
                 'lesson_details.posters',
                 'ms_categories'
             ]
         )
+            ->enable()
             ->inRandomOrder(2)
             ->get()
             ->toArray();
@@ -35,7 +41,7 @@ class Lesson extends Base
 
     public function getLessons()
     {
-        $lessons = $this::with(['ms_categories'])->get();
+        $lessons = $this::with(['ms_categories'])->enable()->get();
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }
@@ -47,6 +53,7 @@ class Lesson extends Base
         $with = ['lesson_details', 'lesson_details.posters', 'ms_categories'];
         return $this::with($with)
                         ->where('id', $lesson_id)
+                        ->enable()
                         ->first()
                         ->toArray();
     }

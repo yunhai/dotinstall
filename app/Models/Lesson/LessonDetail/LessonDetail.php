@@ -11,7 +11,7 @@ class LessonDetail extends Base
     {
         return $this->hasMany(LessonDetailAttachment::class)->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE);
     }
-    
+
     public function source_codes()
     {
         return $this->hasMany(LessonDetailAttachment::class)->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE);
@@ -26,13 +26,19 @@ class LessonDetail extends Base
     {
         return $this->hasMany(Media::class, 'id', 'poster');
     }
-    
+
+    public function scopeEnable($query)
+    {
+        $query->where('mode', MODE_ENABLE);
+    }
+
     public function getAll($lesson_id)
     {
         $with = ['posters',  'videos', 'source_codes', 'resources'];
         return $this::with($with)
                         ->where('lesson_id', $lesson_id)
                         ->orderBy('sort')
+                        ->enable()
                         ->get()
                         ->toArray();
     }
