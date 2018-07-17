@@ -58,6 +58,12 @@ Breadcrumbs::for('password.reset', function ($trail) {
     $trail->push('パスワードの再設定');
 });
 
+// パスワードの変更
+Breadcrumbs::for('user.change_password', function ($trail) {
+    $trail->parent('home');
+    $trail->push('パスワードの変更');
+});
+
 // クレジットカード決済
 Breadcrumbs::for('stripe', function ($trail) {
     $trail->parent('top');
