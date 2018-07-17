@@ -4,6 +4,7 @@ namespace App\Models\User;
 
 use App\Models\Base;
 use Carbon\Carbon;
+use DB;
 
 class UserLesson extends Base
 {
@@ -26,14 +27,14 @@ class UserLesson extends Base
         $this->create($data);
         return true;
     }
-    
+
     public function enrolled(int $user_id, int $lesson_id)
     {
         return $this->where('user_id', $user_id)
             ->where('lesson_id', $lesson_id)
             ->exists();
     }
-    
+
     public function close(int $user_id, int $lesson_id)
     {
         $data = [
@@ -55,5 +56,15 @@ class UserLesson extends Base
                     ->where('lesson_id', $lesson_id)
                     ->where('mode', USER_LESSON_MODE_CLOSE)
                     ->exists();
+    }
+
+    public function getStat(array $lesson_id)
+    {
+        return $this->select('lesson_id', DB::raw('count(*) as count'))
+                 ->whereIn('lesson_id', $lesson_id)
+                 ->groupBy('lesson_id')
+                 ->get()
+                 ->pluck('count', 'lesson_id')
+                 ->toArray();
     }
 }
