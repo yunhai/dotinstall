@@ -30,6 +30,8 @@ Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 
 Route::group(['middleware' => ['user']], function () {
+    Route::get('mypage', 'MyPage@getMyPage')->name('mypage');
+
     Route::get('lesson/{lesson_id}/enroll', 'Lesson\Lesson@getEnroll')->name('lesson.enroll');
     Route::get('lesson/{lesson_id}/close', 'Lesson\Lesson@getClose')->name('lesson.close');
 

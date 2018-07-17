@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-class Home extends Base
+class MyPage extends Base
 {
     public function getMyPage()
     {
-        return $this->render('home');
+        return $this->render('mypage');
     }
 }

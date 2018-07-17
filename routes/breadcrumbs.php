@@ -5,9 +5,9 @@ Breadcrumbs::for('top', function ($trail) {
 });
 
 // マイページ
-Breadcrumbs::for('home', function ($trail) {
+Breadcrumbs::for('mypage', function ($trail) {
     $trail->parent('top');
-    $trail->push('マイページ', route('home'));
+    $trail->push('マイページ', route('mypage'));
 });
 
 // 利用規約
@@ -60,7 +60,7 @@ Breadcrumbs::for('password.reset', function ($trail) {
 
 // パスワードの変更
 Breadcrumbs::for('user.change_password', function ($trail) {
-    $trail->parent('home');
+    $trail->parent('mypage');
     $trail->push('パスワードの変更');
 });
 
