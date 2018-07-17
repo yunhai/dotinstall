@@ -10,7 +10,7 @@
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                     <a class="nav-link active show" href="{{ route('login') }}" role="tab">ログイン</a>
-                    <a class="nav-link" href="/register" role="tab">新規ユーザー登録</a>
+                    <a class="nav-link" href="{{ route('register') }}" role="tab">新規ユーザー登録</a>
                     <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                 </div>
             </div>
