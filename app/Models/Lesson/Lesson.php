@@ -26,7 +26,7 @@ class Lesson extends Base
     {
         return $this::with(
             ['lesson_details' => function ($q) {
-                $q->enable()->take(20);
+                $q->enable()->orderBy('sort', 'asc')->take(20);
             },
                 'lesson_details.videos',
                 'lesson_details.posters',
@@ -34,14 +34,17 @@ class Lesson extends Base
             ]
         )
             ->enable()
-            ->inRandomOrder(2)
+            ->orderBy('id', 'desc')
             ->get()
             ->toArray();
     }
 
     public function getLessons()
     {
-        $lessons = $this::with(['ms_categories'])->enable()->get();
+        $lessons = $this::with(['ms_categories'])
+                        ->enable()
+                        ->orderBy('id', 'desc')
+                        ->get();
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }
