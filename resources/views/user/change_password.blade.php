@@ -27,10 +27,10 @@
                                             @csrf
 
                                             <div class="form-group row">
-                                                <label for="email" class="col-md-4 col-form-label text-md-right">現在のパスワード</label>
+                                                <label for="current_password" class="col-md-4 col-form-label text-md-right">現在のパスワード</label>
 
                                                 <div class="col-md-7">
-                                                    <input type="password" class="form-control{{ $errors->has('current_password') ? ' is-invalid' : '' }}" name="current_password" value="{{ $current_password ?? old('current_password') }}" autofocus>
+                                                    <input id="current_password" type="password" class="form-control{{ $errors->has('current_password') ? ' is-invalid' : '' }}" name="current_password" value="{{ $current_password ?? old('current_password') }}" autofocus>
 
                                                     @if ($errors->has('current_password'))
                                                         <span class="invalid-feedback" role="alert">
@@ -41,16 +41,17 @@
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="password" class="col-md-4 col-form-label text-md-right">新パスワード</label>
+                                                <label for="new_password" class="col-md-4 col-form-label text-md-right">新パスワード</label>
 
                                                 <div class="col-md-7">
-                                                    <input type="new_password" class="form-control{{ $errors->has('new_password') ? ' is-invalid' : '' }}" name="new_password">
+                                                    <input id="new_password" type="password" class="form-control{{ $errors->has('new_password') ? ' is-invalid' : '' }}" name="new_password">
 
                                                     @if ($errors->has('new_password'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('new_password') }}</strong>
                                                         </span>
                                                     @endif
+                                                    <div class="form-text">パスワードは6文字以上にしてください。</div>
                                                 </div>
                                             </div>
 
@@ -58,7 +59,7 @@
                                                 <label for="new_password_confirmation" class="col-md-4 col-form-label text-md-right">新パスワード (確認)</label>
 
                                                 <div class="col-md-7">
-                                                    <input type="password" class="form-control" name="new_password_confirmation">
+                                                    <input id="new_password_confirmation" type="password" class="form-control" name="new_password_confirmation">
                                                 </div>
                                             </div>
 
