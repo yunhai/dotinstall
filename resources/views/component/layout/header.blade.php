@@ -30,7 +30,7 @@
                         <span class="d-none d-lg-block">{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu" style="right: 0; left: auto;">
-                        <a class="dropdown-item" href="{{ route('home') }}">
+                        <a class="dropdown-item" href="{{ route('mypage') }}">
                             <div class="dropdown-message small">マイページ</div>
                         </a>
                         <a class="dropdown-item" href="#">

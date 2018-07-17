@@ -1,5 +1,5 @@
 <?php
-// Home
+// トップ
 Breadcrumbs::for('top', function ($trail) {
     $trail->push('トップ', route('top'));
 });
@@ -76,20 +76,28 @@ Breadcrumbs::for('affiliate', function ($trail) {
     $trail->push('アフィリエイト', route('affiliate'));
 });
 
-// Home > Lesson
+// レッスン一覧
 Breadcrumbs::for('lesson', function ($trail) {
-    $trail->parent('top');
+    if (!empty(Auth::user())) {
+        $trail->parent('mypage');
+    } else {
+        $trail->parent('top');
+    }
     $trail->push('レッスン一覧', route('lesson'));
 });
 
-// Home > Lesson
+// レッスン一覧
 Breadcrumbs::for('lesson.detail', function ($trail, $name) {
     $trail->parent('lesson');
     $trail->push($name, route('lesson'));
 });
 
-// Home > Lesson
+// レッスン詳細
 Breadcrumbs::for('lesson_detail', function ($trail) {
-    $trail->parent('top');
+    if (!empty(Auth::user())) {
+        $trail->parent('mypage');
+    } else {
+        $trail->parent('top');
+    }
     $trail->push('レッスン一覧', route('lesson'), ['enable_link' => true]);
 });

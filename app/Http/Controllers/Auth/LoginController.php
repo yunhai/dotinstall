@@ -52,6 +52,6 @@ class LoginController extends Controller
     public function getLogout()
     {
         auth('web')->logout();
-        return redirect('/');
+        return redirect('');
     }
 }
