@@ -5,7 +5,15 @@
 <div id="content">
     <div class="box mb-0"><h2 class="ttlCommon">パスワード再設定手続き</h2></div>
     <div class="container mar_b30">
-        <p class="mar_t30 mar_b30">パスワードを忘れた方は以下に登録時のメールアドレスを入力してください。手続きの手順を説明したメールを送らせていただきます。</p>
+        @if (session('status'))
+            <p class="alert alert-info mar_t30 mar_b30">
+                <button type="button" class="close" data-dismiss="alert" style="font-size: 13px; line-height: inherit;">×</button>
+                {{ session('status') }}
+            </p>
+        @else
+            <p class="mar_t30 mar_b30">パスワードを忘れた方は以下に登録時のメールアドレスを入力してください。手続きの手順を説明したメールを送らせていただきます。</p>
+        @endif
+
         <div class="row">
             <div class="col-3 d-none d-lg-block">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
