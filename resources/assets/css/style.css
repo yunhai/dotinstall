@@ -550,3 +550,10 @@ body {
 .mar_b60 {
     margin-bottom:60px;
 }
+.player {
+    overflow: hidden;
+    width:100%;
+}
+.hidden {
+    display: none;
+}

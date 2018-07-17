@@ -29,10 +29,12 @@
                     }
                 @endphp
                 @if ($video)
-                    <video controls crossorigin playsinline id="j-player">
+                <div class="player">
+                    <video controls crossorigin playsinline id="j-player" class='hidden'>
                         @php $video_path = $video['path']; @endphp
-                        <source src="@media_path($video_path)" type="video/mp4" size="1080" >
+                        <source src="@media_path($video_path)" type="video/mp4" size="720" >
                     </video>
+                </div>
                 @endif
                 <div class="container-fluid">
                     <div class="row box-request">
