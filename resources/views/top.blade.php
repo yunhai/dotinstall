@@ -15,9 +15,11 @@
                         <a href="/" class="btn btn-primary btn-lg card-sign-button">新規登録で５個動画無料！</a>
                     </div>
                     <div class="card-video col-lg-7 d-none d-lg-block">
+                        @if (!empty($youtube_link))
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="{{ $youtube_link['link'] }}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

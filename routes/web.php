@@ -12,13 +12,13 @@
 */
 Auth::routes();
 
-Route::get('', 'Home@index')->name('top');
+Route::get('', 'Top@index')->name('top');
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
-Route::get('contact', 'Home@getContact')->name('contact');
-Route::get('company', 'Home@getCompany')->name('company');
+Route::get('contact', 'Page@getContact')->name('contact');
+Route::get('company', 'Page@getCompany')->name('company');
 
 Route::get('lesson', 'Lesson\Lesson@getLesson')->name('lesson');
 Route::get('lesson/{lesson_id}/detail', 'Lesson\Lesson@getDetail')->name('lesson.detail');
@@ -26,8 +26,8 @@ Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}', 'Lesson\LessonDetail\
 
 Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.download');
 
-Route::get('privacy', 'Home@getPrivacy')->name('privacy');
-Route::get('terms', 'Home@getTerms')->name('terms');
+Route::get('privacy', 'Page@getPrivacy')->name('privacy');
+Route::get('terms', 'Page@getTerms')->name('terms');
 
 Route::group(['middleware' => ['user']], function () {
     Route::get('lesson/{lesson_id}/enroll', 'Lesson\Lesson@getEnroll')->name('lesson.enroll');
@@ -43,6 +43,6 @@ Route::group(['middleware' => ['user']], function () {
 Route::get('logout', 'Auth\LoginController@getLogout')->name('logout');
 
 //////////////////////////////////////////////////
-Route::get('affiliate', 'Home@getAffiliate')->name('affiliate');
+Route::get('affiliate', 'Page@getAffiliate')->name('affiliate');
 Route::get('home', 'Home@getMyPage')->name('home');
-Route::get('stripe', 'Home@getStripe')->name('stripe');
+Route::get('stripe', 'Page@getStripe')->name('stripe');

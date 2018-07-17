@@ -9,7 +9,8 @@ class Lesson extends Base
 {
     public function lesson_details()
     {
-        return $this->hasMany(LessonDetail::class);
+        return $this->hasMany(LessonDetail::class)
+                    ->enable();
     }
 
     public function ms_categories()
@@ -55,9 +56,9 @@ class Lesson extends Base
     {
         $with = ['lesson_details', 'lesson_details.posters', 'ms_categories'];
         return $this::with($with)
-                        ->where('id', $lesson_id)
-                        ->enable()
-                        ->first()
-                        ->toArray();
+                    ->where('id', $lesson_id)
+                    ->enable()
+                    ->first()
+                    ->toArray();
     }
 }
