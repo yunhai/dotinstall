@@ -3,9 +3,9 @@
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('privacy'))
 <div id="mainContents">
-    <div class="box mb-0"><h2 class="ttlCommon">プライバシーポリシー</h2></div>
-    <div class="bkgFrameCommon">
-        <div class="boxPrivacy">
+    <div class="box ttlCommon mb-0 pl-5 pr-5">プライバシーポリシー</div>
+    <div class="row">
+        <div class="boxPrivacy pl-5 pr-5">
             <p class="txtPrivacy">プラグラミンＧＯ（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）におけるプライバシー情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
             </p>
             <p class="txtPrivacy">

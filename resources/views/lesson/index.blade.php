@@ -3,14 +3,14 @@
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('lesson'))
 <div id="content">
-    <h2 class="ttlCommon border-bottom-0 mb-0 pl-0 pr-0">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</h2>
+    <div class="box ttlCommon border-bottom-0 mb-0 pl-5 pr-5">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</div>
     <div class="box mb-0">
         <div class="card">
-            <div class="lession-nar w-100"><span>簡単な実戦でプログラムを覚えよう！</span></div>
+            <div class="lession-nar w-100 pl-5 pr-5"><span>簡単な実戦でプログラムを覚えよう！</span></div>
         </div>
     </div>
-    <div class="row box-lesson">
-        <div class="container">
+    <div class="box box-lesson">
+        <div class="pl-5 pr-5">
               <ul class="list-group w-100">
                   @foreach ($lessons as $lesson)
                   <li class="list-group-item">

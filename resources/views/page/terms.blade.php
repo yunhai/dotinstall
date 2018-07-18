@@ -3,9 +3,9 @@
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('terms'))
 <div id="mainContents">
-    <div class="box mb-0"><h2 class="ttlCommon">利用規約</h2></div>
-    <div class="bkgFrameCommon">
-        <div class="boxPrivacy">
+    <div class="box ttlCommon mb-0 pl-5 pr-5">利用規約</div>
+    <div class="row">
+        <div class="boxPrivacy pl-5 pr-5">
             <p class="txtPrivacy">  この利用規約（以下，「本規約」といいます。）は，プログラミングＧＯ（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
             </p>
             <p class="txtPrivacy">

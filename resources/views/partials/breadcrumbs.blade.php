@@ -1,6 +1,6 @@
 @if (count($breadcrumbs))
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb pl-5 pr-5">
         @foreach ($breadcrumbs as $breadcrumb)
 
             @if ($breadcrumb->url && !$loop->last || !empty($breadcrumb->enable_link))

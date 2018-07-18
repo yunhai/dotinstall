@@ -13,15 +13,15 @@
 
 @section('content')
 <div id="content">
-    <h2 class="ttlCommon border-bottom-0 mb-0 pl-0 pr-0">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</h2>
-    <div class="box mb-0">
+    <div class="box ttlCommon border-bottom-0 mb-0 pl-5 pr-5">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</div>
+    <div class="box">
         <div class="card">
-            <div class="lession-nar w-100"><span>ステージ２-2　簡単なメモアプリを作って見よう！</span></div>
+            <div class="lession-nar w-100 pl-5 pr-5"><span>ステージ２-2　簡単なメモアプリを作って見よう！</span></div>
         </div>
     </div>
-    <div class="box border-top-0">
+    <div class="box border-top-0 pl-5 pr-5">
         <div class="card card-video-list">
-            <div class="container-fluid">
+            <div class="container-fluid pl-0 pr-0">
                 @php
                     $video = [];
                     if (!empty($target['videos'])) {
@@ -38,7 +38,7 @@
                 @endif
                 <div class="container-fluid">
                     <div class="row box-request">
-                        <div class="col-7">
+                        <div class="col-7 pl-0 pr-0">
                             @if ($target['is_closeable'])
                             <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-request">
                                 <img class="btn-to-complete" src="/img/btn_to_complete.png">
@@ -51,7 +51,7 @@
                                 <img class="btn-diamond" src="/img/btn_diamond.png">
                             </a>
                         </div>
-                        <div class="col-5 text-right">
+                        <div class="col-5  pl-0 pr-0 text-right">
                             @if ($prev_video)
                             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
                                 <img class="btn-prev" src="/img/btn-prev.png">

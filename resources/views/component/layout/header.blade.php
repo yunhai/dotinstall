@@ -1,6 +1,6 @@
 <!-- /HEADER -->
-<span class="d-block px-3 py-2 text-left text-bold text-white old-bv">簡単な実戦でプログラミングを習得５分動画学習</span>
-<nav class="navbar navbar-expand-lg navbar-light pl-3 pr-3">
+<span class="d-block px-3 py-2 pl-5 pr-5 text-left text-bold text-white old-bv">簡単な実戦でプログラミングを習得５分動画学習</span>
+<nav class="navbar navbar-expand-lg navbar-light pl-5 pr-5">
     <a class="navbar-brand" href="/"><img class="img-logo" src="/img/logo_header.jpg" alt="cogwheel"></a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarheaders" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
