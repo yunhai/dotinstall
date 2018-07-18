@@ -15,7 +15,7 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = 'backend';
+    protected $redirectTo = 'admin';
 
     public function __construct()
     {

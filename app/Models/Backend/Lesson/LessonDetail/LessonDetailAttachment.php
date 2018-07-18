@@ -11,6 +11,8 @@ class LessonDetailAttachment extends Base
         'lesson_detail_id',
         'media_id',
         'type',
+        'language',
+        'ref_id',
     ];
 
     public function media()
@@ -37,18 +39,42 @@ class LessonDetailAttachment extends Base
             ->toArray();
 
         $delete_media_id = array_diff($old, $input_media_id);
-        $create_media_id = array_diff($input_media_id, $old);
 
+        $source_code_content = [];
+        $ref = [];
         foreach ($input as $item) {
-            $media_id = $item['media_id'];
-            if (in_array($media_id, $create_media_id)) {
-                $this->create($item);
+            if ($item['type'] == LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT) {
+                array_push($source_code_content, $item);
+                continue;
+            }
+
+            if (empty($item['id'])) {
+                $target = $this->create($item);
+                $ref[$item['media_id']] = $target->id;
+            } else {
+                $data = array_intersect_key($item, array_flip($this->fillable));
+                $this->where('id', $item['id'])->update($data);
             }
         }
 
-        $this
-            ->where('lesson_detail_id', $lesson_detail_id)
-            ->whereIn('media_id', $delete_media_id)
-            ->delete('media_id');
+        foreach ($source_code_content as $item) {
+            $item['ref_id'] = $ref[$item['ref_media_id']] ?? 100;
+            $this->create($item);
+        }
+
+        $delete_id = $this->select('id')
+                        ->where('lesson_detail_id', $lesson_detail_id)
+                        ->whereIn('media_id', $delete_media_id)
+                        ->whereIn('type', [LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE, LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE])
+                        ->get()
+                        ->pluck('id', 'id')
+                        ->toArray();
+
+        $this->whereIn('id', $delete_id)
+            ->delete();
+
+        $this->whereIn('ref_id', $delete_id)
+            ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT)
+            ->delete();
     }
 }

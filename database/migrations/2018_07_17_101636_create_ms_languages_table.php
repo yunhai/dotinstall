@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLessionDetailAttachments extends Migration
+class CreateMsLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateLessionDetailAttachments extends Migration
      */
     public function up()
     {
-        Schema::create('lesson_detail_attachments', function (Blueprint $table) {
+        Schema::create('ms_languages', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->unsignedInteger('lesson_detail_id');
-            $table->unsignedInteger('media_id');
-            $table->unsignedTinyInteger('type')->default(0);
+            $table->string('name', 256);
+            $table->string('fullname', 256);
             $table->unsignedTinyInteger('mode')->default(1);
-            $table->unsignedInteger('ref_id')->default(0);
-            $table->string('language', 64)->default('');
+            $table->unsignedInteger('sort')->nullable()->default(1);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
@@ -36,6 +34,6 @@ class CreateLessionDetailAttachments extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('languages');
     }
 }

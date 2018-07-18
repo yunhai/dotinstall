@@ -13,6 +13,27 @@ print_r($sql);
 print('</pre>');
 exit;
 
+$string = "INSERT INTO `ms_languages` (`name`, `fullname`, `sort`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('%s', '%s', %s, '99', '99', NOW(), NOW(), NULL);\n";
+
+$list = [
+    'php' => 'php',
+    'java' => 'java',
+    'javascript' => 'javascript',
+    'html5' => 'html',
+    'css3' => 'css',
+    'c#' => 'c#'
+];
+$sql = '';
+$index = 0;
+foreach ($list as $fullname => $name) {
+    $index++;
+    $sql .= sprintf($string, $name, $fullname, $index);
+}
+print('<pre>');
+print_r($sql);
+print('</pre>');
+exit;
+
 https://dashboard.stripe.com/test/invoices
 https://stripe.com/docs/testing#cards
 https://codepen.io/sampotts/pen/jARJYp

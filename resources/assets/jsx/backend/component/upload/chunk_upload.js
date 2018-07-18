@@ -47,7 +47,7 @@ export default class ChuckUpload {
             case 'image':
                 this.callbackImage(obj, $target, $callback);
                 break;
-            case 'document':
+            default:
                 this.callbackDocument(obj, $target, $callback);
                 break;
         }
@@ -85,7 +85,7 @@ export default class ChuckUpload {
                 <div class='dd-callback__item'>
                     <span class="dd-callback__filename"></span>
                     <span class="dd-callback__progress"></span>
-                    <div class='dd-progress_bar' style='display: none'></div>
+                    <div class='dd-progress_bar hidden'></div>
                     <div class='dd-preview'></div>
                 </div>
             `;
@@ -123,6 +123,7 @@ export default class ChuckUpload {
             <input type='hidden' value='document' name='${name}[${obj.id}][type]'/>
             <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
             <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
+            <div class='j-language_holder language_holder'></div>
             <div class='dd-control'>
                 <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
                 <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
@@ -130,14 +131,33 @@ export default class ChuckUpload {
         `;
 
         $callback.find('.dd-preview').append(html);
+        if ($target.data('type') === 'msword') {
+            const $selector = $($('#j-template').find('.j-template_language')).clone();
+            $selector.attr('name', `${name}[${obj.id}][language]`);
+            $selector.removeClass('j-template_language');
+
+            const $holder = $callback.find('.j-language_holder');
+            $holder.append($selector);
+
+            $selector.selectpicker({
+                liveSearch: true,
+                showTick: true,
+                noneResultsText: '対象が見つかりません'
+            });
+        }
     }
 
     validate(target, mediaType) {
+        if (mediaType === 'all') {
+            return true;
+        }
+
         const fileName = target.fileName;
         const extMap = {
             'video': ['mp4'],
             'image': ['jpg', 'jpeg', 'png'],
             'document': ['zip', 'docx', 'doc', 'pdf', 'txt'],
+            'msword': ['docx', 'doc'],
         }
         const ext = fileName.substr(fileName.lastIndexOf('.') + 1);
         const allow = extMap[mediaType] || [];

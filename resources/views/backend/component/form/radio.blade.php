@@ -9,7 +9,7 @@
                   class="custom-control-input"
                   value='{{ $id }}'
                   name="{{ $field_name }}"
-                  @if($id === $field_value)
+                  @if($id == $field_value)
                       checked
                   @endif
                   @if (!empty($field_attribute))

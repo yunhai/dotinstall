@@ -10,6 +10,7 @@ class LessonDetailAttachment extends Base
     public $fillable = [
         'lesson_detail_id',
         'media_id',
+        'ref_id',
         'type',
     ];
 

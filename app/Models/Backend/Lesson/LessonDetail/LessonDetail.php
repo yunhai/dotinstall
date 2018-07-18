@@ -23,12 +23,14 @@ class LessonDetail extends Base
 
     public function resources()
     {
-        return $this->hasMany(LessonDetailAttachment::class)->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE);
+        return $this->hasMany(LessonDetailAttachment::class)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE);
     }
 
     public function source_codes()
     {
-        return $this->hasMany(LessonDetailAttachment::class)->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE);
+        return $this->hasMany(LessonDetailAttachment::class)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE);
     }
 
     public function videos()

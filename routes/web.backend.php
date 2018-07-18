@@ -35,10 +35,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('lesson/{lesson_id}/lesson_detail/{lesson_detail_id}/edit', 'Lesson\LessonDetail\LessonDetail@postEdit');
     Route::get('lesson/{lesson_id}/lesson_detail/{lesson_detail_id}/delete', 'Lesson\LessonDetail\LessonDetail@getDelete')->name('backend.lesson_detail.delete');
 
-    Route::post('media/chunk', 'Media@postChunk');
+    Route::post('media/chunk', 'Media@postChunk')->name('backend.media.chuck');
     Route::get('media/download/{media_id}', 'Media@getDownload')->name('backend.media.download');
-    Route::post('media/upload', 'Media@postUpload');
-    Route::post('media/content', 'Media@postContent');
+    Route::post('media/upload', 'Media@postUpload')->name('backend.media.upload');
+    Route::post('media/content', 'Media@postContent')->name('backend.media.content');
 
     Route::get('ms_category', 'MsCategory@getIndex')->name('backend.ms_category.index');
     Route::get('ms_category/create', 'MsCategory@getCreate')->name('backend.ms_category.create');

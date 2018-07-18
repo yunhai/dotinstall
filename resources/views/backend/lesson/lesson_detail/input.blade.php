@@ -1,15 +1,23 @@
 @extends('backend.layout.master')
+@section('title', 'レッスン詳細編集')
+@push('css')
+    <link href="/vendor/backend/summernote/summernote-bs4.css" rel="stylesheet">
+    <link href="/css/backend/upload/chunk.css" rel="stylesheet">
+    <link href="/css/backend/lesson/lesson_detail/input.css" rel="stylesheet">
+    <link href="/vendor/backend/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+@endpush
+@push('js')
+    <script src="/vendor/backend/summernote/summernote-bs4.js"></script>
+    <script src="/vendor/backend/summernote/lang/summernote-ja-JP.js"></script>
+    <script src="/js/backend/editor/summernote.js"></script>
+    <script src="/js/backend/common/upload.js"></script>
+    <script src="/vendor/backend/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="/js/backend/common/select.js"></script>
+@endpush
 @section('content')
-    @push('css')
-        <link href="/vendor/backend/summernote/summernote-bs4.css" rel="stylesheet">
-        <link href="/css/backend/upload/chunk.css" rel="stylesheet">
-    @endpush
-    @push('js')
-        <script src="/vendor/backend/summernote/summernote-bs4.js"></script>
-        <script src="/vendor/backend/summernote/lang/summernote-ja-JP.js"></script>
-        <script src="/js/backend/editor/summernote.js"></script>
-        <script src="/js/backend/common/upload.js"></script>
-    @endpush
+    <div class='hidden' id='j-template'>
+        <select class='language_holder j-template_language'>@foreach($form['language'] as $id => $lang)<option value='{{ $id }}'>{{ $lang }}</option>@endforeach</select>
+    </div>
     @php
         $target = $target ?? [];
         $form = [
@@ -55,7 +63,7 @@
                     'field_value' => array_get($target, 'videos', ''),
                     'field_type' => 'file_dd',
                     'field_attribute' => [
-                        'data-url' => '/backend/media/chunk/',
+                        'data-url' => route('backend.media.chuck'),
                         'data-preview' => 1,
                         'data-query' => '{"media_type": "video"}',
                         'data-type' => 'video',
@@ -66,10 +74,13 @@
                     'field_label' => 'サムネイル',
                     'field_name' => 'poster',
                     'field_value' => array_get($target, 'posters', ''),
+                    'field_advance' => [
+                        'languages' => $form['language']
+                    ],
                     'field_type' => 'file_dd',
                     'field_class' => 'j-poster',
                     'field_attribute' => [
-                        'data-url' => '/backend/media/chunk/',
+                        'data-url' => route('backend.media.chuck'),
                         'data-preview' => 1,
                         'data-query' => '{"media_type": "image"}',
                         'data-type' => 'image',
@@ -81,11 +92,14 @@
                     'field_name' => 'source_code',
                     'field_value' => array_get($target, 'source_codes', ''),
                     'field_type' => 'file_dd_multiple',
+                    'field_advance' => [
+                        'languages' => $form['language']
+                    ],
                     'field_attribute' => [
-                        'data-url' => '/backend/media/chunk/',
+                        'data-url' => route('backend.media.chuck'),
                         'data-download' => 1,
                         'data-query' => '{"media_type": "document"}',
-                        'data-type' => 'document',
+                        'data-type' => 'msword',
                         'data-max_file_upload' => 10
                     ]
                 ],
@@ -95,12 +109,14 @@
                     'field_value' => array_get($target, 'resources', ''),
                     'field_type' => 'file_dd_multiple',
                     'field_attribute' => [
-                        'data-url' => '/backend/media/chunk/',
+                        'data-url' => route('backend.media.chuck'),
                         'data-download' => 1,
                         'data-query' => '{"media_type": "document"}',
-                        'data-type' => 'document',
+                        'data-type' => 'all',
                         'data-max_file_upload' => 10
-                    ]
+                    ],
+                    'field_advance' => [
+                    ],
                 ],
             ],
             'form_attribute' => [
@@ -109,17 +125,4 @@
     @endphp
 
     @include('backend.component.form.form', $form)
-@stop
-
-@section('content1')
-<div class="container">
-    <h2>Example</h2>
-    <div class="text-center" >
-        <div id="resumable-drop">
-            <button id="resumable-browse" data-url="{{ url('backend/media/chunk') }}" >Upload</button> or drop here
-        </div>
-        @csrf
-        <br/>
-    </div>
-</div>
 @stop

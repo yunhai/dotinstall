@@ -9,7 +9,10 @@
             if ($field_value && !is_array($field_value)) {
                 $tmp = [];
                 foreach($field_value as $key => $target) {
-                    array_push($tmp, $target->media->toArray());
+                    $item = $target->media->toArray();
+                    $item['language'] = $target->language;
+                    $item['lesson_detail_attachment__id'] = $target->id;
+                    array_push($tmp, $item);
                 }
                 $field_value = $tmp;
             }
@@ -31,12 +34,15 @@
                                 @php
                                     $id = $target["id"];
                                     $media_path = $target['path'];
+                                    $language = empty($target["language"]) ? '' : $target["language"];
+                                    $lesson_detail_attachment__id = empty($target["lesson_detail_attachment__id"]) ? '' : $target["lesson_detail_attachment__id"];
                                 @endphp
 
                                 <input type='hidden' value='{{ $id }}' name='{{ $field_name }}[{{ $id }}][id]'/>
                                 <input type='hidden' value='{{ $target["type"] }}' name='{{ $field_name }}[{{ $id }}][type]'/>
                                 <input type='hidden' value='{{ $target["path"] }}' name='{{ $field_name }}[{{ $id }}][path]'/>
                                 <input type='hidden' value='{{ $target["original_name"] }}' name='{{ $field_name }}[{{ $id }}][original_name]'/>
+                                <input type='hidden' value='{{ $lesson_detail_attachment__id }}' name='{{ $field_name }}[{{ $id }}][lesson_detail_attachment__id]'/>
 
                                 @if ($target['type'] === 'video')
                                     <video width="400" controls>
@@ -45,6 +51,16 @@
                                     </video>
                                 @elseif ($target['type'] === 'image')
                                     <img width="400" src="@media_path($media_path)" class='dd-preview-image' />
+                                @endif
+
+                                @if ($field_attribute['data-type'] === 'msword')
+                                <div class='j-language_holder language_holder'>
+                                    <select class='language_holder j-select' name='{{ $field_name }}[{{ $id }}][language]'>
+                                        @foreach($field_advance['languages'] as $id => $lang)
+                                        <option value='{{ $id }}' @if($id === $language) selected @endif>{{ $lang }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 @endif
                                 <div class='dd-control'>
                                     <a href='/backend/media/download/{{ $target["id"] }}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>

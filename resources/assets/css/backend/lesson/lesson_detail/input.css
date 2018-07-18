@@ -1,0 +1,13 @@
+.dd-callback__item {
+    padding: 10px 0;
+    border-bottom: dashed 1px #888;
+}
+.dd-callback__item:last-of-type {
+    border-bottom: none;
+}
+.language_holder .btn {
+    padding: 3px 12px;
+}
+.language_holder .bootstrap-select {
+    margin-bottom: 7px;
+}

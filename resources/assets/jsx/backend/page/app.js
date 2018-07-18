@@ -9,7 +9,7 @@ $(() => {
         }
 
         if (history.length === 1) {
-            window.location = '/backend';
+            window.location = '/admin';
             return true;
         }
 
