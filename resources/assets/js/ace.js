@@ -1,3 +1,10 @@
-var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.getSession().setMode("ace/mode/javascript");
+let editor;
+$('.ace__item--body').each((index, item) => {
+    const $target = $(item);
+    const language = $target.data('language');
+    const id = $target.data('id');
+
+    editor = ace.edit(id);
+    editor.setTheme("ace/theme/chrome");
+    editor.getSession().setMode(`ace/mode/${language}`);
+})

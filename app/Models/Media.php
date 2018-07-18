@@ -11,4 +11,12 @@ class Media extends Base
         'mime',
         'type',
     ];
+
+    public function retrieve(array $id)
+    {
+        return $this->select('id', 'path', 'original_name')
+                    ->whereIn('id', $id)
+                    ->get()
+                    ->toArray();
+    }
 }

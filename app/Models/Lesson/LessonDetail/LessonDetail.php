@@ -9,12 +9,20 @@ class LessonDetail extends Base
 {
     public function resources()
     {
-        return $this->hasMany(LessonDetailAttachment::class)->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE);
+        return $this->hasMany(LessonDetailAttachment::class)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE);
     }
 
     public function source_codes()
     {
-        return $this->hasMany(LessonDetailAttachment::class)->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE);
+        return $this->hasMany(LessonDetailAttachment::class)
+                ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE);
+    }
+
+    public function source_code_contents()
+    {
+        return $this->hasMany(LessonDetailAttachment::class)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT);
     }
 
     public function videos()
@@ -34,7 +42,7 @@ class LessonDetail extends Base
 
     public function getAll($lesson_id)
     {
-        $with = ['posters',  'videos', 'source_codes', 'resources'];
+        $with = ['posters',  'videos', 'source_code_contents'];
         return $this::with($with)
                         ->where('lesson_id', $lesson_id)
                         ->orderBy('sort')

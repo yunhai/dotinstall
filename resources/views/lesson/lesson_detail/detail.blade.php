@@ -4,11 +4,15 @@
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.plyr.io/3.3.20/plyr.css">
+    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
 @endpush
 
 @push('js')
     <script src="https://cdn.plyr.io/3.3.20/plyr.js"></script>
     <script type="text/javascript" src="/js/video.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
+    <script type="text/javascript" src="/js/ace.js"></script>
 @endpush
 
 @section('content')
@@ -44,13 +48,16 @@
                                 <img class="btn-to-complete" src="/img/btn_to_complete.png">
                             </a>
                             @endif
-                            <a href="#" class="btn-request">
+                            @if ($target['source_code_contents'])
+                            <a href="#" class="btn-request" data-toggle="modal" data-target="#exampleModal">
                                 <img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                             </a>
+                            @endif
                             <a href="#" class="btn-request">
                                 <img class="btn-diamond" src="/img/btn_diamond.png">
                             </a>
                         </div>
+
                         <div class="col-5  pl-0 pr-0 text-right">
                             @if ($prev_video)
                             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
@@ -70,4 +77,7 @@
         </div>
     </div>
 </div>
+@if ($target['source_code_contents'])
+    @include('component.modal.ace', ['content' => $target['source_code_contents']])
+@endif
 @stop

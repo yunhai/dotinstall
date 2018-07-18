@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Lesson\LessonDetail;
 
 use App\Http\Controllers\Base;
 use App\Models\Lesson\LessonDetail\LessonDetail as LessonDetailModel;
+use App\Models\Media as MediaModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use Auth;
+use Storage;
 
 class LessonDetail extends Base
 {
@@ -27,9 +29,23 @@ class LessonDetail extends Base
         }
         $lesson_details = $this->model->getAll($lesson_id);
 
+        $media_id = data_get($lesson_details, '*.source_code_contents.*.media_id');
+        $tmp = (new MediaModel)->retrieve($media_id);
+        $media = [];
+        foreach ($tmp as $index => $item) {
+            $media[$item['id']] = $item;
+        }
         foreach ($lesson_details as $key => $detail) {
             $lesson_details[$key]['is_closeable'] = $user_id
                 && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
+
+            foreach ($detail['source_code_contents'] as $index => &$item) {
+                $path = $media[$item['media_id']]['path'] ?? '';
+
+                $content = Storage::disk('media')->get($path);
+                $lesson_details[$key]['source_code_contents'][$index]['filename'] = $media[$item['media_id']]['original_name'];
+                $lesson_details[$key]['source_code_contents'][$index]['content'] = $content;
+            }
         }
 
         $target = [];
