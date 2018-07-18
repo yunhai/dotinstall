@@ -35,7 +35,7 @@ export default class CaptureVideo {
                 };
 
                 $.ajax({
-                    url: '/backend/media/content',
+                    url: '/admin/media/content',
                     method: 'POST',
                     data: data,
                     dataType: 'json',

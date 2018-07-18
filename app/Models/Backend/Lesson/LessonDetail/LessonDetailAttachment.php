@@ -22,9 +22,21 @@ class LessonDetailAttachment extends Base
 
     public function createMany($input)
     {
-        array_map(function ($item) {
+        $source_code_content = [];
+        $ref = [];
+        foreach ($input as $item) {
+            if ($item['type'] == LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT) {
+                array_push($source_code_content, $item);
+                continue;
+            }
+            $target = $this->create($item);
+            $ref[$item['media_id']] = $target->id;
+        }
+
+        foreach ($source_code_content as $item) {
+            $item['ref_id'] = $ref[$item['ref_media_id']] ?? 100;
             $this->create($item);
-        }, $input);
+        }
     }
 
     public function editMany($input, $lesson_detail_id)
