@@ -18,6 +18,13 @@ Route::get('logout', 'Auth\LoginController@getLogout')->name('backend.login.logo
 Route::group(['middleware' => ['admin']], function () {
     Route::get('', 'Home@dashboard')->name('backend.home.dashboard');
 
+    Route::get('affiliator', 'Affiliator@getIndex')->name('backend.affiliator.index');
+    Route::get('affiliator/create', 'Affiliator@getCreate')->name('backend.affiliator.create');
+    Route::post('affiliator/create', 'Affiliator@postCreate');
+    Route::get('affiliator/{affiliator_id}/edit', 'Affiliator@getEdit')->name('backend.affiliator.edit');
+    Route::post('affiliator/{affiliator_id}/edit', 'Affiliator@postEdit');
+    Route::get('affiliator/{affiliator_id}/delete', 'Affiliator@getDelete')->name('backend.affiliator.delete');
+
     Route::get('change_password', 'Auth\LoginController@getChangePassword')->name('backend.login.change_password');
     Route::post('change_password', 'Auth\LoginController@postChangePassword');
 

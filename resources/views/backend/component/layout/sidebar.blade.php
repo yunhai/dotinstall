@@ -5,20 +5,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="{{ route('backend.home.dashboard') }}">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="" data-placement="right" title="レッスン一覧">
+            <li class="nav-item" data-toggle="" data-placement="right" title="レッスン">
                 <a class="nav-link" href="{{ route('backend.lesson.index') }}">
                     <i class="fa fa-book fa-fw"></i>
-                    <span class="nav-link-text">レッスン一覧</span>
+                    <span class="nav-link-text">レッスン</span>
                 </a>
             </li>
-
-            <li class="nav-item" data-toggle="" data-placement="right" title="レッスン一覧">
+            <li class="nav-item" data-toggle="" data-placement="right" title="アフィリエイター">
+                <a class="nav-link" href="{{ route('backend.affiliator.index') }}">
+                    <i class="fa fa-book fa-fw"></i>
+                    <span class="nav-link-text">アフィリエイター</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="Youtubeリンク">
                 <a class="nav-link" href="{{ route('backend.youtube_link.index') }}">
                     <i class="fa fa-book fa-fw"></i>
                     <span class="nav-link-text">Youtubeリンク</span>
