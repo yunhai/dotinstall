@@ -17,7 +17,7 @@
                       <div class="col-6 float-left">
                           <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}">
                               <img class="img-fluid" src="/img/play_button.png">
-                              <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
+                              <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}@if (!empty($lesson['video_count'])) (全{{ $lesson['video_count'] }}回) @endif</span>
                           </a>
                       </div>
                       <div class="col-6 text-right float-right">
