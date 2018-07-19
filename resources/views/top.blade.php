@@ -37,7 +37,7 @@
             <div class="card">
                 <div class="lession-heading w-100 pl-5 pr-5">
                     <img class="img-fluid" src="/img/light-bulb.png" />
-                    <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
+                    <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}@if (!empty($lesson['video_count'])) (全{{ $lesson['video_count'] }}回) @endif</span>
                     <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
                 </div>
             </div>
