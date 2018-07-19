@@ -14,7 +14,7 @@
                         <p class="card-text card-text-sign last mb-0">何も考えずに真似して作って見よう！</p>
                         <a href="{{ route('register') }}" class="btn card-sign-button p-0"><img class="img-fluid" src="/img/btn-register.png"></a>
                     </div>
-                    <div class="card-video col-lg-7 d-none d-lg-block">
+                    <div class="card-video col-lg-7 d-none d-lg-block pr-0">
                         @if (!empty($youtube_link))
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="{{ $youtube_link['link'] }}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
@@ -38,7 +38,7 @@
                 <div class="lession-heading w-100 pl-5 pr-5">
                     <img class="img-fluid" src="/img/light-bulb.png" />
                     <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}</span>
-                    <a href="{{ route('lesson') }}" class="lession-heading-url float-right">レッスン一覧</a>
+                    <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
                 </div>
             </div>
             <div class="card card-video-list">
