@@ -48,8 +48,9 @@
                                 <img class="btn-to-complete" src="/img/btn_to_complete.png">
                             </a>
                             @endif
-                            @if ($target['source_code_contents'])
-                            <a href="#" class="btn-request" data-toggle="modal" data-target="#exampleModal">
+                            @if ($target['popup'])
+                            @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                            <a href="#" class="btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
                                 <img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                             </a>
                             @endif
@@ -77,7 +78,7 @@
         </div>
     </div>
 </div>
-@if ($target['source_code_contents'])
-    @include('component.modal.ace', ['content' => $target['source_code_contents']])
+@if ($target['popup'])
+    @include('component.modal.ace', ['modal_id' => $model_id, 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
 @endif
 @stop

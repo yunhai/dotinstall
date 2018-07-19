@@ -42,7 +42,7 @@ class LessonDetail extends Base
 
     public function getAll($lesson_id)
     {
-        $with = ['posters',  'videos', 'source_code_contents'];
+        $with = ['posters',  'videos', 'source_code_contents', 'resources'];
         return $this::with($with)
                         ->where('lesson_id', $lesson_id)
                         ->orderBy('sort')

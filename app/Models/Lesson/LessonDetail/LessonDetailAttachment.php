@@ -19,4 +19,12 @@ class LessonDetailAttachment extends Base
     {
         return $this->hasOne(Media::class, 'id', 'media_id');
     }
+
+    public function getResource(int $lesson_detail_id)
+    {
+        return $this->with(['media'])
+                    ->where('lesson_detail_id', $lesson_detail_id)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE)
+                    ->get();
+    }
 }

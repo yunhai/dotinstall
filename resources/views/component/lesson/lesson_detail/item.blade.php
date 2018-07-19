@@ -30,11 +30,13 @@
                 </a>
             </p>
             @endif
-            <p class="card-text">
-                <a href="#" class="btn btn-sm btn-request">
-                    <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
-                </a>
-            </p>
+            @if (!empty($target['popup']))
+            @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+            <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
+                <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+            </a>
+            @endif
         </div>
     </div>
 </div>
+@include('component.modal.ace', ['modal_id' => $model_id, 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])

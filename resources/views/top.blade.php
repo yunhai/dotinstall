@@ -1,5 +1,13 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
+@push('css')
+    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
+@endpush
+
+@push('js')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
+    <script type="text/javascript" src="/js/ace.js"></script>
+@endpush
 @section('content')
 <div class="box box-panel mb-0">
     <div class="card">

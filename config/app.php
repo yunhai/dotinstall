@@ -162,6 +162,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         \Pion\Laravel\ChunkUpload\Providers\ChunkUploadServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
+        Chumper\Zipper\ZipperServiceProvider::class,
     ],
 
     /*
@@ -211,7 +212,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
-
+        'Zipper' => Chumper\Zipper\Zipper::class,
     ],
-
 ];

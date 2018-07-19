@@ -25,19 +25,18 @@ class Lesson extends Base
 
     public function getLessonsForHome()
     {
-        return $this::with(
-            ['lesson_details' => function ($q) {
-                $q->enable()->orderBy('sort', 'asc')->take(20);
-            },
-                'lesson_details.videos',
-                'lesson_details.posters',
-                'ms_categories'
-            ]
-        )
-            ->enable()
-            ->orderBy('id', 'desc')
-            ->get()
-            ->toArray();
+        $with = [
+            'lesson_details.videos',
+            'lesson_details.posters',
+            'lesson_details.source_code_contents',
+            'lesson_details.resources',
+            'ms_categories'
+        ];
+        return $this::with($with)
+                    ->enable()
+                    ->orderBy('id', 'desc')
+                    ->get()
+                    ->toArray();
     }
 
     public function getLessons()
@@ -54,7 +53,7 @@ class Lesson extends Base
 
     public function getLessonByLessonId($lesson_id)
     {
-        $with = ['lesson_details', 'lesson_details.posters', 'ms_categories'];
+        $with = ['lesson_details.source_code_contents', 'lesson_details.resources', 'lesson_details.posters', 'ms_categories'];
         return $this::with($with)
                     ->where('id', $lesson_id)
                     ->enable()

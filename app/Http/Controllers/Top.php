@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson\Lesson as LessonModel;
+use App\Models\Media as MediaModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Models\YoutubeLink as YoutubeLink;
 
 use Auth;
+use Storage;
 
 class Top extends Base
 {
@@ -23,18 +25,53 @@ class Top extends Base
     public function index()
     {
         $lessons = $this->model->getLessonsForHome();
-        if ($lessons) {
-            $lesson_details = $lessons[0]['lesson_details'];
-            $user_id = Auth::check() ? Auth::user()->id : 0;
-            foreach ($lesson_details as $key => $detail) {
-                $lesson_details[$key]['is_closeable'] = $user_id
-                        && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
-            }
 
-            $lessons[0]['lesson_details'] = $lesson_details;
+        if ($lessons) {
+            $media = $this->getMedia($lessons);
+            $user_id = Auth::check() ? Auth::user()->id : 0;
+            foreach ($lessons as $index => $item) {
+                $lessons[$index] = $this->format($item, $media, $user_id);
+            }
         }
 
         $youtube_link = $this->youtube_link->random(1);
         return $this->render('top', compact('lessons', 'youtube_link'));
+    }
+
+    private function getMedia($lessons)
+    {
+        $media_id = data_get($lessons, '*.lesson_details.*.source_code_contents.*.media_id');
+
+        $tmp = (new MediaModel)->retrieve($media_id);
+        $media = [];
+        foreach ($tmp as $index => $item) {
+            $media[$item['id']] = $item;
+        }
+        return $media;
+    }
+
+    private function format(array $lesson, $media, $user_id)
+    {
+        $lesson_details = $lesson['lesson_details'];
+
+        foreach ($lesson_details as $key => $detail) {
+            $lesson_details[$key]['is_closeable'] = $user_id
+                    && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
+
+            foreach ($detail['source_code_contents'] as $index => $item) {
+                $path = $media[$item['media_id']]['path'] ?? '';
+
+                $item['filename'] = $media[$item['media_id']]['original_name'];
+                $item['content'] = Storage::disk('media')->get($path);
+
+                $lesson_details[$key]['source_code_contents'][$index] = $item;
+            }
+
+            $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
+                                            $detail['resources'];
+        }
+
+        $lesson['lesson_details'] = $lesson_details;
+        return $lesson;
     }
 }

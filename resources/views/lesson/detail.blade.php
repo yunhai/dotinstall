@@ -1,7 +1,16 @@
 @extends('layout.master')
 @section('title', $target['name'])
-@section('content')
 @section('breadcrumbs', Breadcrumbs::render('lesson.detail', $target['name']))
+@push('css')
+    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
+@endpush
+
+@push('js')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
+    <script type="text/javascript" src="/js/ace.js"></script>
+@endpush
+
+@section('content')
 @php
     $count = 0;
     if (!empty($stat[$target['id']])) {
