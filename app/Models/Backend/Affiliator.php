@@ -3,9 +3,12 @@
 namespace App\Models\Backend;
 
 use App\Models\Backend\Base;
+use App\Models\Backend\Traits\Affiliator\AffiliatorUser;
 
 class Affiliator extends Base
 {
+    use AffiliatorUser;
+
     public $fillable = [
         'fullname',
         'email',
@@ -13,6 +16,7 @@ class Affiliator extends Base
         'username',
         'password',
         'balance',
-        'mode'
+        'mode',
+        'user_id',
     ];
 }

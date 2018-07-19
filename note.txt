@@ -1,3 +1,15 @@
+php artisan storage:link
+
+https://www.cyberciti.biz/faq/how-to-reload-restart-php7-0-fpm-service-linux-unix/
+
+nano /etc/nginx/nginx.conf
+Add a line in the http section:
+
+http {
+    client_max_body_size 100M;
+}
+############################################
+
 #ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"
 
 $string = "INSERT INTO `ms_categories` (`name`, `sort`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('%s', %s, '99', '99', NOW(), NOW(), NULL);\n";

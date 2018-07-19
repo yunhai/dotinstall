@@ -23,6 +23,7 @@ class CreateAffiliatorsTable extends Migration
             $table->string('password', 256);
             $table->unsignedInteger('balance')->default(0);
             $table->unsignedTinyInteger('mode')->default(1);
+            $table->unsignedInteger('user_id')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();

@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('web.client')->except('logout');
-        $this->role = USER_ROLE_BACKEND;
+        $this->role = USER_ROLE_CLIENT;
     }
 
     public function getLogin()
@@ -39,6 +39,7 @@ class LoginController extends Controller
             'role' => $this->role,
             'mode' => USER_MODE_ENABLE,
         ];
+
         if (Auth::attempt($credentials)) {
             return redirect('client');
         }
