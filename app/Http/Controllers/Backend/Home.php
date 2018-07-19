@@ -6,6 +6,6 @@ class Home extends Base
 {
     public function dashboard()
     {
-        return $this->render('home.dashboard');
+        return redirect()->route('backend.lesson.index');
     }
 }

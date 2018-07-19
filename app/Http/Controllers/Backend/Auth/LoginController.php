@@ -26,7 +26,7 @@ class LoginController extends Controller
     public function getLogin()
     {
         if (isset(Auth::user()->role) && Auth::user()->role === $this->role) {
-            return redirect('backend');
+            return redirect()->route('backend.home.dashboard');
         }
         return view('backend.auth.login');
     }
@@ -40,7 +40,7 @@ class LoginController extends Controller
             'mode' => USER_MODE_ENABLE,
         ];
         if (Auth::attempt($credentials)) {
-            return redirect('backend');
+            return redirect()->route('backend.home.dashboard');
         }
         return redirect()->back()->with('status', 'メールアドレスかパスワードが間違っています');
     }
@@ -48,7 +48,7 @@ class LoginController extends Controller
     public function getLogout()
     {
         auth('admin')->logout();
-        return redirect('backend/login');
+        return redirect()->route('backend.login.login');
     }
 
     public function getChangePassword()

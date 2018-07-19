@@ -9,10 +9,11 @@ class ResetPasswordController extends Controller
 {
     use ResetsPasswords;
 
-    protected $redirectTo = '/backend';
+    protected $redirectTo = '/admin';
 
     public function __construct()
     {
         $this->middleware('guest');
+        redirect()->route('backend.login.login');
     }
 }
