@@ -13,6 +13,7 @@ class PostInput extends Base
             'email' => 'required|max:256',
             'username' => 'required|max:256',
             'password' => 'required|max:256',
+            'commission_rate' => 'required|numeric|between:0,100',
             'mode' => 'required|integer',
         ];
     }

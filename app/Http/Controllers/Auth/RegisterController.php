@@ -2,55 +2,26 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User\User;
-use App\Models\Invitation;
-
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Service\SocialAccountService;
+use App\Models\User\User;
+use App\Models\Affiliator\AffiliatorInvitation;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Socialite;
-use App\Http\Service\SocialAccountService;
 use Illuminate\Support\Facades\Auth;
+use Socialite;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = '/';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('web');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         $validator = [
@@ -63,37 +34,20 @@ class RegisterController extends Controller
         return Validator::make($data, $validator);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
     protected function create(array $data)
     {
-        $unique = str_random();
         $model = new User();
-
-        $result = [
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'role' => USER_ROLE_PUBLIC,
-            'provider' => isset($data['provider']) ? $data['provider'] : '',
-            'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
-        ];
-
-        if (!empty($data['password'])) {
-            $result['password'] = Hash::make($data['password']);
-        }
-
-        $target = $model->create($result);
+        $target = $model->init($data);
 
         if (!empty($data['token'])) {
-            $model->updateInvitation($data['token'], $target->id);
-        }
+            $affiliator_invitation = new AffiliatorInvitation();
 
-        if (!empty($target->id)) {
-            $model->updateUserId($target->id);
+            $invitations = [
+                'token' => $data['token'],
+                'user_id' => $target->id,
+            ];
+
+            $affiliator_invitation->init($invitations);
         }
 
         return $target;
@@ -107,7 +61,6 @@ class RegisterController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-        //$user = Socialite::driver($provider)->stateless();
         $social_account_service = SocialAccountService::createOrGetUser($user, $provider);
         $id = $user->id;
         $name = $user->name;
@@ -119,10 +72,10 @@ class RegisterController extends Controller
         return redirect()->route(
             'register',
             [
-            'provider' => $provider,
-            'provider_user_id' => $id,
-            'name' => $name,
-            'email' => $email
+                'provider' => $provider,
+                'provider_user_id' => $id,
+                'name' => $name,
+                'email' => $email
             ]
         );
     }

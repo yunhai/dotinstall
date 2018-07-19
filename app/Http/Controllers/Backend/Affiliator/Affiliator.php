@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Affiliator;
 
 use App\Http\Controllers\Backend\Base;
 use App\Http\Requests\Backend\Affiliator\PostInput;
-use App\Models\Backend\Affiliator as AffiliatorModel;
+use App\Models\Backend\Affiliator\Affiliator as AffiliatorModel;
 
 class Affiliator extends Base
 {

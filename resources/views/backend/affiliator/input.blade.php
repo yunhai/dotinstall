@@ -33,6 +33,12 @@
                     'field_value' => array_get($target, 'email', ''),
                     'field_type' => 'text'
                 ],
+                'commission_rate' => [
+                    'field_label' => 'Commission rate',
+                    'field_name' => 'commission_rate',
+                    'field_value' => array_get($target, 'commission_rate', ''),
+                    'field_type' => 'text'
+                ],
                 'token' => [
                     'field_label' => 'Token',
                     'field_name' => 'token',

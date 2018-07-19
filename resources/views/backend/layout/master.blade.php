@@ -14,7 +14,7 @@
         <link href="/css/backend/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
         @stack('css')
     </head>
-    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
         @include('backend.component.layout.sidebar')
         <div class="content-wrapper">
             <div class="container-fluid">

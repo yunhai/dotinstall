@@ -24,16 +24,16 @@ trait UserSignature
         });
     }
 
-    protected function setUser(string $field = 'created_user_id', bool $update = true)
+    protected function setUser(string $field = 'created_user_id', bool $update = false)
     {
-        $user = Auth::user();
-        $this->$field = $user->id;
+        $user_id = Auth::check() ? Auth::user()->id : 0;
+        $this->$field = $user_id;
         if ($update) {
-            $this->updated_user_id = $user->id;
+            $this->updated_user_id = $user_id;
         }
     }
 
-    protected function setDate(string $field = 'created_at', bool $update = true)
+    protected function setDate(string $field = 'created_at', bool $update = false)
     {
         $now = Carbon::now();
         $this->$field = $now;

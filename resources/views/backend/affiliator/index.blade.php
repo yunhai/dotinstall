@@ -18,6 +18,7 @@
                 'パス',
                 'メールアドレス',
                 'Token',
+                'Commision_Rate',
                 'Balance',
                 '公開状況',
                 '',
@@ -37,6 +38,9 @@
                 ],
                 'token' => [
                     'field' => 'token',
+                ],
+                'commission_rate' => [
+                    'field' => 'commission_rate',
                 ],
                 'balance' => [
                     'field' => 'balance',

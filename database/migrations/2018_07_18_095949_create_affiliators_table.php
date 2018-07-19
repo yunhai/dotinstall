@@ -21,6 +21,7 @@ class CreateAffiliatorsTable extends Migration
             $table->string('token', 64);
             $table->string('username', 256);
             $table->string('password', 256);
+            $table->decimal('commission_rate', 5, 2);
             $table->unsignedInteger('balance')->default(0);
             $table->unsignedTinyInteger('mode')->default(1);
             $table->unsignedInteger('user_id')->default(0);

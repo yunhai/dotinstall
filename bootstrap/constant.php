@@ -3,6 +3,8 @@
 define('MODE_CREATE', 1);
 define('MODE_EDIT', 2);
 
+define('MEMBERSHIP_FREE', 980);
+
 define('MODE_ENABLE', 1);
 define('MODE_DISABLE', 0);
 

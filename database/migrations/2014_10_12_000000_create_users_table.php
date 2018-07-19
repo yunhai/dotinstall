@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->unsignedTinyInteger('role')->default(1);
             $table->unsignedTinyInteger('mode')->default(0);
-            $table->string('affiliator_token', 256)->default('');
+            $table->unsignedInteger('affiliator_id');
             $table->string('provider', 256)->default('');
             $table->string('provider_user_id', 256)->default('');
             $table->unsignedInteger('user_id');
