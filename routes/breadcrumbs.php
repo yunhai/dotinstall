@@ -43,7 +43,7 @@ Breadcrumbs::for('login', function ($trail) {
 // 新規ユーザー登録
 Breadcrumbs::for('register', function ($trail) {
     $trail->parent('top');
-    $trail->push('新規ユーザー登録', route('register'));
+    $trail->push('新規登録', route('register'));
 });
 
 // パスワード再設定手続き

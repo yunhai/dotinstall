@@ -16,6 +16,8 @@ Route::get('', 'Top@index')->name('top');
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->name('user.activate');
+Route::get('register/done', 'Auth\RegisterController@registerDone')->name('register.done');
 
 Route::get('contact', 'Page@getContact')->name('contact');
 Route::get('company', 'Page@getCompany')->name('company');
