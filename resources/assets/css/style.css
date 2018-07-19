@@ -22,9 +22,9 @@ body {
     color: #0090ff !important;
 }
 .nav-pills .nav-link {
-    border-right: 1px solid #ddd;
+    /*border-right: 1px solid #ddd;
     border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;*/
 }
 @media (max-width: 992px) {
     #navbarheaders {
@@ -33,10 +33,10 @@ body {
     }
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: #808080;
+    /*color: #808080;*/
     background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-right-color: transparent;
+    /*border: 1px solid #ddd;
+    border-right-color: transparent;*/
 }
 .nav-link-header-title {
     vertical-align: bottom;

@@ -46,14 +46,16 @@
                 <p class="mar_b30">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
             @endif
             <div class="row">
-                <div class="col-3 d-none d-lg-block">
+                <div class="col-2 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
-                        <a class="nav-link active show" data-toggle="pill" href="{{ route('register') }}" role="tab">新規登録</a>
+                        <a class="nav-link active show p-0" data-toggle="pill" href="{{ route('register') }}" role="tab">
+                            <img class="img-fluid" src="img/bg_register.png">
+                        </a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="row justify-content-left">
@@ -79,19 +81,6 @@
                                                         </div>
                                                     </div>
                                                 @endif
-                                                <div class="form-group row mb-4">
-                                                    <label for="name" class="col-md-3 col-form-label">ユーザー名</label>
-
-                                                    <div class="col-md-7">
-                                                        <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" autofocus>
-
-                                                        @if ($errors->has('name'))
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('name') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
 
                                                 <div class="form-group row mb-4">
                                                     <label for="email" class="col-md-3 col-form-label">メールアドレス</label>
@@ -118,6 +107,19 @@
                                                         @if ($errors->has('password'))
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('password') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="password_confirmation" class="col-md-3 col-form-label">パスワード確認</label>
+
+                                                    <div class="col-md-7">
+                                                        <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation">
+
+                                                        @if ($errors->has('password_confirmation'))
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $errors->first('password_confirmation') }}</strong>
                                                             </span>
                                                         @endif
                                                     </div>
