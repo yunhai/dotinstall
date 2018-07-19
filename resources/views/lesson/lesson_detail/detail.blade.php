@@ -50,7 +50,7 @@
                             @endif
                             @if ($target['popup'])
                             @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                            <a href="#" class="btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
+                            <a href="javascript:;" class="btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
                                 <img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                             </a>
                             @endif
