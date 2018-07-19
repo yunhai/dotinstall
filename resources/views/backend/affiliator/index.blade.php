@@ -17,10 +17,10 @@
                 'ユーザー名',
                 'パス',
                 'メールアドレス',
-                'Token',
-                'Commision_Rate',
-                'Balance',
-                '公開状況',
+                'コード',
+                '手数料率',
+                '手数料',
+                '状況',
                 '',
             ],
             'body' => [
@@ -63,7 +63,7 @@
                         ':id' => 'id'
                     ],
                     'attr' => [
-                        'style' => 'width:20%',
+                        'style' => 'width:15%',
                         'class' => 'text-center'
                     ]
                 ]

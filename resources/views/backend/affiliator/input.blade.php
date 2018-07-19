@@ -34,13 +34,13 @@
                     'field_type' => 'text'
                 ],
                 'commission_rate' => [
-                    'field_label' => 'Commission rate',
+                    'field_label' => '手数料率',
                     'field_name' => 'commission_rate',
                     'field_value' => array_get($target, 'commission_rate', ''),
                     'field_type' => 'text'
                 ],
                 'token' => [
-                    'field_label' => 'Token',
+                    'field_label' => 'コード',
                     'field_name' => 'token',
                     'field_value' => array_get($target, 'token', ''),
                     'field_type' => 'text',
@@ -49,7 +49,7 @@
                     ]
                 ],
                 'balance' => [
-                    'field_label' => 'Balance',
+                    'field_label' => '手数料',
                     'field_name' => 'balance',
                     'field_value' => array_get($target, 'balance', ''),
                     'field_type' => 'text',
@@ -58,7 +58,7 @@
                     ]
                 ],
                 'mode' => [
-                    'field_label' => '公開状況',
+                    'field_label' => '状況',
                     'field_name' => 'mode',
                     'field_value' => array_get($target, 'mode', ''),
                     'field_type' => 'radio',
