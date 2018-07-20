@@ -9,18 +9,50 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Traits\User\UserTrack;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
-    use Notifiable, UserTrack;
+    use Notifiable, UserTrack, Billable;
 
-    protected $fillable = [
-      'name', 'email', 'password', 'provider', 'provider_user_id'
-    ];
+    // protected $fillable = [
+    //   'name', 'email', 'password', 'provider', 'provider_user_id'
+    // ];
 
     protected $hidden = [
        'password', 'remember_token',
     ];
+
+    public function charge($token)
+    {
+        $user = User::find(58);
+        // dd($user->subscription('monthly'));env('STRIPE_KEY'),
+
+        $user->newSubscription('main', env('STRIPE_SUPSCRIPTION_ID'))->create($token);
+    }
+
+    public function upgrade()
+    {
+        $user = User::find(58);
+        // dd($user->subscription('monthly'));
+        $user->subscription('main')->swap('yearly');
+    }
+
+    public function coupon($token)
+    {
+        $user = User::find(58);
+        // dd($user);
+        // dd(Auth::user());
+        $user->newSubscription('main', 'monthly')
+             ->withCoupon('social_share_coupon')
+             ->create($token);
+    }
+
+    public function cancel()
+    {
+        $user = User::find(100);
+        $user->subscription('main')->cancel();
+    }
 
     public function sendPasswordResetNotification($token)
     {

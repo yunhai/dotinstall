@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Models\User\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
@@ -50,9 +50,9 @@ return [
         'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
     ],
     'yahoojp' => [
-        'client_id'     => env('YAHOOJP_APP_ID'),
+        'client_id' => env('YAHOOJP_APP_ID'),
         'client_secret' => env('YAHOOJP_APP_SECRET'),
-        'redirect'      => env('YAHOOJP_APP_CALLBACK_URL'),
+        'redirect' => env('YAHOOJP_APP_CALLBACK_URL'),
     ],
     'google' => [
         'client_id' => env('GOOGLE_APP_ID'),

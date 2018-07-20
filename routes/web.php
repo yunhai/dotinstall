@@ -41,6 +41,9 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/learn', 'Lesson\LessonDetail\LessonDetail@getLearn')->name('lesson_detail.learn');
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/close', 'Lesson\LessonDetail\LessonDetail@getClose')->name('lesson_detail.close');
 
+    Route::post('payment/checkout', 'Payment@getCheckout')->name('payment.checkout');
+    Route::post('payment/charge', 'Payment@postCharge')->name('payment.charge');
+
     Route::get('user/password', 'User@getChangePassword')->name('user.change_password');
     Route::post('user/password', 'User@postChangePassword');
 });

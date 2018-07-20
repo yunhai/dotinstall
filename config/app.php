@@ -163,6 +163,7 @@ return [
         \Pion\Laravel\ChunkUpload\Providers\ChunkUploadServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
         Chumper\Zipper\ZipperServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
     ],
 
     /*
