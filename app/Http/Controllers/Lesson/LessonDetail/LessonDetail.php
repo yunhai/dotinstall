@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Lesson\LessonDetail;
 
 use App\Http\Controllers\Base;
 use App\Models\Lesson\LessonDetail\LessonDetail as LessonDetailModel;
+use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Lesson\LessonDetail\LessonDetailAttachment as LessonDetailAttachmentlModel;
 use App\Models\Media as MediaModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
@@ -16,10 +17,12 @@ use Zipper;
 class LessonDetail extends Base
 {
     public function __construct(
+        LessonModel $lesson_model,
         LessonDetailModel $lesson_detail_model,
         UserLessonDetailModel $user_lesson_detail_model
     ) {
         $this->model = $lesson_detail_model;
+        $this->lesson_model = $lesson_model;
         $this->user_lesson_detail_model = $user_lesson_detail_model;
     }
 
@@ -35,6 +38,7 @@ class LessonDetail extends Base
 
         $media = $this->getMedia($lesson_details);
         $lesson_details = $this->formatLessonDetail($lesson_details, $media, $user_id);
+        $lessons = $this->lesson_model->get($lesson_id);
 
         $target = [];
         $prev_video = [];
@@ -63,6 +67,7 @@ class LessonDetail extends Base
                 'lesson_id',
                 'lesson_detail_id',
                 'lesson_details',
+                'lessons',
                 'target',
                 'prev_video',
                 'next_video'

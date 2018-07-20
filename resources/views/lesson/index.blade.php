@@ -5,11 +5,11 @@
 <div id="content">
     <div class="box mb-0" style="border-top: 1px solid #bca9af;">
         <div class="card">
-            <div class="lession-nar w-100 pl-5 pr-5"><span>簡単な実戦でプログラムを覚えよう！</span></div>
+            <div class="lession-nar w-100 px-5"><span>簡単な実戦でプログラムを覚えよう！</span></div>
         </div>
     </div>
     <div class="box box-lesson">
-        <div class="pl-5 pr-5">
+        <div class="px-5">
               <ul class="list-group w-100">
                   @foreach ($lessons as $lesson)
                   <li class="list-group-item">

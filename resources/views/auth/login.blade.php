@@ -3,8 +3,8 @@
 @section('breadcrumbs', Breadcrumbs::render('login'))
 @section('content')
 <div id="content">
-    <div class="box ttlCommon mb-0 pl-5 pr-5">プログラミングゴーにようこそ！</div>
-    <div class="row pl-5 pr-5">
+    <div class="box ttlCommon mb-0 px-5">プログラミングゴーにようこそ！</div>
+    <div class="row px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
             <p class="mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
             <div class="row">
@@ -79,7 +79,7 @@
                         <div class="card">
                             <div class="card-header text-center">その他の方法でログイン</div>
 
-                            <div class="card-body pl-5 pr-5">
+                            <div class="card-body px-5">
                                 <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
                                 <a href="/auth/twitter" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>
                                 <a href="/auth/facebook" class="btn btn-facebook btn-block"><span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span></a>

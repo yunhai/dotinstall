@@ -34,8 +34,8 @@
             $provider_lbl = '';
         @endphp
     @endif
-    <div class="box ttlCommon mb-0 pl-5 pr-5">{{ $provider_ttl }}</div>
-    <div class="row pl-5 pr-5">
+    <div class="box ttlCommon mb-0 px-5">{{ $provider_ttl }}</div>
+    <div class="row px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
             @if (!empty(app('request')->input('provider')))
                 <p class="alert alert-info mar_b30">この{{ $provider_lbl }}と連携したアカウントを新しく作成します。以下に必要事項を入力してください。
@@ -158,7 +158,7 @@
                                 @endif
                             </div>
 
-                            <div class="card-body @if (empty(app('request')->input('provider'))) pl-5 pr-5 @endif">
+                            <div class="card-body @if (empty(app('request')->input('provider'))) px-5 @endif">
                                 @if (!empty(app('request')->input('provider')))
                                     <p>メールアドレスは運営側からの連絡をする際に必要となります。</p>
                                     <p class="mar_b0">パスワードを設定したい場合は、ユーザー登録後に設定変更画面からおこなってください。</p>

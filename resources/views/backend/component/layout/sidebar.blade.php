@@ -53,7 +53,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
-                    <span class="d-lg-none">管理者パスワード変更</span>
+                    <span class="">設定</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
                     <a class="dropdown-item" href="{{ route('backend.login.change_password') }}">

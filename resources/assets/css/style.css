@@ -8,7 +8,7 @@ body {
     font-size: 0.8125rem;
 }
 #content {
-    margin-top: -1rem;
+    /*margin-top: -1rem;*/
 }
 .form-inline {
     -webkit-box-align: end;
@@ -165,7 +165,7 @@ body {
     margin-bottom: 30px;
 }
 .box:last-child {
-    margin-bottom: 0;
+    /*margin-bottom: 0;*/
 }
 .box .card {
     border: none;
@@ -206,6 +206,12 @@ body {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
+    }
+    .pr-5, .px-5 {
+        padding-right: 1rem!important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 1rem!important;
     }
 }
 .box-request {

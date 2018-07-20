@@ -17,29 +17,31 @@
 
 @section('content')
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 pl-5 pr-5">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</div>
-    <div class="box">
+    <div class="box ttlCommon border-bottom-0 mb-0 px-5">{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
+    <div class="box mb-0 ">
         <div class="card">
-            <div class="lession-nar w-100 pl-5 pr-5"><span>{{ $target['name'] }}</span></div>
+            <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>
         </div>
     </div>
-    <div class="box border-top-0 pl-5 pr-5">
+    <div class="box mb-0">
+        @php
+            $video = [];
+            if (!empty($target['videos'])) {
+                $video = current($target['videos']);
+            }
+        @endphp
+        @if ($video)
+        <div class="player">
+            <video controls crossorigin playsinline id="j-player" class='hidden'>
+                @php $video_path = $video['path']; @endphp
+                <source src="@media_path($video_path)" type="video/mp4" size="720" >
+            </video>
+        </div>
+        @endif
+    </div>
+    <div class="box border-top-0 px-5">
         <div class="card card-video-list">
             <div class="container-fluid pl-0 pr-0">
-                @php
-                    $video = [];
-                    if (!empty($target['videos'])) {
-                        $video = current($target['videos']);
-                    }
-                @endphp
-                @if ($video)
-                <div class="player">
-                    <video controls crossorigin playsinline id="j-player" class='hidden'>
-                        @php $video_path = $video['path']; @endphp
-                        <source src="@media_path($video_path)" type="video/mp4" size="720" >
-                    </video>
-                </div>
-                @endif
                 <div class="container-fluid">
                     <div class="row box-request">
                         <div class="col-7 pl-0 pr-0">
