@@ -231,6 +231,9 @@ body {
     .box .card .btn-request .btn-sorce-conformation {
         margin-bottom: 5px;
     }
+    .box .card .btn-request .btn-prev {
+        margin-bottom: 5px;
+    }
 }
 .box-request {
     padding-bottom: 20px;
