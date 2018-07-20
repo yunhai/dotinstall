@@ -12,7 +12,7 @@
 <div class="box box-panel mb-0">
     <div class="card">
         <img class="card-img" src="/img/panel.jpg">
-        <div class="card-img-overlay pl-5 pr-5">
+        <div class="card-img-overlay px-5">
             <div class="card-body">
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">難しい話しは後にして、実戦形式で覚えて行こう！</h5>
                 <div class="row">
@@ -43,14 +43,14 @@
     @if (!empty($lesson['lesson_details']))
         <div class="box">
             <div class="card">
-                <div class="lession-heading w-100 pl-5 pr-5">
+                <div class="lession-heading w-100 px-5">
                     <img class="img-fluid" src="/img/light-bulb.png" />
                     <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}@if (!empty($lesson['video_count'])) (全{{ $lesson['video_count'] }}回) @endif</span>
                     <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
                 </div>
             </div>
             <div class="card card-video-list">
-                <div class="container-fluid pl-5 pr-5">
+                <div class="container-fluid px-5">
                     @include('component.lesson.item', ['lesson_details' => $lesson['lesson_details']])
                 </div>
             </div>

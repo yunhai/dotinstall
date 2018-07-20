@@ -3,8 +3,8 @@
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('company'))
 <div id="content">
-    <div class="box ttlCommon mb-0 pl-5 pr-5">運営者情報</div>
-    <div class="row pl-5 pr-5">
+    <div class="box ttlCommon mb-0 px-5">運営者情報</div>
+    <div class="row px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
             <div class="card">
                 <div class="card-header">運営者情報</div>

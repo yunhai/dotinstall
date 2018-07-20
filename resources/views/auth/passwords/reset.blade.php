@@ -3,8 +3,8 @@
 @section('breadcrumbs', Breadcrumbs::render('password.reset'))
 @section('content')
 <div id="content">
-    <div class="box ttlCommon mb-0 pl-5 pr-5">パスワードの再設定</div>
-    <div class="row pl-5 pr-5">
+    <div class="box ttlCommon mb-0 px-5">パスワードの再設定</div>
+    <div class="row px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
             <p class="mar_b30">パスワードを再設定するには以下から新しいパスワードを入力してください。</p>
             <div class="row">
