@@ -49,8 +49,8 @@
                 <div class="col-2 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
-                        <a class="nav-link active show p-0" data-toggle="pill" href="{{ route('register') }}" role="tab">
-                            <img class="img-fluid" src="img/bg_register.png">
+                        <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register') }}" role="tab">新規登録
+                            <!--<img class="img-fluid" src="/img/bg_register.png">-->
                         </a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>

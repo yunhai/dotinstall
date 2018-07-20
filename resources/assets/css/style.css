@@ -366,6 +366,20 @@ body {
 .card.card-mypage .card-body {
     height: 172px;
 }
+.bg-nav-link {
+    background: repeating-linear-gradient(
+        -45deg,
+        #f9dbb0,
+        #f9dbb0 5px,
+        #e6c89d 5px,
+        #e6c89d 10px
+    );
+    border: 2px solid #fbc276;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    text-align: center;
+    color: #000 !important;
+}
 /* BREADCRUMB
 ------------------------------------------------------------ */
 .breadcrumb {

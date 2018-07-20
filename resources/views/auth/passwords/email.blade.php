@@ -16,14 +16,16 @@
             @endif
 
             <div class="row">
-                <div class="col-3 d-none d-lg-block">
+                <div class="col-2 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
                         <a class="nav-link" href="/register" role="tab">新規ユーザー登録</a>
-                        <a class="nav-link active show" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
+                        <a class="bg-nav-link nav-link active show" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？
+                            <!--<img class="img-fluid" src="/img/bg_password_forgot.png">-->
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="row justify-content-left">

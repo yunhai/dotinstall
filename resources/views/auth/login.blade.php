@@ -10,8 +10,8 @@
             <div class="row">
                 <div class="col-2 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                        <a class="nav-link active show p-0" href="{{ route('login') }}" role="tab">
-                            <img class="img-fluid" src="img/bg_login.png">
+                        <a class="bg-nav-link nav-link active show" href="{{ route('login') }}" role="tab">ログイン
+                            <!--<img class="img-fluid" src="/img/bg_login.png">-->
                         </a>
                         <a class="nav-link" href="{{ route('register') }}" role="tab">新規登録</a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
