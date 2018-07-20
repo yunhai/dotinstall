@@ -57,7 +57,7 @@
         </div>
     @endif
 @endforeach
-<div class="box">
+<div class="box mb-0">
     <div class="card-lesson-total text-center">
         <p class="card-text">
             <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $total_lessons }}）</a>
