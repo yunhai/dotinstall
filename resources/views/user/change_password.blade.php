@@ -4,7 +4,6 @@
 @section('content')
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">パスワードの変更</div>
-
     <div class="row px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
             <p class="mar_b30">パスワードを変更するには、必要な項目を記入して更新してください。</p>
@@ -83,7 +82,5 @@
             </div>
         </div>
     </div>
-
-
 </div>
 @endsection

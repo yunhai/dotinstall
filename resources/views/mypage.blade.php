@@ -3,9 +3,9 @@
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('mypage'))
 <div id="content">
-    <div class="box mb-0"><h2 class="ttlCommon mb-0">マイページ</h2></div>
+    <div class="box ttlCommon mb-0 px-5">マイページ</div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row m-0">
             <div class="mar_t30 mar_b30 col-lg-4 col-md-4 col-sm-6">
                 <div class="card card-mypage">
                     <div class="card-header">ステータス</div>
