@@ -3,8 +3,7 @@
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('lesson'))
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 pl-5 pr-5">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</div>
-    <div class="box mb-0">
+    <div class="box mb-0" style="border-top: 1px solid #bca9af;">
         <div class="card">
             <div class="lession-nar w-100 pl-5 pr-5"><span>簡単な実戦でプログラムを覚えよう！</span></div>
         </div>
