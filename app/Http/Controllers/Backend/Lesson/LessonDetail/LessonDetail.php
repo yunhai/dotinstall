@@ -38,7 +38,14 @@ class LessonDetail extends Base
         $form = $this->form();
         $target = $this->model->getWithRelation($lesson_media_id, false);
 
-        return $this->render('lesson.lesson_detail.input', compact('target', 'form', 'lesson_id', 'lesson_media_id'));
+        $source_code_content = [];
+        if ($target->source_code_contents) {
+            foreach ($target->source_code_contents as $item) {
+                $source_code_content[$item->ref_id] = $item->media->toArray();
+            }
+        }
+
+        return $this->render('lesson.lesson_detail.input', compact('target', 'form', 'lesson_id', 'lesson_media_id', 'source_code_content'));
     }
 
     public function postEdit(PostInput $request, $lesson_id, $lesson_detail_id)
@@ -98,28 +105,45 @@ class LessonDetail extends Base
             'source_code' => LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE,
             'resource' => LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE,
         ];
+        $update_media = [];
         $attachments = [];
         $ref = [];
+
         foreach ($map as $key => $value) {
             if (!empty($input[$key])) {
                 foreach ($input[$key] as $item) {
+                    if (empty($item['id'])) {
+                        continue;
+                    }
+                    if (!empty($item['source_code_content_id'])) {
+                        $update_media[$item['source_code_content_id']] = [
+                            'original_name' => $item['display_name']
+                        ];
+                    }
+                    $lesson_detail_attachment__id = $item['lesson_detail_attachment__id'] ?? 0;
                     $tmp = [
-                        'id' => $item['lesson_detail_attachment__id'] ?? 0,
+                        'id' => $lesson_detail_attachment__id,
                         'media_id' => $item['id'],
                         'type' => $value,
                         'language' => $item['language'] ?? '',
                     ];
                     array_push($attachments, $tmp);
 
-                    if ($value === LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE) {
+                    if (!$lesson_detail_attachment__id && $value === LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE) {
                         $ref[$item['id']] = $item;
                     }
                 }
                 unset($input[$key]);
             }
         }
+        if ($ref) {
+            $attachments = array_merge($attachments, $this->makeSourceCodeConent($ref));
+        }
 
-        $attachments = array_merge($attachments, $this->makeSourceCodeConent($ref));
+        if ($update_media) {
+            $this->updateMedia($update_media);
+        }
+
         $input['lesson_detail_attachments'] = $attachments;
 
         return $input;
@@ -141,16 +165,18 @@ class LessonDetail extends Base
 
     private function storeContent($content, $media_id, $item)
     {
-        $extension = 'txt';
+        $display_name = empty($item['display_name']) ? $item['original_name'] : $item['display_name'];
+        $extension = empty(pathinfo($display_name, PATHINFO_EXTENSION)) ? '' : pathinfo($display_name, PATHINFO_EXTENSION);
         $hash_name = str_random(40) . '.' . $extension;
-        $original_name = $item['original_name'];
+        $original_name = $display_name;
         $location = date('y/m/W');
         $path = $location . '/' . $hash_name;
 
         $disk = Storage::disk('media');
         $disk->put($path, $content);
-        $size = $disk->size($path);
-        $mime = $disk->mimeType($path);
+
+        $size = $disk->size($path) ?: 0;
+        $mime = $disk->mimeType($path) ?: '';
 
         $info = compact('location', 'path', 'mime', 'original_name', 'hash_name', 'extension', 'size');
 
@@ -163,5 +189,14 @@ class LessonDetail extends Base
             'language' => $item['language'],
             'ref_media_id' => $media_id
         ];
+    }
+
+    private function updateMedia(array $list)
+    {
+        $model = new Media();
+        foreach ($list as $id => $item) {
+            $model->where('id', $id)->update($item);
+        }
+        return true;
     }
 }

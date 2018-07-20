@@ -34,7 +34,7 @@ class LessonDetailAttachment extends Base
         }
 
         foreach ($source_code_content as $item) {
-            $item['ref_id'] = $ref[$item['ref_media_id']] ?? 100;
+            $item['ref_id'] = $ref[$item['ref_media_id']] ?? 0;
             $this->create($item);
         }
     }
@@ -68,9 +68,9 @@ class LessonDetailAttachment extends Base
                 $this->where('id', $item['id'])->update($data);
             }
         }
-
+        
         foreach ($source_code_content as $item) {
-            $item['ref_id'] = $ref[$item['ref_media_id']] ?? 100;
+            $item['ref_id'] = $ref[$item['ref_media_id']] ?? 0;
             $this->create($item);
         }
 

@@ -123,6 +123,7 @@ export default class ChuckUpload {
             <input type='hidden' value='document' name='${name}[${obj.id}][type]'/>
             <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
             <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
+            <div class='j-filename_holder filename_holder'></div>
             <div class='j-language_holder language_holder'></div>
             <div class='dd-control'>
                 <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
@@ -131,12 +132,14 @@ export default class ChuckUpload {
         `;
 
         $callback.find('.dd-preview').append(html);
+
         if ($target.data('type') === 'msword') {
             const $selector = $($('#j-template').find('.j-template_language')).clone();
             $selector.attr('name', `${name}[${obj.id}][language]`);
             $selector.removeClass('j-template_language');
 
             const $holder = $callback.find('.j-language_holder');
+            $holder.append(`<span class='holder-label'>Language</span>`);
             $holder.append($selector);
 
             $selector.selectpicker({
@@ -144,6 +147,14 @@ export default class ChuckUpload {
                 showTick: true,
                 noneResultsText: '対象が見つかりません'
             });
+
+            const filenameHTML = `
+                <span class='holder-label'>Display name</span>
+                <input name='${name}[${obj.id}][display_name]' value='${obj.original_name}' class='source_code_content__filename' />
+            `;
+
+            const $filename_holder = $callback.find('.j-filename_holder');
+            $filename_holder.append(filenameHTML);
         }
     }
 

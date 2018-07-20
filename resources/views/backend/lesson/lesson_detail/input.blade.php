@@ -86,7 +86,8 @@
                     'field_value' => array_get($target, 'source_codes', ''),
                     'field_type' => 'file_dd_multiple',
                     'field_advance' => [
-                        'languages' => $form['language']
+                        'languages' => $form['language'],
+                        'source_code_content' => $source_code_content ?? []
                     ],
                     'field_attribute' => [
                         'data-url' => route('backend.media.chuck'),

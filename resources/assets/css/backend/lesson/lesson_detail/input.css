@@ -11,3 +11,16 @@
 .language_holder .bootstrap-select {
     margin-bottom: 7px;
 }
+.filename_holder {
+    margin-top: 10px;
+}
+.holder-label {
+    width: 100px;
+    margin-right: 10px;
+}
+.source_code_content__filename {
+    border: 1px solid #ced4da;
+    margin: 0 5px 5px 0;
+    padding: 5px 8px;
+    border-radius: 5px;
+}

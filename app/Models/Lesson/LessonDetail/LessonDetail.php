@@ -22,6 +22,7 @@ class LessonDetail extends Base
     public function source_code_contents()
     {
         return $this->hasMany(LessonDetailAttachment::class)
+                    ->where('ref_id', '<>', 0)
                     ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT);
     }
 
