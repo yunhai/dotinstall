@@ -22,9 +22,8 @@ body {
     color: #0090ff !important;
 }
 .nav-pills .nav-link {
-    /*border-right: 1px solid #ddd;
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;*/
+    border-radius: 0;
+    border-right: 0;
 }
 @media (max-width: 992px) {
     #navbarheaders {
