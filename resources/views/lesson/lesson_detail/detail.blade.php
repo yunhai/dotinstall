@@ -20,7 +20,7 @@
     <div class="box ttlCommon border-bottom-0 mb-0 pl-5 pr-5">レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</div>
     <div class="box">
         <div class="card">
-            <div class="lession-nar w-100 pl-5 pr-5"><span>$target['name']</span></div>
+            <div class="lession-nar w-100 pl-5 pr-5"><span>{{ $target['name'] }}</span></div>
         </div>
     </div>
     <div class="box border-top-0 pl-5 pr-5">
