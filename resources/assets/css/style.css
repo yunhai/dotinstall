@@ -210,20 +210,26 @@ body {
 	}
 }
 @media (max-width: 575.98px) {
-	.col-lesson.col-sm-6 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
     .pr-5, .px-5 {
         padding-right: 1rem!important;
     }
     .pl-5, .px-5 {
         padding-left: 1rem!important;
     }
+	 .col-lesson.col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
     .col-lesson .card-img-video {
         height: 112px;
+    }
+    .box .card .btn-request .btn-to-complete {
+        margin-bottom: 5px;
+    }
+    .box .card .btn-request .btn-sorce-conformation {
+        margin-bottom: 5px;
     }
 }
 .box-request {
