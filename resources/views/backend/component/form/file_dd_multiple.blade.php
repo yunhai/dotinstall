@@ -15,9 +15,9 @@
                     $item['lesson_detail_attachment__id'] = $target->id;
 
                     if (!empty($field_advance['source_code_content'][$target->id])) {
-                        $tmp = $field_advance['source_code_content'][$target->id];
-                        $item['display_name'] = $tmp['original_name']; 
-                        $item['source_code_content_id'] = $tmp['id']; 
+                        $field_advance_tmp = $field_advance['source_code_content'][$target->id];
+                        $item['display_name'] = $field_advance_tmp['original_name']; 
+                        $item['source_code_content_id'] = $field_advance_tmp['id']; 
                     }
 
                     array_push($tmp, $item);
