@@ -207,6 +207,12 @@ body {
         flex: 0 0 50%;
         max-width: 50%;
     }
+    .pr-5, .px-5 {
+        padding-right: 1rem!important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 1rem!important;
+    }
 }
 .box-request {
     padding-bottom: 20px;
