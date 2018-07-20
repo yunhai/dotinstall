@@ -213,6 +213,9 @@ body {
     .pl-5, .px-5 {
         padding-left: 1rem!important;
     }
+    .col-lesson .card-img-video {
+        height: 88px;
+    }
 }
 .box-request {
     padding-bottom: 20px;
