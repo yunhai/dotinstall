@@ -8,16 +8,14 @@
         <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
             <p class="mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
             <div class="row">
-                <div class="col-2 d-none d-lg-block">
+                <div class="col-2 d-none d-lg-block pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                        <a class="bg-nav-link nav-link active show" href="{{ route('login') }}" role="tab">ログイン
-                            <!--<img class="img-fluid" src="/img/bg_login.png">-->
-                        </a>
+                        <a class="bg-nav-link nav-link active show" href="{{ route('login') }}" role="tab">ログイン</a>
                         <a class="nav-link" href="{{ route('register') }}" role="tab">新規登録</a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7 pl-0 pr-0">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="row justify-content-left">
@@ -81,7 +79,7 @@
                         <div class="card">
                             <div class="card-header text-center">その他の方法でログイン</div>
 
-                            <div class="card-body">
+                            <div class="card-body pl-5 pr-5">
                                 <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
                                 <a href="/auth/twitter" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>
                                 <a href="/auth/facebook" class="btn btn-facebook btn-block"><span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span></a>
