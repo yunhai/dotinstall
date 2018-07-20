@@ -22,9 +22,8 @@ body {
     color: #0090ff !important;
 }
 .nav-pills .nav-link {
-    /*border-right: 1px solid #ddd;
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;*/
+    border-radius: 0;
+    border-right: 0;
 }
 @media (max-width: 992px) {
     #navbarheaders {
@@ -61,7 +60,7 @@ body {
     color: #fff;
     background-color: #04e734;
     border-color: #04e734;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 .btn-line:hover {
     color: #fff;
@@ -365,6 +364,20 @@ body {
 ------------------------------------------------------------ */
 .card.card-mypage .card-body {
     height: 172px;
+}
+.bg-nav-link {
+    background: repeating-linear-gradient(
+        -45deg,
+        #f9dbb0,
+        #f9dbb0 5px,
+        #e6c89d 5px,
+        #e6c89d 10px
+    );
+    border: 2px solid #fbc276;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    text-align: center;
+    color: #000 !important;
 }
 /* BREADCRUMB
 ------------------------------------------------------------ */

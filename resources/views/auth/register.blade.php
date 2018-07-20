@@ -46,16 +46,14 @@
                 <p class="mar_b30">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
             @endif
             <div class="row">
-                <div class="col-2 d-none d-lg-block">
+                <div class="col-2 d-none d-lg-block pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
-                        <a class="nav-link active show p-0" data-toggle="pill" href="{{ route('register') }}" role="tab">
-                            <img class="img-fluid" src="img/bg_register.png">
-                        </a>
+                        <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register') }}" role="tab">新規登録</a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7 pl-0 pr-0">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="row justify-content-left">
@@ -160,7 +158,7 @@
                                 @endif
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body @if (empty(app('request')->input('provider'))) pl-5 pr-5 @endif">
                                 @if (!empty(app('request')->input('provider')))
                                     <p>メールアドレスは運営側からの連絡をする際に必要となります。</p>
                                     <p class="mar_b0">パスワードを設定したい場合は、ユーザー登録後に設定変更画面からおこなってください。</p>
