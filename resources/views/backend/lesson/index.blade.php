@@ -16,7 +16,6 @@
                 'レッスン一名',
                 'カテゴリー',
                 '動画',
-                '公開状況',
                 '',
             ],
             'body' => [
@@ -34,14 +33,6 @@
                     'field' => 'video_count',
                     'attr' => [
                         'style' => 'width:6%',
-                        'class' => 'text-center'
-                    ]
-                ],
-                'mode' => [
-                    'field' => 'mode',
-                    'option' => $form['mode'],
-                    'attr' => [
-                        'style' => 'width:10%',
                         'class' => 'text-center'
                     ]
                 ],

@@ -30,15 +30,14 @@ class LessonDetail extends Base
         $input = $this->format($input, $lesson_id);
 
         $target = $this->model->create($input);
-
-        $lesson_detail_id = $target->id;
-        return redirect()->route('backend.lesson_detail.edit', compact('lesson_id', 'lesson_detail_id'));
+        return redirect()->route('backend.lesson_detail.index', compact('lesson_id'));
     }
 
     public function getEdit($lesson_id, $lesson_media_id)
     {
         $form = $this->form();
         $target = $this->model->getWithRelation($lesson_media_id, false);
+
         return $this->render('lesson.lesson_detail.input', compact('target', 'form', 'lesson_id', 'lesson_media_id'));
     }
 
@@ -49,7 +48,7 @@ class LessonDetail extends Base
 
         $this->model->edit($lesson_detail_id, $input);
 
-        return redirect()->route('backend.lesson_detail.edit', compact('lesson_id', 'lesson_detail_id'));
+        return redirect()->route('backend.lesson_detail.index', compact('lesson_id'));
     }
 
     public function getIndex($lesson_id)
@@ -57,6 +56,7 @@ class LessonDetail extends Base
         $data = $this
                     ->model
                     ->where('lesson_id', $lesson_id)
+                    ->orderBy('sort')
                     ->orderBy('id')
                     ->paginate(20);
 
@@ -92,6 +92,7 @@ class LessonDetail extends Base
 
         $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
         $input['video'] = empty($input['video']) ? 0 : key($input['video']);
+        $input['mode'] = MODE_ENABLE;
 
         $map = [
             'source_code' => LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE,

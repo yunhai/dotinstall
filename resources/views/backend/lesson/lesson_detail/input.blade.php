@@ -26,23 +26,16 @@
             'form_back_url' => route('backend.lesson_detail.index', ['lesson_id' => $lesson_id]),
             'form_field' => [
                 'name' => [
-                    'field_label' => '動画の題名',
+                    'field_label' => '題名',
                     'field_name' => 'name',
                     'field_value' => array_get($target, 'name', ''),
                     'field_type' => 'text'
                 ],
                 'caption' => [
-                    'field_label' => 'Caption',
+                    'field_label' => 'この動画について',
                     'field_name' => 'caption',
                     'field_value' => array_get($target, 'caption', ''),
-                    'field_type' => 'editor'
-                ],
-                'mode' => [
-                    'field_label' => '公開状況',
-                    'field_name' => 'mode',
-                    'field_value' => array_get($target, 'mode', ''),
-                    'field_type' => 'radio',
-                    'field_option' => $form['mode'],
+                    'field_type' => 'textarea'
                 ],
                 'free_mode' => [
                     'field_label' => '無料状況',

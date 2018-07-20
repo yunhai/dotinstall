@@ -39,7 +39,7 @@ class Lesson extends Base
         $input = $this->makeInput($request, $lesson_id, MODE_EDIT);
         $this->model->edit($lesson_id, $input);
 
-        return redirect()->route('backend.lesson.edit', compact('lesson_id'));
+        return redirect()->route('backend.lesson.index');
     }
 
     public function getCreate()
@@ -56,8 +56,7 @@ class Lesson extends Base
         $input = $this->makeInput($request);
         $target = $this->model->create($input);
 
-        $lesson_id = $target->id;
-        return redirect()->route('backend.lesson.edit', compact('lesson_id'));
+        return redirect()->route('backend.lesson.index');
     }
 
     public function getDelete($id)
@@ -69,7 +68,11 @@ class Lesson extends Base
     protected function makeInput(PostInput $request, int $id = 0, bool $mode = MODE_CREATE)
     {
         $input = $request->all();
-        $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
+        $input['poster'] = 0;
+        $input['caption'] = '';
+        $input['note'] = '';
+        $input['mode'] = 1;
+        $input['free_mode'] = 0;
 
         return $input;
     }

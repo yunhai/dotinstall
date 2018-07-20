@@ -30,25 +30,6 @@
                     'field_value' => array_get($target, 'name', ''),
                     'field_type' => 'text'
                 ],
-                'caption' => [
-                    'field_label' => 'Caption',
-                    'field_name' => 'caption',
-                    'field_value' => array_get($target, 'caption', ''),
-                    'field_type' => 'editor'
-                ],
-                'note' => [
-                    'field_label' => 'Note',
-                    'field_name' => 'note',
-                    'field_value' => array_get($target, 'note', ''),
-                    'field_type' => 'editor'
-                ],
-                'mode' => [
-                    'field_label' => '公開状況',
-                    'field_name' => 'mode',
-                    'field_value' => array_get($target, 'mode', ''),
-                    'field_type' => 'radio',
-                    'field_option' => $form['mode'],
-                ],
                 'category_id' => [
                     'field_label' => 'カテゴリー',
                     'field_name' => 'category_id',
@@ -57,19 +38,6 @@
                     'field_option' => $form['category'],
                     'field_attribute' => [
                         'title' => '選択なし'
-                    ]
-                ],
-                'poster' => [
-                    'field_label' => 'サムネイル',
-                    'field_name' => 'poster',
-                    'field_value' => array_get($target, 'posters', ''),
-                    'field_type' => 'file_dd',
-                    'field_attribute' => [
-                        'data-url' => '/backend/media/chunk/',
-                        'data-preview' => 1,
-                        'data-query' => '{"media_type": "image"}',
-                        'data-type' => 'image',
-                        'data-max_file_upload' => 1
                     ]
                 ],
             ],

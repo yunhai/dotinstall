@@ -12,23 +12,9 @@
                 'field_name' => 'name',
                 'field_value' => array_get($target, 'name', ''),
                 'field_type' => 'text'
-            ],
-            'sort' => [
-                'field_label' => '表示順序',
-                'field_name' => 'sort',
-                'field_value' => array_get($target, 'sort', ''),
-                'field_type' => 'text'
-            ],
-            'mode' => [
-                'field_label' => '公開状況',
-                'field_name' => 'mode',
-                'field_value' => array_get($target, 'mode', ''),
-                'field_type' => 'radio',
-                'field_option' => $form['mode'],
             ]
         ],
         'form_attribute' => [
-            'enctype' => 'multipart/form-data'
         ]
     ];
 @endphp

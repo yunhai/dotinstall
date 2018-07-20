@@ -15,7 +15,7 @@ class MsCategory extends Base
 
     public function getIndex()
     {
-        $ms_categories = $this->model->orderBy('id', 'desc')->paginate(20);
+        $ms_categories = $this->model->orderBy('id')->paginate(20);
         $form = $this->form();
         return $this->render('ms_category.index', compact('ms_categories', 'form'));
     }
@@ -29,10 +29,10 @@ class MsCategory extends Base
 
     public function postEdit(PostInput $request, $id)
     {
-        $input = $request->all();
+        $input = $this->makeInput($request);
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.ms_category.edit', ['ms_category_id' => $id]);
+        return redirect()->route('backend.ms_category.index');
     }
 
     public function getCreate()
@@ -43,11 +43,9 @@ class MsCategory extends Base
 
     public function postCreate(PostInput $request)
     {
-        $input = $request->all();
+        $input = $this->makeInput($request);
         $target = $this->model->create($input);
-
-        $ms_category_id = $target->id;
-        return redirect()->route('backend.ms_category.edit', compact('ms_category_id'));
+        return redirect()->route('backend.ms_category.index');
     }
 
     public function getDelete($id)
@@ -61,5 +59,14 @@ class MsCategory extends Base
         return [
             'mode' => config('master.common.mode')
         ];
+    }
+
+    protected function makeInput(PostInput $request)
+    {
+        $input = $request->all();
+        $input['mode'] = 1;
+        $input['sort'] = 1;
+
+        return $input;
     }
 }

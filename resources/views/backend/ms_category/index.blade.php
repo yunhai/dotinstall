@@ -14,28 +14,11 @@
             'title' => 'カテゴリー',
             'header' => [
                 'カテゴリー名',
-                '表示順序',
-                '公開状況',
                 '',
             ],
             'body' => [
                 'name' => [
                     'field' => 'name',
-                ],
-                'sort' => [
-                    'field' => 'sort',
-                    'attr' => [
-                        'style' => 'width:10%',
-                        'class' => 'text-center'
-                    ]
-                ],
-                'mode' => [
-                    'field' => 'mode',
-                    'option' => $form['mode'],
-                    'attr' => [
-                        'style' => 'width:10%',
-                        'class' => 'text-center'
-                    ]
                 ],
                 'button' => [
                     'field' => '',

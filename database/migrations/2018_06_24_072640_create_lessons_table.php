@@ -17,10 +17,10 @@ class CreateLessonsTable extends Migration
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
             $table->string('name', 256);
-            $table->text('caption');
-            $table->text('note');
+            $table->text('caption')->nullable();
+            $table->text('note')->nullable();
             $table->unsignedTinyInteger('mode')->default(0);
-            $table->unsignedTinyInteger('free_mode')->default(1);
+            $table->unsignedTinyInteger('free_mode')->default(0);
             $table->unsignedInteger('poster')->default(0);
             $table->unsignedInteger('category_id')->default(0);
             $table->unsignedInteger('video_count')->default(0);
