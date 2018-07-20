@@ -16,7 +16,7 @@ class User extends Base
 
     public function getIndex()
     {
-        $users = $this->model->paginate(20);
+        $users = $this->model->orderBy('id', 'desc')->paginate(20);
         return $this->render('user.index', compact('users'));
     }
 }

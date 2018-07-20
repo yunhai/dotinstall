@@ -16,7 +16,7 @@ class Affiliator extends Base
 
     public function getIndex()
     {
-        $data = $this->model->paginate(20);
+        $data = $this->model->orderBy('id', 'desc')->paginate(20);
         $form = $this->form();
         return $this->render('affiliator.index', compact('data', 'form'));
     }

@@ -23,6 +23,12 @@
                     <span class="nav-link-text">Youtubeリンク</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="Youtubeリンク">
+                <a class="nav-link" href="{{ route('backend.notification.index') }}">
+                    <i class="fa fa-book fa-fw"></i>
+                    <span class="nav-link-text">通知</span>
+                </a>
+            </li>
             <li class="nav-item" data-toggle="" data-placement="right" title="カテゴリー">
                 <a class="nav-link" href="{{ route('backend.ms_category.index') }}">
                     <i class="fa fa-cog fa-fw"></i>

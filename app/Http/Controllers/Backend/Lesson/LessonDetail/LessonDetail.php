@@ -57,7 +57,7 @@ class LessonDetail extends Base
         $data = $this
                     ->model
                     ->where('lesson_id', $lesson_id)
-                    ->orderBy('sort')
+                    ->orderBy('id')
                     ->paginate(20);
 
         $form = $this->form();

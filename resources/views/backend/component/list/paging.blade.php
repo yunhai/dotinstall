@@ -33,6 +33,12 @@
                                         @else
                                             {{ $row['option'][$item[$row['field']]] ?? '' }}
                                         @endif
+                                    @elseif (!empty($row['apply']))
+                                        @php
+                                            $func = $row['apply'][0];
+                                            $content = $item[$row['apply'][1]];
+                                            echo call_user_func_array($func, [$content])
+                                        @endphp
                                     @elseif (!empty($row['tpl']))
                                         @if (empty($row['tpl_arg']))
                                             {{ $row['tpl'] }}

@@ -15,7 +15,7 @@ class MsCategory extends Base
 
     public function getIndex()
     {
-        $ms_categories = $this->model->paginate(20);
+        $ms_categories = $this->model->orderBy('id', 'desc')->paginate(20);
         $form = $this->form();
         return $this->render('ms_category.index', compact('ms_categories', 'form'));
     }

@@ -17,7 +17,7 @@ class Lesson extends Base
 
     public function getIndex()
     {
-        $lessons = $this->model->paginate(20);
+        $lessons = $this->model->orderBy('id', 'desc')->paginate(20);
         $form = $this->form();
 
         return $this->render('lesson.index', compact('lessons', 'form'));

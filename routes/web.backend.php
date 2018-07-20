@@ -54,6 +54,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');
     Route::get('ms_category/{ms_category_id}/delete', 'MsCategory@getDelete')->name('backend.ms_category.delete');
 
+    Route::get('notification', 'Notification@getIndex')->name('backend.notification.index');
+    Route::get('notification/create', 'Notification@getCreate')->name('backend.notification.create');
+    Route::post('notification/create', 'Notification@postCreate');
+    Route::get('notification/{notification_id}/edit', 'Notification@getEdit')->name('backend.notification.edit');
+    Route::post('notification/{notification_id}/edit', 'Notification@postEdit');
+    Route::get('notification/{notification_id}/delete', 'Notification@getDelete')->name('backend.notification.delete');
+
     Route::get('user', 'User@getIndex')->name('backend.user.index');
     Route::get('user/create', 'User@getCreate')->name('backend.user.create');
     Route::post('user/create', 'User@postCreate');
