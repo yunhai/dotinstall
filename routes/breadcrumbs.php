@@ -65,9 +65,9 @@ Breadcrumbs::for('user.change_password', function ($trail) {
 });
 
 // クレジットカード決済
-Breadcrumbs::for('stripe', function ($trail) {
+Breadcrumbs::for('payment.charge', function ($trail) {
     $trail->parent('top');
-    $trail->push('クレジットカード決済', route('stripe'));
+    $trail->push('クレジットカード決済', route('payment.charge'));
 });
 
 // アフィリエイト

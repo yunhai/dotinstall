@@ -8,7 +8,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script src="/js/payment.js"></script>
 @endpush
-@section('breadcrumbs', Breadcrumbs::render('stripe'))
+@section('breadcrumbs', Breadcrumbs::render('payment.charge'))
 
 @section('content')
 <div id="content">
