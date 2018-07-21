@@ -36,7 +36,7 @@
     @endif
     <div class="box ttlCommon mb-0 px-5">{{ $provider_ttl }}</div>
     <div class="row px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
+        <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
             @if (!empty(app('request')->input('provider')))
                 <p class="alert alert-info mar_b30">この{{ $provider_lbl }}と連携したアカウントを新しく作成します。以下に必要事項を入力してください。
                     <br>
