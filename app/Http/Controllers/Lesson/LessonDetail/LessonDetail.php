@@ -77,6 +77,7 @@ class LessonDetail extends Base
 
     private function formatLessonDetail($lesson_details, $media, $user_id)
     {
+        $storage = Storage::disk('media');
         foreach ($lesson_details as $key => $detail) {
             $lesson_details[$key]['is_closeable'] = $user_id
                 && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
@@ -84,10 +85,13 @@ class LessonDetail extends Base
             foreach ($detail['source_code_contents'] as $index => $item) {
                 $path = $media[$item['media_id']]['path'] ?? '';
 
-                $item['filename'] = $media[$item['media_id']]['original_name'];
-                $item['content'] = Storage::disk('media')->get($path);
-
-                $lesson_details[$key]['source_code_contents'][$index] = $item;
+                if ($path && $storage->exists($path)) {
+                    $item['filename'] = $media[$item['media_id']]['original_name'];
+                    $item['content'] = $storage->get($path);
+                    $lesson_details[$key]['source_code_contents'][$index] = $item;
+                } else {
+                    unset($lesson_details[$key]['source_code_contents'][$index]);
+                }
             }
 
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||

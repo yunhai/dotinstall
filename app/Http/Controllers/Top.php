@@ -52,6 +52,7 @@ class Top extends Base
 
     private function format(array $lesson, $media, $user_id)
     {
+        $storage = Storage::disk('media');
         $lesson_details = $lesson['lesson_details'];
 
         foreach ($lesson_details as $key => $detail) {
@@ -60,11 +61,13 @@ class Top extends Base
 
             foreach ($detail['source_code_contents'] as $index => $item) {
                 $path = $media[$item['media_id']]['path'] ?? '';
-
-                $item['filename'] = $media[$item['media_id']]['original_name'];
-                $item['content'] = Storage::disk('media')->get($path);
-
-                $lesson_details[$key]['source_code_contents'][$index] = $item;
+                if ($path && $storage->exists($path)) {
+                    $item['filename'] = $media[$item['media_id']]['original_name'];
+                    $item['content'] = $storage->get($path);
+                    $lesson_details[$key]['source_code_contents'][$index] = $item;
+                } else {
+                    unset($lesson_details[$key]['source_code_contents'][$index]);
+                }
             }
 
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
