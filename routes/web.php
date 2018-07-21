@@ -32,7 +32,7 @@ Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.downlo
 Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 
-Route::group(['middleware' => ['user']], function () {
+Route::group(['middleware' => ['web']], function () {
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage');
 
     Route::get('lesson/{lesson_id}/enroll', 'Lesson\Lesson@getEnroll')->name('lesson.enroll');
@@ -41,8 +41,9 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/learn', 'Lesson\LessonDetail\LessonDetail@getLearn')->name('lesson_detail.learn');
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/close', 'Lesson\LessonDetail\LessonDetail@getClose')->name('lesson_detail.close');
 
-    Route::post('payment/checkout', 'Payment@getCheckout')->name('payment.checkout');
-    Route::post('payment/charge', 'Payment@postCharge')->name('payment.charge');
+    Route::get('payment/charge', 'Payment@getCharge')->name('payment.charge');
+    Route::post('payment/charge', 'Payment@postCharge');
+    Route::get('payment/finish', 'Payment@getFinish')->name('payment.finish');
 
     Route::get('user/password', 'User@getChangePassword')->name('user.change_password');
     Route::post('user/password', 'User@postChangePassword');
@@ -53,4 +54,3 @@ Route::get('logout', 'Auth\LoginController@getLogout')->name('logout');
 //////////////////////////////////////////////////
 Route::get('affiliate', 'Page@getAffiliate')->name('affiliate');
 Route::get('home', 'Home@getMyPage')->name('home');
-Route::get('stripe', 'Page@getStripe')->name('stripe');
