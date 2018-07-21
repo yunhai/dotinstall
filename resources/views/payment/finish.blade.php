@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
-@section('breadcrumbs', Breadcrumbs::render('stripe'))
+@section('breadcrumbs', Breadcrumbs::render('payment.charge'))
 
 @section('content')
 <div id="content">
