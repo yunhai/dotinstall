@@ -26,9 +26,9 @@ class AffiliatorInvitation extends Base
 
         $affiliator = $affiliator_model->getByToken($data['token']);
 
-        $free = MEMBERSHIP_FREE;
+        $fee = MEMBERSHIP_FEE;
         $rate = $affiliator['commission_rate'];
-        $commission = ($free * $rate) / 100;
+        $commission = ($fee * $rate) / 100;
         $commission = intval(round($commission));
 
         $input = [
