@@ -25,6 +25,15 @@ body {
     border-radius: 0;
     border-right: 0;
 }
+.row div.container-fluid div.divider {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    border-top: 1px solid #bca9af;
+}
+.row div.container-fluid:last-child div.divider {
+    border: none;
+}
 @media (max-width: 992px) {
     #navbarheaders {
         border-top: 1px solid #bca9af;
@@ -201,20 +210,29 @@ body {
 	}
 }
 @media (max-width: 575.98px) {
-	.col-lesson.col-sm-6 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
     .pr-5, .px-5 {
         padding-right: 1rem!important;
     }
     .pl-5, .px-5 {
         padding-left: 1rem!important;
     }
+	 .col-lesson.col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
     .col-lesson .card-img-video {
-        height: 50%;
+        height: 112px;
+    }
+    .box .card .btn-request .btn-to-complete {
+        margin-bottom: 5px;
+    }
+    .box .card .btn-request .btn-sorce-conformation {
+        margin-bottom: 5px;
+    }
+    .box .card .btn-prev {
+        margin-bottom: 5px;
     }
 }
 .box-request {
@@ -388,6 +406,19 @@ body {
     text-align: center;
     color: #000 !important;
 }
+.bg-button, .bg-button:not(:disabled):not(.disabled).active, .bg-button:not(:disabled):not(.disabled):active {
+    background: repeating-linear-gradient(
+        -45deg,
+        #b1a9fe,
+        #b1a9fe 5px,
+        #9d95ea 5px,
+        #9d95ea 10px
+    );
+    border: 2px solid #a689fb;
+    border-radius: 6px !important;
+    text-align: center;
+    color: #fff !important;
+}
 /* BREADCRUMB
 ------------------------------------------------------------ */
 .breadcrumb {
@@ -448,8 +479,6 @@ body {
 .footer a {
     color: #fff;
 }
-/* PADDING
------------------------------------------------------------- */
 /* PADDING
 ------------------------------------------------------------ */
 .pad_l5 {

@@ -62,7 +62,6 @@ class User extends Authenticatable
     public function init(array $data)
     {
         $result = [
-            //'name' => $data['name'],
             'email' => $data['email'],
             'role' => USER_ROLE_PUBLIC,
             'provider' => isset($data['provider']) ? $data['provider'] : '',
