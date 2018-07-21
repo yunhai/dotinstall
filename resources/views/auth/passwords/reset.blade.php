@@ -5,7 +5,7 @@
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">パスワードの再設定</div>
     <div class="row px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
+        <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
             <p class="mar_b30">パスワードを再設定するには以下から新しいパスワードを入力してください。</p>
             <div class="row">
                 <div class="col-2 d-none d-lg-block pr-0">
