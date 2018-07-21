@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_test_M7Bpxg5vJ03qNHHjsJoIo00V');
+var stripe = Stripe(STRIPE_KEY);
 var elements = stripe.elements();
 
 var style = {

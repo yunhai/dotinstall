@@ -6,6 +6,9 @@
 
 @push('js')
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var STRIPE_KEY = "{{ env('STRIPE_KEY') }}";
+    </script>
     <script src="/js/payment.js"></script>
 @endpush
 @section('breadcrumbs', Breadcrumbs::render('payment.charge'))
