@@ -25,13 +25,13 @@ body {
     border-radius: 0;
     border-right: 0;
 }
-.divider {
+.row div.container-fluid div.divider {
     width: 100%;
     height: 0;
     overflow: hidden;
     border-top: 1px solid #bca9af;
 }
-.divider:last-child {
+.row div.container-fluid:last-child div.divider {
     border: none;
 }
 @media (max-width: 992px) {
@@ -406,6 +406,19 @@ body {
     text-align: center;
     color: #000 !important;
 }
+.bg-button {
+    background: repeating-linear-gradient(
+        -45deg,
+        #b1a9fe,
+        #b1a9fe 5px,
+        #9d95ea 5px,
+        #9d95ea 10px
+    );
+    border: 2px solid #a689fb;
+    border-radius: 6px !important;
+    text-align: center;
+    color: #fff !important;
+}
 /* BREADCRUMB
 ------------------------------------------------------------ */
 .breadcrumb {
@@ -466,8 +479,6 @@ body {
 .footer a {
     color: #fff;
 }
-/* PADDING
------------------------------------------------------------- */
 /* PADDING
 ------------------------------------------------------------ */
 .pad_l5 {

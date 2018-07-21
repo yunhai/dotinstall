@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-@if($loop->iteration % 5 == 0)
+@if($loop->iteration % 5 == 0 && $loop->count > 5)
     <div class="container-fluid">
         <div class="divider"></div>
     </div>

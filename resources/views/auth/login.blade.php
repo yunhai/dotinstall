@@ -62,7 +62,8 @@
                                                                 <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
                                                             </label>
                                                         </p>
-                                                        <button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_login.png"></button>
+                                                        <!--<button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_login.png"></button>-->
+                                                        <button type="submit" class="btn bg-button px-5">ログイン</button>
                                                         <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                     </div>
                                                 </div>
