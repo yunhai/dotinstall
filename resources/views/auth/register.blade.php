@@ -134,9 +134,8 @@
                                                         <p class="mt-3">
                                                             <a href="{{ route('terms') }}" target="_blank">利用規約に同意</a>
                                                         </p>
-                                                        <button type="submit" class="btn border-0 p-0">
-                                                            <img class="card-img-top" src="/img/btn_registration.png">
-                                                        </button>
+                                                        <!--<button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_registration.png"></button>-->
+                                                        <button type="submit" class="btn bg-button px-5">登録する</button>
                                                     </div>
                                                 </div>
                                             </form>

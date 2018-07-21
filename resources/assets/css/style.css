@@ -406,7 +406,7 @@ body {
     text-align: center;
     color: #000 !important;
 }
-.bg-button {
+.bg-button, .bg-button:not(:disabled):not(.disabled).active, .bg-button:not(:disabled):not(.disabled):active {
     background: repeating-linear-gradient(
         -45deg,
         #b1a9fe,
