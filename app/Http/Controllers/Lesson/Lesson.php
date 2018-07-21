@@ -78,6 +78,7 @@ class Lesson extends Base
                     $item['content'] = $storage->get($path);
                     $lesson_details[$key]['source_code_contents'][$index] = $item;
                 } else {
+                    unset($detail['source_code_contents'][$index]);
                     unset($lesson_details[$key]['source_code_contents'][$index]);
                 }
             }
