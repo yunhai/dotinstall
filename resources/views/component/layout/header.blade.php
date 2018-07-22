@@ -10,7 +10,7 @@
         <ul class="navbar-nav ml-auto align-items-lg-end">
             @if (Auth::user())
                 <li class="nav-item">
-                    <a class="nav-link text-lg-center" href="#">
+                    <a class="nav-link text-lg-center" href="{{ route('payment.charge') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
                         <span class="d-lg-none">ダイヤモンド会員</span>
                         <span class="d-none d-lg-block">ダイヤモンド会員</span>
@@ -50,7 +50,7 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link text-lg-center" href="#">
+                    <a class="nav-link text-lg-center" href="{{ route('payment.charge') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
                         <span class="d-lg-none">ダイヤモンド会員</span>
                         <span class="d-none d-lg-block">ダイヤモンド会員</span>
