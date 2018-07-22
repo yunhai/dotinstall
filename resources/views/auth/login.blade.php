@@ -4,7 +4,7 @@
 @section('content')
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">プログラミングゴーにようこそ！</div>
-    <div class="row px-5">
+    <div class="box-user px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
             <p class="mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
             <div class="row">
@@ -18,8 +18,8 @@
                 <div class="col-lg-7 pl-0 pr-0">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
-                            <div class="row justify-content-left">
-                                <div class="col">
+                            <div class="tab-pane-user row">
+                                <div class="col-12">
                                     <div class="card">
                                         <div class="card-header">ログイン</div>
 

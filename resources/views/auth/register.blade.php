@@ -35,7 +35,7 @@
         @endphp
     @endif
     <div class="box ttlCommon mb-0 px-5">{{ $provider_ttl }}</div>
-    <div class="row px-5">
+    <div class="box-user px-5">
         <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
             @if (!empty(app('request')->input('provider')))
                 <p class="alert alert-info mar_b30">この{{ $provider_lbl }}と連携したアカウントを新しく作成します。以下に必要事項を入力してください。
@@ -56,7 +56,7 @@
                 <div class="col-lg-7 pl-0 pr-0">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
-                            <div class="row justify-content-left">
+                            <div class="tab-pane-user row">
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-header">新規登録</div>
