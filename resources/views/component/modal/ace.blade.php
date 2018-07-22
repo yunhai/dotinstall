@@ -7,6 +7,7 @@
                 </button>
                 <span class="modal-title mr-auto text-white">ソース確認</span>
             </div>
+            @if (!empty($resources))
             <div class="modal-body">
                 素材ダウンロード
                 <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download ml-5 btn--resource" role="button" aria-pressed="true">素材ダウンロードする</a>
@@ -14,6 +15,7 @@
                     <hr style="border-color: #837f80;">
                 @endif
             </div>
+            @endif
             @if ($content)
             <ul class="nav nav-tabs border-bottom-0" id="myTabSource" role="tablist">
             @foreach($content as $item)
