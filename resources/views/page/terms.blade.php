@@ -2,7 +2,7 @@
 @section('title', '利用規約')
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('terms'))
-<div id="mainContents">
+<div id="content">
     <div class="box ttlCommon mb-0 px-5">利用規約</div>
     <div class="row">
         <div class="boxPrivacy px-5">
