@@ -248,20 +248,12 @@ body {
     font-size: 0.8125rem;
 }
 .box .card .btn-request .btn-to-complete {
-    /*border: 2px solid #dfdfe0;
-    max-width: 105px;*/
 }
 .box .card .btn-request .btn-sorce-conformation {
-    /*border: 2px solid #fbc276;
-    max-width: 105px;*/
 }
 .box .card .btn-request .btn-completion {
-    /*border: 2px solid #25dced;
-    max-width: 105px;*/
 }
 .box .card .btn-request .btn-diamond {
-    /*border: 2px solid #a689fb;
-    max-width: 242px;*/
 }
 .box .card .card-text-header {
     font-size: 2.5rem;
