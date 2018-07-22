@@ -4,21 +4,23 @@
 @section('breadcrumbs', Breadcrumbs::render('mypage'))
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">マイページ</div>
-    <div class="container-fluid">
-        <div class="row m-0">
-            <div class="mar_t30 mar_b30 col-lg-4 col-md-4 col-sm-6">
+    <div class="box-mypage px-5">
+        <div class="row">
+            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">ステータス</div>
                     <div class="card-body text-center">
                         <h3><p class="card-text">無料会員</p></h3>
-                        <p class="card-text"><a href="">
-                            <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>ダイヤモンド会員になる</a>
+                        <p class="card-text">
+                            <a href="{{ route('payment.charge') }}">
+                                <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>ダイヤモンド会員になる
+                            </a>
                         </p>
                         <p class="card-text">ダイヤモンド会員になると、全ての動画見放題となります！月額￥５００円（税別）</p>
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 mar_b30 col-lg-4 col-md-4 col-sm-6">
+            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">次回課金日/値段</div>
                     <div class="card-body text-center">
@@ -28,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 mar_b30 col-lg-4 col-md-4 col-sm-6">
+            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">お知らせ</div>
                     <div class="card-body text-center">
@@ -36,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_b30 col-lg-4 col-md-4 col-sm-6">
+            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">総合完了数</div>
                     <div class="card-body text-center">
@@ -44,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_b30 col-lg-4 col-md-4 col-sm-6">
+            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">学習日数</div>
                     <div class="card-body text-center">
@@ -52,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_b30 col-lg-4 col-md-4 col-sm-6">
+            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">視聴時間</div>
                     <div class="card-body text-center">

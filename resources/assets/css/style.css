@@ -168,7 +168,7 @@ body {
 }
 /* TOP
 ------------------------------------------------------------ */
-.box, .box-user {
+.box, .box-user, .box-mypage {
     margin-left: -15px;
     margin-right: -15px;
     margin-bottom: 30px;
