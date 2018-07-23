@@ -61,7 +61,7 @@
                         'data-query' => '{"media_type": "video"}',
                         'data-type' => 'video',
                         'data-max_file_upload' => 1,
-                        'data-video_duration' => $video_duration
+                        'data-video_duration' => $video_duration ?? 0
                     ]
                 ],
                 'poster' => [
