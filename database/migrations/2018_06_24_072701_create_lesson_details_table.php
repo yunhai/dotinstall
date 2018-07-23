@@ -19,6 +19,7 @@ class CreateLessonDetailsTable extends Migration
             $table->string('name', 256);
             $table->text('caption');
             $table->unsignedInteger('video');
+            $table->unsignedInteger('duration')->default(0);
             $table->unsignedInteger('poster')->default(0);
             $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedTinyInteger('free_mode')->default(1);

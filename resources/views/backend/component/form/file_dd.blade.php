@@ -39,6 +39,15 @@
                         <input type='hidden' value='{{ $target["original_name"] }}' name='{{ $field_name }}[{{ $id }}][original_name]'/>
 
                         @if ($target['type'] === 'video')
+                            @php
+                                $video_duration = 0;
+                                if (isset($target["duration"])) {
+                                    $video_duration = $target["duration"];
+                                } else {
+                                    $video_duration = $field_attribute['data-video_duration'];
+                                }
+                            @endphp
+                            <input type='hidden' value='{{ $video_duration }}' name='{{ $field_name }}[{{ $id }}][duration]'/>
                             <video width="400" controls>
                               <source src="@media_path($media_path)" type="video/mp4">
                               Your browser does not support HTML5 video.

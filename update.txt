@@ -1,2 +1,3 @@
 //180723
 ALTER TABLE `affiliator_invitations` ADD `affiliator_commission_base` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `affiliator_token`, ADD `affiliator_commission_rate` TINYINT UNSIGNED NOT NULL DEFAULT '0' AFTER `affiliator_commission_base`;
+ALTER TABLE `lesson_details` ADD `duration` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `video`;
