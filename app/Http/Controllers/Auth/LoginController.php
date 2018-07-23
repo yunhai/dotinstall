@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '';
 
     /**
      * Create a new controller instance.
@@ -35,7 +35,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('web')->except('logout');
+        $this->middleware('web')->except('login');
     }
 
     protected function credentials(Request $request) {

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class ClientAuthenticate
+class WebAuthenticate
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class ClientAuthenticate
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == USER_ROLE_CLIENT) {
+        if (Auth::check() && Auth::user()->role == USER_ROLE_PUBLIC) {
             return $next($request);
         } else {
-            return redirect('client/login');
+            return redirect('login');
         }
     }
 }
