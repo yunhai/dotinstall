@@ -23,6 +23,9 @@
         </a>
         <div class="card-body text-center pl-0 pr-0">
             <p class="card-text card-text-name text-left">{{ $target['name'] }}</p>
+            @if (empty($path))
+                <p class="card-text">レッスンはまだありません。しばらくお待ちください。</p>
+            @endif
             @if (!empty($target['is_closeable']))
             <p class="card-text mb-1">
                 <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
