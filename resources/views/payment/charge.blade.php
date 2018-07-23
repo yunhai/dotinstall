@@ -52,7 +52,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right"></label>
 
                                 <div class="col-md-6">
-                                    <button id='j-submit' type="btn" class="btn btn-primary">ダイヤモンド会員に登録する</button>
+                                    <span id='j-submit' type="btn" class="btn btn-primary">ダイヤモンド会員に登録する</span>
                                 </div>
                             </div>
                             <div class="form-group mb-0">

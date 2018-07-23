@@ -46,7 +46,7 @@ function stripeTokenHandler(token) {
   form.submit();
 }
 
-$('#j-submit').on('click', function() {
+$('#j-submit').on('click', function(event) {
     event.preventDefault();
     stripe.createToken(card).then(function(result) {
       if (result.error) {
@@ -56,7 +56,6 @@ $('#j-submit').on('click', function() {
       } else {
         // Send the token to your server.
         stripeTokenHandler(result.token);
-        console.log(result.token)
       }
     });
 })
