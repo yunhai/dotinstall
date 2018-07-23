@@ -8,7 +8,9 @@ body {
     font-size: 0.8125rem;
 }
 #content {
-    /*margin-top: -1rem;*/
+}
+.content {
+    min-height: 50vh;
 }
 .form-inline {
     -webkit-box-align: end;
@@ -360,7 +362,7 @@ body {
 /* lESSON
 ------------------------------------------------------------ */
 .box-lesson {
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     background-color: #f5f3f3;
 }
 .box-lesson .list-group .list-group-item {
@@ -453,8 +455,8 @@ body {
     color: #fff;
     bottom: 0;
     width: 100%;
-    /*background-color: #0d6dc4;*/
     background: url(/img/bg_footer.png) 0 0 repeat;
+    background-size: cover;
 }
 .footer .row {
     margin-right: auto;
