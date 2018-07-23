@@ -268,7 +268,7 @@ body {
     margin-right: 8%;*/
 }
 .box .card .card-body .row .card-sign {
-    margin-top: 4%;
+    margin-top: 5%;
 }
 .box .card .card-body .row .card-sign .card-text-sign {
     font-size: 1.2rem;
@@ -298,20 +298,39 @@ body {
     right: -12px;
     top: -20px;
 }
+.card-sign-button {
+    background: repeating-linear-gradient(
+        -45deg,
+        #49a9bb,
+        #49a9bb 5px,
+        #4fafc1 5px,
+        #4fafc1 10px
+    );
+    color: #fff;
+    border-radius: 10px;
+    padding: 3% 10% 3% 10%;
+    border: 4px solid #2da7be;
+    margin: 0 0 0 0;
+    box-shadow: 0 10px 16px 0 #acabab,0 6px 20px 0 #acabab;
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: none;
+}
 @media (max-width: 767.98px) {
     .box .card .card-body {
         padding: 0;
     }
     .box .card .card-text-header {
         font-size: 0.8125rem !important;
-        margin-bottom: 0;
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
     }
 	.box .card-body .row .card-sign {
         margin-top: 0 !important;
         text-align: center;
     }
     .box .card .card-body .row .card-sign .card-text-sign {
-        font-size: 0.8125rem;
+        font-size: 0.8125rem !important;
         color: #4a4949;
     }
     .box .card .card-body .row .card-sign .card-text-sign.last {
@@ -319,7 +338,7 @@ body {
     }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
-        margin-top: 0;
+        margin-top: 0 !important;
     }
     .box .card .card-body .row .card-sign .card-sign-button img {
         height: 40px;
@@ -327,25 +346,28 @@ body {
     .box .card-body .row .card-video {
         display: none;
     }
+    .card-sign-button {
+        padding: 1% 6% 1% 6%;
+    }
 }
 @media (max-width: 991.98px) {
     .box .card .card-text-header {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding-top: 0;
     }
     .box .card .card-body .row {
-        margin-left: 3px;
-        margin-right: 3px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
     .box .card-body .row p {
         margin-bottom: 0.2rem;
     }
     .box .card .card-body .row .card-sign {
-        text-align: center;
-        margin-top: 0;
+        /*text-align: center;*/
+        margin-top: 5%;
 	}
     .box .card .card-body .row .card-sign .card-text-sign {
-        font-size: 0.8125rem;
+        font-size: 1rem;
         color: #4a4949;
     }
     .box .card .card-body .row .card-sign .card-text-sign.last {
@@ -353,10 +375,16 @@ body {
     }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
-        margin-top: 0;
+        margin-top: 5%;
     }
-	.box .card-body .row .card-video {
+    .box .card-body .row .card-video {
         display: none;
+    }
+    .box-panel .card .card-body {
+        padding: 0;
+    }
+    .box-panel .card .card-body .card-sign-button img {
+        width: 260px;
     }
 }
 /* lESSON
