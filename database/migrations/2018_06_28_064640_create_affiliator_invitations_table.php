@@ -19,6 +19,8 @@ class CreateAffiliatorInvitationsTable extends Migration
             $table->unsignedInteger('user_id')->default(0);
             $table->unsignedInteger('free')->default(0);
             $table->dateTime('join_date')->nullable();
+            $table->unsignedInteger('affiliator_commission_base')->default(0);
+            $table->decimal('affiliator_commission_rate', 5, 2)->default(0);
             $table->unsignedInteger('affiliator_commission')->default(0);
             $table->string('affiliator_token', 256);
             $table->unsignedTinyInteger('mode')->default(1);

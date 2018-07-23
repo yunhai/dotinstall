@@ -22,6 +22,7 @@ class Affiliator extends Base
     public function getByToken(string $token)
     {
         $target = $this->select('id', 'commission_rate')
+                    ->where('mode', MODE_ENABLE)
                     ->where('token', $token)
                     ->first();
 
@@ -33,9 +34,7 @@ class Affiliator extends Base
 
     public function updateCommissionBalance(int $affiliator_id, int $commission)
     {
-        // return;
         $column = 'balance';
-        // dd($affiliator_id);
         $this->where('id', $affiliator_id)
             ->increment($column, $commission);
     }
