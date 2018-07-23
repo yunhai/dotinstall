@@ -15,6 +15,8 @@ class AffiliatorInvitation extends Base
         'affiliator_id',
         'user_id',
         'affiliator_token',
+        'affiliator_commission_base',
+        'affiliator_commission_rate',
         'affiliator_commission',
         'join_date',
         'mode',
@@ -25,6 +27,9 @@ class AffiliatorInvitation extends Base
         $affiliator_model = new Affiliator();
 
         $affiliator = $affiliator_model->getByToken($data['token']);
+        if (!$affiliator) {
+            return [];
+        }
 
         $fee = MEMBERSHIP_FEE;
         $rate = $affiliator['commission_rate'];
@@ -35,6 +40,8 @@ class AffiliatorInvitation extends Base
             'affiliator_id' => $affiliator['id'],
             'user_id' => $data['user_id'],
             'affiliator_token' => $data['token'],
+            'affiliator_commission_base' => MEMBERSHIP_FEE,
+            'affiliator_commission_rate' => $rate,
             'affiliator_commission' => $commission,
             'join_date' => Carbon::now(),
         ];

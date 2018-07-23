@@ -31,7 +31,6 @@ class User extends Base
             'new_password_confirmation' => 'required',
         ]);
 
-        //Change Password
         $user = Auth::user();
         $user->password = bcrypt($request->get('new_password'));
         $user->save();

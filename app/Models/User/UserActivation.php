@@ -14,19 +14,16 @@ class UserActivation extends Model
 
     public function createActivation($user)
     {
-
         $activation = $this->getActivation($user);
 
         if (!$activation) {
             return $this->createToken($user);
         }
         return $this->regenerateToken($user);
-
     }
 
     private function regenerateToken($user)
     {
-
         $token = $this->getToken();
         UserActivation::where('user_id', $user->id)->update([
             'token' => $token,
