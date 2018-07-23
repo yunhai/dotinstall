@@ -3,6 +3,7 @@
 namespace App\Models\User;
 
 use App\Models\Base;
+use App\Models\User\UserLearningLog;
 use Carbon\Carbon;
 
 class UserLessonDetail extends Base
@@ -26,7 +27,7 @@ class UserLessonDetail extends Base
         $this->create($data);
         return true;
     }
-    
+
     public function learned(int $user_id, int $lesson_id, int $lesson_detail_id)
     {
         return $this->where('user_id', $user_id)
@@ -35,6 +36,18 @@ class UserLessonDetail extends Base
     }
 
     public function close(int $user_id, int $lesson_id, int $lesson_detail_id)
+    {
+        $flag = $this->makeClose($user_id, $lesson_id, $lesson_detail_id);
+
+        if ($flag) {
+            $user_stat_model = new UserStat();
+            $user_stat_model->updateClosedCount($user_id);
+        }
+
+        return $flag;
+    }
+
+    private function makeClose(int $user_id, int $lesson_id, int $lesson_detail_id)
     {
         $now = Carbon::now()->format('Y-m-d H:i:s');
         if ($this->learned($user_id, $lesson_id, $lesson_detail_id)) {
@@ -46,6 +59,7 @@ class UserLessonDetail extends Base
                 ->where('user_id', $user_id)
                 ->where('lesson_detail_id', $lesson_detail_id)
                 ->update($data);
+
             return true;
         }
 
@@ -59,7 +73,7 @@ class UserLessonDetail extends Base
         $this->create($data);
         return true;
     }
-    
+
     public function closed(int $user_id, int $lesson_id, int $lesson_detail_id)
     {
         return $this->where('user_id', $user_id)
