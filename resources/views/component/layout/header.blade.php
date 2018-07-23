@@ -8,7 +8,7 @@
 
     <div class="navbar-collapse collapse" id="navbarheaders">
         <ul class="navbar-nav ml-auto align-items-lg-end">
-            @if (Auth::user())
+            @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('payment.charge') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">

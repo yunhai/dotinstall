@@ -16,7 +16,7 @@ class AdminAuthenticate
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->role == USER_ROLE_BACKEND) {
             return $next($request);
         } else {
             return redirect()->route('backend.login.login');

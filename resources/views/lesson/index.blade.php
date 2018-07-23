@@ -8,7 +8,7 @@
             <div class="lession-nar w-100 px-5"><span>簡単な実戦でプログラムを覚えよう！</span></div>
         </div>
     </div>
-    <div class="box box-lesson">
+    <div class="content box box-lesson mb-0 ">
         <div class="px-5">
               <ul class="list-group w-100">
                   @foreach ($lessons as $lesson)
