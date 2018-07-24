@@ -10,6 +10,15 @@
         var STRIPE_KEY = "{{ env('STRIPE_KEY') }}";
     </script>
     <script src="/js/payment.js"></script>
+    @if (session('success'))
+        <script>
+            $(document).ready(function() {
+                if (confirm('成功しました')) {
+                    location.href = "{{ route('top') }}";
+                }
+            });
+        </script>
+    @endif
 @endpush
 @section('breadcrumbs', Breadcrumbs::render('payment.charge'))
 
@@ -45,7 +54,13 @@
 
                                 <div class="col-md-6">
                                     <div id="card-element"></div>
-                                    <div id="card-errors" role="alert"></div>
+                                    <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
+
+                                    @if (!empty(session('error')))
+                                        @foreach (session('error') as $error)
+                                            <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;">{{ $error }}</div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">

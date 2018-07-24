@@ -35,7 +35,7 @@ class Payment extends Base
         $flag = $this->model->charge($user_id, $token, $error);
 
         if ($flag) {
-            return redirect()->route('payment.finish');
+            return redirect()->back()->with('success', true);
         }
 
         return redirect()->back()->with('error', $error);
