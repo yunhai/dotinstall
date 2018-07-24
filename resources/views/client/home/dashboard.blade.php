@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('title', 'ホーム')
+@section('title', 'レッスン一覧')
 @section('content')
-Client
+    Dashboard
 @stop

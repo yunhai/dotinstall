@@ -6,6 +6,6 @@ class Home
 {
     public function dashboard()
     {
-        return view('client.home.dashboard');
+        return redirect()->route('client.affiliator_invitation.index');
     }
 }
