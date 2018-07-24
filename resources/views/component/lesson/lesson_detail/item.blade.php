@@ -26,18 +26,29 @@
             @if (empty($path))
                 <p class="card-text">レッスンはまだありません。しばらくお待ちください。</p>
             @endif
-            @if (!empty($target['is_closeable']))
-            <p class="card-text mb-1">
-                <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
-                    <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
+            @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
+                @if (!empty($target['is_closeable']))
+                <p class="card-text mb-1">
+                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
+                        <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
+                    </a>
+                </p>
+                @endif
+                @if (!empty($target['popup']))
+                    @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                    <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
+                        <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                    </a>
+                @endif
+            @else
+                <p class="card-text mb-1">
+                    <a href="{{ route('login') }}" class="btn btn-sm btn-request">
+                        <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
+                    </a>
+                </p>
+                <a href="{{ route('login') }}" class="btn btn-sm btn-request">
+                    <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                 </a>
-            </p>
-            @endif
-            @if (!empty($target['popup']))
-            @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-            <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
-                <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
-            </a>
             @endif
         </div>
     </div>
@@ -47,6 +58,8 @@
         <div class="divider"></div>
     </div>
 @endif
-@if (!empty($target['popup']))
-    @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
+@if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
+    @if (!empty($target['popup']))
+        @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
+    @endif
 @endif
