@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLessonDetailsTable extends Migration
+class CreateUserLearningLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateLessonDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lesson_details', function (Blueprint $table) {
+        Schema::create('user_learning_logs', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->string('name', 256);
-            $table->text('caption');
-            $table->unsignedInteger('video');
-            $table->unsignedInteger('duration')->default(0);
-            $table->unsignedInteger('poster')->default(0);
-            $table->unsignedTinyInteger('mode')->default(0);
-            $table->unsignedTinyInteger('free_mode')->default(1);
-            $table->unsignedInteger('sort')->default(1);
-            $table->unsignedInteger('lesson_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('lesson_detail_id');
+            $table->date('learning_date');
+            $table->time('learning_time');
+            $table->unsignedInteger('learning_duration')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
@@ -39,6 +35,6 @@ class CreateLessonDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lesson_media');
+        Schema::dropIfExists('user_learning_logs');
     }
 }

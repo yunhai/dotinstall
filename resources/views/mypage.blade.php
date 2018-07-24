@@ -42,7 +42,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">総合完了数</div>
                     <div class="card-body text-center">
-                        <h3><p class="card-text">8７</p></h3>
+                        <h3><p class="card-text">{{ $stat['closed_lesson_detail_count'] }}</p></h3>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">学習日数</div>
                     <div class="card-body text-center">
-                        <h3><p class="card-text">96</p></h3>
+                        <h3><p class="card-text">{{ $stat['date_count'] }}</p></h3>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">視聴時間</div>
                     <div class="card-body text-center">
-                        <h3><p class="card-text">07:39:35</p></h3>
+                        <h3><p class="card-text">{{ $stat['duration'] }}</p></h3>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Lesson\LessonDetail\LessonDetailAttachment as LessonDetailAttachmentlModel;
 use App\Models\Media as MediaModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
+use App\Models\User\UserLearningLog as UserLearningLogModel;
 
 use Auth;
 use Carbon\Carbon;
@@ -19,21 +20,19 @@ class LessonDetail extends Base
     public function __construct(
         LessonModel $lesson_model,
         LessonDetailModel $lesson_detail_model,
-        UserLessonDetailModel $user_lesson_detail_model
+        UserLessonDetailModel $user_lesson_detail_model,
+        UserLearningLogModel $user_learning_log_model
     ) {
         $this->model = $lesson_detail_model;
         $this->lesson_model = $lesson_model;
         $this->user_lesson_detail_model = $user_lesson_detail_model;
+        $this->user_learning_log_model = $user_learning_log_model;
     }
 
     public function getDetail(int $lesson_id, int $lesson_detail_id)
     {
         $user_id = Auth::check() ? Auth::user()->id : 0;
-        if ($user_id) {
-            if (!$this->user_lesson_detail_model->learned($user_id, $lesson_id, $lesson_detail_id)) {
-                $this->user_lesson_detail_model->learn($user_id, $lesson_id, $lesson_detail_id);
-            }
-        }
+
         $lesson_details = $this->model->getAll($lesson_id);
 
         $media = $this->getMedia($lesson_details);
@@ -61,6 +60,11 @@ class LessonDetail extends Base
             $prev_id = $detail['id'];
         }
 
+        if ($user_id) {
+            $this->updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id);
+            $this->updateLearningLog($user_id, $lesson_detail_id, $target);
+        }
+
         return $this->render(
             'lesson.lesson_detail.detail',
             compact(
@@ -73,6 +77,23 @@ class LessonDetail extends Base
                 'next_video'
             )
         );
+    }
+
+    private function updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id)
+    {
+        if (!$this->user_lesson_detail_model->learned($user_id, $lesson_id, $lesson_detail_id)) {
+            $this->user_lesson_detail_model->learn($user_id, $lesson_id, $lesson_detail_id);
+        }
+    }
+
+    private function updateLearningLog($user_id, $lesson_detail_id, $target)
+    {
+        $log = [
+            'user_id' => $user_id,
+            'lesson_detail_id' => $lesson_detail_id,
+            'duration' => $target['duration'],
+        ];
+        $this->user_learning_log_model->saveLog($log);
     }
 
     private function formatLessonDetail($lesson_details, $media, $user_id)
@@ -94,7 +115,7 @@ class LessonDetail extends Base
                     unset($lesson_details[$key]['source_code_contents'][$index]);
                 }
             }
-            
+
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
                                             $detail['resources'];
         }

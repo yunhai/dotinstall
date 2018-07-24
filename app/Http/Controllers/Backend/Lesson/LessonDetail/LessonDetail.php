@@ -45,7 +45,9 @@ class LessonDetail extends Base
             }
         }
 
-        return $this->render('lesson.lesson_detail.input', compact('target', 'form', 'lesson_id', 'lesson_media_id', 'source_code_content'));
+        $video_duration = $target->duration;
+
+        return $this->render('lesson.lesson_detail.input', compact('target', 'form', 'lesson_id', 'lesson_media_id', 'source_code_content', 'video_duration'));
     }
 
     public function postEdit(PostInput $request, $lesson_id, $lesson_detail_id)
@@ -98,7 +100,14 @@ class LessonDetail extends Base
         $input['lesson_id'] = $lesson_id;
 
         $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
-        $input['video'] = empty($input['video']) ? 0 : key($input['video']);
+
+        $video = empty($input['video']) ? [] : current($input['video']);
+        $video_id = 0;
+        if ($video) {
+            $video_id = $video['id'];
+            $input['duration'] = empty($video['duration']) ? 0 : $video['duration'];
+        }
+        $input['video'] = $video_id;
         $input['mode'] = MODE_ENABLE;
 
         $map = [
