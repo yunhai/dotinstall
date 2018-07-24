@@ -67,7 +67,9 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right"></label>
 
                                 <div class="col-md-6">
-                                    <span id='j-submit' type="btn" class="btn btn-primary">ダイヤモンド会員に登録する</span>
+                                    <span id='j-submit' type="btn" class="p-0" style="cursor: pointer;">
+                                        <img class="img-fluid" src="/img/btn_charge.png" width="38%">
+                                    </span>
                                 </div>
                             </div>
                             <div class="form-group mb-0">
