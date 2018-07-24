@@ -20,7 +20,9 @@ class AffiliatorInvitation extends Base
 
     public function getIndex(Request $request)
     {
-        $affiliator_id = $this->getAffiliatorId();
+        $affiliator = $this->getAffiliator();
+        $affiliator_id = $affiliator['id'] ?? 0;
+
         $input = $request->all();
         $query = $this->model
                     ->with('users')
@@ -36,20 +38,21 @@ class AffiliatorInvitation extends Base
                 }
             }
         }
-        
+
         $data = $query
                     ->orderBy('id', 'desc')
                     ->paginate(20);
 
         $form = $this->form($data);
+        $form['affiliator'] = $affiliator;
+
         return $this->render('affiliator.affiliator_invitation.index', compact('data', 'form'));
     }
 
-    private function getAffiliatorId()
+    private function getAffiliator()
     {
         $user_id = Auth::user()->id;
-        $affiliator = $this->affiliator_model->getByUserId($user_id);
-        return $affiliator['id'] ?? 0;
+        return $this->affiliator_model->getByUserId($user_id);
     }
 
     private function form($data)
@@ -59,8 +62,7 @@ class AffiliatorInvitation extends Base
         foreach ($data as $item) {
             $user_email[$item->user_id] = $item->users->email;
         }
-        // dd($user_email);
-        // dd(array_get($user_email, '112'));
+
         return compact('user_email');
     }
 }

@@ -2,7 +2,11 @@
 @section('title', 'アフィリエイター一覧')
 @section('content')
     @section('list_header')
-        // form here
+        <div>
+            <span>Affiliator Link</span>
+            <span>{{ route('register.affiliator', ['token' => $form['affiliator']['token']]) }}</span>
+        </div>
+        // filter form here
     @stop
     @php
         $table = [
