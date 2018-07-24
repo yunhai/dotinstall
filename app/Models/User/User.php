@@ -15,7 +15,7 @@ class User extends Authenticatable
     use Notifiable, UserTrack, Billable;
 
     protected $fillable = [
-      'name', 'email', 'password', 'provider', 'provider_user_id'
+      'name', 'email', 'password', 'provider', 'provider_user_id', 'grade'
     ];
 
     protected $hidden = [
@@ -30,6 +30,7 @@ class User extends Authenticatable
         }
         try {
             $user->newSubscription('main', env('STRIPE_SUPSCRIPTION_ID'))->create($token);
+            $this->updateGrand($user_id, USER_GRADE_DIAMOND);
             return true;
         } catch (\Stripe\Error\Card $e) {
             $body = $e->getJsonBody();
@@ -58,6 +59,13 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    public function updateGrand(int $user_id, int $grade)
+    {
+        $this->where('id', $user_id)
+            ->update(['grade' => $grade]);
+        return true;
     }
 
     public function upgrade(int $user_id)
