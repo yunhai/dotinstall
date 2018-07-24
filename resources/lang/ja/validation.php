@@ -1,4 +1,5 @@
 <?php  // resources/lang/ja/validation.php
+$prefix = Request::route()->getPrefix();
 return [
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +58,7 @@ return [
     'not_in' => '選択された正しくありません。',
     'numeric' => '半角数値（小数も可能）で入力してください。',
     'regex' => '書式が正しくありません。',
-    'required' => ':attributeを入力してください',
+    'required' => !empty($prefix) ? '入力してください' : ':attributeを入力してください',
     'required_if' => '「:other」が「:value」の場合、必須項目です。',
     'required_unless' => '「:other」が「:value」以外の場合、必須項目です。',
     'required_with' => ':valuesが存在する時、必須項目です。',
