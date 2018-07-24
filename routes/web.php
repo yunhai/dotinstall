@@ -45,7 +45,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('payment/charge', 'Payment@getCharge')->name('payment.charge')->middleware('web.user');
     Route::post('payment/charge', 'Payment@postCharge')->middleware('web.user');
-    Route::get('payment/finish', 'Payment@getFinish')->name('payment.finish')->middleware('web.user');
+
+    Route::get('user/diamond/downgrade', 'User@getDowngrade')->name('user.downgrade')->middleware('web.user');
+    Route::get('user/diamond/upgrade', 'User@getUpgrade')->name('user.upgrade')->middleware('web.user');
+    Route::post('user/diamond/upgrade', 'User@postUpgrade')->middleware('web.user');
 
     Route::get('user/password', 'User@getChangePassword')->name('user.change_password')->middleware('web.user');
     Route::post('user/password', 'User@postChangePassword')->middleware('web.user');

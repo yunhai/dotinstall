@@ -10,7 +10,7 @@
         <ul class="navbar-nav ml-auto align-items-lg-end">
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 <li class="nav-item">
-                    <a class="nav-link text-lg-center" href="{{ route('payment.charge') }}">
+                    <a class="nav-link text-lg-center" href="{{ route('user.upgrade') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
                         <span class="d-lg-none">ダイヤモンド会員</span>
                         <span class="d-none d-lg-block">ダイヤモンド会員</span>

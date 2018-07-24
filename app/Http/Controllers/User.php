@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User\User as UserModel;
-use Auth;
 use App\Rules\checkCurrentPasswordRule;
+use Auth;
+use Illuminate\Http\Request;
+use App\Http\Service\Payment\Stripe;
 
 class User extends Base
 {
@@ -13,6 +14,48 @@ class User extends Base
         UserModel $user_model
     ) {
         $this->model = $user_model;
+    }
+
+    public function getUpgrade()
+    {
+        return $this->render('user.upgrade');
+    }
+
+    public function postUpgrade(Request $request)
+    {
+        $user = Auth::user()->toArray();
+
+        if ($user['grade'] == USER_GRADE_DIAMOND) {
+            return redirect()->route('mypage');
+        }
+
+        $user_id = $user['id'];
+        $input = $request->all();
+        $token = $input['stripeToken'];
+
+        $error = [];
+        $payment_service = new Stripe();
+        $flag = $payment_service->charge($user_id, $token, $error);
+
+        if ($flag) {
+            return redirect()->back()->with('success', true);
+        }
+
+        return redirect()->back()->with('error', $error);
+    }
+
+    public function getDowngrade()
+    {
+        $user_id = Auth::user()->id;
+        $payment_service = new Stripe();
+        $flag = $payment_service->cancel($user_id);
+
+        if ($flag) {
+            $this->model->updateGrade($user_id, USER_GRADE_NORMAL);
+            return redirect()->back()->with('success', true);
+        }
+
+        return redirect()->back()->with('error', $error);
     }
 
     public function getChangePassword()

@@ -30,7 +30,7 @@ class Stripe extends CashierController
 
             $user_grand = $succeeded ? USER_GRADE_DIAMOND : USER_GRADE_NORMAL;
             $user_model = new UserModel();
-            $user_model->updateGrand($user_id, $user_grand);
+            $user_model->updateGrade($user_id, $user_grand);
         }
     }
 }

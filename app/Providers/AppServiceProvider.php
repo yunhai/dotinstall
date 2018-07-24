@@ -10,6 +10,7 @@ use App\Providers\SocialiteLineProvider;
 use App\Providers\SocialiteYahooJpProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Lesson\Lesson;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,11 +21,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
         Schema::defaultStringLength(191);
         $this->bootSocialiteLine();
         $this->bootSocialiteYahooJp();
         View::share('total_lessons', $this->totalLessons());
+
+        Blade::if('diamond_user', function () {
+            if (Auth::check()) {
+                return (Auth::user()->grade == USER_GRADE_DIAMOND);
+            }
+            return false;
+        });
+
+        Blade::if('normal_user', function () {
+            if (Auth::check()) {
+                return (Auth::user()->grade == USER_GRADE_NORMAL);
+            }
+            return false;
+        });
     }
 
     /**

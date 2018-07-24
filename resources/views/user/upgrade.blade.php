@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form id='j-payment-form' class="form-c" method="POST" action="{{ route('payment.charge') }}">
+                    <form id='j-payment-form' class="form-c" method="POST" action="{{ route('user.upgrade') }}">
                         @csrf
 
                         <div class="form-group form-group-stripe">
