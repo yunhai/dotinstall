@@ -37,10 +37,10 @@ class User extends Authenticatable
             $err = $body['error'];
             $code = $err['code'];
             $map = [
-                'card_declined' => 'Your card has insufficient funds.',
-                'incorrect_cvc' => 'Your card\'s security code is incorrect.',
-                'processing_error' => 'An error occurred while processing your card. Try again in a little bit.',
-                'expired_card' => 'Your card has expired.',
+                'card_declined' => '残金が足りません',
+                'incorrect_cvc' => 'CVCが間違っています',
+                'processing_error' => '不具合が発生しました。もう一度試していただけませんか？',
+                'expired_card' => 'カードは期限を超えています',
             ];
 
             array_push($error, $map[$code]);

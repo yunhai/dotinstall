@@ -16,7 +16,8 @@ Route::post('login', 'Auth\LoginController@postLogin');
 Route::get('logout', 'Auth\LoginController@getLogout')->name('client.login.logout');
 
 Route::group(['middleware' => ['client']], function () {
-    Route::get('/', 'Home@dashboard')->name('client.home.dashboard');
-    Route::get('/changePassword', 'Auth\LoginController@getChangePassword')->name('client.login.change_password');
-    Route::post('/changePassword', 'Auth\LoginController@postChangePassword');
+    Route::get('', 'Home@dashboard')->name('client.home.dashboard');
+    Route::get('affiliator_invitation', 'Affiliator\AffiliatorInvitation@getIndex')->name('client.affiliator_invitation.index');
+    Route::get('change_password', 'Auth\LoginController@getChangePassword')->name('client.login.change_password');
+    Route::post('change_password', 'Auth\LoginController@postChangePassword');
 });

@@ -18,6 +18,7 @@ Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->name('user.activate');
 Route::get('register/done', 'Auth\RegisterController@registerDone')->name('register.done');
+Route::get('register/?token={token}', 'Auth\RegisterController@register')->name('register.affiliator');
 
 Route::get('contact', 'Page@getContact')->name('contact');
 Route::get('company', 'Page@getCompany')->name('company');
@@ -52,5 +53,4 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('logout', 'Auth\LoginController@getLogout')->name('logout')->middleware('web.user');
 });
 
-//////////////////////////////////////////////////
 Route::get('affiliate', 'Page@getAffiliate')->name('affiliate');

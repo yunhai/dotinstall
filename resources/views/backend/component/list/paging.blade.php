@@ -35,9 +35,19 @@
                                         @endif
                                     @elseif (!empty($row['apply']))
                                         @php
-                                            $func = $row['apply'][0];
-                                            $content = $item[$row['apply'][1]];
-                                            echo call_user_func_array($func, [$content])
+                                            $func = array_shift($row['apply']);
+
+                                            $params = $row['apply'];
+                                            foreach($params as &$param) {
+                                                if ($param === 'apply_value') {
+                                                    $param = '';
+                                                    if (!empty($row['apply_value'])) {
+                                                        $param = $item[$row['apply_value']] ?? '';
+                                                    }
+                                                }
+                                            }
+
+                                            echo call_user_func_array($func, $params);
                                         @endphp
                                     @elseif (!empty($row['tpl']))
                                         @if (empty($row['tpl_arg']))

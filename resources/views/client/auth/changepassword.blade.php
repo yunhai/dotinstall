@@ -23,6 +23,9 @@
                 'field_value' => array_get($target, 'new_password_confirmation', ''),
                 'field_type' => 'text'
             ]
+        ],
+        'form_attribute' => [
+            'enctype' => 'multipart/form-data'
         ]
     ];
 @endphp

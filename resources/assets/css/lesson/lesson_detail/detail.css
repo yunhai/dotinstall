@@ -21,6 +21,7 @@
 .modal-header {
     background-color: #8e8e8e;
     border-bottom: 0;
+    border-radius: 0;
 }
 .modal-header .close {
     padding: 0;

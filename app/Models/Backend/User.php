@@ -3,10 +3,10 @@
 namespace App\Models\Backend;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -20,11 +20,6 @@ class User extends Authenticatable
         'mode',
         'role',
     ];
-
-    public function generateAffiliatorToken(int $id)
-    {
-        return str_random(8) . $id;
-    }
 
     public function createAffiliatorUser(array $data)
     {
