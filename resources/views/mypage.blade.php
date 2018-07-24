@@ -55,24 +55,24 @@
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">総合完了数</div>
-                    <div class="card-body text-center">
-                        <h3><p class="card-text">{{ $stat['closed_lesson_detail_count'] }}</p></h3>
+                    <div class="card card-body justify-content-center border-0">
+                        <h3><p class="card-text text-center">{{ $stat['closed_lesson_detail_count'] }}</p></h3>
                     </div>
                 </div>
             </div>
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">学習日数</div>
-                    <div class="card-body text-center">
-                        <h3><p class="card-text">{{ $stat['date_count'] }}</p></h3>
+                    <div class="card card-body justify-content-center border-0">
+                        <h3><p class="card-text text-center">{{ $stat['date_count'] }}</p></h3>
                     </div>
                 </div>
             </div>
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">視聴時間</div>
-                    <div class="card-body text-center">
-                        <h3><p class="card-text">{{ $stat['duration'] }}</p></h3>
+                    <div class="card card-body justify-content-center border-0">
+                        <h3><p class="card-text text-center">{{ $stat['duration'] }}</p></h3>
                     </div>
                 </div>
             </div>
