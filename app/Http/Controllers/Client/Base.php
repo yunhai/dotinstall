@@ -10,6 +10,6 @@ class Base extends Controller
 
     protected function render($view, $option = [])
     {
-        return view("backend.{$view}", $option);
+        return view("client.{$view}", $option);
     }
 }

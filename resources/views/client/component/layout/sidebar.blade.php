@@ -5,33 +5,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Dashboard</span>
-                </a>
-            </li>
             <li class="nav-item" data-toggle="" data-placement="right" title="ユーザー">
-                <a class="nav-link" href="/backend/user">
+                <a class="nav-link" href="{{ route('client.affiliator_invitation.index') }}">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="nav-link-text">ユーザー</span>
                 </a>
             </li>
         </ul>
-
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
-                    <span class="d-lg-none">管理者パスワード変更</span>
+                    <span class="">設定</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
-                    <a class="dropdown-item" href="{{ route('client.login.change_password') }}">
-                        <div class="dropdown-message small">
-                            <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('client.login.logout') }}">
                         <div class="dropdown-message small">
                             <i class="fa fa-fw fa-sign-out"></i>ログアウト
