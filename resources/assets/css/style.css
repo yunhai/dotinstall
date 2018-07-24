@@ -43,10 +43,7 @@ body {
     }
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    /*color: #808080;*/
     background-color: #ffffff;
-    /*border: 1px solid #ddd;
-    border-right-color: transparent;*/
 }
 .nav-link-header-title {
     vertical-align: bottom;
@@ -195,14 +192,6 @@ body {
 .col-lesson .card-text-name {
     height: 74px;
 }
-@media (min-width: 992px) {
-    .col-lesson.col-lg-3 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;
@@ -220,15 +209,6 @@ body {
     }
     .pl-5, .px-5 {
         padding-left: 1rem!important;
-    }
-	 .col-lesson.col-sm-6 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    .col-lesson .card-img-video {
-        height: 112px;
     }
     .box .card .btn-request .btn-to-complete {
         margin-bottom: 5px;
@@ -249,23 +229,11 @@ body {
     padding: 0;
     font-size: 0.8125rem;
 }
-.box .card .btn-request .btn-to-complete {
-}
-.box .card .btn-request .btn-sorce-conformation {
-}
-.box .card .btn-request .btn-completion {
-}
-.box .card .btn-request .btn-diamond {
-}
 .box .card .card-text-header {
     font-size: 2.5rem;
     /*padding-top: 3%;*/
     padding-bottom: 2%;
     white-space: nowrap;
-}
-.box .card .card-body .row {
-    /*margin-left: 8%;
-    margin-right: 8%;*/
 }
 .box .card .card-body .row .card-sign {
     margin-top: 5%;
@@ -293,7 +261,7 @@ body {
     margin-top: 5px;
 }
 .pickup {
-    max-width: 18%;
+    max-width: 15%;
     position: absolute;
     right: -12px;
     top: -20px;
@@ -321,6 +289,12 @@ body {
     color: #fff;
 }
 @media (max-width: 767.98px) {
+    .col-lesson.col-sm-6 {
+         -webkit-box-flex: 0;
+         -ms-flex: 0 0 50%;
+         flex: 0 0 50%;
+         max-width: 50%;
+     }
     .box .card .card-body {
         padding: 0;
     }
@@ -329,7 +303,7 @@ body {
         margin-top: 0 !important;
         padding-bottom: 0 !important;
     }
-	.box .card-body .row .card-sign {
+    .box .card-body .row .card-sign {
         margin-top: 0 !important;
         text-align: center;
     }
