@@ -9,6 +9,7 @@
     <div class="navbar-collapse collapse" id="navbarheaders">
         <ul class="navbar-nav ml-auto align-items-lg-end">
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
+                @normal_user
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('user.upgrade') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
@@ -16,6 +17,7 @@
                         <span class="d-none d-lg-block">ダイヤモンド会員</span>
                     </a>
                 </li>
+                @endnormal_user
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('lesson') }}">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
@@ -23,6 +25,7 @@
                         <span class="d-none d-lg-block">レッスン一覧</span>
                     </a>
                 </li>
+
                 <li class="nav-item nav-item-user dropdown">
                     <a class="nav-link text-lg-center dropdown-toggle" data-toggle="dropdown" href="#">
                         <img class="img-user mb-2" src="/img/user.jpg" alt="">

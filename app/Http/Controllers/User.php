@@ -18,6 +18,10 @@ class User extends Base
 
     public function getUpgrade()
     {
+        if (Auth::user()->grade == USER_GRADE_DIAMOND) {
+            return redirect()->route('mypage');
+        }
+
         return $this->render('user.upgrade');
     }
 
@@ -46,6 +50,10 @@ class User extends Base
 
     public function getDowngrade()
     {
+        if (Auth::user()->grade == USER_GRADE_NORMAL) {
+            return redirect()->route('mypage');
+        }
+
         $user_id = Auth::user()->id;
         $payment_service = new Stripe();
         $flag = $payment_service->cancel($user_id);
