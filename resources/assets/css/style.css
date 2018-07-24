@@ -275,7 +275,7 @@ body {
     color: #4a4949;
 }
 .box .card .card-body .row .card-sign .card-sign-button {
-    margin-top: 8%;
+    margin-top: 10%;
 }
 .box .card-lesson-total {
     padding-top: 20px;
@@ -315,6 +315,10 @@ body {
     display: inline-block;
     font-size: 1rem;
     text-decoration: none;
+}
+.card-sign-button:hover {
+    text-decoration: none;
+    color: #fff;
 }
 @media (max-width: 767.98px) {
     .box .card .card-body {
