@@ -66,7 +66,7 @@
 
                                                 <div class="form-group row mb-0">
                                                     <div class="col-md-7 offset-md-4">
-                                                        <button type="submit" class="btn btn-default">
+                                                        <button type="submit" class="btn bg-button">
                                                             更新する
                                                         </button>
                                                     </div>

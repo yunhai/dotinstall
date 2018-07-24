@@ -33,14 +33,8 @@
                         <a class="dropdown-item" href="{{ route('mypage') }}">
                             <div class="dropdown-message small">マイページ</div>
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="dropdown-message small">プロフィール</div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="dropdown-message small">設定変更</div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="dropdown-message small">ヘルプ</div>
+                        <a class="dropdown-item" href="{{ route('user.change_password') }}">
+                            <div class="dropdown-message small">パスワード変更</div>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">
