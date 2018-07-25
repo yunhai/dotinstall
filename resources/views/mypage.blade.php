@@ -9,7 +9,7 @@
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">ステータス</div>
-                    <div class="card-body text-center">
+                    <div class="card card-body justify-content-center text-center border-0">
                         <h3>
                             <p class="card-text">
                                 @normal_user
@@ -33,7 +33,7 @@
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">次回課金日/値段</div>
-                    <div class="card-body text-center">
+                    <div class="card card-body justify-content-center text-center border-0">
                         <h3><p class="card-text">2015/9月14日</p></h3>
                         <h3><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h3>
                         <p class="card-text">
@@ -55,7 +55,7 @@
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">総合完了数</div>
-                    <div class="card card-body justify-content-center border-0">
+                    <div class="card card-body justify-content-center text-center border-0">
                         <h3><p class="card-text text-center">{{ $stat['closed_lesson_detail_count'] }}</p></h3>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">学習日数</div>
-                    <div class="card card-body justify-content-center border-0">
+                    <div class="card card-body justify-content-center text-center border-0">
                         <h3><p class="card-text text-center">{{ $stat['date_count'] }}</p></h3>
                     </div>
                 </div>
@@ -71,8 +71,8 @@
             <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">視聴時間</div>
-                    <div class="card card-body justify-content-center border-0">
-                        <h3><p class="card-text text-center">{{ $stat['duration'] }}</p></h3>
+                    <div class="card card-body justify-content-center text-center border-0">
+                        <h3><p class="card-text">{{ $stat['duration'] }}</p></h3>
                     </div>
                 </div>
             </div>
