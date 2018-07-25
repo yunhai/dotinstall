@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/backend/">管理画面</a>
+    <a class="navbar-brand" href="{{ route('client.affiliator_invitation.index') }}">管理画面</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
             <li class="nav-item" data-toggle="" data-placement="right" title="ユーザー">
                 <a class="nav-link" href="{{ route('client.affiliator_invitation.index') }}">
                     <i class="fa fa-fw fa-user"></i>
-                    <span class="nav-link-text">ユーザー</span>
+                    <span class="nav-link-text">アフィリエイター</span>
                 </a>
             </li>
         </ul>
@@ -26,6 +26,12 @@
                     <span class="">設定</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
+                    <a class="dropdown-item" href="{{ route('client.login.change_password') }}">
+                        <div class="dropdown-message small">
+                            <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('client.login.logout') }}">
                         <div class="dropdown-message small">
                             <i class="fa fa-fw fa-sign-out"></i>ログアウト

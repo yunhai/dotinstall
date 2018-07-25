@@ -1,3 +1,11 @@
+body{
+    font-weight: normal;
+    line-height: 1;
+    font-size: 14px;
+}
+.content-wrapper {
+    padding-top: 2rem;
+}
 .table td.aside, .table td.side, .table td.desc,.table th {
     background-color: #fdfdfd;
 }
@@ -14,12 +22,12 @@ table th {
     font-weight: bold;
     padding: 8px;
 }
-
 .table td.side, .table td.aside {
     text-align: right;
+    vertical-align: middle;
 }
-.file-input-wrapper input[type=file], 
-.file-input-wrapper input[type=file]:focus, 
+.file-input-wrapper input[type=file],
+.file-input-wrapper input[type=file]:focus,
 .file-input-wrapper input[type=file]:hover {
     position: absolute;
     top: 0;
@@ -36,5 +44,29 @@ table th {
     div.dataTables_info,
     div.dataTables_paginate {
         text-align: center;
+    }
+}
+.hidden {
+    display: none;
+}
+.bootstrap-select .btn {
+    background: #fff;
+    border: 1px solid #ced4da;
+}
+.btn {
+    margin-bottom: 5px;
+}
+.btn-group-sm>.btn, .btn-sm {
+    font-size: 12px !important;
+}
+#mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link:after {
+  content: '';
+}
+#mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown.show > .nav-link:after {
+    content: '';
+}
+@media (min-width: 992px) {
+    #mainNav.fixed-top .sidenav-toggler {
+        margin-top: calc(100vh - 40px);
     }
 }

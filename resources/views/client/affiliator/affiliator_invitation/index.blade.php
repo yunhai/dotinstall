@@ -1,4 +1,4 @@
-@extends('backend.layout.master')
+@extends('client.layout.master')
 @section('title', 'アフィリエイター一覧')
 @section('content')
     @section('list_header')
