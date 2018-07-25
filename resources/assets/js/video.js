@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
           seekTime: 20,
           volume: 1,
           muted: true,
-          i18n: i18n
+          i18n: i18n,
+          tooltips: { controls: false, seek: true }
       }
   );
   $('#j-player').removeClass('hidden')
