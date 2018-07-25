@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\Notification\PostInput;
 use App\Models\Backend\Notification as NotificationModel;
+use App\Models\Backend\Mail as Mail;
 
 class Notification extends Base
 {
@@ -45,6 +46,10 @@ class Notification extends Base
     {
         $input = $request->all();
         $target = $this->model->create($input);
+
+        $mail = new Mail();
+        $notification_id = $target->id;
+        $mail->init($notification_id);
 
         return redirect()->route('backend.notification.index');
     }
