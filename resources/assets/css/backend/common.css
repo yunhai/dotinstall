@@ -20,6 +20,7 @@ table th {
 }
 .table td.side, .table td.aside {
     text-align: right;
+    vertical-align: middle;
 }
 .file-input-wrapper input[type=file],
 .file-input-wrapper input[type=file]:focus,
