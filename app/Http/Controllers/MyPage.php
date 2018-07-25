@@ -67,8 +67,11 @@ class MyPage extends Base
         $model = new UserPaymentModel();
         $result = $model->getLastPaymentByUserId($user_id);
 
-        return Carbon::createFromFormat('Y-m-d H:i:s', $result['stripe_time'])
-                    ->addMonth()
-                    ->format('Y年m月d日');
+        if ($result) {
+            return Carbon::createFromFormat('Y-m-d H:i:s', $result['stripe_time'])
+                        ->addMonth()
+                        ->format('Y年m月d日');
+        }
+        return '';
     }
 }
