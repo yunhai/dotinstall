@@ -34,7 +34,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">次回課金日/値段</div>
                     <div class="card card-body justify-content-center text-center border-0">
-                        <h3><p class="card-text">2015/9月14日</p></h3>
+                        <h3><p class="card-text">{{ $next_pay_date }}</p></h3>
                         <h3><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h3>
                         <p class="card-text">
                             <a href="{{ route('user.downgrade') }}">
@@ -48,7 +48,13 @@
                 <div class="card card-mypage">
                     <div class="card-header">お知らせ</div>
                     <div class="card-body text-center">
-                        <p class="card-text text-left"><a href="">06/14	『textlint入門』を追加しました</a></p>
+                        @foreach($notifications as $notification)
+                        <p class="card-text text-left mypage--notification">
+                            <a href="javascript:;" title='{{ $notification['title'] }}' data-toggle="modal" data-target="#model--notification_{{ $notification['id'] }}">
+                                [{{ $notification['post_date_short'] }}]　{{ $notification['title'] }}
+                            </a>
+                        </p>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -79,4 +85,7 @@
         </div>
     </div>
 </div>
+@foreach($notifications as $notification)
+    @include('component.modal.info', ['modal_id' => 'model--notification_' . $notification['id'], 'target' => $notification])
+@endforeach
 @stop

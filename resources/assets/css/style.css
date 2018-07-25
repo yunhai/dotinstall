@@ -279,7 +279,8 @@ body {
     padding: 3% 10% 3% 10%;
     border: 4px solid #2da7be;
     margin: 0 0 0 0;
-    box-shadow: 0 10px 16px 0 #acabab,0 6px 20px 0 #acabab;
+    -webkit-box-shadow: 0 10px 16px 0 #acabab,0 6px 20px 0 #acabab;
+            box-shadow: 0 10px 16px 0 #acabab,0 6px 20px 0 #acabab;
     display: inline-block;
     font-size: 1rem;
     text-decoration: none;
@@ -717,4 +718,9 @@ body {
 }
 .hidden {
     display: none;
+}
+.mypage--notification {
+    height: 16px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
 }
