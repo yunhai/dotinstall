@@ -1,9 +1,9 @@
 <?php
 
+define('MEMBERSHIP_FEE', 980);
+
 define('MODE_CREATE', 1);
 define('MODE_EDIT', 2);
-
-define('MEMBERSHIP_FEE', 980);
 
 define('MODE_ENABLE', 1);
 define('MODE_DISABLE', 0);
@@ -34,6 +34,8 @@ define('USER_LESSON_MODE_CLOSE', 2);
 define('USER_LESSON_DETAIL_MODE_VIEW', 1);
 define('USER_LESSON_DETAIL_MODE_LEARN', 2);
 define('USER_LESSON_DETAIL_MODE_CLOSE', 3);
+
+define('USER_UTM_A8', 1);
 
 define('MAIL_FROM_ADDRESS', 'haulenhan@gmail.com');
 define('MAIL_FROM_NAME', 'プログラミング');

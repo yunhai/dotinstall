@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Laravel\Cashier\Http\Controllers\WebhookController as CashierController;
-
+use App\Http\Service\UtmTracking\UtmTrackingService;
 use App\Models\User\User as UserModel;
 use App\Models\User\UserPayment as UserPaymentModel;
+use Laravel\Cashier\Http\Controllers\WebhookController as CashierController;
 
 class Stripe extends CashierController
 {
@@ -31,6 +31,20 @@ class Stripe extends CashierController
             $user_grand = $succeeded ? USER_GRADE_DIAMOND : USER_GRADE_NORMAL;
             $user_model = new UserModel();
             $user_model->updateGrade($user_id, $user_grand);
+
+            if ($succeeded) {
+                $this->utmWebHook($payload, $user_id);
+            }
         }
+    }
+
+    private function utmWebHook($payload, $user_id)
+    {
+        $info = [
+            'invoice' => $payload['data']['object']['invoice'],
+            'currency' => $payload['data']['object']['currency']
+        ];
+        $service = new UtmTrackingService();
+        $service->webhook($user_id, $info);
     }
 }
