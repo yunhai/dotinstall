@@ -34,4 +34,10 @@ class User extends Base
 
         return redirect()->route('backend.user.index');
     }
+
+    public function getDelete($id)
+    {
+        $this->model->destroy($id);
+        return redirect()->route('backend.user.index');
+    }
 }
