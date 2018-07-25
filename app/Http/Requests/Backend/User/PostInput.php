@@ -16,12 +16,13 @@ class PostInput extends Base
     {
         return true;
     }
-    
+
     public function rules()
     {
+        $id = $this->route()->parameter('user_id');
         return [
-            'email' => 'required',
-            'password' => 'required',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
         ];
     }
 }

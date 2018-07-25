@@ -2,14 +2,6 @@
 @section('title', 'ユーザー')
 @section('content')
 
-@section('list_header')
-    <div class="col-lg-12">
-        <div class="form-group float-right">
-            <a class="btn btn-primary btn-sm" href="{{ route('backend.user.create') }}">新規</a>
-        </div>
-    </div>
-@stop
-
 @php
     $table = [
         'title' => 'カテゴリー',
