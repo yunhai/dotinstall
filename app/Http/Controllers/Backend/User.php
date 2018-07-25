@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\User\PostInput;
+use App\Http\Requests\Backend\User\PostChangePasswordInput;
 use App\Models\Backend\User as UserModel;
 
 class User extends Base
@@ -38,6 +39,20 @@ class User extends Base
     public function getDelete($id)
     {
         $this->model->destroy($id);
+        return redirect()->route('backend.user.index');
+    }
+
+    public function getChangePassword($id)
+    {
+        return view('backend.user.change_password');
+    }
+
+    public function postChangePassword(PostChangePasswordInput $request, $id)
+    {
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $this->model->findOrFail($id)->update($input);;
+
         return redirect()->route('backend.user.index');
     }
 }

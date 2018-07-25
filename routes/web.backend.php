@@ -66,6 +66,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('user/create', 'User@postCreate');
     Route::get('user/{user_id}/edit', 'User@getEdit')->name('backend.user.edit');
     Route::post('user/{user_id}/edit', 'User@postEdit');
+    Route::get('user/{user_id}/change_password', 'User@getChangePassword')->name('backend.user.change_password');
+    Route::post('user/{user_id}/change_password', 'User@postChangePassword');
     Route::get('user/{user_id}/delete', 'User@getDelete')->name('backend.user.delete');
 
     Route::get('youtube_link', 'YoutubeLink@getIndex')->name('backend.youtube_link.index');
