@@ -34,6 +34,14 @@
                 <div class="card card-mypage">
                     <div class="card-header">次回課金日/値段</div>
                     <div class="card card-body justify-content-center text-center border-0">
+                        @normal_user
+                            <p class="card-text">
+                                <a href="{{ route('user.upgrade') }}">
+                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>ダイヤモンド会員になる
+                                </a>
+                            </p>
+                            <p class="card-text">ダイヤモンド会員になると、全ての動画見放題となります！月額\{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
+                        @else
                         <h3><p class="card-text">{{ $next_pay_date }}</p></h3>
                         <h3><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h3>
                         <p class="card-text">
@@ -41,6 +49,7 @@
                                 【ダイヤモンド会員を止める】
                             </a>
                         </p>
+                        @endnormal_user
                     </div>
                 </div>
             </div>
