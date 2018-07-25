@@ -1,5 +1,5 @@
 var stripe = Stripe(STRIPE_KEY);
-var elements = stripe.elements();
+var elements = stripe.elements({locale: 'ja'});
 
 var style = {
   base: {
