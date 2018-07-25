@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Service\Payment\StripeService;
+use App\Http\Service\UtmTracking\UtmTrackingService;
 use App\Models\User\User as UserModel;
 use App\Rules\checkCurrentPasswordRule;
 use Auth;
 use Illuminate\Http\Request;
-use App\Http\Service\Payment\Stripe;
 
 class User extends Base
 {
@@ -34,11 +35,15 @@ class User extends Base
         }
 
         $user_id = $user['id'];
+
+        $utm = $request->get('utm');
+        $this->saveUtm($utm, $user_id);
+
         $input = $request->all();
         $token = $input['stripeToken'];
 
         $error = [];
-        $payment_service = new Stripe();
+        $payment_service = new StripeService();
         $flag = $payment_service->charge($user_id, $token, $error);
 
         if ($flag) {
@@ -46,6 +51,14 @@ class User extends Base
         }
 
         return redirect()->back()->with('error', $error);
+    }
+
+    private function saveUtm(array $utm, int $user_id)
+    {
+        $service = new UtmTrackingService();
+        $service->save($utm, $user_id);
+
+        return true;
     }
 
     public function getDowngrade()

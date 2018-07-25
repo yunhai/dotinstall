@@ -4,7 +4,7 @@ namespace App\Http\Service\Payment;
 
 use App\Models\User\User;
 
-class Stripe
+class StripeService
 {
     public function charge(int $user_id, string $token, array &$error = [])
     {
