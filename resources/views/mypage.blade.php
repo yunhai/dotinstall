@@ -45,9 +45,7 @@
                         <h3><p class="card-text">{{ $next_pay_date }}</p></h3>
                         <h3><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h3>
                         <p class="card-text">
-                            <a href="{{ route('user.downgrade') }}">
-                                【ダイヤモンド会員を止める】
-                            </a>
+                            <a href="{{ route('user.downgrade') }}" onclick="return confirm('ダイヤモンド会員をストップしますか？');">【ダイヤモンド会員を止める】</a>
                         </p>
                         @endnormal_user
                     </div>
