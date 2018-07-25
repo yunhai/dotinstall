@@ -22,6 +22,8 @@
             </div>
             @endforeach
         </div>
-        <span class="text-danger d-block mt-2">{{ $errors->first($field_name) }}</span>
+        @if (!empty($errors->first($field_name)))
+            <span class="text-danger d-block mt-2">{{ $errors->first($field_name) }}</span>
+        @endif
     </td>
 </tr>
