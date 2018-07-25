@@ -1,5 +1,16 @@
 <?php
 
+define('LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE', 1);
+define('LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE', 2);
+define('LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT', 3);
+
+define('LESSON_DETAIL_FREE_MODE_FREE', 1);
+define('LESSON_DETAIL_FREE_MODE_CHARGE', 2);
+
+define('MAIL_FROM_ADDRESS', 'ythah2015@gmail.com');
+define('MAIL_FROM_NAME', 'プログラミング');
+define('MAIL_SUBJECT_RESET_PASSWORD', 'パスワード再設定手続きのご案内');
+
 define('MEMBERSHIP_FEE', 980);
 
 define('MODE_CREATE', 1);
@@ -7,13 +18,6 @@ define('MODE_EDIT', 2);
 
 define('MODE_ENABLE', 1);
 define('MODE_DISABLE', 0);
-
-define('LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE', 1);
-define('LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE', 2);
-define('LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT', 3);
-
-define('LESSON_DETAIL_FREE_MODE_FREE', 1);
-define('LESSON_DETAIL_FREE_MODE_CHARGE', 2);
 
 define('USER_MODE_ENABLE', 1);
 define('USER_MODE_DISABLE', 2);
@@ -36,7 +40,3 @@ define('USER_LESSON_DETAIL_MODE_LEARN', 2);
 define('USER_LESSON_DETAIL_MODE_CLOSE', 3);
 
 define('USER_UTM_A8', 1);
-
-define('MAIL_FROM_ADDRESS', 'haulenhan@gmail.com');
-define('MAIL_FROM_NAME', 'プログラミング');
-define('MAIL_SUBJECT_RESET_PASSWORD', 'パスワード再設定手続きのご案内');

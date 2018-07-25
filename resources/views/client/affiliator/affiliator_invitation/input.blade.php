@@ -1,4 +1,4 @@
-@extends('backend.layout.master')
+@extends('client.layout.master')
 @section('title', 'アフィリエイター編集')
 @section('content')
     @php

@@ -69,16 +69,9 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
+        $this->activationService->sendActivationMail($user);
 
-        /*
-            $string = 'user_id=123&&expire_date=201808011200';
-            $encrypted = Crypt::encrypt($string);
-            $decrypted = Crypt::decrypt($encrypted); //returns foobar
-            dd($decrypted);
-            $this->activationService->sendActivationMail($user);
-        */
-
-        return redirect('/register/done')->with('email', $user->email);
+        return redirect('register.done')->with('email', $user->email);
     }
 
     public function redirectToProvider($provider)
