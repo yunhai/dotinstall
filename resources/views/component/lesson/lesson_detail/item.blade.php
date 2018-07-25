@@ -6,7 +6,15 @@
           <img class="pickup" src="/img/pickup.png">
         @endif
         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
-        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}'>
+        @normal_user
+            @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
+                <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}'>
+            @else
+                <a href="{{ route('user.downgrade') }}" onclick="return confirm('ダイヤモンド会員をなりますか？');">
+            @endif
+        @else
+            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}'>
+        @endnormal_user
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
         @else
