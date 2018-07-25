@@ -35,6 +35,6 @@ define('USER_LESSON_DETAIL_MODE_VIEW', 1);
 define('USER_LESSON_DETAIL_MODE_LEARN', 2);
 define('USER_LESSON_DETAIL_MODE_CLOSE', 3);
 
-define('MAIL_FROM_ADDRESS', 'haulenhan@gmail.com');
+define('MAIL_FROM_ADDRESS', 'ythah2015@gmail.com');
 define('MAIL_FROM_NAME', 'プログラミング');
 define('MAIL_SUBJECT_RESET_PASSWORD', 'パスワード再設定手続きのご案内');
