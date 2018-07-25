@@ -3,7 +3,7 @@
     <td>
         <div>
             <select class="form-control j-select"
-                name="{{ $field_name }}"                
+                name="{{ $field_name }}"
                 @if (!empty($field_attribute))
                     @foreach ($field_attribute as $key => $value)
                         {{ $key }}="{{ $value }}"
@@ -22,6 +22,6 @@
                 @endforeach
             </select>
         </div>
-        <span class="text-danger">{{ $errors->first($field_name) }}</span>
+        <span class="text-danger d-block mt-2">{{ $errors->first($field_name) }}</span>
     </td>
 </tr>

@@ -16,8 +16,8 @@
 
                     if (!empty($field_advance['source_code_content'][$target->id])) {
                         $field_advance_tmp = $field_advance['source_code_content'][$target->id];
-                        $item['display_name'] = $field_advance_tmp['original_name']; 
-                        $item['source_code_content_id'] = $field_advance_tmp['id']; 
+                        $item['display_name'] = $field_advance_tmp['original_name'];
+                        $item['source_code_content_id'] = $field_advance_tmp['id'];
                     }
 
                     array_push($tmp, $item);
@@ -86,6 +86,6 @@
                 @endif
             </div>
         </div>
-        <span class="text-danger">{{ $errors->first($field_name) }}</span>
+        <span class="text-danger d-block mt-2">{{ $errors->first($field_name) }}</span>
     </td>
 </tr>
