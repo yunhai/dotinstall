@@ -7,6 +7,9 @@ define('LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT', 3);
 define('LESSON_DETAIL_FREE_MODE_FREE', 1);
 define('LESSON_DETAIL_FREE_MODE_CHARGE', 2);
 
+define('MAIL_MODE_PENDING', 0);
+define('MAIL_MODE_SENT', 1);
+
 define('MAIL_FROM_ADDRESS', 'ythah2015@gmail.com');
 define('MAIL_FROM_NAME', 'プログラミング');
 define('MAIL_SUBJECT_RESET_PASSWORD', 'パスワード再設定手続きのご案内');
