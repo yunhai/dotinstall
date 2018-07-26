@@ -13,7 +13,7 @@ class MailerService
             $mailable = new $name($mail);
         }
 
-        $mailer = Mail::title($mail['title']);
+        $mailer = Mail::subject($mail['title']);
         $mailer = call_user_func_array(['mailer', 'to'], $mail['to']);
         if ($mail['bcc']) {
             foreach ($mail['bcc'] as $bcc) {
