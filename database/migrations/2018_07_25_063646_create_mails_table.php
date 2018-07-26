@@ -18,8 +18,8 @@ class CreateMailsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('notification_id');
-            $table->dateTime('flush_date');
-            $table->unsignedTinyInteger('mode');
+            $table->dateTime('flush_date')->nullable();
+            $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
             $table->timestamps();
