@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Lesson\Lesson;
 use Request;
 
 class Base extends Controller
@@ -12,7 +11,6 @@ class Base extends Controller
 
     protected function render(string $view, array $option = [])
     {
-        $option['global_total_lessons'] = $this->totalLessons();
         return view($view, $option);
     }
 

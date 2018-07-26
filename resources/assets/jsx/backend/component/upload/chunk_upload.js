@@ -75,8 +75,8 @@ export default class ChuckUpload {
             </video>
 
             <div class='dd-control'>
-                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
-                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
+                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='ダウンロード'>ダウンロード</a>
+                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='削除'>削除</span>
             </div>
         `;
         $dd_preview.append(html);
@@ -120,8 +120,8 @@ export default class ChuckUpload {
             <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
             <img width="400" src="${obj.url}" class='dd-preview-image'/>
             <div class='dd-control'>
-                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
-                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
+                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='ダウンロード'>ダウンロード</a>
+                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='削除'>削除</span>
             </div>
         `;
 
@@ -139,8 +139,8 @@ export default class ChuckUpload {
             <div class='j-filename_holder filename_holder'></div>
             <div class='j-language_holder language_holder'></div>
             <div class='dd-control'>
-                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
-                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</span>
+                <a href='/backend/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='ダウンロード'>ダウンロード</a>
+                <span class='j-dd-remove btn btn-outline-danger btn-sm' title='削除'>削除</span>
             </div>
         `;
 

@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Socialite;
 use App\Rules\checkExistEmailRegistrationRule;
-use Crypt;
 
 class RegisterController extends Controller
 {
@@ -71,7 +70,7 @@ class RegisterController extends Controller
         $user = $this->create($request->all());
         $this->activationService->sendActivationMail($user);
 
-        return redirect('register.done')->with('email', $user->email);
+        return redirect()->route('register.done')->with('email', $user->email);
     }
 
     public function redirectToProvider($provider)
@@ -86,10 +85,12 @@ class RegisterController extends Controller
         $id = $user->id;
         $name = $user->name;
         $email = $user->email;
+
         if (!empty($social_account_service)) {
             Auth::attempt(['name' => $name, 'email' => $email]);
-            return redirect('/');
+            return redirect()->route('top');
         }
+
         return redirect()->route(
             'register',
             [
@@ -105,7 +106,7 @@ class RegisterController extends Controller
     {
         if ($user = $this->activationService->activateUser($token)) {
             auth()->login($user);
-            return redirect('/mypage');
+            return redirect()->route('mypage');
         }
         abort(404);
     }

@@ -5,7 +5,7 @@ namespace App\Http\Service;
 use Mail;
 use App\Models\User\UserActivation;
 use App\Models\User\User;
-use App\Mail\UserActivationEmail;
+use App\Http\Service\Mail\MailerService;
 
 class ActivationService
 {
@@ -22,18 +22,30 @@ class ActivationService
         if ($user->mode || !$this->shouldSend($user)) {
             return;
         }
+
         $token = $this->userActivation->createActivation($user);
         $user->activation_link = route('user.activate', $token);
-        $mailable = new UserActivationEmail($user);
-        Mail::to($user->email)->send($mailable);
+
+        $mailer = new MailerService();
+        $name = 'Mail\User\ActivationEmail';
+
+        $mail = [
+            'to' => [$user->email],
+            'title' => MAIL_SUBJECT_USER_ACTIVATION,
+            'data' => $user
+        ];
+        $mailer->send($name, $mail);
     }
 
     public function activateUser($token)
     {
         $activation = $this->userActivation->getActivationByToken($token);
-        if ($activation === null) return null;
+        if ($activation === null) {
+            return null;
+        }
         $user = User::find($activation->user_id);
         $user->mode = true;
+        $user->grade = USER_GRADE_NORMAL;
         $user->save();
         $this->userActivation->deleteActivation($token);
 

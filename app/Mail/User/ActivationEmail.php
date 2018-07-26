@@ -1,32 +1,27 @@
 <?php
 
-namespace App\Mail\Console\Notification;
+namespace App\Mail\User;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotificationEmail extends Mailable
+class ActivationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $data = [];
+    protected $user;
 
-    public function __construct(array $data = [])
+    public function __construct($data)
     {
         $this->data = $data;
     }
 
     public function build()
     {
-        $data = [
-            'content' => $this->data['content'],
-        ];
-
         return $this->from(env('APP_MAIL'), env('APP_NAME'))
                     ->subject($this->data['title'])
-                    ->view('emails.console.notification.notification')
-                    ->with('data', $data);
+                    ->view('emails.user.activation')->with('user', $this->data['data']);
     }
 }
