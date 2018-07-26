@@ -13,19 +13,14 @@ class MailerService
             $mailable = new $name($mail);
         }
 
-        $mailer = call_user_func_array(['Mail', 'to'], $mail['to']);
+        $mailer = Mail::subject($mail['title']);
+        $mailer = call_user_func_array(['mailer', 'to'], $mail['to']);
         if ($mail['bcc']) {
             foreach ($mail['bcc'] as $bcc) {
-                $mailer = call_user_func_array(['Mail', 'bcc'], $bcc);
+                $mailer = call_user_func_array(['mailer', 'bcc'], $bcc);
             }
         }
 
         $mailer->send($mailable);
-
-        // Mail::send('emails.send', ['title' => $title, 'content' => $content], function ($message) {
-        //     $message->from('me@gmail.com', 'Christian Nwamba');
-        //
-        //     $message->to('chrisn@scotch.io');
-        // });
     }
 }
