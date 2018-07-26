@@ -23,8 +23,10 @@ class NotificationEmail extends Mailable
         $data = [
             'content' => $this->data['content'],
         ];
-        
-        return $this->view('emails.console.notification.notification')
+
+        return $this->from(env('APP_MAIL'), env('APP_NAME'))
+                    ->subject($this->data['title'])
+                    ->view('emails.console.notification.notification')
                     ->with('data', $data);
     }
 }

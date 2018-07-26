@@ -1,1 +1,1 @@
-{{ $data['content'] }}
+{!! nl2br(e($data['content'])) !!}
