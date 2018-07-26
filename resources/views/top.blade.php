@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="box box-panel">
+<div class="box box-panel mb-0">
     <div class="card">
         <img class="card-img" src="/img/panel_language.png">
     </div>

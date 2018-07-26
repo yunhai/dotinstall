@@ -38,6 +38,10 @@ class LessonDetail extends Base
         $media = $this->getMedia($lesson_details);
         $lesson_details = $this->formatLessonDetail($lesson_details, $media, $user_id);
         $lessons = $this->lesson_model->get($lesson_id);
+        
+        if (Auth::check() && Auth::user()->grade == USER_GRADE_NORMAL && $lessons['free_mode'] == LESSON_DETAIL_FREE_MODE_CHARGE) {
+            return redirect()->route('mypage');
+        }
 
         $target = [];
         $prev_video = [];

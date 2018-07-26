@@ -6,7 +6,15 @@
           <img class="pickup" src="/img/pickup.png">
         @endif
         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
-        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}'>
+        @normal_user
+            @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
+                <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}'>
+            @else
+                <a href="{{ route('user.downgrade') }}" onclick="return confirm('ダイヤモンド会員をなりますか？');">
+            @endif
+        @else
+            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}'>
+        @endnormal_user
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
         @else
@@ -27,27 +35,37 @@
                 <p class="card-text">レッスンはまだありません。しばらくお待ちください。</p>
             @endif
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
+                @if (!empty($target['popup']))
+                    @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                    <p class="card-text mb-1">
+                        <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
+                            <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                        </a>
+                    </p>
+                @else
+                    <p class="card-text mb-1">
+                        <a href="" onclick="return confirm('ソース確認がありません');" class="btn btn-sm btn-request" >
+                            <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                        </a>
+                    </p>
+                @endif
                 @if (!empty($target['is_closeable']))
-                <p class="card-text mb-1">
                     <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
                         <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
                     </a>
-                </p>
-                @endif
-                @if (!empty($target['popup']))
-                    @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                    <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
-                        <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                @else
+                    <a href="" class="btn btn-sm btn-request">
+                        <img class="card-img-top btn-to-complete" src="/img/btn_completion.png">
                     </a>
                 @endif
             @else
                 <p class="card-text mb-1">
                     <a href="{{ route('login') }}" class="btn btn-sm btn-request">
-                        <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
+                        <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                     </a>
                 </p>
                 <a href="{{ route('login') }}" class="btn btn-sm btn-request">
-                    <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                    <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
                 </a>
             @endif
         </div>
