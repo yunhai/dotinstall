@@ -2,9 +2,13 @@
 @section('title', 'アフィリエイター一覧')
 @section('content')
     @section('list_header')
-        <div class="col-lg-12">
-            <div class="form-group float-right">
-                <a class="btn btn-primary btn-sm" href="{{ route('backend.affiliator.create') }}">新規</a>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="dataTable_filter" class="dataTables_filter">
+                    <label>
+                        <a class="btn btn-primary btn-sm" href="{{ route('backend.affiliator.create') }}">新規</a>
+                    </label>
+                </div>
             </div>
         </div>
     @stop

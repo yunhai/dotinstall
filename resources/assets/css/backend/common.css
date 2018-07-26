@@ -53,7 +53,7 @@ table th {
     background: #fff;
     border: 1px solid #ced4da;
 }
-.btn {
+table .btn {
     margin-bottom: 5px;
 }
 .btn-group-sm>.btn, .btn-sm {
