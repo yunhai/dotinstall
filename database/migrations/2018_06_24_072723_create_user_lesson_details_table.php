@@ -35,6 +35,6 @@ class CreateUserLessonDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_lesson_media');
+        Schema::dropIfExists('user_lesson_details');
     }
 }

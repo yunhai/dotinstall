@@ -34,6 +34,6 @@ class CreateMsLanguagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('ms_languages');
     }
 }

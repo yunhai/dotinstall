@@ -8,23 +8,15 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
 use App\Providers\SocialiteLineProvider;
 use App\Providers\SocialiteYahooJpProvider;
-use Illuminate\Support\Facades\View;
-use App\Models\Lesson\Lesson;
 use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         Schema::defaultStringLength(191);
         $this->bootSocialiteLine();
         $this->bootSocialiteYahooJp();
-        View::share('total_lessons', $this->totalLessons());
 
         Blade::if('diamond_user', function () {
             if (Auth::check()) {
@@ -41,11 +33,6 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
     public function register()
     {
         Blade::directive('media_path', function (string $path) {
@@ -75,10 +62,5 @@ class AppServiceProvider extends ServiceProvider
                 return $socialite->buildProvider(SocialiteYahooJpProvider::class, $config);
             }
         );
-    }
-
-    private function totalLessons()
-    {
-        return Lesson::count();
     }
 }

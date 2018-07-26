@@ -39,6 +39,6 @@ class CreateLessonDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lesson_media');
+        Schema::dropIfExists('lesson_details');
     }
 }

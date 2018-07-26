@@ -32,6 +32,6 @@ class CreateLessonSuplementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lesson_suplement');
+        Schema::dropIfExists('lesson_suplements');
     }
 }

@@ -62,7 +62,7 @@
 <div class="box mb-0">
     <div class="card-lesson-total text-center">
         <p class="card-text">
-            <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $total_lessons }}）</a>
+            <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $global_total_lessons }}）</a>
         </p>
     </div>
 </div>

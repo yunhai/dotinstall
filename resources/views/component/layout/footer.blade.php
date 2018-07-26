@@ -27,7 +27,7 @@
                 <h6 class="title-widget">サービス</h6>
                 <hr>
                 <ul class="pad_l20 mar_b0">
-                    <li class="pb-1"><a href="{{ route('lesson') }}">レッスン一覧（{{ $total_lessons }}）</a></li>
+                    <li class="pb-1"><a href="{{ route('lesson') }}">レッスン一覧（{{ $global_total_lessons }}）</a></li>
                     <li><a href="#">有料会員ご説明</a></li>
                 </ul>
             </div>

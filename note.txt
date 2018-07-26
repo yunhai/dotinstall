@@ -16,7 +16,6 @@ https://dashboard.stripe.com/test/invoices
 https://stripe.com/docs/testing#cards
 https://codepen.io/sampotts/pen/jARJYp
 
-
 https://dashboard.stripe.com/test/payments
 https://stripe.com/docs/testing#cards
 https://stripe.com/docs/stripe-js/elements/quickstart
@@ -24,6 +23,5 @@ https://stripe.com/docs/stripe-js/reference#element-options
 https://jsfiddle.net/ywain/L96q8uj5/
 https://stripe.com/docs/stripe-js
 
-php artisan db:seed --class=MsCategoriesTableSeeder
-php artisan db:seed --class=MsLanguagesTableSeeder
-php artisan db:seed --class=UsersTableSeeder
+php artisan migrate
+php artisan db:seed

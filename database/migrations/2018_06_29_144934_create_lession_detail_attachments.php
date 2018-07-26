@@ -36,6 +36,6 @@ class CreateLessionDetailAttachments extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('lesson_detail_attachments');
     }
 }

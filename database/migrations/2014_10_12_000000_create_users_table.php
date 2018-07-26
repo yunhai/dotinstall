@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->unsignedTinyInteger('role')->default(1);
             $table->unsignedTinyInteger('grade')->default(0);
             $table->unsignedTinyInteger('mode')->default(0);
-            $table->unsignedInteger('affiliator_id');
+            $table->unsignedInteger('affiliator_id')->default(0);
             $table->string('provider', 256)->default('');
             $table->string('provider_user_id', 256)->default('');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->default(0);
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();
