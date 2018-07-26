@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Service\Mail\MailerService;
 use App\Models\Console\Mail\Mail as MailModel;
 use App\Models\Console\Notification;
 use App\Models\Console\User;
