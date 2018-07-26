@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->unsignedTinyInteger('role')->default(1);
+            $table->unsignedTinyInteger('grade')->default(0);
             $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedInteger('affiliator_id');
             $table->string('provider', 256)->default('');

@@ -25,9 +25,9 @@ define('MODE_DISABLE', 0);
 define('USER_MODE_ENABLE', 1);
 define('USER_MODE_DISABLE', 2);
 
-define('USER_ROLE_PUBLIC', 1);
-define('USER_ROLE_BACKEND', 2);
+define('USER_ROLE_ADMIN', 2);
 define('USER_ROLE_CLIENT', 3);
+define('USER_ROLE_PUBLIC', 1);
 
 define('USER_GRADE_NORMAL', 1);
 define('USER_GRADE_DIAMOND', 2);

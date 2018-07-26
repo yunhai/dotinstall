@@ -12,40 +12,6 @@ http {
 
 #ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"
 
-$string = "INSERT INTO `ms_categories` (`name`, `sort`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('%s', %s, '99', '99', NOW(), NOW(), NULL);\n";
-
-$list = ['iOS', 'Android', 'PHP', 'HTML5', 'CSS3', 'C#', 'Java', 'Ruby', 'Nodejs', 'Jquery', 'Game Programming', 'Server Enviroment'];
-$sql = '';
-foreach ($list as $id => $name) {
-    $index = $id + 1;
-    $sql .= sprintf($string, $name, $index);
-}
-print('<pre>');
-print_r($sql);
-print('</pre>');
-exit;
-
-$string = "INSERT INTO `ms_languages` (`name`, `fullname`, `sort`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('%s', '%s', %s, '99', '99', NOW(), NOW(), NULL);\n";
-
-$list = [
-    'php' => 'php',
-    'java' => 'java',
-    'javascript' => 'javascript',
-    'html5' => 'html',
-    'css3' => 'css',
-    'c#' => 'c#'
-];
-$sql = '';
-$index = 0;
-foreach ($list as $fullname => $name) {
-    $index++;
-    $sql .= sprintf($string, $name, $fullname, $index);
-}
-print('<pre>');
-print_r($sql);
-print('</pre>');
-exit;
-
 https://dashboard.stripe.com/test/invoices
 https://stripe.com/docs/testing#cards
 https://codepen.io/sampotts/pen/jARJYp
@@ -57,3 +23,7 @@ https://stripe.com/docs/stripe-js/elements/quickstart
 https://stripe.com/docs/stripe-js/reference#element-options
 https://jsfiddle.net/ywain/L96q8uj5/
 https://stripe.com/docs/stripe-js
+
+php artisan db:seed --class=MsCategoriesTableSeeder
+php artisan db:seed --class=MsLanguagesTableSeeder
+php artisan db:seed --class=UsersTableSeeder

@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('web.backend')->except('logout');
-        $this->role = USER_ROLE_BACKEND;
+        $this->role = USER_ROLE_ADMIN;
     }
 
     public function getLogin()
