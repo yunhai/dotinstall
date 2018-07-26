@@ -9,13 +9,6 @@ use Illuminate\Console\Command;
 
 class SendNotifications extends Command
 {
-    public function __construct(MailModel $mail_model)
-    {
-        parent::__construct();
-        $this->mail_model = $mail_model;
-    }
-
-
     /**
      * The name and signature of the console command.
      *
@@ -35,9 +28,10 @@ class SendNotifications extends Command
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MailModel $mail_model)
     {
         parent::__construct();
+        $this->mail_model = $mail_model;
     }
 
     public function handle()
