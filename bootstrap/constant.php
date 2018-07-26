@@ -10,7 +10,7 @@ define('LESSON_DETAIL_FREE_MODE_CHARGE', 2);
 define('MAIL_MODE_PENDING', 0);
 define('MAIL_MODE_SENT', 1);
 
-define('MAIL_SUBJECT_USER_ACTIVATION', 'Activation email');
+define('MAIL_SUBJECT_USER_ACTIVATION', 'メール認証');
 define('MAIL_SUBJECT_USER_RESET_PASSWORD', 'パスワード再設定手続きのご案内');
 
 define('MEMBERSHIP_FEE', 980);

@@ -59,6 +59,7 @@ export default class ChuckUpload {
     }
 
     callbackVideo(obj, $target, $callback) {
+        console.log(obj);
         const $dd_preview = $callback.find('.dd-preview');
         const player_id = new Date().getTime();
 
