@@ -14,7 +14,7 @@
                     <li class="pb-1"><a href="{{ route('terms') }}">利用規約</a></li>
                     <li class="pb-1"><a href="{{ route('privacy') }}">プライバシーポリシー</a></li>
                     <li class="pb-1"><a href="{{ route('company') }}">運営企業情報</a></li>
-                    <li><a href="{{ route('contact') }}">お問い合わせ</a></li>
+                    <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3">

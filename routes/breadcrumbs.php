@@ -29,9 +29,14 @@ Breadcrumbs::for('company', function ($trail) {
 });
 
 // お問い合わせ
-Breadcrumbs::for('contact', function ($trail) {
+Breadcrumbs::for('contact.contact', function ($trail) {
     $trail->parent('top');
-    $trail->push('お問い合わせ', route('contact'));
+    $trail->push('お問い合わせ', route('contact.contact'));
+});
+
+Breadcrumbs::for('contact.finish', function ($trail) {
+    $trail->parent('top');
+    $trail->push('お問い合わせ', route('contact.contact'));
 });
 
 // ログイン

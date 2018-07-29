@@ -20,7 +20,9 @@ Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->n
 Route::get('register/done', 'Auth\RegisterController@registerDone')->name('register.done');
 Route::get('register/?token={token}', 'Auth\RegisterController@register')->name('register.affiliator');
 
-Route::get('contact', 'Page@getContact')->name('contact');
+Route::get('contact/finish', 'Contact@getFinish')->name('contact.finish');
+Route::get('contact', 'Contact@getContact')->name('contact.contact');
+Route::post('contact', 'Contact@postContact');
 Route::get('company', 'Page@getCompany')->name('company');
 
 Route::get('lesson', 'Lesson\Lesson@getLesson')->name('lesson');
