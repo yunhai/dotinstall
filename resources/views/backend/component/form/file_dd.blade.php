@@ -56,7 +56,7 @@
                             <img width="400" src="@media_path($media_path)" class='dd-preview-image' />
                         @endif
                         <div class='dd-control'>
-                            <a href='/backend/media/download/{{ $target["id"] }}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
+                            <a href='/admin/media/download/{{ $target["id"] }}' class='btn btn-outline-info btn-sm' title='Download'>Download</a>
                             <sapn class='j-dd-remove btn btn-outline-danger btn-sm' title='Remove'>Remove</sapn>
                         </div>
                     </div>
