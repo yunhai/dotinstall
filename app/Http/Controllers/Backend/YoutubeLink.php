@@ -24,6 +24,7 @@ class YoutubeLink extends Base
     {
         $target = $this->model->get($id);
         $form = $this->form();
+
         return $this->render('youtube_link.input', compact('target', 'form'));
     }
 
@@ -32,13 +33,18 @@ class YoutubeLink extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.youtube_link.edit', ['youtube_link_id' => $id]);
+        $form = $this->form();
+        return $this->render('youtube_link.index', compact('data', 'form'));
     }
 
     public function getCreate()
     {
         $form = $this->form();
-        return $this->render('youtube_link.input', compact('form'));
+
+        $target = [
+            'mode' => MODE_ENABLE
+        ];
+        return $this->render('youtube_link.input', compact('form', 'target'));
     }
 
     public function postCreate(PostInput $request)
@@ -46,8 +52,8 @@ class YoutubeLink extends Base
         $input = $request->all();
         $target = $this->model->create($input);
 
-        $youtube_link_id = $target->id;
-        return redirect()->route('backend.youtube_link.edit', compact('youtube_link_id'));
+        $form = $this->form();
+        return $this->render('youtube_link.index', compact('data', 'form'));
     }
 
     public function getDelete($id)
