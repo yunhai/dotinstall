@@ -5,7 +5,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="" data-placement="right" title="ユーザー">
+            <li class="nav-item" data-toggle="" data-placement="right" title="マイページ">
+                <a class="nav-link" href="{{ route('client.affiliator.mypage') }}">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span class="nav-link-text">マイページ</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="アフィリエイター">
                 <a class="nav-link" href="{{ route('client.affiliator_invitation.index') }}">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="nav-link-text">アフィリエイター</span>
