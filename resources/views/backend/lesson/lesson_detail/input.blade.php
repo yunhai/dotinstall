@@ -99,7 +99,7 @@
                     ]
                 ],
                 'resource' => [
-                    'field_label' => 'Resource',
+                    'field_label' => '素材',
                     'field_name' => 'resource',
                     'field_value' => array_get($target, 'resources', ''),
                     'field_type' => 'file_dd_multiple',

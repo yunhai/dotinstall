@@ -16,6 +16,7 @@ class YoutubeLink extends Base
     public function getIndex()
     {
         $data = $this->model->paginate(20);
+      
         $form = $this->form();
         return $this->render('youtube_link.index', compact('data', 'form'));
     }
@@ -33,8 +34,7 @@ class YoutubeLink extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        $form = $this->form();
-        return $this->render('youtube_link.index', compact('data', 'form'));
+        return redirect()->route('backend.youtube_link.index');
     }
 
     public function getCreate()
@@ -52,14 +52,13 @@ class YoutubeLink extends Base
         $input = $request->all();
         $target = $this->model->create($input);
 
-        $form = $this->form();
-        return $this->render('youtube_link.index', compact('data', 'form'));
+        return redirect()->route('backend.youtube_link.index');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('backend.youtube_link.index');
+        
     }
 
     protected function form()

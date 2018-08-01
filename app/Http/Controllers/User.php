@@ -37,8 +37,9 @@ class User extends Base
         $user_id = $user['id'];
 
         $utm = $request->get('utm');
-        $this->saveUtm($utm, $user_id);
-
+        if ($utm) {        
+            $this->saveUtm($utm, $user_id);
+        }
         $input = $request->all();
         $token = $input['stripeToken'];
 

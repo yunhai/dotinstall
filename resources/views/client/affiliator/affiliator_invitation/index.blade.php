@@ -14,21 +14,21 @@
                 '手数料',
             ],
             'body' => [
-                'member_email' => [
+                'ユーザー名' => [
                     'field' => '',
                     'apply' => ['array_get', $form['user_email'], 'apply_value'],
                     'apply_value' => 'user_id'
                 ],
-                'join_date' => [
+                '登録日' => [
                     'field' => 'join_date'
                 ],
-                'affiliator_commission_base' => [
+                '料金' => [
                     'field' => 'affiliator_commission_base'
                 ],
-                'affiliator_commission_rate' => [
+                '料金率' => [
                     'field' => 'affiliator_commission_rate'
                 ],
-                'affiliator_commission' => [
+                '利益' => [
                     'field' => 'affiliator_commission'
                 ]
             ],
