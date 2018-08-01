@@ -20,7 +20,7 @@
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="tab-pane-user row">
                                 <div class="col-12">
-                                    <div class="card">
+                                    <div class="card card-login">
                                         <div class="card-header">ログイン</div>
 
                                         <div class="card-body">
@@ -80,7 +80,7 @@
                         <div class="card">
                             <div class="card-header text-center">その他の方法でログイン</div>
 
-                            <div class="card-body px-5">
+                            <div class="card-body px-4">
                                 <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
                                 <a href="/auth/twitter" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>
                                 <a href="/auth/facebook" class="btn btn-facebook btn-block"><span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span></a>

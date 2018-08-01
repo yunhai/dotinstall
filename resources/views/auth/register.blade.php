@@ -148,7 +148,7 @@
                 </div>
                 <div class="col-3 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                        <div class="card">
+                        <div class="card card-social">
                             <div class="card-header text-center">
                                 @if (!empty(app('request')->input('provider')))
                                     なぜ入力が必要なの？
@@ -157,7 +157,7 @@
                                 @endif
                             </div>
 
-                            <div class="card-body @if (empty(app('request')->input('provider'))) px-5 @endif">
+                            <div class="card-body @if (empty(app('request')->input('provider'))) px-4 @endif">
                                 @if (!empty(app('request')->input('provider')))
                                     <p>メールアドレスは運営側からの連絡をする際に必要となります。</p>
                                     <p class="mar_b0">パスワードを設定したい場合は、ユーザー登録後に設定変更画面からおこなってください。</p>

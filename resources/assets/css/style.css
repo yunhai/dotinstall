@@ -169,6 +169,12 @@ body {
     background-color: #ece8e9;
     border-bottom: 1px solid #abaaaa;
 }
+.card-login {
+    min-height: 331px;
+}
+.card-social {
+    min-height: 369px;
+}
 /* TOP
 ------------------------------------------------------------ */
 .box, .box-user, .box-mypage {
