@@ -83,6 +83,7 @@ body {
     border-radius: 5px;
 }
 .btn-twitter span img {
+    width: 19px;
     display: inline-block;
 }
 .btn-twitter .btn-twitter-label {
@@ -104,6 +105,7 @@ body {
     border-radius: 5px;
 }
 .btn-facebook span img {
+    width: 12px;
     display: inline-block;
 }
 .btn-facebook .btn-facebook-label {
@@ -126,6 +128,7 @@ body {
     border-radius: 5px;
 }
 .btn-yahoo span img {
+    width: 19px;
     display: inline-block;
 }
 .btn-yahoo .btn-yahoo-label {
@@ -146,6 +149,7 @@ body {
     border-radius: 5px;
 }
 .btn-google span img {
+    width: 17px;
     display: inline-block;
 }
 .btn-google .btn-google-label {
