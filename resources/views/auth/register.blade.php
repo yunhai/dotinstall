@@ -58,7 +58,7 @@
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="tab-pane-user row">
                                 <div class="col">
-                                    <div class="card">
+                                    <div class="card card-register">
                                         <div class="card-header">新規登録</div>
 
                                         <div class="card-body">
@@ -148,7 +148,7 @@
                 </div>
                 <div class="col-3 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                        <div class="card card-social">
+                        <div class="card card-register-social">
                             <div class="card-header text-center">
                                 @if (!empty(app('request')->input('provider')))
                                     なぜ入力が必要なの？
