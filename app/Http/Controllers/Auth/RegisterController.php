@@ -80,7 +80,11 @@ class RegisterController extends Controller
 
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        if ($provider == 'google') {
+            $user = Socialite::driver($provider)->stateless()->user();
+        } else {
+            $user = Socialite::driver($provider)->user();
+        }
         $social_account_service = SocialAccountService::createOrGetUser($user, $provider);
         $id = $user->id;
         $name = $user->name;
