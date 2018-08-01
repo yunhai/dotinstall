@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-3 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                        <div class="card">
+                        <div class="card card-login-social">
                             <div class="card-header text-center">その他の方法でログイン</div>
 
                             <div class="card-body px-4">
