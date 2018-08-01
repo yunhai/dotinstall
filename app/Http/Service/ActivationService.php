@@ -22,18 +22,19 @@ class ActivationService
         if ($user->mode || !$this->shouldSend($user)) {
             return;
         }
-
+    
         $token = $this->userActivation->createActivation($user);
         $user->activation_link = route('user.activate', $token);
-
+        
         $mailer = new MailerService();
         $name = 'Mail\User\ActivationEmail';
-
+    
         $mail = [
             'to' => [$user->email],
             'title' => MAIL_SUBJECT_USER_ACTIVATION,
             'data' => $user
         ];
+        // dd($user->email);
         $mailer->send($name, $mail);
     }
 

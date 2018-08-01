@@ -3,6 +3,7 @@
 namespace App\Models\Affiliator;
 
 use App\Models\Affiliator\Affiliator;
+use App\Models\Affiliator\AffiliatorIncome;
 use App\Models\Base;
 use App\Models\Traits\Affiliator\UserTrack;
 use Carbon\Carbon;
@@ -50,6 +51,20 @@ class AffiliatorInvitation extends Base
 
         $affiliator_model->updateCommissionBalance($affiliator['id'], $commission);
 
+        $this->updateAffiliatorIncome($affiliator['id'], $input);
+
         return $target->toArray();
+    }
+    
+    private function updateAffiliatorIncome(int $affiliator_id, array $data)
+    {
+        $income = [
+            'affiliator_id' => $affiliator_id,
+            'target_date' => $data['join_date']->format('Y-m-d'),
+            'invitation' => 1,
+            'commission' => $data['affiliator_commission']
+        ];
+        $affiliator_income_model = new AffiliatorIncome();
+        $affiliator_income_model->updateIncome($affiliator_id, $income);
     }
 }

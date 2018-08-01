@@ -32,10 +32,12 @@ class RegisterController extends Controller
         $validator = [
             'email' => ['required', 'string', 'email', 'max:255', new checkExistEmailRegistrationRule()],
         ];
+
         if (empty($data['provider'])) {
             $validator['password'] = 'required|string|min:6|confirmed';
             $validator['password_confirmation'] = 'required|string|min:6';
         }
+
         return Validator::make($data, $validator);
     }
 
@@ -66,13 +68,13 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-      $input = $request->all();
-      if (empty($input['password'])) {
-        $input['password'] = env('APP_DEFAULT_PASSWORD');
-      }
-      $this->validator($input)->validate();
-      $user = $this->create($input);
-      $this->activationService->sendActivationMail($user);
+        $input = $request->all();
+        if (empty($input['password'])) {
+            $input['password'] = env('APP_DEFAULT_PASSWORD');
+        }
+        $this->validator($input)->validate();
+        $user = $this->create($input);
+        $this->activationService->sendActivationMail($user);
 
         return redirect()->route('register.done')->with('email', $user->email);
     }
@@ -89,6 +91,7 @@ class RegisterController extends Controller
         } else {
             $user = Socialite::driver($provider)->user();
         }
+
         $social_account_service = SocialAccountService::createOrGetUser($user, $provider);
         $id = $user->id;
         $name = $user->name;
