@@ -18,7 +18,10 @@ class User extends Base
 
     public function getIndex()
     {
-        $users = $this->model->orderBy('id', 'desc')->paginate(20);
+        $users = $this->model
+                    ->where('role', USER_ROLE_PUBLIC)
+                    ->orderBy('id', 'desc')
+                    ->paginate(20);
         return $this->render('user.index', compact('users'));
     }
 
@@ -31,7 +34,8 @@ class User extends Base
     public function postEdit(PostInput $request, $id)
     {
         $input = $request->all();
-        $this->model->findOrFail($id)->update($input);;
+        $this->model->findOrFail($id)->update($input);
+        ;
 
         return redirect()->route('backend.user.index');
     }
@@ -51,7 +55,8 @@ class User extends Base
     {
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $this->model->findOrFail($id)->update($input);;
+        $this->model->findOrFail($id)->update($input);
+        ;
 
         return redirect()->route('backend.user.index');
     }
