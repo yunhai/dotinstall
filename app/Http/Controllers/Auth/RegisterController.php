@@ -66,9 +66,13 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
-        $user = $this->create($request->all());
-        $this->activationService->sendActivationMail($user);
+      $input = $request->all();
+      if (empty($input['password'])) {
+        $input['password'] = env('APP_DEFAULT_PASSWORD');
+      }
+      $this->validator($input)->validate();
+      $user = $this->create($input);
+      $this->activationService->sendActivationMail($user);
 
         return redirect()->route('register.done')->with('email', $user->email);
     }
