@@ -169,11 +169,14 @@ body {
     background-color: #ece8e9;
     border-bottom: 1px solid #abaaaa;
 }
-.card-login {
+.card-login, .card-login-social {
     min-height: 331px;
 }
-.card-social {
+.card-register, .card-register-social {
     min-height: 369px;
+}
+.card-password-forgot, .card-password-forgot-note {
+    min-height: 170px;
 }
 /* TOP
 ------------------------------------------------------------ */
