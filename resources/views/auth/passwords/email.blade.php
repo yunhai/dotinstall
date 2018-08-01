@@ -28,7 +28,7 @@
                         <div class="tab-pane fade active show" role="tabpanel">
                             <div class="tab-pane-user row">
                                 <div class="col">
-                                    <div class="card">
+                                    <div class="card card-password-forgot">
                                         <div class="card-header">パスワード再設定手続き</div>
 
                                         <div class="card-body">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-3 d-none d-lg-block">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                        <div class="card">
+                        <div class="card card-password-forgot-note">
                             <div class="card-header text-center">ご注意</div>
 
                             <div class="card-body">
