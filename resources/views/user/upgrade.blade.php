@@ -11,13 +11,23 @@
     </script>
     <script src="/js/payment.js"></script>
     @if (session('success'))
-        <script>
-            $(document).ready(function() {
-                if (confirm('成功しました')) {
-                    location.href = "{{ route('top') }}";
-                }
-            });
-        </script>
+    	<script type="text/javascript">
+		    $(window).on('load',function(){
+		        $('#success').modal('show');
+		    });
+		</script>
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-body">
+						<p class="mb-0">ダイヤモンド会員になりました。<br>ありがとうございました！</p>
+					</div>
+					<div class="modal-footer" style="padding: 0; justify-content:center;">
+						<a href="{{ route('top') }}" class="btn">OK</a>
+					</div>
+				</div>
+			</div>
+		</div>
     @endif
 @endpush
 @section('breadcrumbs', Breadcrumbs::render('payment.charge'))
