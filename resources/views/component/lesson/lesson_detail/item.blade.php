@@ -86,7 +86,7 @@
 @endif
 <div class="modal fade no-lesson-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
-		<div class="modal-content" style="height: auto;">
+		<div class="modal-content rounded-0" style="height: auto;">
 			<div class="modal-body">
 				<p class="mb-0">このレッスンにはソースコードはありません。</p>
 			</div>

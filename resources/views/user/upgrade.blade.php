@@ -18,7 +18,7 @@
 		</script>
         <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
+				<div class="modal-content rounded-0">
 					<div class="modal-body">
 						<p class="mb-0">ダイヤモンド会員になりました。<br>ありがとうございました！</p>
 					</div>
