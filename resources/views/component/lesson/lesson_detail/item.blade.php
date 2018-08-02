@@ -10,7 +10,7 @@
             @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
                 <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
             @else
-                <a href="{{ route('user.upgrade') }}" onclick="return confirm('ダイヤモンド会員をなりますか？');" class="lesson_href">
+                <a href="javascript:;" data-toggle="modal" data-target=".user-upgrade-modal-sm" class="lesson_href">
             @endif
         @else
             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
@@ -92,6 +92,19 @@
 			</div>
 			<div class="modal-footer" style="padding: 0; justify-content:center;">
 				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">OK</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade user-upgrade-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content rounded-0" style="height: auto;">
+			<div class="modal-body">
+				<p class="mb-0">ダイヤモンド会員をなりますか？</p>
+			</div>
+			<div class="modal-footer" style="padding: 0;">
+				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">閉じる</a>
+				<a href="{{ route('user.upgrade') }}" class="btn" style="font-size: 13px;">OK</a>
 			</div>
 		</div>
 	</div>
