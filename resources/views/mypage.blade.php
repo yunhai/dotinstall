@@ -45,7 +45,7 @@
                         <h3><p class="card-text">{{ $next_pay_date }}</p></h3>
                         <h3><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h3>
                         <p class="card-text">
-                            <a href="{{ route('user.downgrade') }}" onclick="return confirm('ダイヤモンド会員をストップしますか？');">【ダイヤモンド会員を止める】</a>
+                            <a href="javascript:;"  data-toggle="modal" data-target=".user-downgrade-modal-sm">【ダイヤモンド会員を止める】</a>
                         </p>
                         @endnormal_user
                     </div>
@@ -91,6 +91,19 @@
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade user-downgrade-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content rounded-0" style="height: auto;">
+			<div class="modal-body">
+				<p class="mb-0">ダイヤモンド会員をストップしますか？</p>
+			</div>
+			<div class="modal-footer" style="padding: 0;">
+				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">閉じる</a>
+				<a href="{{ route('user.downgrade') }}" class="btn" style="font-size: 13px;">OK</a>
+			</div>
+		</div>
+	</div>
 </div>
 @foreach($notifications as $notification)
     @include('component.modal.info', ['modal_id' => 'model--notification_' . $notification['id'], 'target' => $notification])

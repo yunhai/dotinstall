@@ -45,7 +45,7 @@
                     </p>
                 @else
                     <p class="card-text mb-1">
-                        <a class="btn btn-sm btn-request" data-toggle="modal" data-target=".no-lesson-modal-sm">
+                        <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target=".no-lesson-modal-sm">
                             <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                         </a>
                     </p>
@@ -91,7 +91,7 @@
 				<p class="mb-0">このレッスンにはソースコードはありません。</p>
 			</div>
 			<div class="modal-footer" style="padding: 0; justify-content:center;">
-				<a href="#" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">OK</a>
+				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">OK</a>
 			</div>
 		</div>
 	</div>
