@@ -23,7 +23,7 @@
             <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>
         </div>
     </div>
-    <div class="box mb-0">
+    <div class="box px-5 mb-0">
         @php
             $video = [];
             if (!empty($target['videos'])) {
