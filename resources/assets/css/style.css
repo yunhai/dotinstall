@@ -277,6 +277,7 @@ body {
     position: absolute;
     right: -12px;
     top: -20px;
+    z-index: 3;
 }
 .card-sign-button {
     background: repeating-linear-gradient(
@@ -377,6 +378,17 @@ body {
     .box-panel .card .card-body .card-sign-button img {
         width: 260px;
     }
+}
+.lesson_href {
+    position: relative;
+}
+.play-btn {
+    font-size: 38px;
+    color: #282828;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 /* lESSON
 ------------------------------------------------------------ */
