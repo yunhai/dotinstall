@@ -55,7 +55,7 @@
                         <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
                     </a>
                 @else
-                    <a href="" class="btn btn-sm btn-request">
+                    <a href="" class="btn btn-sm btn-request" style="pointer-events: none;">
                         <img class="card-img-top btn-to-complete" src="/img/btn_completion.png">
                     </a>
                 @endif
