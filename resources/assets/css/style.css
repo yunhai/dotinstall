@@ -273,9 +273,9 @@ body {
     margin-top: 5px;
 }
 .pickup {
-    max-width: 15%;
+    max-width: 18%;
     position: absolute;
-    right: -12px;
+    right: -14px;
     top: -20px;
     z-index: 3;
 }
