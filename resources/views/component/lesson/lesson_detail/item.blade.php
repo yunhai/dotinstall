@@ -10,7 +10,7 @@
             @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
                 <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
             @else
-                <a href="{{ route('user.upgrade') }}" onclick="return confirm('ダイヤモンド会員をなりますか？');">
+                <a href="{{ route('user.upgrade') }}" onclick="return confirm('ダイヤモンド会員をなりますか？');" class="lesson_href">
             @endif
         @else
             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
