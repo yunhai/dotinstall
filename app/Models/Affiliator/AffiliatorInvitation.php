@@ -57,44 +57,71 @@ class AffiliatorInvitation extends Base
 
         $target = $this->create($input);
 
-        // $affiliator_model->updateCommissionBalance($affiliator['id'], $commission);
-        //
-        // $this->updateAffiliatorIncome($affiliator['id'], $input);
-
         return $target->toArray();
     }
-    
 
-    public function updateCommission(array $data)
+    public function getByAffiliatorIdAndUserId($affiliator_id, $user_id)
     {
-        $affiliator_model = new Affiliator();
-
-        $affiliator = $affiliator_model->getByToken($data['token']);
-        if (!$affiliator) {
-            return [];
+        $result = $this->select(
+                'id',
+                'join_date',
+                'affiliator_id',
+                'user_id',
+                'affiliator_commission_base',
+                'affiliator_commission_rate',
+                'affiliator_commission'
+            )
+            ->where('affiliator_id', $affiliator_id)
+            ->where('user_id', $user_id)
+            ->first();
+        if ($result) {
+            return $result->toArray();
         }
 
-        $fee = MEMBERSHIP_FEE;
-        $rate = $affiliator['commission_rate'];
-        $commission = ($fee * $rate) / 100;
-        $commission = intval(round($commission));
+        return [];
+    }
+    
+    public function enableAffiliatorInvitation($id)
+    {
+        $this
+            ->where('id', $id)
+            ->update(['mode' => MODE_ENABLE]);
+        return true;
+    }
+    
+    public function updateCommission($affiliator_id, $user_id)
+    {
+        $record = $this->getByAffiliatorIdAndUserId($affiliator_id, $user_id);
+        if (!$record) {
+            return false;
+        }
+        
+        $this->enableAffiliatorInvitation($record['id']);
 
-        $input = [
-            'affiliator_id' => $affiliator['id'],
+        $this->saveAffiliatorIncomeLog($record);
+        $commission = $record['affiliator_commission'];
+
+        $affiliator_model = new Affiliator();
+        $affiliator_model->updateCommissionBalance($affiliator_id, $commission);
+
+        $this->updateAffiliatorIncome($affiliator_id, $record);
+
+        return true;
+    }
+
+    private function saveAffiliatorIncomeLog($data)
+    {
+        $save = [
+            'target_date' => Carbon::now(),
+            'affiliator_id' => $data['affiliator_id'],
             'user_id' => $data['user_id'],
-            'affiliator_token' => $data['token'],
-            'affiliator_commission_base' => MEMBERSHIP_FEE,
-            'affiliator_commission_rate' => $rate,
-            'affiliator_commission' => $commission,
-            'join_date' => Carbon::now(),
+            'affiliator_commission_base' => $data['affiliator_commission_base'],
+            'affiliator_commission_rate' => $data['affiliator_commission_rate'],
+            'affiliator_commission' => $data['affiliator_commission'],
         ];
-
-        $target = $this->create($input);
-
-        $affiliator_model->updateCommissionBalance($affiliator['id'], $commission);
-
-        $this->updateAffiliatorIncome($affiliator['id'], $input);
-
+        
+        $model = new AffiliatorIncomeLog();
+        $target = $model->create($save);
         return $target->toArray();
     }
     
@@ -102,10 +129,11 @@ class AffiliatorInvitation extends Base
     {
         $income = [
             'affiliator_id' => $affiliator_id,
-            'target_date' => $data['join_date']->format('Y-m-d'),
+            'target_date' => Carbon::now()->format('Y-m-d'),
             'invitation' => 1,
             'commission' => $data['affiliator_commission']
         ];
+
         $affiliator_income_model = new AffiliatorIncome();
         $affiliator_income_model->updateIncome($affiliator_id, $income);
     }

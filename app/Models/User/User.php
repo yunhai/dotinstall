@@ -20,11 +20,13 @@ class User extends Authenticatable
       'password',
       'provider',
       'provider_user_id',
+      'affiliator_id',
       'grade'
     ];
 
     protected $hidden = [
-       'password', 'remember_token',
+       'password',
+       'remember_token',
     ];
 
     public function updateGrade(int $user_id, int $grade)
@@ -45,6 +47,7 @@ class User extends Authenticatable
             'name' => empty($data['name']) ? $data['email'] : $data['name'],
             'email' => $data['email'],
             'role' => USER_ROLE_PUBLIC,
+            'affiliator_id' => isset($data['affiliator_id']) ? $data['affiliator_id'] : 0,
             'provider' => isset($data['provider']) ? $data['provider'] : '',
             'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
         ];
@@ -56,7 +59,7 @@ class User extends Authenticatable
         if (!empty($data['password'])) {
             $result['password'] = Hash::make($data['password']);
         }
-        
+
         $target = $this->create($result);
 
         $target->where('id', $target->id)

@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Service\SocialAccountService;
 use App\Http\Service\ActivationService;
-use App\Models\User\User;
+use App\Models\Affiliator\Affiliator;
 use App\Models\Affiliator\AffiliatorInvitation;
+use App\Models\User\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
@@ -43,16 +44,25 @@ class RegisterController extends Controller
 
     protected function makeCreate(array $data)
     {
+        $affiliator_id = 0;
+        if (!empty($data['token'])) {
+            $affiliator_model = new Affiliator();
+            $affiliator = $affiliator_model->getByToken($data['token']);
+            $affiliator_id = $affiliator['id'];
+            $data['affiliator_id'] = $affiliator_id;
+        }
+        
         $model = new User();
         $target = $model->init($data);
 
-        if (!empty($data['token'])) {
+        if ($affiliator_id) {
             $affiliator_invitation = new AffiliatorInvitation();
 
             $invitations = [
-                'token' => $data['token'],
                 'user_id' => $target->id,
+                'token' => $data['token'],
                 'grade' => $data['grade'],
+                'affiliator_id' => $affiliator_id
             ];
 
             $affiliator_invitation->init($invitations);
@@ -68,15 +78,15 @@ class RegisterController extends Controller
 
         return $this->makeRegister($input);
     }
-    
+
     public function registerDiamond(Request $request)
     {
         $input = $request->all();
         $input['grade'] = USER_GRADE_PENDING_DIAMOND;
-        
+
         return $this->makeRegister($input);
     }
-    
+
     private function makeRegister(array $input)
     {
         if (empty($input['password'])) {
@@ -130,11 +140,11 @@ class RegisterController extends Controller
         if ($user) {
             auth()->login($user);
             $name = 'mypage';
-            
+
             if ($user->grade === USER_GRADE_PENDING_DIAMOND) {
                 $name = 'user.upgrade';
             }
-            // dd($name);
+
             return redirect()->route($name);
         }
         abort(404);

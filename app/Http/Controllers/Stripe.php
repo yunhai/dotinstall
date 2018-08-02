@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Service\UtmTracking\UtmTrackingService;
+use App\Models\Affiliator\Affiliator;
+use App\Models\Affiliator\AffiliatorInvitation;
 use App\Models\User\User as UserModel;
 use App\Models\User\UserPayment as UserPaymentModel;
+
 use Laravel\Cashier\Http\Controllers\WebhookController as CashierController;
+use Illuminate\Http\Request;
 
 class Stripe extends CashierController
 {
@@ -23,6 +27,7 @@ class Stripe extends CashierController
     {
         $user = $this->getUserByStripeId($payload['data']['object']['source']['customer']);
         $user_id = $user['id'];
+        $affiliator_id = $user['affiliator_id'];
 
         if ($user_id) {
             $user_payment_model = new UserPaymentModel();
@@ -33,6 +38,7 @@ class Stripe extends CashierController
             $user_model->updateGrade($user_id, $user_grand);
 
             if ($succeeded) {
+                $this->updateAffiliatorCommission($affiliator_id, $user_id);
                 $this->utmWebHook($payload, $user_id);
             }
         }
@@ -47,4 +53,28 @@ class Stripe extends CashierController
         $service = new UtmTrackingService();
         $service->webhook($user_id, $info);
     }
+
+    private function updateAffiliatorCommission($affiliator_id, $user_id)
+    {
+        $model = new AffiliatorInvitation();
+        $model->updateCommission($affiliator_id, $user_id);
+    }
+
+    // public function handleWebhook(Request $request)
+    // {
+    //     $payload = [
+    //         'data' => [
+    //             'object' => [
+    //                 'source' => [
+    //                     'customer' => 'cus_DGnDf2r1MmpFd9',
+    //                     'brand' => 'master card',
+    //                     'last4' => '1234',
+    //                 ],
+    //                 'amount' => 1,
+    //                 'created' => time(),
+    //             ]
+    //         ]
+    //     ];
+    //     $this->handleChargeWebhook($payload);
+    // }
 }

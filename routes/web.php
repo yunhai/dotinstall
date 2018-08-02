@@ -36,6 +36,7 @@ Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.downlo
 Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
+//Route::get('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');
