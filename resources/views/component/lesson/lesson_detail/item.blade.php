@@ -44,7 +44,7 @@
                     </p>
                 @else
                     <p class="card-text mb-1">
-                        <a href="" onclick="return confirm('ソース確認がありません');" class="btn btn-sm btn-request" >
+                        <a href="" onclick="return confirm('このレッスンにはソースコードはありません。');" class="btn btn-sm btn-request" >
                             <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                         </a>
                     </p>
