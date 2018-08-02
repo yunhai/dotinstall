@@ -31,9 +31,9 @@
         @endif
         </a>
         <div class="card-body text-center pl-0 pr-0">
-            <p class="card-text card-text-name text-left">{{ $target['name'] }}</p>
+            <p class="card-text card-text-name mb-0 text-left">{{ $target['name'] }}</p>
             @if (empty($path))
-                <p class="card-text">レッスンはまだありません。しばらくお待ちください。</p>
+                <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
             @endif
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 @if (!empty($target['popup']))
