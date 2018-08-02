@@ -45,7 +45,7 @@
                     </p>
                 @else
                     <p class="card-text mb-1">
-                        <a href="" onclick="return confirm('このレッスンにはソースコードはありません。');" class="btn btn-sm btn-request" >
+                        <a class="btn btn-sm btn-request" data-toggle="modal" data-target=".no-lesson-modal-sm">
                             <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                         </a>
                     </p>
@@ -84,3 +84,15 @@
         @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
     @endif
 @endif
+<div class="modal fade no-lesson-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content" style="height: auto;">
+			<div class="modal-body">
+				<p class="mb-0">このレッスンにはソースコードはありません。</p>
+			</div>
+			<div class="modal-footer" style="padding: 0; justify-content:center;">
+				<a href="#" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">OK</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -23,7 +23,7 @@
 						<p class="mb-0">ダイヤモンド会員になりました。<br>ありがとうございました！</p>
 					</div>
 					<div class="modal-footer" style="padding: 0; justify-content:center;">
-						<a href="{{ route('top') }}" class="btn">OK</a>
+						<a href="{{ route('top') }}" class="btn" style="font-size: 13px;">OK</a>
 					</div>
 				</div>
 			</div>
