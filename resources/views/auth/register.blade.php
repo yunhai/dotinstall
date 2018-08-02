@@ -62,7 +62,7 @@
                                         <div class="card-header">新規登録</div>
 
                                         <div class="card-body">
-                                            <form method="POST" action="" aria-label="新規ユーザー登録">
+                                            <form method="POST" aria-label="新規ユーザー登録">
                                                 @csrf
 
                                                 @if (!empty($provider_lbl))

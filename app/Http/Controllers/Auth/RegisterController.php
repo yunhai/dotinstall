@@ -41,17 +41,18 @@ class RegisterController extends Controller
         return Validator::make($data, $validator);
     }
 
-    protected function create(array $data)
+    protected function makeCreate(array $data)
     {
         $model = new User();
         $target = $model->init($data);
 
-        if (0 && !empty($data['token'])) {
+        if (!empty($data['token'])) {
             $affiliator_invitation = new AffiliatorInvitation();
 
             $invitations = [
                 'token' => $data['token'],
                 'user_id' => $target->id,
+                'grade' => $data['grade'],
             ];
 
             $affiliator_invitation->init($invitations);
@@ -60,20 +61,30 @@ class RegisterController extends Controller
         return $target;
     }
 
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function register(Request $request)
     {
         $input = $request->all();
+        $input['grade'] = USER_GRADE_NORMAL;
+
+        return $this->makeRegister($input);
+    }
+    
+    public function registerDiamond(Request $request)
+    {
+        $input = $request->all();
+        $input['grade'] = USER_GRADE_PENDING_DIAMOND;
+        
+        return $this->makeRegister($input);
+    }
+    
+    private function makeRegister(array $input)
+    {
         if (empty($input['password'])) {
             $input['password'] = env('APP_DEFAULT_PASSWORD');
         }
         $this->validator($input)->validate();
-        $user = $this->create($input);
+
+        $user = $this->makeCreate($input);
         $this->activationService->sendActivationMail($user);
 
         return redirect()->route('register.done')->with('email', $user->email);
@@ -115,9 +126,16 @@ class RegisterController extends Controller
 
     public function activateUser($token)
     {
-        if ($user = $this->activationService->activateUser($token)) {
+        $user = $this->activationService->activateUser($token);
+        if ($user) {
             auth()->login($user);
-            return redirect()->route('mypage');
+            $name = 'mypage';
+            
+            if ($user->grade === USER_GRADE_PENDING_DIAMOND) {
+                $name = 'user.upgrade';
+            }
+            // dd($name);
+            return redirect()->route($name);
         }
         abort(404);
     }

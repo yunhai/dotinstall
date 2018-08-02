@@ -37,7 +37,7 @@ class User extends Base
         $user_id = $user['id'];
 
         $utm = $request->get('utm');
-        if ($utm) {        
+        if ($utm) {
             $this->saveUtm($utm, $user_id);
         }
         $input = $request->all();
@@ -69,7 +69,7 @@ class User extends Base
         }
 
         $user_id = Auth::user()->id;
-        $payment_service = new Stripe();
+        $payment_service = new StripeService();
         $flag = $payment_service->cancel($user_id);
 
         if ($flag) {

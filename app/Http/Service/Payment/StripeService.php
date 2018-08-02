@@ -46,9 +46,12 @@ class StripeService
     public function cancel(int $user_id)
     {
         $user = User::find($user_id);
-        if (!$user->subscription('main')->cancelled()) {
-            $user->subscription('main')->cancel();
+        if ($user) {
+            if (!$user->subscription('main')->cancelled()) {
+                $user->subscription('main')->cancel();
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 }

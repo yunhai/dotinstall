@@ -30,7 +30,7 @@
 		</div>
     @endif
 @endpush
-@section('breadcrumbs', Breadcrumbs::render('payment.charge'))
+@section('breadcrumbs', Breadcrumbs::render('user.upgrade'))
 
 @section('content')
 <div id="content">

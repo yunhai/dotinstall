@@ -70,9 +70,9 @@ Breadcrumbs::for('user.change_password', function ($trail) {
 });
 
 // クレジットカード決済
-Breadcrumbs::for('payment.charge', function ($trail) {
+Breadcrumbs::for('user.upgrade', function ($trail) {
     $trail->parent('top');
-    $trail->push('クレジットカード決済', route('payment.charge'));
+    $trail->push('クレジットカード決済');
 });
 
 // アフィリエイト

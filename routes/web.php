@@ -17,6 +17,7 @@ Route::get('', 'Top@index')->name('top');
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->name('user.activate');
+Route::post('register/diamond', 'Auth\RegisterController@registerDiamond')->name('register.diamond');
 Route::get('register/done', 'Auth\RegisterController@registerDone')->name('register.done');
 Route::get('register/?token={token}', 'Auth\RegisterController@register')->name('register.affiliator');
 
@@ -45,8 +46,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/learn', 'Lesson\LessonDetail\LessonDetail@getLearn')->name('lesson_detail.learn')->middleware('web.user');
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/close', 'Lesson\LessonDetail\LessonDetail@getClose')->name('lesson_detail.close')->middleware('web.user');
 
-    Route::get('payment/charge', 'Payment@getCharge')->name('payment.charge')->middleware('web.user');
-    Route::post('payment/charge', 'Payment@postCharge')->middleware('web.user');
+    // Route::get('payment/charge', 'Payment@getCharge')->name('payment.charge')->middleware('web.user');
+    // Route::post('payment/charge', 'Payment@postCharge')->middleware('web.user');
 
     Route::get('user/diamond/downgrade', 'User@getDowngrade')->name('user.downgrade')->middleware('web.user');
     Route::get('user/diamond/upgrade', 'User@getUpgrade')->name('user.upgrade')->middleware('web.user');

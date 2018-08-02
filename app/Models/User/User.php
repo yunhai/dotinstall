@@ -15,7 +15,12 @@ class User extends Authenticatable
     use Notifiable, UserTrack, Billable;
 
     protected $fillable = [
-      'name', 'email', 'password', 'provider', 'provider_user_id', 'grade'
+      'name',
+      'email',
+      'password',
+      'provider',
+      'provider_user_id',
+      'grade'
     ];
 
     protected $hidden = [
@@ -44,10 +49,14 @@ class User extends Authenticatable
             'provider_user_id' => isset($data['provider_user_id']) ? $data['provider_user_id'] : '',
         ];
 
+        if (isset($data['grade'])) {
+            $result['grade'] = $data['grade'];
+        }
+
         if (!empty($data['password'])) {
             $result['password'] = Hash::make($data['password']);
         }
-
+        
         $target = $this->create($result);
 
         $target->where('id', $target->id)

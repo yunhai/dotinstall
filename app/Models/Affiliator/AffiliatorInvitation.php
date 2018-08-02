@@ -32,6 +32,48 @@ class AffiliatorInvitation extends Base
             return [];
         }
 
+        $input = [
+            'affiliator_id' => $affiliator['id'],
+            'user_id' => $data['user_id'],
+            'affiliator_token' => $data['token'],
+            'join_date' => Carbon::now(),
+        ];
+        
+        if ($data['grade'] === USER_GRADE_PENDING_DIAMOND) {
+            $fee = MEMBERSHIP_FEE;
+            $rate = $affiliator['commission_rate'];
+            $commission = ($fee * $rate) / 100;
+            $commission = intval(round($commission));
+
+            $append = [
+                'affiliator_commission_base' => MEMBERSHIP_FEE,
+                'affiliator_commission_rate' => $rate,
+                'affiliator_commission' => $commission,
+                'mode' => MODE_DISABLE,
+            ];
+
+            $input = array_merge($input, $append);
+        }
+
+        $target = $this->create($input);
+
+        // $affiliator_model->updateCommissionBalance($affiliator['id'], $commission);
+        //
+        // $this->updateAffiliatorIncome($affiliator['id'], $input);
+
+        return $target->toArray();
+    }
+    
+
+    public function updateCommission(array $data)
+    {
+        $affiliator_model = new Affiliator();
+
+        $affiliator = $affiliator_model->getByToken($data['token']);
+        if (!$affiliator) {
+            return [];
+        }
+
         $fee = MEMBERSHIP_FEE;
         $rate = $affiliator['commission_rate'];
         $commission = ($fee * $rate) / 100;

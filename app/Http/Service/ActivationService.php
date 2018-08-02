@@ -34,7 +34,7 @@ class ActivationService
             'title' => MAIL_SUBJECT_USER_ACTIVATION,
             'data' => $user
         ];
-        // dd($user->email);
+
         $mailer->send($name, $mail);
     }
 
@@ -44,9 +44,14 @@ class ActivationService
         if ($activation === null) {
             return null;
         }
+
         $user = User::find($activation->user_id);
         $user->mode = true;
-        $user->grade = USER_GRADE_NORMAL;
+
+        if ($user->grade !== USER_GRADE_PENDING_DIAMOND) {
+            $user->grade = USER_GRADE_NORMAL;
+        }
+
         $user->save();
         $this->userActivation->deleteActivation($token);
 
