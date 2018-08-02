@@ -24,7 +24,7 @@
                             <!--<img class="img-fluid" src="/img/btn-register.png">-->
                         </a>
                     </div>
-                    <div class="card-video col-lg-7 col-md-7 d-none d-lg-block d-md-block pr-0">
+                    <div class="card-video col-lg-7 col-md-7 d-none d-lg-block d-md-block px-0">
                         @if (!empty($youtube_link))
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="{{ $youtube_link['link'] }}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
