@@ -20,9 +20,7 @@
                         <p class="card-text card-text-sign">５分動画！小学生から大人まで！</p>
                         <p class="card-text card-text-sign">実戦で覚えるプログラミング！</p>
                         <p class="card-text card-text-sign last mb-0">何も考えずに真似して作って見よう！</p>
-                        <a href="{{ route('register') }}" class="card-sign-button">新規登録で５個動画無料！
-                            <!--<img class="img-fluid" src="/img/btn-register.png">-->
-                        </a>
+                        <a href="{{ route('register') }}" class="card-sign-button">新規登録で５個動画無料！</a>
                     </div>
                     <div class="card-video col-lg-7 col-md-7 d-none d-lg-block d-md-block px-0">
                         @if (!empty($youtube_link))
