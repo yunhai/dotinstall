@@ -46,7 +46,7 @@ class RegisterController extends Controller
         $model = new User();
         $target = $model->init($data);
 
-        if (!empty($data['token'])) {
+        if (0 && !empty($data['token'])) {
             $affiliator_invitation = new AffiliatorInvitation();
 
             $invitations = [
