@@ -53,7 +53,6 @@
                 'username' => [
                     'field' => 'username',
                 ],
-                
                 'commission_rate' => [
                     'field' => 'commission_rate',
                 ],
@@ -71,9 +70,10 @@
                 'button' => [
                     'field' => '',
                     'tpl' => '
-                        <a class="btn btn-info btn-sm" href="' . route('backend.affiliator_invitation.index', ['affiliator_id' => ':id']) . '">ユーザー</a>
+                        <a class="btn btn-primary btn-sm" href="' . route('backend.affiliator_income.index', ['affiliator_id' => ':id']) . '">利益</a>
+                        <a class="btn btn-secondary btn-sm" href="' . route('backend.affiliator_invitation.index', ['affiliator_id' => ':id']) . '">ユーザー</a>
                         <a class="btn btn-info btn-sm" href="' . route('backend.affiliator.edit', ['affiliator_id' => ':id']) . '">編集</a>
-                        <a href="' . route('backend.affiliator.delete', ['affiliator_id' => ':id']) . '" class="btn btn-danger btn-sm" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
+                        <a class="btn btn-danger btn-sm" href="' . route('backend.affiliator.delete', ['affiliator_id' => ':id']) . '" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
                     ',
                     'tpl_arg' => [
                         ':id' => 'id'
