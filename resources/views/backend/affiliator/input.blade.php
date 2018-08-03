@@ -34,7 +34,7 @@
                     'field_type' => 'text'
                 ],
                 'commission_rate' => [
-                    'field_label' => '手数料率',
+                    'field_label' => '料金率 (%)',
                     'field_name' => 'commission_rate',
                     'field_value' => array_get($target, 'commission_rate', ''),
                     'field_type' => 'text'
@@ -49,7 +49,7 @@
                     ]
                 ],
                 'balance' => [
-                    'field_label' => '手数料',
+                    'field_label' => '利益',
                     'field_name' => 'balance',
                     'field_value' => array_get($target, 'balance', ''),
                     'field_type' => 'text',

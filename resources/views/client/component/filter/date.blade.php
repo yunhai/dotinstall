@@ -26,5 +26,5 @@
     @endphp
   </select>
 
-  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <button type="submit" class="btn btn-primary mb-2">検索</button>
 </form>

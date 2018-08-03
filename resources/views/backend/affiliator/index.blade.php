@@ -18,12 +18,12 @@
             'title' => 'アフィリエイター',
             'header' => [
                 '',
+                'URL',
                 '姓名',
                 'メールアドレス',
                 'パス',
-                'ユーザー名',
-                '手数料率',
-                '手数料',
+                '利益',
+                '料金率',
                 '状況',
                 '',
             ],
@@ -41,6 +41,14 @@
                         'class' => 'text-center'
                     ]
                 ],
+                'url' => [
+                    'field' => '',
+                    'tpl' => route('register.affiliator', ['token' => ':token'])
+                    ,
+                    'tpl_arg' => [
+                        ':token' => 'token'
+                    ],
+                ],
                 'fullname' => [
                     'field' => 'fullname',
                 ],
@@ -50,20 +58,26 @@
                 'password' => [
                     'field' => 'password',
                 ],
-                'username' => [
-                    'field' => 'username',
-                ],
-                'commission_rate' => [
-                    'field' => 'commission_rate',
-                ],
                 'balance' => [
                     'field' => 'balance',
+                ],
+                'commission_rate' => [
+                    'field' => '',
+                    'field' => '',
+                    'tpl' => ':commission_rate %',
+                    'tpl_arg' => [
+                        ':commission_rate' => 'commission_rate'
+                    ],
+                    'attr' => [
+                        'style' => 'width:8%',
+                        'class' => 'text-center'
+                    ]
                 ],
                 'mode' => [
                     'field' => 'mode',
                     'option' => $form['mode'],
                     'attr' => [
-                        'style' => 'width:10%',
+                        'style' => 'width:6%',
                         'class' => 'text-center'
                     ]
                 ],
@@ -79,7 +93,7 @@
                         ':id' => 'id'
                     ],
                     'attr' => [
-                        'style' => 'width:15%',
+                        'style' => 'width:10%',
                         'class' => 'text-center'
                     ]
                 ]

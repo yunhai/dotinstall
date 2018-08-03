@@ -82,7 +82,7 @@
                         $pager_total_page = $data->count();
                     @endphp
                     <div class="col-sm-12 col-md-5">
-                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"><!-- Showing 1 to 10 of 57 entries -->
+                        <div class="dataTables_info hidden" id="dataTable_info" role="status" aria-live="polite"><!-- Showing 1 to 10 of 57 entries -->
                             {{ $pager_total_item }}件
                             {{ $pager_begin }}~{{ $pager_end }}を表示
                             {{ $pager_current_page }}/{{ $pager_total_page}}ページ

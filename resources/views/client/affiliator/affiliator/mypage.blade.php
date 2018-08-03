@@ -16,12 +16,12 @@
                         <thead>
                             <tr>
                                 <th></th>
+                                <th>URL</th>
                                 <th>姓名</th>
                                 <th>メールアドレス</th>
                                 <th>パス</th>
-                                <th>ユーザー名</th>
-                                <th>手数料率</th>
-                                <th>手数料</th>
+                                <th>料金率</th>
+                                <th>利益</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,13 +30,13 @@
                                     @php $qrlink = route('register.affiliator', ['token' => $affiliator['token']]); @endphp
                                     <img src="https://chart.googleapis.com/chart?cht=qr&amp;chs=100x100&amp;chl={{ $qrlink }}">
                                 </td>
+                                <td>{{ $qrlink }}</td>
                                 <td>{{ $affiliator['fullname'] }}</td>
                                 <td>{{ $affiliator['email'] }}</td>
                                 <td>{{ $affiliator['password'] }}</td>
-                                <td>{{ $affiliator['username'] }}</td>
-                                <td>{{ $affiliator['commission_rate'] }}</td>
+                                <td>{{ $affiliator['commission_rate'] }} %</td>
                                 <td>{{ $affiliator['balance'] }}</td>
-                            </tr>                                
+                            </tr>
                         </tbody>
                     </table>
                 </div>
