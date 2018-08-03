@@ -35,7 +35,6 @@ class User extends Base
     {
         $input = $request->all();
         $this->model->findOrFail($id)->update($input);
-        ;
 
         return redirect()->route('backend.user.index');
     }
@@ -56,7 +55,6 @@ class User extends Base
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $this->model->findOrFail($id)->update($input);
-        ;
 
         return redirect()->route('backend.user.index');
     }

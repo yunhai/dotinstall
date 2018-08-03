@@ -16,7 +16,7 @@ class YoutubeLink extends Base
     public function getIndex()
     {
         $data = $this->model->paginate(20);
-      
+
         $form = $this->form();
         return $this->render('youtube_link.index', compact('data', 'form'));
     }
@@ -58,7 +58,6 @@ class YoutubeLink extends Base
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        
     }
 
     protected function form()
