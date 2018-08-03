@@ -49,7 +49,7 @@ class LoginController extends Controller
     public function getLogout()
     {
         auth('client')->logout();
-        return redirect('client/login');
+        return redirect()->route('client.login.login');
     }
 
     public function getChangePassword()

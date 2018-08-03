@@ -18,9 +18,9 @@ Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->name('user.activate');
 Route::get('register/diamond', 'Auth\RegisterController@getRegisterDiamond')->name('register.diamond');
-Route::post('register/diamond', 'Auth\RegisterController@registerDiamond')->name('register.diamond');
+Route::post('register/diamond', 'Auth\RegisterController@registerDiamond');
 Route::get('register/done', 'Auth\RegisterController@registerDone')->name('register.done');
-Route::get('register/?token={token}', 'Auth\RegisterController@register')->name('register.affiliator');
+Route::get('register/diamond/?token={token}', 'Auth\RegisterController@register')->name('register.affiliator');
 
 Route::get('contact/finish', 'Contact@getFinish')->name('contact.finish');
 Route::get('contact', 'Contact@getContact')->name('contact.contact');
