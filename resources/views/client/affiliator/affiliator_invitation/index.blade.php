@@ -1,38 +1,39 @@
 @extends('client.layout.master')
-@section('title', 'アフィリエイター一覧')
+@section('title', 'ユーザー一覧')
 @section('content')
     @section('list_header')
+        @include('client.component.filter.date', ['year' => $form['year'], 'month' => $form['month']])
     @stop
     @php
         $table = [
-            'title' => 'アフィリエイター',
+            'title' => 'ユーザー一覧',
             'header' => [
-                'member email',
-                'Join date',
-                'Member fee',
-                '手数料率',
-                '手数料',
+                'ユーザーメール',
+                '登録日',
+                '料金',
+                '料金率',
+                '利益',
             ],
             'body' => [
-                'ユーザー名' => [
+                'user_id' => [
                     'field' => '',
                     'apply' => ['array_get', $form['user_email'], 'apply_value'],
                     'apply_value' => 'user_id'
                 ],
-                '登録日' => [
+                'join_date' => [
                     'field' => 'join_date'
                 ],
-                '料金' => [
+                'affiliator_commission_base' => [
                     'field' => 'affiliator_commission_base'
                 ],
-                '料金率' => [
+                'affiliator_commission_rate' => [
                     'field' => 'affiliator_commission_rate'
                 ],
-                '利益' => [
+                'affiliator_commission' => [
                     'field' => 'affiliator_commission'
                 ]
             ],
         ];
     @endphp
-    @include('backend.component.list.paging', ['table' => $table, 'data' => $data])
+    @include('client.component.list.paging', ['table' => $table, 'data' => $data])
 @stop

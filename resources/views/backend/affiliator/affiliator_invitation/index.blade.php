@@ -1,12 +1,12 @@
 @extends('backend.layout.master')
-@section('title', 'アフィリエイター一覧')
+@section('title', 'アフィリエイターユーザー一覧')
 @section('content')
     @section('list_header')
         @include('backend.component.filter.date', ['year' => $form['year'], 'month' => $form['month']])
     @stop
     @php
         $table = [
-            'title' => 'アフィリエイター',
+            'title' => 'アフィリエイターユーザー一覧',
             'header' => [
                 'ユーザーメール',
                 '登録日',

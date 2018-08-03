@@ -11,10 +11,16 @@
                     <span class="nav-link-text">マイページ</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="" data-placement="right" title="アフィリエイター">
+            <li class="nav-item" data-toggle="" data-placement="right" title="利益">
+                <a class="nav-link" href="{{ route('client.affiliator_income.index') }}">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span class="nav-link-text">利益</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="ユーザー">
                 <a class="nav-link" href="{{ route('client.affiliator_invitation.index') }}">
                     <i class="fa fa-fw fa-user"></i>
-                    <span class="nav-link-text">アフィリエイター</span>
+                    <span class="nav-link-text">ユーザー</span>
                 </a>
             </li>
         </ul>
