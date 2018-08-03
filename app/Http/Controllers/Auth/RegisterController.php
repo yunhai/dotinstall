@@ -79,6 +79,11 @@ class RegisterController extends Controller
         return $this->makeRegister($input);
     }
 
+    public function getRegisterDiamond()
+    {
+        return view('auth.register_diamond');
+    }
+
     public function registerDiamond(Request $request)
     {
         $input = $request->all();
