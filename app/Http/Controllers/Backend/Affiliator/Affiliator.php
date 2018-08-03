@@ -24,7 +24,6 @@ class Affiliator extends Base
     public function getEdit($id)
     {
         $target = $this->model->get($id);
-
         $form = $this->form();
         return $this->render('affiliator.input', compact('target', 'form'));
     }
@@ -34,13 +33,17 @@ class Affiliator extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.affiliator.edit', ['affiliator_id' => $id]);
+        return redirect()->route('backend.affiliator.index');
     }
 
     public function getCreate()
     {
         $form = $this->form();
-        $target['password'] = $this->generatePassword();
+        $target = [
+            'mode' => MODE_ENABLE,
+            'password' => $this->generatePassword(),
+        ];
+
         return $this->render('affiliator.input', compact('form', 'target'));
     }
 
@@ -49,8 +52,7 @@ class Affiliator extends Base
         $input = $request->all();
         $input['token'] = $this->generateToken();
         $target = $this->model->create($input);
-        $affiliator_id = $target->id;
-        return redirect()->route('backend.affiliator.edit', compact('affiliator_id'));
+        return redirect()->route('backend.affiliator.index');
     }
 
     public function getDelete($id)
