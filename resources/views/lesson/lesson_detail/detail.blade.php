@@ -56,9 +56,11 @@
                                 <img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
                             </a>
                             @endif
-                            <a href="#" class="btn-request">
-                                <img class="btn-diamond" src="/img/btn_diamond.png">
-                            </a>
+                            @normal_user
+                                <a href="{{ route('user.upgrade') }}" class="btn-request">
+                                    <img class="btn-diamond" src="/img/btn_diamond.png">
+                                </a>
+                            @endnormal_user
                         </div>
 
                         <div class="col-5  pl-0 pr-0 text-right">
