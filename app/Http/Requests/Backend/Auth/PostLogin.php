@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Backend\Admin;
+namespace App\Http\Requests\Backend\Auth;
 
 use App\Http\Requests\Backend\Base;
-use App\Models\Backend\Admin as AdminModel;
 
-class PostInput extends Base
+class PostLogin extends Base
 {
     public function rules()
     {
         return [
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ];
     }

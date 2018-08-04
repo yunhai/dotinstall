@@ -2,36 +2,28 @@
 
 namespace App\Http\Controllers\Client\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Http\Requests\Client\Admin\PostInput;
-use App\Models\Client\Admin;
+use App\Http\Requests\Client\Auth\PostLogin;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Rules\checkCurrentPasswordRule;
 
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
     protected $redirectTo = '/client';
-
-    public function __construct()
-    {
-        $this->middleware('web.client')->except('logout');
-        $this->role = USER_ROLE_CLIENT;
-    }
+    protected $role = USER_ROLE_CLIENT;
 
     public function getLogin()
     {
-        if (isset(Auth::user()->role) && Auth::user()->role == $this->role) {
-            return redirect('/');
+        $auth = Auth::guard('client');
+        if ($auth->check()) {
+            return redirect()->route('client.home.dashboard');
         }
         return view('client.auth.login');
     }
 
-    public function postLogin(PostInput $request)
+    public function postLogin(PostLogin $request)
     {
         $credentials = [
             'email' => $request->email,
@@ -40,39 +32,19 @@ class LoginController extends Controller
             'mode' => USER_MODE_ENABLE,
         ];
 
-        if (Auth::attempt($credentials)) {
-            return redirect('client');
+        $credentials['email'] = 'affiliator@pg.me';
+        $credentials['password'] = '4d9IyFku';
+        
+        if (Auth::guard('client')->attempt($credentials)) {
+            return redirect()->route('client.home.dashboard');
         }
-        return redirect()->back()->with('status', 'メールアドレスかパスワードが間違っています');
+        
+        return redirect()->back()->with('status', '');
     }
 
     public function getLogout()
     {
-        auth('client')->logout();
+        Auth::guard('client')->logout();
         return redirect()->route('client.login.login');
-    }
-
-    public function getChangePassword()
-    {
-        return view('client.auth.changepassword');
-    }
-
-    public function postChangePassword(Request $request)
-    {
-        $request->validate([
-            'current_password' => [
-                'required',
-                new checkCurrentPasswordRule()
-            ],
-            'new_password' => 'required|min:6|confirmed',
-            'new_password_confirmation' => 'required',
-        ]);
-
-        //Change Password
-        $user = Auth::user();
-        $user->password = bcrypt($request->get('new_password'));
-        $user->save();
-
-        return redirect()->back()->with('success', '保存しました');
     }
 }

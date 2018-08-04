@@ -28,8 +28,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('affiliator/{affiliator_id}/invitation', 'Affiliator\AffiliatorInvitation@getIndex')->name('backend.affiliator_invitation.index');
     Route::get('affiliator/{affiliator_id}/income', 'Affiliator\AffiliatorIncome@getIndex')->name('backend.affiliator_income.index');
 
-    Route::get('change_password', 'Auth\LoginController@getChangePassword')->name('backend.login.change_password');
-    Route::post('change_password', 'Auth\LoginController@postChangePassword');
+    Route::get('change_password', 'Auth\PasswordController@getChangePassword')->name('backend.login.change_password');
+    Route::post('change_password', 'Auth\PasswordController@postChangePassword');
 
     Route::get('lesson', 'Lesson\Lesson@getIndex')->name('backend.lesson.index');
     Route::get('lesson/create', 'Lesson\Lesson@getCreate')->name('backend.lesson.create');

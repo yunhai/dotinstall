@@ -38,12 +38,6 @@
                     <span class="">設定</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
-                    <a class="dropdown-item" href="{{ route('client.login.change_password') }}">
-                        <div class="dropdown-message small">
-                            <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('client.login.logout') }}">
                         <div class="dropdown-message small">
                             <i class="fa fa-fw fa-sign-out"></i>ログアウト

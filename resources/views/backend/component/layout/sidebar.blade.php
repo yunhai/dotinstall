@@ -58,7 +58,7 @@
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown" style="right: 0; left: auto;">
                     <a class="dropdown-item" href="{{ route('backend.login.change_password') }}">
                         <div class="dropdown-message small">
-                            <i class="fa fa-fw fa-lock"></i>管理者パスワード変更
+                            <i class="fa fa-fw fa-lock"></i>パスワード変更
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>

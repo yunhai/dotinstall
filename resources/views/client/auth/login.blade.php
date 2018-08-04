@@ -13,7 +13,10 @@
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">メール</label>
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                @if (!empty($errors->first('email')))
+                                    <span class="text-danger d-block mt-2">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                         </div>
 
@@ -21,9 +24,12 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">パースワード</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}">
+                                @if (!empty($errors->first('password')))
+                                    <span class="text-danger d-block mt-2">{{ $errors->first('password') }}</span>
+                                @endif
                             </div>
                         </div>
-                        @if(count($errors) > 0 or Session::has('status'))
+                        @if(Session::has('status'))
                             <div class="form-group row d-block text-center">
                                 <span class="text-danger">メールアドレスかパスワードが間違っています</span>
                             </div>

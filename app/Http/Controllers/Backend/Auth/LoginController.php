@@ -2,36 +2,28 @@
 
 namespace App\Http\Controllers\Backend\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Http\Requests\Backend\Admin\PostInput;
-use App\Models\Backend\Admin;
+use App\Http\Requests\Backend\Auth\PostLogin;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Rules\checkCurrentPasswordRule;
 
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = 'admin';
-
-    public function __construct()
-    {
-        $this->middleware('web.backend')->except('logout');
-        $this->role = USER_ROLE_ADMIN;
-    }
+    protected $redirectTo = '/admin';
+    protected $role = USER_ROLE_ADMIN;
 
     public function getLogin()
     {
-        if (isset(Auth::user()->role) && Auth::user()->role === $this->role) {
+        $auth = Auth::guard('admin');
+        if ($auth->check()) {
             return redirect()->route('backend.home.dashboard');
         }
         return view('backend.auth.login');
     }
 
-    public function postLogin(PostInput $request)
+    public function postLogin(PostLogin $request)
     {
         $credentials = [
             'email' => $request->email,
@@ -39,39 +31,21 @@ class LoginController extends Controller
             'role' => $this->role,
             'mode' => USER_MODE_ENABLE,
         ];
-        if (Auth::attempt($credentials)) {
+
+        // $credentials['email'] = 'admin@programinggo.com';
+        // $credentials['password'] = '123456@password';
+        // $credentials['password'] = '123456';
+        
+        if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->route('backend.home.dashboard');
         }
-        return redirect()->back()->with('status', 'メールアドレスかパスワードが間違っています');
+        
+        return redirect()->back()->with('status', '');
     }
 
     public function getLogout()
     {
-        auth('admin')->logout();
+        Auth::guard('admin')->logout();
         return redirect()->route('backend.login.login');
-    }
-
-    public function getChangePassword()
-    {
-        return view('backend.auth.changepassword');
-    }
-
-    public function postChangePassword(Request $request)
-    {
-        $request->validate([
-            'current_password' => [
-                'required',
-                new checkCurrentPasswordRule()
-            ],
-            'new_password' => 'required|min:6|confirmed',
-            'new_password_confirmation' => 'required',
-        ]);
-
-        //Change Password
-        $user = Auth::user();
-        $user->password = bcrypt($request->get('new_password'));
-        $user->save();
-
-        return redirect()->back()->with('success', '保存しました');
     }
 }

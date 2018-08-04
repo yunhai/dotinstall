@@ -19,10 +19,8 @@
                 'field_value' => array_get($target, 'email', ''),
                 'field_type' => 'text'
             ],
-
         ],
-        'form_attribute' => [
-        ]
+        'form_attribute' => []
     ];
 @endphp
 @section('content')

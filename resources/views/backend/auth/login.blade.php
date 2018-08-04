@@ -1,19 +1,22 @@
 @extends('backend.layout.blank')
-@section('title', 'ログインパネル')
+@section('title', 'ログイン')
 @section('content')
 <div class="container">
     <div class="row justify-content-center mx-auto mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ログインパネル</div>
+                <div class="card-header">ログイン</div>
                 <div class="card-body">
-                    <form method="POST" action="" aria-label="ログインパネル" enctype="multipart/form-data">
+                    <form method="POST" aria-label="ログイン">
                         {!! csrf_field() !!}
 
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">メール</label>
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
+                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" autofocus>
+                                @if (!empty($errors->first('email')))
+                                    <span class="text-danger d-block mt-2">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                         </div>
 
@@ -21,9 +24,12 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">パースワード</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}">
+                                @if (!empty($errors->first('password')))
+                                    <span class="text-danger d-block mt-2">{{ $errors->first('password') }}</span>
+                                @endif
                             </div>
                         </div>
-                        @if(count($errors) > 0 or Session::has('status'))
+                        @if(Session::has('status'))
                             <div class="form-group row d-block text-center">
                                 <span class="text-danger">メールアドレスかパスワードが間違っています</span>
                             </div>

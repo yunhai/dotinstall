@@ -38,13 +38,14 @@ class LoginController extends Controller
         $this->middleware('web')->except('login');
     }
 
-    protected function credentials(Request $request) {
+    protected function credentials(Request $request)
+    {
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
             'role' => USER_ROLE_PUBLIC,
             'mode' => USER_MODE_ENABLE,
-            'deleted_at' => NULL
+            'deleted_at' => null
         ];
         return array_merge($credentials);
     }

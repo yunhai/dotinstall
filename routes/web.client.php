@@ -20,6 +20,4 @@ Route::group(['middleware' => ['client']], function () {
     Route::get('mypage', 'Affiliator\Affiliator@getMyPage')->name('client.affiliator.mypage');
     Route::get('affiliator_income', 'Affiliator\AffiliatorIncome@getIndex')->name('client.affiliator_income.index');
     Route::get('affiliator_invitation', 'Affiliator\AffiliatorInvitation@getIndex')->name('client.affiliator_invitation.index');
-    Route::get('change_password', 'Auth\LoginController@getChangePassword')->name('client.login.change_password');
-    Route::post('change_password', 'Auth\LoginController@postChangePassword');
 });
