@@ -6,7 +6,7 @@ class Office
     public function read($target)
     {
         if (isset($target) && !file_exists($target)) {
-            return 'File Not exists';
+            return '';
         }
 
         $fileArray = pathinfo($target);
@@ -21,7 +21,7 @@ class Office
         } elseif ($file_ext == 'pptx') {
             return $this->pptx_to_text($target);
         }
-        return 'Invalid File Type';
+        return '';
     }
 
     private function read_doc($target)
@@ -79,7 +79,7 @@ class Office
     public function xlsx_to_text($input_file)
     {
         $xml_filename = 'xl/sharedStrings.xml'; //content file name
-    $zip_handle = new ZipArchive;
+        $zip_handle = new ZipArchive;
         $output_text = '';
         if (true === $zip_handle->open($input_file)) {
             if (($xml_index = $zip_handle->locateName($xml_filename)) !== false) {
@@ -102,12 +102,12 @@ class Office
         $output_text = '';
         if (true === $zip_handle->open($input_file)) {
             $slide_number = 1; //loop through slide files
-        while (($xml_index = $zip_handle->locateName('ppt/slides/slide'.$slide_number.'.xml')) !== false) {
-            $xml_datas = $zip_handle->getFromIndex($xml_index);
-            $xml_handle = DOMDocument::loadXML($xml_datas, LIBXML_NOENT | LIBXML_XINCLUDE | LIBXML_NOERROR | LIBXML_NOWARNING);
-            $output_text .= strip_tags($xml_handle->saveXML());
-            $slide_number++;
-        }
+            while (($xml_index = $zip_handle->locateName('ppt/slides/slide'.$slide_number.'.xml')) !== false) {
+                $xml_datas = $zip_handle->getFromIndex($xml_index);
+                $xml_handle = DOMDocument::loadXML($xml_datas, LIBXML_NOENT | LIBXML_XINCLUDE | LIBXML_NOERROR | LIBXML_NOWARNING);
+                $output_text .= strip_tags($xml_handle->saveXML());
+                $slide_number++;
+            }
             if ($slide_number == 1) {
                 $output_text .= '';
             }
