@@ -11,9 +11,6 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/client';
-    protected $role = USER_ROLE_CLIENT;
-
     public function getLogin()
     {
         $auth = Auth::guard('client');
@@ -28,23 +25,20 @@ class LoginController extends Controller
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
-            'role' => $this->role,
+            'role' => USER_ROLE_CLIENT,
             'mode' => USER_MODE_ENABLE,
         ];
 
-        $credentials['email'] = 'affiliator@pg.me';
-        $credentials['password'] = '4d9IyFku';
-        
         if (Auth::guard('client')->attempt($credentials)) {
             return redirect()->route('client.home.dashboard');
         }
-        
+
         return redirect()->back()->with('status', '');
     }
 
     public function getLogout()
     {
         Auth::guard('client')->logout();
-        return redirect()->route('client.login.login');
+        return redirect()->route('backend.login.login');
     }
 }

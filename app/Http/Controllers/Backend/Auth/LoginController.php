@@ -11,9 +11,6 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/admin';
-    protected $role = USER_ROLE_ADMIN;
-
     public function getLogin()
     {
         $auth = Auth::guard('admin');
@@ -28,24 +25,32 @@ class LoginController extends Controller
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
-            'role' => $this->role,
+            'role' => USER_ROLE_ADMIN,
             'mode' => USER_MODE_ENABLE,
         ];
 
-        // $credentials['email'] = 'admin@programinggo.com';
-        // $credentials['password'] = '123456@password';
-        // $credentials['password'] = '123456';
-        
         if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->route('backend.home.dashboard');
         }
-        
+
+        $credentials['role'] = USER_ROLE_CLIENT;
+        if (Auth::guard('client')->attempt($credentials)) {
+            return redirect()->route('client.home.dashboard');
+        }
+
         return redirect()->back()->with('status', '');
     }
 
     public function getLogout()
     {
-        Auth::guard('admin')->logout();
-        return redirect()->route('backend.login.login');
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+            return redirect()->route('backend.login.login');
+        }
+        
+        if (Auth::guard('client')->check()) {
+            Auth::guard('client')->logout();
+            return redirect()->route('client.login.login');
+        }
     }
 }

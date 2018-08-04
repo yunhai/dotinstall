@@ -53,9 +53,10 @@ class AffiliatorIncome extends Base
     {
         return [];
     }
+
     private function getAffiliator()
     {
-        $user_id = Auth::user()->id;
+        $user_id = Auth::guard('client')->id();
         return $this->affiliator_model->getByUserId($user_id);
     }
 }
