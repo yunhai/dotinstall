@@ -124,7 +124,9 @@ class RegisterController extends Controller
         $email = $user->email;
 
         if (!empty($social_account_service)) {
-            Auth::attempt(['name' => $name, 'email' => $email]);
+            $password = env('APP_DEFAULT_PASSWORD');
+
+            Auth::attempt(['name' => $name, 'email' => $email, 'password' => $password]);
             return redirect()->route('top');
         }
 
