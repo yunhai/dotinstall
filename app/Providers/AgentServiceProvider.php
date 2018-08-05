@@ -17,11 +17,11 @@ class AgentServiceProvider extends ServiceProvider
     {
         $agent = new Agent();
 
-        Blade::if('is_sp', function () use ($agent) {
+        Blade::if('sp', function () use ($agent) {
             return $agent->isMobile();
         });
 
-        Blade::if('is_pc', function () use ($agent) {
+        Blade::if('pc', function () use ($agent) {
             return $agent->isDesktop();
         });
     }
