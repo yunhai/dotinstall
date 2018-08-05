@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::get('', 'Top@index')->name('top');
+Route::post('login', 'Auth\LoginController@postLogin');
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');

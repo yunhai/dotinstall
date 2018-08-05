@@ -25,7 +25,7 @@
                                         <div class="card-header">ログイン</div>
 
                                         <div class="card-body">
-                                            <form method="POST" action="" aria-label="ログイン">
+                                            <form method="POST" aria-label="ログイン">
                                                 @csrf
 
                                                 <div class="form-group row mb-4">
@@ -60,7 +60,7 @@
                                                     <div class="col text-center">
                                                         <p class="form-check">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
+                                                                <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
                                                             </label>
                                                         </p>
                                                         <!--<button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_login.png"></button>-->

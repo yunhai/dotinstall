@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -38,16 +39,23 @@ class LoginController extends Controller
         $this->middleware('web')->except('login');
     }
 
-    protected function credentials(Request $request)
+    public function postLogin(Request $request)
     {
+        $input = $request->all();
+        
         $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
+            'email' => $input['email'],
+            'password' => $input['password'],
             'role' => USER_ROLE_PUBLIC,
-            'mode' => USER_MODE_ENABLE,
-            'deleted_at' => null
+            'mode' => USER_MODE_ENABLE
         ];
-        return array_merge($credentials);
+
+        $remember = !empty($input['remember_me']);
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->route('top');
+        }
+
+        return redirect()->back()->with('status', '');
     }
 
     public function getLogout()
