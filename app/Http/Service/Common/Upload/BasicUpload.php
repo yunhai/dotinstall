@@ -29,10 +29,13 @@ class BasicUpload
         $original_name = $file->getClientOriginalName();
         $hash_name = $file->hashName();
 
-        $extension = $file->extension();
+        $extension = substr($original_name, strrpos($original_name, '.') + 1);
         $size = $file->getClientSize();
 
-        $path = $file->store($location, $disk_name);
+        $hash_name = substr($hash_name, 0, strrpos($hash_name, '.') + 1);
+        $hash_name = $hash_name . $extension;
+
+        $path = $file->storeAs($location, $hash_name, ['disk' => $disk_name]);
 
         return compact('location', 'path', 'mime', 'original_name', 'hash_name', 'extension', 'size');
     }

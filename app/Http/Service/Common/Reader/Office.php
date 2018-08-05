@@ -9,12 +9,10 @@ class Office
             return '';
         }
 
-        $fileArray = pathinfo($target);
-        $file_ext = $fileArray['extension'];
-
-        if ($file_ext == 'doc') {
+        $extension = substr($target, strrpos($target, '.') + 1);
+        if ($extension == 'doc') {
             return $this->read_doc($target);
-        } elseif ($file_ext == 'docx') {
+        } elseif ($extension == 'docx') {
             return $this->read_docx($target);
         }
         return file_get_contents($target);
