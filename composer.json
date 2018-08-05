@@ -9,11 +9,12 @@
         "chumper/zipper": "^1.0",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fideloper/proxy": "^4.0",
+        "jenssegers/agent": "^2.6",
+        "laravel/cashier": "~7.0",
         "laravel/framework": "5.6.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
-        "pion/laravel-chunk-upload": "^1.2",
-        "laravel/cashier":"~7.0"
+        "pion/laravel-chunk-upload": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",
