@@ -1,7 +1,5 @@
 <div class="col-lesson col-sm-6" id="pc-col-2">
     <div class="card">
-        @php
-        @endphp
         @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
           <img class="pickup" src="/img/pickup.png">
         @endif
@@ -49,10 +47,12 @@
                     </p>
                 @endif
                 @if (!empty($target['is_closeable']))
-                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">完了する
+                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">
+                        完了する
                     </a>
                 @else
-                    <a href="" class="btn btn-sm bg-button-complete">完了
+                    <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-complete">
+                        完了
                     </a>
                 @endif
             @else

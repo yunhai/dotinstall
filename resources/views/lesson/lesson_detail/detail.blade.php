@@ -46,9 +46,13 @@
                     <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                         <div class="col-7 pl-0 pr-0">
                             @if ($target['is_closeable'])
-                            <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">完了する
-                                <!--<img class="btn-to-complete" src="/img/btn_to_complete.png">-->
-                            </a>
+                                <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">
+                                    完了する
+                                </a>
+                            @else
+                                <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-complete">
+                                    完了
+                                </a>
                             @endif
                             @if ($target['popup'])
                             @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp

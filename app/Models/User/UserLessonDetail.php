@@ -81,4 +81,34 @@ class UserLessonDetail extends Base
             ->where('mode', USER_LESSON_DETAIL_MODE_CLOSE)
             ->exists();
     }
+
+    public function reopen(int $user_id, int $lesson_id, int $lesson_detail_id)
+    {
+        $flag = $this->makeReopen($user_id, $lesson_id, $lesson_detail_id);
+
+        if ($flag) {
+            $user_stat_model = new UserStat();
+            $user_stat_model->updateClosedCount($user_id, false);
+        }
+
+        return $flag;
+    }
+
+    private function makeReopen(int $user_id, int $lesson_id, int $lesson_detail_id)
+    {
+        if ($this->closed($user_id, $lesson_id, $lesson_detail_id)) {
+            $data = [
+                'close_date' => null,
+                'mode' => USER_LESSON_DETAIL_MODE_LEARN
+            ];
+            $this
+                ->where('user_id', $user_id)
+                ->where('lesson_detail_id', $lesson_detail_id)
+                ->update($data);
+
+            return true;
+        }
+
+        return true;
+    }
 }
