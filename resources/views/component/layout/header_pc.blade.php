@@ -1,7 +1,7 @@
 <!-- /HEADER -->
 <nav class="navbar navbar-expand navbar-light px-5 pt-0 pb-0">
     <a class="navbar-brand" href="/"><img class="img-logo" src="/img/logo_header.jpg" alt="cogwheel"></a>
-    
+
     <div class="navbar-collapse">
         <ul class="navbar-nav ml-auto align-items-end">
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
@@ -29,9 +29,11 @@
                         <a class="dropdown-item" href="{{ route('mypage') }}">
                             <div class="dropdown-message font_12">マイページ</div>
                         </a>
+                        @if (!Auth::user()->provider)
                         <a class="dropdown-item" href="{{ route('user.change_password') }}">
                             <div class="dropdown-message font_12">パスワード変更</div>
                         </a>
+                        @endif
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">
                             <div class="dropdown-message font_12">ログアウト</div>

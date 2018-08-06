@@ -34,9 +34,11 @@
                         <a class="dropdown-item" href="{{ route('mypage') }}">
                             <div class="dropdown-message small">マイページ</div>
                         </a>
+                        @if (!Auth::user()->provider)
                         <a class="dropdown-item" href="{{ route('user.change_password') }}">
                             <div class="dropdown-message small">パスワード変更</div>
                         </a>
+                        @endif
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">
                             <div class="dropdown-message small">ログアウト</div>

@@ -83,6 +83,9 @@ class User extends Base
 
     public function getChangePassword()
     {
+        if (Auth::user()->provider) {
+            return redirect()->route('mypage');
+        }
         return view('user.change_password');
     }
 
@@ -91,7 +94,7 @@ class User extends Base
         $input = $request->all();
 
         $user = Auth::user();
-        $user->password = bcrypt($input('new_password'));
+        $user->password = bcrypt($input['new_password']);
         $user->save();
 
         return redirect()->back()->with('success', '更新しました');

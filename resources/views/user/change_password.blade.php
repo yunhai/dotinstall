@@ -27,6 +27,7 @@
                                             <form method="POST" action="{{ route('user.change_password') }}" aria-label="パスワードの変更">
                                                 @csrf
 
+                                                @if (!Auth::user()->provider)
                                                 <div class="form-group row">
                                                     <label for="current_password" class="col-md-4 col-form-label text-md-right">現在のパスワード</label>
 
@@ -40,6 +41,7 @@
                                                         @endif
                                                     </div>
                                                 </div>
+                                                @endif
 
                                                 <div class="form-group row">
                                                     <label for="new_password" class="col-md-4 col-form-label text-md-right">新パスワード</label>
