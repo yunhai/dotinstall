@@ -47,9 +47,15 @@ class UserStat extends Base
         }
     }
 
-    public function updateClosedCount(int $user_id)
+    public function updateClosedCount(int $user_id, $positive = true)
     {
+        if ($positive) {
+            $this->where('user_id', $user_id)
+                ->increment('closed_lesson_detail_count', 1);
+            return true;
+        }
         $this->where('user_id', $user_id)
-            ->increment('closed_lesson_detail_count', 1);
+            ->decrement('closed_lesson_detail_count', 1);
+        return true;
     }
 }

@@ -38,7 +38,7 @@ class LessonDetail extends Base
         $media = $this->getMedia($lesson_details);
         $lesson_details = $this->formatLessonDetail($lesson_details, $media, $user_id);
         $lessons = $this->lesson_model->get($lesson_id);
-        
+
         if (Auth::check() && Auth::user()->grade == USER_GRADE_NORMAL && $lessons['free_mode'] == LESSON_DETAIL_FREE_MODE_CHARGE) {
             return redirect()->route('mypage');
         }
@@ -146,6 +146,15 @@ class LessonDetail extends Base
         if (!$this->user_lesson_detail_model->closed($user_id, $lesson_id, $lesson_detail_id)) {
             $this->user_lesson_detail_model->close($user_id, $lesson_id, $lesson_detail_id);
         }
+
+        return $this->back('lesson_detail.detail', ['lesson_id' => $lesson_id, 'lesson_detail_id' => $lesson_detail_id]);
+    }
+
+    public function getReopen(int $lesson_id, int $lesson_detail_id)
+    {
+        $user_id = Auth::id();
+
+        $this->user_lesson_detail_model->reopen($user_id, $lesson_id, $lesson_detail_id);
 
         return $this->back('lesson_detail.detail', ['lesson_id' => $lesson_id, 'lesson_detail_id' => $lesson_detail_id]);
     }

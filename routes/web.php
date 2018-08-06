@@ -38,7 +38,6 @@ Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.downlo
 Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
-//Route::get('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');
@@ -46,11 +45,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('lesson/{lesson_id}/enroll', 'Lesson\Lesson@getEnroll')->name('lesson.enroll')->middleware('web.user');
     Route::get('lesson/{lesson_id}/close', 'Lesson\Lesson@getClose')->name('lesson.close')->middleware('web.user');
 
-    Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/learn', 'Lesson\LessonDetail\LessonDetail@getLearn')->name('lesson_detail.learn')->middleware('web.user');
     Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/close', 'Lesson\LessonDetail\LessonDetail@getClose')->name('lesson_detail.close')->middleware('web.user');
-
-    // Route::get('payment/charge', 'Payment@getCharge')->name('payment.charge')->middleware('web.user');
-    // Route::post('payment/charge', 'Payment@postCharge')->middleware('web.user');
+    Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/learn', 'Lesson\LessonDetail\LessonDetail@getLearn')->name('lesson_detail.learn')->middleware('web.user');
+    Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/reopen', 'Lesson\LessonDetail\LessonDetail@getReopen')->name('lesson_detail.reopen')->middleware('web.user');
 
     Route::get('user/diamond/downgrade', 'User@getDowngrade')->name('user.downgrade')->middleware('web.user');
     Route::get('user/diamond/upgrade', 'User@getUpgrade')->name('user.upgrade')->middleware('web.user');
