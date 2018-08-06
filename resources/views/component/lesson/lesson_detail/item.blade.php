@@ -52,7 +52,7 @@
                     <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">完了する
                     </a>
                 @else
-                    <a href="" class="btn btn-sm bg-button-complete" style="pointer-events: none;">完了
+                    <a href="" class="btn btn-sm bg-button-complete">完了
                     </a>
                 @endif
             @else
