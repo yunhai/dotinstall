@@ -37,6 +37,9 @@ body #pc-col-7 {
 .box .card .card-text-header {
     font-size: 2rem;
 }
+.box .card .card-body .row .card-sign .card-text-sign {
+    font-size: 1.1rem;
+}
 body .col-sm-3,
 body .col-md-3,
 body .col-lg-3 {
