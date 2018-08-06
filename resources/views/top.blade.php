@@ -37,11 +37,15 @@
 <div class="box box-panel mb-0">
 	@pc
 		<div class="card">
-			@normal_user
-                <img class="card-img" src="/img/pc_panel_language.png"> 
+			@if (empty(Auth::check()))
+				<img class="card-img" src="/img/pc_panel_language.png">
 			@else
-				<img class="card-img" src="/img/panel_language_diamond.png">
-			@endnormal_user
+				@normal_user
+					<img class="card-img" src="/img/pc_panel_language.png"> 
+				@else
+					<img class="card-img" src="/img/panel_language_diamond.png">
+				@endnormal_user
+			@endif
 			<div class="card-img-overlay">
 				<div class="card-body">
 					<div class="card-language" style="font-size: 1.2rem; margin-top: 14%; margin-left: 20.5%;">
