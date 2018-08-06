@@ -1,5 +1,7 @@
 body {
-  min-width: 1200px;
+	min-width: 1200px;
+	max-width: 1366px;
+	margin: 0 auto;
 }
 body .container {
   max-width: none !important;
