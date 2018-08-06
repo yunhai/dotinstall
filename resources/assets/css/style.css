@@ -485,7 +485,7 @@ body {
 .player-yt {
 	width: 640px;
     height: 360px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 .hidden {
     display: none;
