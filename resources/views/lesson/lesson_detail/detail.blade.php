@@ -39,7 +39,7 @@
         </div>
         @endif
     </div>
-    <div class="box border-top-0 px-5">
+    <div class="box border-top-0 px-5 box-sp">
         <div class="card card-video-list">
             <div class="container-fluid pl-0 pr-0">
                 <div class="container-fluid">
