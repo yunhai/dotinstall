@@ -47,7 +47,7 @@ class StripeService
     {
         $user = User::find($user_id);
         if ($user) {
-            if (!$user->subscription('main')->cancelled()) {
+            if ($user->subscription('main') && !$user->subscription('main')->cancelled()) {
                 $user->subscription('main')->cancel();
             }
             return true;
