@@ -1,11 +1,7 @@
 body {
 	min-width: 1342px;
-	max-width: 1366px;
+	/*max-width: 1366px;*/
 	margin: 0 auto;
-}
-body .container {
-  max-width: none !important;
-  width: 960px !important;
 }
 body #pc-col-2 {
 	-webkit-box-flex: 0;
@@ -19,9 +15,24 @@ body #pc-col-3 {
 body #pc-col-7 {
 	width: 70%;
 }
+#pc-panel-left {
+	width: 35%;
+}
+#pc-panel-right {
+	width: 65%;
+}
+.pc-card-img-panel {
+	/*height: 460px;*/
+}
 #pc-col-2 {
 	padding-right: 15px;
 	padding-left: 15px;
+}
+.pl-5, .px-5 {
+    padding-left: 7rem!important;
+}
+.pr-5, .px-5 {
+    padding-right: 7rem!important;
 }
 body .col-sm-3,
 body .col-md-3,
