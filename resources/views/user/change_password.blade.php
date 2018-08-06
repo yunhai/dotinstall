@@ -5,10 +5,10 @@
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">パスワードの変更</div>
     <div class="row px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 p-r-0">
-            <p class="mar_b30">パスワードを変更するには、必要な項目を記入して更新してください。</p>
+        <div class="col-12 mar_t20 mar_b20 pl-0 p-r-0">
+            <p class="mar_b20">パスワードを変更するには、必要な項目を記入して更新してください。</p>
             @if (session('success'))
-                <p class="alert alert-info mar_t30 mar_b30">
+                <p class="alert alert-info mar_t20 mar_b20">
                     <button type="button" class="close" data-dismiss="alert" style="font-size: 13px; line-height: inherit;">×</button>
                     {{ session('success') }}
                 </p>
@@ -66,7 +66,7 @@
 
                                                 <div class="form-group row mb-0">
                                                     <div class="col-md-7 offset-md-4">
-                                                        <button type="submit" class="btn bg-button">
+                                                        <button type="submit" class="btn btn-sm bg-button">
                                                             更新する
                                                         </button>
                                                     </div>

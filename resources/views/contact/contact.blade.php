@@ -5,7 +5,7 @@
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">お問い合わせ</div>
     <div class="row px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
+        <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
             <div class="card">
                 <div class="card-header">お問い合わせ</div>
 

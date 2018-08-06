@@ -6,7 +6,7 @@
     <div class="box ttlCommon mb-0 px-5">マイページ</div>
     <div class="box-mypage px-5">
         <div class="row">
-            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
+            <div class="mar_t20 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">ステータス</div>
                     <div class="card card-body justify-content-center text-center border-0">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
+            <div class="mar_t20 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">次回課金日/値段</div>
                     <div class="card card-body justify-content-center text-center border-0">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
+            <div class="mar_t20 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">お知らせ</div>
                     <div class="card-body text-center">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
+            <div class="mar_t20 mar_b20 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">総合完了数</div>
                     <div class="card card-body justify-content-center text-center border-0">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
+            <div class="mar_t20 mar_b20 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">学習日数</div>
                     <div class="card card-body justify-content-center text-center border-0">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mar_t30 col-lg-4 col-md-4 col-sm-12">
+            <div class="mar_t20 mar_b20 col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-mypage">
                     <div class="card-header">視聴時間</div>
                     <div class="card card-body justify-content-center text-center border-0">
@@ -99,8 +99,8 @@
 				<p class="mb-0">ダイヤモンド会員をストップしますか？</p>
 			</div>
 			<div class="modal-footer" style="padding: 0;">
-				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">閉じる</a>
-				<a href="{{ route('user.downgrade') }}" class="btn" style="font-size: 13px;">OK</a>
+				<a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
+				<a href="{{ route('user.downgrade') }}" class="btn font_12">OK</a>
 			</div>
 		</div>
 	</div>

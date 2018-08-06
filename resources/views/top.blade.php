@@ -16,15 +16,15 @@
             <div class="card-body">
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">難しい話しは後にして、実戦形式で覚えて行こう！</h5>
                 <div class="row">
-                    <div class="card-sign col-lg-5 col-md-5 p-0">
+                    <div class="card-sign p-0" id="pc-col-3">
                         <p class="card-text card-text-sign">５分動画！小学生から大人まで！</p>
                         <p class="card-text card-text-sign">実戦で覚えるプログラミング！</p>
                         <p class="card-text card-text-sign last mb-0">何も考えずに真似して作って見よう！</p>
                         <a href="{{ route('register') }}" class="card-sign-button">新規登録で５個動画無料！</a>
                     </div>
-                    <div class="card-video col-lg-7 col-md-7 d-none d-lg-block d-md-block px-0">
+                    <div class="card-video px-0" id="pc-col-7">
                         @if (!empty($youtube_link))
-                        <div class="embed-responsive embed-responsive-16by9">
+                        <div class="embed-responsive embed-responsive-21by9">
                             <iframe class="embed-responsive-item" src="{{ $youtube_link['link'] }}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
                         </div>
                         @endif
@@ -41,12 +41,16 @@
 </div>
 @foreach ($lessons as $lesson)
     @if (!empty($lesson['lesson_details']))
-        <div class="box">
+        <div class="box box-sp">
             <div class="card">
                 <div class="lession-heading w-100 px-5">
                     <img class="img-fluid" src="/img/light-bulb.png" />
-                    <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}@if (!empty($lesson['video_count'])) (全{{ $lesson['video_count'] }}回) @endif</span>
-                    <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
+                    <div class="col-8 pr-0 pad_l5">
+	                    <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}@if (!empty($lesson['video_count'])) (全{{ $lesson['video_count'] }}回) @endif</span>
+                    </div>
+                    <div class="col-4">
+	                    <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
+                    </div>
                 </div>
             </div>
             <div class="card card-video-list">

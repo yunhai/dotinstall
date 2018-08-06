@@ -1,4 +1,4 @@
-<div class="col-lesson col-lg-3 col-md-3 col-sm-6">
+<div class="col-lesson col-sm-6" id="pc-col-2">
     <div class="card">
         @php
         @endphp
@@ -17,7 +17,7 @@
         @endnormal_user
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
-            <i class="fa fa-play-circle play-btn"></i>
+            <span class="play-btn"><i class="fa fa-play"></i></span>
         @else
             @php
                 $path = '';
@@ -39,42 +39,35 @@
                 @if (!empty($target['popup']))
                     @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
                     <p class="card-text mb-1">
-                        <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target="#{{ $model_id }}">
-                            <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                        <a href="javascript:;" class="btn btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
                         </a>
                     </p>
                 @else
                     <p class="card-text mb-1">
-                        <a href="javascript:;" class="btn btn-sm btn-request" data-toggle="modal" data-target=".no-lesson-modal-sm">
-                            <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                        <a href="javascript:;" class="btn btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認
                         </a>
                     </p>
                 @endif
                 @if (!empty($target['is_closeable']))
-                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm btn-request">
-                        <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
+                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">完了する
                     </a>
                 @else
-                    <a href="" class="btn btn-sm btn-request" style="pointer-events: none;">
-                        <img class="card-img-top btn-to-complete" src="/img/btn_completion.png">
+                    <a href="" class="btn btn-sm bg-button-complete" style="pointer-events: none;">完了
                     </a>
                 @endif
             @else
                 <p class="card-text mb-1">
-                    <a href="{{ route('login') }}" class="btn btn-sm btn-request">
-                        <img class="card-img-top btn-sorce-conformation" src="/img/btn_sorce_conformation.png">
+                    <a href="{{ route('login') }}" class="btn btn-sm bg-button-source-confirmation">ソース確認
                     </a>
                 </p>
-                <a href="{{ route('login') }}" class="btn btn-sm btn-request">
-                    <img class="card-img-top btn-to-complete" src="/img/btn_to_complete.png">
+                <a href="{{ route('login') }}" class="btn btn-sm bg-button-to-complete">完了する
                 </a>
             @endif
         </div>
     </div>
 </div>
-
-@if($loop->iteration % 5 == 0 && $loop->count > 5)
-    <div class="container-fluid">
+@if($loop->iteration % 5 == 0 && $loop->count > 5 && $loop->last != $loop->count )
+    <div class="container-fluid container-divider">
         <div class="divider"></div>
     </div>
 @endif
@@ -91,7 +84,7 @@
 				<p class="mb-0">このレッスンにはソースコードはありません。</p>
 			</div>
 			<div class="modal-footer" style="padding: 0; justify-content:center;">
-				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">OK</a>
+				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">OK</a>
 			</div>
 		</div>
 	</div>
@@ -103,8 +96,8 @@
 				<p class="mb-0">ダイヤモンド会員をなりますか？</p>
 			</div>
 			<div class="modal-footer" style="padding: 0;">
-				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close" style="font-size: 13px;">閉じる</a>
-				<a href="{{ route('user.upgrade') }}" class="btn" style="font-size: 13px;">OK</a>
+				<a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">閉じる</a>
+				<a href="{{ route('user.upgrade') }}" class="btn">OK</a>
 			</div>
 		</div>
 	</div>

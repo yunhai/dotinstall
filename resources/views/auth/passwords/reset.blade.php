@@ -5,15 +5,17 @@
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">パスワードの再設定</div>
     <div class="box-user px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
-            <p class="mar_b30">パスワードを再設定するには以下から新しいパスワードを入力してください。</p>
+        <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
+            <p class="mar_b20">パスワードを再設定するには以下から新しいパスワードを入力してください。</p>
             <div class="row">
-                <div class="col-2 d-none d-lg-block pr-0">
+	            @pc
+                <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
                         <a class="bg-nav-link nav-link active show" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
+                @endpc
                 <div class="col-lg-7 pl-0 pr-0">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
@@ -67,7 +69,7 @@
 
                                                 <div class="form-group row mb-0">
                                                     <div class="col text-center">
-                                                        <button type="submit" class="btn bg-button">パスワードを再設定する</button>
+                                                        <button type="submit" class="btn btn-sm bg-button">パスワードを再設定する</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -78,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div class="@pc col-3 @endpc @sp col-sm-12 mar_t20 @endsp">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                         <div class="card">
                             <div class="card-header text-center">ご注意</div>

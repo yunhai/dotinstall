@@ -23,7 +23,7 @@
 						<p class="mb-0">ダイヤモンド会員になりました。<br>ありがとうございました！</p>
 					</div>
 					<div class="modal-footer" style="padding: 0; justify-content:center;">
-						<a href="{{ route('top') }}" class="btn" style="font-size: 13px;">OK</a>
+						<a href="{{ route('top') }}" class="btn">OK</a>
 					</div>
 				</div>
 			</div>
@@ -35,8 +35,8 @@
 @section('content')
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">マイページ</div>
-    <div class="box-user mar_t30 mar_b30 px-5">
-        <div class="col-12 mar_b30 px-0">
+    <div class="box-user mar_t20 mar_b20 px-5">
+        <div class="col-12 mar_b20 px-0">
             <div class="card">
                 <div class="card-header text-center">
                     <span><img class="img-fluid" src="/img/charge_diamond.png" width="25px;"></span>

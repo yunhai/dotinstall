@@ -36,20 +36,20 @@
     @endif
     <div class="box ttlCommon mb-0 px-5">{{ $provider_ttl }}</div>
     <div class="box-user px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
+        <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
             @if (!empty(app('request')->input('provider')))
-                <p class="alert alert-info mar_b30">この{{ $provider_lbl }}と連携したアカウントを新しく作成します。以下に必要事項を入力してください。
+                <p class="alert alert-info mar_b20">この{{ $provider_lbl }}と連携したアカウントを新しく作成します。以下に必要事項を入力してください。
                     <br>
                     <span>（既にアカウントをお持ちの方はメールアドレスとパスワードでログインしたあとに「設定変更」から{{ $provider_lbl }}との連携をおこなってください。）</span>
                 </p>
             @else
-                <p class="mar_b30">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
+                <p class="mar_b20">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
             @endif
             <div class="row">
-                <div class="col-2 d-none d-lg-block pr-0">
+                <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
-                        <a class="nav-link" data-toggle="pill" href="{{ route('register') }}" role="tab">新規登録</a>
+                        <a class="nav-link" href="{{ route('register') }}" role="tab">新規登録</a>
                         <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register.diamond') }}" role="tab"><span class="mr-2"><img class="img-fluid" src="/img/charge_diamond.png" width="15px;"></span>有料会員になる</a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
@@ -135,8 +135,7 @@
                                                         <p class="mt-3">
                                                             <a href="{{ route('terms') }}" target="_blank">利用規約に同意</a>
                                                         </p>
-                                                        <!--<button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_registration.png"></button>-->
-                                                        <button type="submit" class="btn bg-button px-5">登録する</button>
+                                                        <button type="submit" class="btn btn-sm bg-button pad_l48 pad_r48">登録する</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -147,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div class="col-3">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                         <div class="card card-register-social">
                             <div class="card-header text-center">

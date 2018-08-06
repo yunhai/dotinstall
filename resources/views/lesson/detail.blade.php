@@ -22,12 +22,16 @@
         <div class="card">
             <div class="lession-heading w-100 px-5">
                 <img class="img-fluid" src="/img/light-bulb.png">
-                <span>【{{ $target['ms_categories']['name'] }}】{{ $target['name'] }}@if (!empty($target['video_count'])) (全{{ $target['video_count'] }}回) @endif</span>
-                <span class="lession-heading-url float-right">{{ $count }} 人が学習中です</span>
+                <div class="col-7 pr-0 pad_l5">
+                	<span>【{{ $target['ms_categories']['name'] }}】{{ $target['name'] }}@if (!empty($target['video_count'])) (全{{ $target['video_count'] }}回) @endif</span>
+                </div>
+                <div class="col-5">
+                	<span class="lession-heading-url float-right">{{ $count }} 人が学習中です</span>
+                </div>
             </div>
         </div>
         <div class="card card-video-list">
-            <div class="container-fluid px-5">
+            <div class="container-fluid box-sp px-5">
                 @include('component.lesson.item', ['lesson_details' => $target['lesson_details']])
             </div>
         </div>
