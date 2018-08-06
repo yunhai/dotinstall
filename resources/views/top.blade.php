@@ -11,18 +11,18 @@
 @section('content')
 <div class="box box-panel mb-0">
     <div class="card">
-        <img class="card-img" src="/img/panel.jpg">
+        <img class="card-img pc-card-img-panel" src="/img/panel.jpg">
         <div class="card-img-overlay px-5">
             <div class="card-body">
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">難しい話しは後にして、実戦形式で覚えて行こう！</h5>
-                <div class="row">
-                    <div class="card-sign p-0" id="pc-col-3">
+                <div class="row @pc align-items-end @endpc">
+                    <div class="pc-card-sign card-sign p-0" id="pc-panel-left">
                         <p class="card-text card-text-sign">５分動画！小学生から大人まで！</p>
                         <p class="card-text card-text-sign">実戦で覚えるプログラミング！</p>
                         <p class="card-text card-text-sign last mb-0">何も考えずに真似して作って見よう！</p>
                         <a href="{{ route('register') }}" class="card-sign-button">新規登録で５個動画無料！</a>
                     </div>
-                    <div class="card-video px-0" id="pc-col-7">
+                    <div class="card-video px-0" id="pc-panel-right">
                         @if (!empty($youtube_link))
                         <div class="embed-responsive embed-responsive-21by9">
                             <iframe class="embed-responsive-item" src="{{ $youtube_link['link'] }}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
