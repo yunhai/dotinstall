@@ -40,6 +40,35 @@ body #pc-col-7 {
 .box .card .card-body .row .card-sign .card-text-sign {
     font-size: 1.1rem;
 }
+.box-panel-language {
+	height: 255px;
+	background-color: #1993FC;
+}
+.card-body-language-left {
+	width: 60%;
+}
+.card-body-language-right {
+	width: 40%;
+}
+.card-img-app, .card-img-objective_c, .card-img-swift {
+	width: 43px;
+}
+.card-language-btn {
+	border-bottom: 1px solid #fff;
+	padding-bottom: 20px;
+}
+.card-language-text {
+	font-size: 0.8125rem;
+    margin-top: 20px;
+    margin-left: 170px;
+}
+.card-right-img-980 {
+	display: block;
+    margin-left: 30px;
+}
+.card-img-980 {
+	width: 143px;
+}
 body .col-sm-3,
 body .col-md-3,
 body .col-lg-3 {

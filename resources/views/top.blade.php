@@ -34,35 +34,12 @@
         </div>
     </div>
 </div>
-<div class="box box-panel mb-0">
-	@pc
-		<div class="card">
-			@if (empty(Auth::check()))
-				<img class="card-img" src="/img/pc_panel_language.png">
-			@else
-				@normal_user
-					<img class="card-img" src="/img/pc_panel_language.png"> 
-				@else
-					<img class="card-img" src="/img/panel_language_diamond.png">
-				@endnormal_user
-			@endif
-			<div class="card-img-overlay">
-				<div class="card-body">
-					<div class="card-language" style="font-size: 1.2rem; margin-top: 14%; margin-left: 20.5%;">
-						<p class="card-text text-white">IPhoneアプリ！　swift、Objective-C</p>
-						<p class="card-text text-white">動画数は、今からどんどん増えます！</p>
-						<p class="card-text text-white">動画増えても料金は変わらず、見放題！</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	@endpc
-	@sp
-		<div class="card">
-			<img class="card-img" src="/img/panel_language.png">
-		</div>
-	@endsp
-</div>
+@pc
+	@include('component.layout.panel_language_pc')
+@endpc
+@sp
+	@include('component.layout.panel_language_sp')
+@endsp
 @foreach ($lessons as $lesson)
     @if (!empty($lesson['lesson_details']))
         <div class="box box-sp">
