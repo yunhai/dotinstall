@@ -34,7 +34,7 @@ class Top extends Base
             }
         }
 
-        $youtube_link = $this->youtube_link->random(1);
+        $youtube_link = $this->youtube_link->inRandomOrder()->first();
         return $this->render('top', compact('lessons', 'youtube_link'));
     }
 
@@ -54,7 +54,7 @@ class Top extends Base
     {
         $storage = Storage::disk('media');
         $lesson_details = $lesson['lesson_details'];
-        
+
         foreach ($lesson_details as $key => $detail) {
             $lesson_details[$key]['is_closeable'] = $user_id
                     && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
