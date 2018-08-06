@@ -11,7 +11,7 @@
 @section('content')
 <div class="box box-panel mb-0">
     <div class="card">
-        <img class="card-img pc-card-img-panel" src="/img/panel.jpg">
+		<img class="card-img pc-card-img-panel" src="/img/panel.jpg">
         <div class="card-img-overlay px-5">
             <div class="card-body">
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">難しい話しは後にして、実戦形式で覚えて行こう！</h5>
