@@ -9,19 +9,13 @@ class Office
             return '';
         }
 
-        $fileArray = pathinfo($target);
-        $file_ext = $fileArray['extension'];
-
-        if ($file_ext == 'doc') {
+        $extension = substr($target, strrpos($target, '.') + 1);
+        if ($extension == 'doc') {
             return $this->read_doc($target);
-        } elseif ($file_ext == 'docx') {
+        } elseif ($extension == 'docx') {
             return $this->read_docx($target);
-        } elseif ($file_ext == 'xlsx') {
-            return $this->xlsx_to_text($target);
-        } elseif ($file_ext == 'pptx') {
-            return $this->pptx_to_text($target);
         }
-        return '';
+        return file_get_contents($target);
     }
 
     private function read_doc($target)
@@ -73,48 +67,5 @@ class Office
         $striped_content = strip_tags($content);
 
         return $striped_content;
-    }
-
-
-    public function xlsx_to_text($input_file)
-    {
-        $xml_filename = 'xl/sharedStrings.xml'; //content file name
-        $zip_handle = new ZipArchive;
-        $output_text = '';
-        if (true === $zip_handle->open($input_file)) {
-            if (($xml_index = $zip_handle->locateName($xml_filename)) !== false) {
-                $xml_datas = $zip_handle->getFromIndex($xml_index);
-                $xml_handle = DOMDocument::loadXML($xml_datas, LIBXML_NOENT | LIBXML_XINCLUDE | LIBXML_NOERROR | LIBXML_NOWARNING);
-                $output_text = strip_tags($xml_handle->saveXML());
-            } else {
-                $output_text .= '';
-            }
-            $zip_handle->close();
-        } else {
-            $output_text .= '';
-        }
-        return $output_text;
-    }
-
-    public function pptx_to_text($input_file)
-    {
-        $zip_handle = new ZipArchive;
-        $output_text = '';
-        if (true === $zip_handle->open($input_file)) {
-            $slide_number = 1; //loop through slide files
-            while (($xml_index = $zip_handle->locateName('ppt/slides/slide'.$slide_number.'.xml')) !== false) {
-                $xml_datas = $zip_handle->getFromIndex($xml_index);
-                $xml_handle = DOMDocument::loadXML($xml_datas, LIBXML_NOENT | LIBXML_XINCLUDE | LIBXML_NOERROR | LIBXML_NOWARNING);
-                $output_text .= strip_tags($xml_handle->saveXML());
-                $slide_number++;
-            }
-            if ($slide_number == 1) {
-                $output_text .= '';
-            }
-            $zip_handle->close();
-        } else {
-            $output_text .= '';
-        }
-        return $output_text;
     }
 }

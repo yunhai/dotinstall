@@ -160,10 +160,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        \Pion\Laravel\ChunkUpload\Providers\ChunkUploadServiceProvider::class,
+        Pion\Laravel\ChunkUpload\Providers\ChunkUploadServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
         Chumper\Zipper\ZipperServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
+        App\Providers\AgentServiceProvider::class,
     ],
 
     /*
@@ -214,5 +215,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Zipper' => Chumper\Zipper\Zipper::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class
     ],
 ];

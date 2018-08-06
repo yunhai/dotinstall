@@ -46,11 +46,13 @@ class AffiliatorInvitation extends Base
     private function form($data)
     {
         $user_email = [];
-
         foreach ($data as $item) {
-            $user_email[$item->user_id] = $item->users->email;
+            $email = '';
+            if ($item->users) {
+                $email = $item->users->email;
+            }
+            $user_email[$item->user_id] = $email;
         }
-
         return compact('user_email');
     }
 }

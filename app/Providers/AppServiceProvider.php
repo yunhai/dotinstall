@@ -31,13 +31,6 @@ class AppServiceProvider extends ServiceProvider
             }
             return false;
         });
-
-        Blade::if('is_sp', function () {
-            $check_agent = ['iPhone', 'Android'];
-            $p = '/'.implode('|', $check_agent). '/i';
-            dd(preg_match($p, $_SERVER['HTTP_USER_AGENT']));
-            return preg_match($p, $_SERVER['HTTP_USER_AGENT']);
-        });
     }
 
     public function register()

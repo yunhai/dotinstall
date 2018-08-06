@@ -5,6 +5,7 @@
         <meta name="robots" content="noydir,noodp,index,follow">
         <meta content='IE=edge' http-equiv='X-UA-Compatible' />
         <meta content='width=device-width, initial-scale=1' name='viewport' />
+
         <title>@yield('title')</title>
         <link rel="icon" href="/img/favicon.png">
 
