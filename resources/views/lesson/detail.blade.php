@@ -18,7 +18,7 @@
     }
 @endphp
 <div id="content">
-    <div class="content box mb-0">
+    <div class="content box mb-0" @if (count($target['lesson_details']) > 0) style="min-height: auto; !important" @endif>
         <div class="card">
             <div class="lession-heading w-100 px-5">
                 <img class="img-fluid" src="/img/light-bulb.png">
