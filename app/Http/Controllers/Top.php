@@ -34,7 +34,7 @@ class Top extends Base
             }
         }
 
-        $youtube_link = $this->youtube_link->inRandomOrder()->first();
+        $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
         return $this->render('top', compact('lessons', 'youtube_link'));
     }
 
