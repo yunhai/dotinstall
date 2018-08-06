@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Service\Payment\StripeService;
 use App\Http\Service\UtmTracking\UtmTrackingService;
+use App\Http\Requests\User\PostChangePassword as PostChangePasswordRequest;
 use App\Models\User\User as UserModel;
-use App\Rules\checkCurrentPasswordRule;
+
 use Auth;
 use Illuminate\Http\Request;
 
@@ -85,19 +86,12 @@ class User extends Base
         return view('user.change_password');
     }
 
-    public function postChangePassword(Request $request)
+    public function postChangePassword(PostChangePasswordRequest $request)
     {
-        $request->validate([
-            'current_password' => [
-                'required',
-                new checkCurrentPasswordRule()
-            ],
-            'new_password' => 'required|min:6|confirmed',
-            'new_password_confirmation' => 'required',
-        ]);
+        $input = $request->all();
 
         $user = Auth::user();
-        $user->password = bcrypt($request->get('new_password'));
+        $user->password = bcrypt($input('new_password'));
         $user->save();
 
         return redirect()->back()->with('success', '更新しました');
