@@ -16,10 +16,10 @@ body #pc-col-7 {
 	width: 70%;
 }
 #pc-panel-left {
-	width: 35%;
+	width: 40%;
 }
 #pc-panel-right {
-	width: 65%;
+	width: 60%;
 }
 .pc-card-img-panel {
 	height: 434px;
@@ -33,6 +33,9 @@ body #pc-col-7 {
 }
 .pr-5, .px-5 {
     padding-right: 12rem!important;
+}
+.box .card .card-text-header {
+    font-size: 2rem;
 }
 body .col-sm-3,
 body .col-md-3,
