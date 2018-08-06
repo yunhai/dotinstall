@@ -10,7 +10,14 @@
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
+        @pc
+			<link href="/css/pc.css" media="all" rel="stylesheet" type="text/css" />
+		@endpc
+		@sp
+			<link href="/css/sp.css" media="all" rel="stylesheet" type="text/css" />
+		@endsp
         <link href="/css/privacy.css" media="all" rel="stylesheet" type="text/css" />
         @stack('css')
     </head>

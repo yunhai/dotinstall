@@ -5,8 +5,8 @@
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">プログラミングゴーにようこそ！</div>
     <div class="box-user px-5">
-        <div class="col-12 mar_t30 mar_b30 pl-0 pr-0">
-            <p class="mar_b30">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
+        <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
+            <p class="mar_b20">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
             <div class="row">
                 <div class="col-2 d-none d-lg-block pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
@@ -25,7 +25,7 @@
                                         <div class="card-header">ログイン</div>
 
                                         <div class="card-body">
-                                            <form method="POST" action="" aria-label="ログイン">
+                                            <form method="POST" aria-label="ログイン">
                                                 @csrf
 
                                                 <div class="form-group row mb-4">
@@ -60,11 +60,11 @@
                                                     <div class="col text-center">
                                                         <p class="form-check">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
+                                                                <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
                                                             </label>
                                                         </p>
                                                         <!--<button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_login.png"></button>-->
-                                                        <button type="submit" class="btn bg-button px-5">ログイン</button>
+                                                        <button type="submit" class="btn btn-sm bg-button px-5">ログイン</button>
                                                         <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                     </div>
                                                 </div>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div class="@pc col-3 @endpc @sp col-sm-12 mar_t20 @endsp">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                         <div class="card card-login-social">
                             <div class="card-header text-center">その他の方法でログイン</div>
