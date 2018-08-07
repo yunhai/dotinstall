@@ -36,31 +36,31 @@
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 @if (!empty($target['popup']))
                     @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                    <p class="card-text mb-1">
-                        <a href="javascript:;" class="btn btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
+                    <p class="card-text mar_b8">
+                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
                         </a>
                     </p>
                 @else
-                    <p class="card-text mb-1">
-                        <a href="javascript:;" class="btn btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認
+                    <p class="card-text mar_b8">
+                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認
                         </a>
                     </p>
                 @endif
                 @if (!empty($target['is_closeable']))
-                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">
+                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-to-complete">
                         完了する
                     </a>
                 @else
-                    <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-complete">
+                    <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-complete">
                         完了
                     </a>
                 @endif
             @else
-                <p class="card-text mb-1">
-                    <a href="{{ route('login') }}" class="btn btn-sm bg-button-source-confirmation">ソース確認
+                <p class="card-text mar_b8">
+                    <a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース確認
                     </a>
                 </p>
-                <a href="{{ route('login') }}" class="btn btn-sm bg-button-to-complete">完了する
+                <a href="{{ route('login') }}" class="btn-sm bg-button-to-complete">完了する
                 </a>
             @endif
         </div>

@@ -359,10 +359,10 @@ body {
     );
     border: 2px solid #fbc276;
     text-align: center;
+    text-decoration: none;
     color: #212529 !important;
     font-size: 0.625rem;
     font-weight: bold;
-    padding: 0.12rem .5rem;
 }
 .bg-button-to-complete {
     background: repeating-linear-gradient(
@@ -374,10 +374,12 @@ body {
     );
     border: 2px solid #e3e3e3;
     text-align: center;
+    text-decoration: none;
     color: #212529 !important;
     font-size: 0.625rem;
     font-weight: bold;
-    padding: 0.12rem 0.8rem;
+    padding-left: 0.82rem;
+    padding-right: 0.82rem;
 }
 .bg-button-complete {
     background: repeating-linear-gradient(
@@ -389,10 +391,12 @@ body {
     );
     border: 2px solid #24dced;
     text-align: center;
+    text-decoration: none;
     color: #212529 !important;
     font-size: 0.625rem;
     font-weight: bold;
-    padding: 0.12rem 1.42rem;
+    padding-left: 1.44rem;
+    padding-right: 1.44rem;
 }
 .bg-button-user-diamond {
     background: repeating-linear-gradient(
@@ -409,13 +413,19 @@ body {
     font-weight: bold;
     padding: 2px 23px;
 }
+.bg-button-source-confirmation:hover, 
+.bg-button-to-complete:hover,
+.bg-button-complete:hover {
+	text-decoration: none;
+}
 .bg-button-paginate, .bg-button-paginate:hover {
+	display: inline-block;
 	background-color: #837F80;
 	color: #fff;
 	border: none;
     border-radius: 0;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    font-size: 0.625rem;
+    text-decoration: none;
 }
 /* BREADCRUMB
 ------------------------------------------------------------ */
