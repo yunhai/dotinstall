@@ -211,7 +211,7 @@ body {
 .box-request {
     padding-bottom: 20px;
     padding-top: 20px;
-    border-bottom: 1px solid #bca9af;
+    /*border-bottom: 1px solid #bca9af;*/
 }
 .box .card .btn-request {
     padding: 0;
@@ -486,8 +486,8 @@ body {
 }
 .player-yt {
 	width: 640px;
-    height: 360px;
-    /*margin: 0 auto;*/
+    /*height: 360px;*/
+    margin: 0 auto;
 }
 .hidden {
     display: none;
