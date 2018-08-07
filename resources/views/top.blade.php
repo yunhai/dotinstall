@@ -41,7 +41,12 @@
 	@endnormal_user
 @endpc
 @sp
-	@include('component.layout.panel_language_sp')
+	@if (Auth::check() == false)
+		@include('component.layout.panel_language_sp')
+	@endif
+	@normal_user
+		@include('component.layout.panel_language_sp')
+	@endnormal_user
 @endsp
 @foreach ($lessons as $lesson)
     @if (!empty($lesson['lesson_details']))
