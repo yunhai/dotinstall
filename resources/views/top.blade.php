@@ -11,7 +11,7 @@
 @section('content')
 <div class="box box-panel mb-0">
     <div class="card">
-		<img class="card-img pc-card-img-panel" src="/img/panel.jpg">
+		<img class="card-img card-img-panel" src="/img/panel.jpg">
         <div class="card-img-overlay px-5">
             <div class="card-body">
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">難しい話しは後にして、実戦形式で覚えて行こう！</h5>
@@ -24,9 +24,7 @@
                     </div>
                     <div class="card-video px-0" id="pc-panel-right">
                         @if (!empty($youtube_link))
-                        <div class="embed-responsive embed-responsive-21by9">
-                            <iframe class="embed-responsive-item" src="{{ $youtube_link['link'] }}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-                        </div>
+							<iframe width="426" height="240" src="{{ $youtube_link['link'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         @endif
                     </div>
                 </div>

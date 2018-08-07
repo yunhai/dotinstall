@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="container-fluid px-5 pad_t40 pad_b40">
+    <div class="container-fluid  px-5 pad_t40 pad_b40">
         <div class="row">
             <div class="col-lg-6 col-md-6 text-center footer-container-left">
                 <h6 class="mar_b10">5分動画で実践的にプログラミングを習得！</h6>

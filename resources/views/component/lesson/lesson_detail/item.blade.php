@@ -1,4 +1,4 @@
-<div class="col-lesson col-sm-6" id="pc-col-2">
+<div class="col-lesson col-lesson-item col-sm-6">
     <div class="card">
         @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
           <img class="pickup" src="/img/pickup.png">
@@ -66,11 +66,20 @@
         </div>
     </div>
 </div>
-@if($loop->iteration % 5 == 0 && $loop->count > 5 && $loop->last != $loop->count )
-    <div class="container-fluid container-divider">
-        <div class="divider"></div>
-    </div>
-@endif
+@pc
+	@if($loop->iteration % 4 == 0 && $loop->count > 4 && $loop->last != $loop->count )
+		<div class="container-fluid container-divider">
+			<div class="divider"></div>
+		</div>
+	@endif
+@endpc
+@sp
+	@if($loop->iteration % 5 == 0 && $loop->count > 5 && $loop->last != $loop->count )
+		<div class="container-fluid container-divider">
+			<div class="divider"></div>
+		</div>
+	@endif
+@endsp
 
 @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
     @if (!empty($target['popup']))
