@@ -15,4 +15,14 @@ $(() => {
         const $target = e.currentTarget;
         $target.closest('.dd-callback__item').remove();
     })
+
+    $('.j-submit').click(e => {
+        e.preventDefault();
+        const $target = $(e.currentTarget);
+        if ($('.j-uploadDirty').length) {
+            alert('ファイルをアップロード中です。しばらくお待ちください。');
+            return;
+        }
+        $target.closest('form').submit();
+    })
 });
