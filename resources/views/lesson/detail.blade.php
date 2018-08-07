@@ -22,10 +22,10 @@
         <div class="card">
             <div class="lession-heading w-100 px-5">
                 <img class="img-fluid" src="/img/light-bulb.png">
-                <div class="col-7 pr-0 pad_l5">
+                <div class="@pc col-10 @endpc @sp col-7 @endsp pr-0 pad_l5">
                 	<span>【{{ $target['ms_categories']['name'] }}】{{ $target['name'] }}@if (!empty($target['video_count'])) (全{{ $target['video_count'] }}回) @endif</span>
                 </div>
-                <div class="col-5">
+                <div class="@pc col-2 @endpc @sp col-5 @endsp">
                 	<span class="lession-heading-url float-right">{{ $count }} 人が学習中です</span>
                 </div>
             </div>
