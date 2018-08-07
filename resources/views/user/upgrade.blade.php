@@ -20,7 +20,7 @@
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content rounded-0">
 					<div class="modal-body">
-						<p class="mb-0">ダイヤモンド会員になりました。<br>ありがとうございました！</p>
+						<p class="mb-0">月額会員になりました。<br>ありがとうございました！</p>
 					</div>
 					<div class="modal-footer" style="padding: 0; justify-content:center;">
 						<a href="{{ route('top') }}" class="btn">OK</a>
@@ -40,7 +40,7 @@
             <div class="card">
                 <div class="card-header text-center">
                     <span><img class="img-fluid" src="/img/charge_diamond.png" width="25px;"></span>
-                    <span>ダイヤモンド会員になる</span>
+                    <span>月額会員になる</span>
                 </div>
 
                 <div class="card-body">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group form-group-stripe mb-0 border-bottom-0">
                             <div class="form-group row">
-                                <p class="col-md-4 col-form-label text-md-left">ダイヤモンド会員、月額/980円（税別）<p>
+                                <p class="col-md-4 col-form-label text-md-left">月額会員、月額/980円（税別）<p>
                             </div>
                             <div class="form-group row">
                                 <label for="card_number" class="col-md-4 col-form-label text-md-right">クレジットカード番号</label>

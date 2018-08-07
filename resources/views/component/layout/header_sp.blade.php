@@ -12,8 +12,8 @@
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('user.upgrade') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
-                        <span class="d-lg-none">ダイヤモンド会員</span>
-                        <span class="d-none d-lg-block">ダイヤモンド会員</span>
+                        <span class="d-lg-none">月額会員</span>
+                        <span class="d-none d-lg-block">月額会員</span>
                     </a>
                 </li>
                 @endnormal_user
@@ -49,9 +49,9 @@
             @else
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('register.diamond') }}">
-                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
-                        <span class="d-lg-none">ダイヤモンド会員</span>
-                        <span class="d-none d-lg-block">ダイヤモンド会員</span>
+                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="月額会員">
+                        <span class="d-lg-none">月額会員</span>
+                        <span class="d-none d-lg-block">月額会員</span>
                     </a>
                 </li>
                 <li class="nav-item">

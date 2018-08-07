@@ -10,22 +10,22 @@
                 <div class="card card-mypage">
                     <div class="card-header">ステータス</div>
                     <div class="card card-body justify-content-center text-center border-0">
-                        <h3>
+                        <h4>
                             <p class="card-text">
                                 @normal_user
                                     無料会員
                                 @else
-                                    ダイヤモンド会員
+                                    月額会員
                                 @endnormal_user
                             </p>
-                        </h3>
+                        </h4>
                         @normal_user
                             <p class="card-text">
                                 <a href="{{ route('user.upgrade') }}">
-                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>ダイヤモンド会員になる
+                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>月額会員になる
                                 </a>
                             </p>
-                            <p class="card-text">ダイヤモンド会員になると、全ての動画見放題となります！月額\{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
+                            <p class="card-text">月額会員になると、全ての動画見放題となります！月額\{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
                         @endnormal_user
                     </div>
                 </div>
@@ -37,15 +37,15 @@
                         @normal_user
                             <p class="card-text">
                                 <a href="{{ route('user.upgrade') }}">
-                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>ダイヤモンド会員になる
+                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>月額会員になる
                                 </a>
                             </p>
-                            <p class="card-text">ダイヤモンド会員になると、全ての動画見放題となります！月額\{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
+                            <p class="card-text">月額会員になると、全ての動画見放題となります！月額\{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
                         @else
-                        <h3><p class="card-text">{{ $next_pay_date }}</p></h3>
-                        <h3><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h3>
+                        <h4><p class="card-text">{{ $next_pay_date }}</p></h4>
+                        <h4><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h4>
                         <p class="card-text">
-                            <a href="javascript:;"  data-toggle="modal" data-target=".user-downgrade-modal-sm">【ダイヤモンド会員を止める】</a>
+                            <a href="javascript:;"  data-toggle="modal" data-target=".user-downgrade-modal-sm">【月額会員を止める】</a>
                         </p>
                         @endnormal_user
                     </div>
@@ -69,7 +69,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">総合完了数</div>
                     <div class="card card-body justify-content-center text-center border-0">
-                        <h3><p class="card-text text-center">{{ $stat['closed_lesson_detail_count'] }}</p></h3>
+                        <h4><p class="card-text text-center">{{ $stat['closed_lesson_detail_count'] }}</p></h4>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">学習日数</div>
                     <div class="card card-body justify-content-center text-center border-0">
-                        <h3><p class="card-text text-center">{{ $stat['date_count'] }}</p></h3>
+                        <h4><p class="card-text text-center">{{ $stat['date_count'] }}</p></h4>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <div class="card card-mypage">
                     <div class="card-header">視聴時間</div>
                     <div class="card card-body justify-content-center text-center border-0">
-                        <h3><p class="card-text">{{ $stat['duration'] }}</p></h3>
+                        <h4><p class="card-text">{{ $stat['duration'] }}</p></h4>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content rounded-0" style="height: auto;">
 			<div class="modal-body">
-				<p class="mb-0">ダイヤモンド会員をストップしますか？</p>
+				<p class="mb-0">月額会員をストップしますか？</p>
 			</div>
 			<div class="modal-footer" style="padding: 0;">
 				<a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
