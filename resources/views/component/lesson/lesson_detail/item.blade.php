@@ -29,7 +29,7 @@
         @endif
         </a>
         <div class="card-body text-center pl-0 pr-0">
-            <p class="card-text card-text-name mb-0 text-left">{{ $target['name'] }}</p>
+            <p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
             @if (empty($path))
                 <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
             @endif

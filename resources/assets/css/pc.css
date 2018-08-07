@@ -91,3 +91,6 @@ body #pc-col-7 {
     flex: 0 0 30%;
     max-width: 30%;
 }
+.col-lesson .card-text-name {
+    height: 43px;
+}
