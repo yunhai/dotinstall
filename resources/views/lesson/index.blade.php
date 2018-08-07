@@ -13,13 +13,13 @@
               <ul class="list-group w-100">
                   @foreach ($lessons as $lesson)
                   <li class="list-group-item">
-                      <div class="@pc col-8 float-left @endpc @sp col-12 px-0 @endsp">
+                      <div class="@pc col-9 float-left @endpc @sp col-12 px-0 @endsp">
                           <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="d-flex align-items-center">
                               <img class="img-fluid img-lesson-btn-play" src="/img/play_button.png">
                               <span>【{{ $lesson['ms_categories']['name'] }}】{{ $lesson['name'] }}@if (!empty($lesson['video_count'])) (全{{ $lesson['video_count'] }}回) @endif</span>
                           </a>
                       </div>
-                      <div class="@pc col-4 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 px-0 mar_t10 @endsp"">
+                      <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 px-0 mar_t10 @endsp"">
                           <img class="img-fluid img-lesson-avatar" src="/img/avatar_1.png">
                           <img class="img-fluid img-lesson-avatar" src="/img/avatar.png">
                           @php
