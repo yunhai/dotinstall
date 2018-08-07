@@ -4,7 +4,15 @@
         {{ $table['title'] }}
     </div>
     <div class="card-body">
-
+        @if(Session::has('input.success'))
+        <div class="alert alert-success" role="alert">
+            保存成功しました。
+        </div>
+        @elseif(Session::has('delete.success'))
+        <div class="alert alert-success" role="alert">
+          削除しました。
+        </div>
+        @endif
         <div class="d-block">
             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 @yield('list_header')

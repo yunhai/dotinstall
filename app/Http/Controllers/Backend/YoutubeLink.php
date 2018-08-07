@@ -34,7 +34,9 @@ class YoutubeLink extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.youtube_link.index');
+        return redirect()
+                  ->route('backend.youtube_link.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getCreate()
@@ -52,12 +54,17 @@ class YoutubeLink extends Base
         $input = $request->all();
         $target = $this->model->create($input);
 
-        return redirect()->route('backend.youtube_link.index');
+        return redirect()
+                  ->route('backend.youtube_link.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
+        return redirect()
+                  ->route('backend.youtube_link.index')
+                  ->with('delete.success', 'delete.success');
     }
 
     protected function form()

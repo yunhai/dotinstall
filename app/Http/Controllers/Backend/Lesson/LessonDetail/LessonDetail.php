@@ -30,7 +30,9 @@ class LessonDetail extends Base
         $input = $this->format($input, $lesson_id);
 
         $target = $this->model->create($input);
-        return redirect()->route('backend.lesson_detail.index', compact('lesson_id'));
+        return redirect()
+                  ->route('backend.lesson_detail.index', compact('lesson_id'))
+                  ->with('input.success', 'input.success');
     }
 
     public function getEdit($lesson_id, $lesson_media_id)
@@ -57,7 +59,9 @@ class LessonDetail extends Base
 
         $this->model->edit($lesson_detail_id, $input);
 
-        return redirect()->route('backend.lesson_detail.index', compact('lesson_id'));
+        return redirect()
+                  ->route('backend.lesson_detail.index', compact('lesson_id'))
+                  ->with('input.success', 'input.success');
     }
 
     public function getIndex($lesson_id)
@@ -76,7 +80,9 @@ class LessonDetail extends Base
     public function getDelete($lesson_id, $lesson_detail_id)
     {
         $this->model->remove($lesson_detail_id);
-        return redirect()->route('backend.lesson_detail.index', compact('lesson_id'));
+        return redirect()
+                ->route('backend.lesson_detail.index', compact('lesson_id'))
+                ->with('delete.success', 'delete.success');
     }
 
     private function form()

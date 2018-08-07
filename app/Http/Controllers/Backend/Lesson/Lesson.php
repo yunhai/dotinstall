@@ -39,7 +39,9 @@ class Lesson extends Base
         $input = $this->makeInput($request, $lesson_id, MODE_EDIT);
         $this->model->edit($lesson_id, $input);
 
-        return redirect()->route('backend.lesson.index');
+        return redirect()
+                  ->route('backend.lesson.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getCreate()
@@ -56,13 +58,17 @@ class Lesson extends Base
         $input = $this->makeInput($request);
         $target = $this->model->create($input);
 
-        return redirect()->route('backend.lesson.index');
+        return redirect()
+                  ->route('backend.lesson.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getDelete($id)
     {
         $this->model->remove($id);
-        return redirect()->route('backend.lesson.index');
+        return redirect()
+                  ->route('backend.lesson.index')
+                  ->with('delete.success', 'delete.success');
     }
 
     protected function makeInput(PostInput $request, int $id = 0, bool $mode = MODE_CREATE)

@@ -34,12 +34,16 @@ class User extends Base
         $input = $request->all();
         $this->model->findOrFail($id)->update($input);
 
-        return redirect()->route('backend.user.index');
+        return redirect()
+                  ->route('backend.user.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('backend.user.index');
+        return redirect()
+                    ->route('backend.user.index')
+                    ->with('delete.success', 'delete.success');
     }
 }

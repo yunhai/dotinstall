@@ -33,7 +33,9 @@ class Affiliator extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.affiliator.index');
+        return redirect()
+                  ->route('backend.affiliator.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getCreate()
@@ -52,13 +54,17 @@ class Affiliator extends Base
         $input = $request->all();
         $input['token'] = $this->generateToken();
         $target = $this->model->create($input);
-        return redirect()->route('backend.affiliator.index');
+        return redirect()
+                  ->route('backend.affiliator.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('backend.affiliator.index');
+        return redirect()
+                  ->route('backend.affiliator.index')
+                  ->with('delete.success', 'delete.success');
     }
 
     protected function form()

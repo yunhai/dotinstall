@@ -33,7 +33,9 @@ class Notification extends Base
         $input = $request->all();
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.notification.index');
+        return redirect()
+                  ->route('backend.notification.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getCreate()
@@ -51,13 +53,17 @@ class Notification extends Base
         $notification_id = $target->id;
         $mail->init($notification_id);
 
-        return redirect()->route('backend.notification.index');
+        return redirect()
+                  ->route('backend.notification.index')
+                  ->with('input.success', 'input.success');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('backend.notification.index');
+        return redirect()
+                ->route('backend.notification.index')
+                ->with('delete.success', 'delete.success');
     }
 
     protected function form()

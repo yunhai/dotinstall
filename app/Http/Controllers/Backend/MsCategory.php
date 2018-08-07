@@ -32,7 +32,7 @@ class MsCategory extends Base
         $input = $this->makeInput($request);
         $this->model->edit($id, $input);
 
-        return redirect()->route('backend.ms_category.index');
+        return redirect()->route('backend.ms_category.index')->with('input.success', 'input.success');
     }
 
     public function getCreate()
@@ -45,13 +45,13 @@ class MsCategory extends Base
     {
         $input = $this->makeInput($request);
         $target = $this->model->create($input);
-        return redirect()->route('backend.ms_category.index');
+        return redirect()->route('backend.ms_category.index')->with('input.success', 'input.success');
     }
 
     public function getDelete($id)
     {
         $this->model->destroy($id);
-        return redirect()->route('backend.ms_category.index');
+        return redirect()->route('backend.ms_category.index')->with('delete.success', 'delete.success');
     }
 
     protected function form()
