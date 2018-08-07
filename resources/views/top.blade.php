@@ -33,7 +33,12 @@
     </div>
 </div>
 @pc
-	@include('component.layout.panel_language_pc')
+	@if (Auth::check() == false)
+		@include('component.layout.panel_language_pc')
+	@endif
+	@normal_user
+		@include('component.layout.panel_language_pc')
+	@endnormal_user
 @endpc
 @sp
 	@include('component.layout.panel_language_sp')
