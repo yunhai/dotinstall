@@ -70,11 +70,11 @@
 
                                                 @if (!empty($provider_lbl))
                                                     <div class="form-group row mb-4">
-                                                        <label for="name" class="col-md-3 col-form-label">
+                                                        <label for="name" class="col-md-4 col-form-label">
                                                             {{ $provider_lbl }}
                                                         </label>
 
-                                                        <div class="col-md-7">
+                                                        <div class="col-md-8">
                                                             <input type="text" class="form-control float-left w-75 mr-1" value="{{ app('request')->input('name') }}" disabled>
                                                             <input type="hidden" name="provider" value="{{ app('request')->input('provider') }}">
                                                             <input type="hidden" name="provider_user_id" value="{{ app('request')->input('provider_user_id') }}">
@@ -84,9 +84,9 @@
                                                 @endif
 
                                                 <div class="form-group row mb-4">
-                                                    <label for="email" class="col-md-3 col-form-label">メールアドレス</label>
+                                                    <label for="email" class="col-md-4 col-form-label">メールアドレス</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') ? old('email') : app('request')->input('email') }}">
 
                                                         @if ($errors->has('email'))
@@ -99,9 +99,9 @@
 
                                                 @if (empty(app('request')->input('provider')))
                                                 <div class="form-group row">
-                                                    <label for="password" class="col-md-3 col-form-label">パスワード</label>
+                                                    <label for="password" class="col-md-4 col-form-label">パスワード</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
                                                         <div class="form-text">パスワードは6文字以上にしてください。</div>
 
@@ -113,9 +113,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="password_confirmation" class="col-md-3 col-form-label">パスワード確認</label>
+                                                    <label for="password_confirmation" class="col-md-4 col-form-label">パスワード確認</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation">
 
                                                         @if ($errors->has('password_confirmation'))
@@ -137,7 +137,7 @@
                                                         <p class="mt-3">
                                                             <a href="{{ route('terms') }}" target="_blank">利用規約に同意</a>
                                                         </p>
-                                                        <button type="submit" class="btn btn-sm bg-button pad_l48 pad_r48">登録する</button>
+                                                        <button type="submit" class="btn btn-sm bg-button pad_l25 pad_r25">登録する</button>
                                                     </div>
                                                 </div>
                                             </form>

@@ -32,9 +32,9 @@
                                                 <input type="hidden" name="token" value="{{ $token }}">
 
                                                 <div class="form-group row">
-                                                    <label for="email" class="col-md-3 col-form-label">登録メールアドレス</label>
+                                                    <label for="email" class="col-md-4 col-form-label">登録メールアドレス</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" autofocus>
 
                                                         @if ($errors->has('email'))
@@ -46,9 +46,9 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="password" class="col-md-3 col-form-label">新パスワード</label>
+                                                    <label for="password" class="col-md-4 col-form-label">新パスワード</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
                                                         @if ($errors->has('password'))
@@ -60,9 +60,9 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="password-confirm" class="col-md-3 col-form-label">新パスワード (確認)</label>
+                                                    <label for="password-confirm" class="col-md-4 col-form-label">新パスワード (確認)</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                                                     </div>
                                                 </div>
