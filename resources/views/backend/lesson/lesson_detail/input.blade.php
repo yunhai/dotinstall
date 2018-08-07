@@ -29,7 +29,10 @@
                     'field_label' => '題名',
                     'field_name' => 'name',
                     'field_value' => array_get($target, 'name', ''),
-                    'field_type' => 'text'
+                    'field_type' => 'text',
+                    'field_attribute' => [
+                      'id' => 'lesson_detail-name'
+                    ]
                 ],
                 'caption' => [
                     'field_label' => 'この動画について',

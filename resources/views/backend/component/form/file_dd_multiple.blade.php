@@ -64,7 +64,7 @@
                                 @if ($field_attribute['data-type'] === 'msword')
                                 <div class='j-filename_holder filename_holder'>
                                     <input type='hidden' name='{{ $field_name }}[{{ $id }}][source_code_content_id]' value='{{ $target['source_code_content_id'] ?? '' }}' />
-                                    <span class='holder-label'>Display name</span>
+                                    <span class='holder-label'>ソースの表示名</span>
                                     <input name='{{ $field_name }}[{{ $id }}][display_name]' value='{{ $target['display_name'] ?? '' }}' class='source_code_content__filename'/>
                                 </div>
                                 <div class='j-language_holder language_holder'>

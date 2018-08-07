@@ -162,9 +162,16 @@ export default class ChuckUpload {
                 noneResultsText: '対象が見つかりません'
             });
 
+            let display_name = obj.original_name;
+            let lesson_name = $('#lesson_detail-name').val();
+
+            if (lesson_name) {
+              const file_index = $target.find('.source_code_content__filename').length + 1;
+              display_name = lesson_name + 'のソース(' + file_index + ')';
+            };
             const filenameHTML = `
-                <span class='holder-label'>Display name</span>
-                <input name='${name}[${obj.id}][display_name]' value='${obj.original_name}' class='source_code_content__filename' />
+                <span class='holder-label'>ソースの表示名</span>
+                <input name='${name}[${obj.id}][display_name]' value='${display_name}' class='source_code_content__filename' />
             `;
 
             const $filename_holder = $callback.find('.j-filename_holder');
