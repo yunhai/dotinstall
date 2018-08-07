@@ -129,7 +129,8 @@ body {
     border-radius: 5px;
 }
 .btn-yahoo span img {
-    width: 19px;
+	vertical-align: baseline;
+    width: 20px;
     display: inline-block;
 }
 .btn-yahoo .btn-yahoo-label {
@@ -150,7 +151,8 @@ body {
     border-radius: 5px;
 }
 .btn-google span img {
-    width: 17px;
+	vertical-align: bottom;
+    width: 16px;
     display: inline-block;
 }
 .btn-google .btn-google-label {
