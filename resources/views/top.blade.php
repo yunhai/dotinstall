@@ -20,7 +20,7 @@
                         <p class="card-text card-text-sign">５分動画！小学生から大人まで！</p>
                         <p class="card-text card-text-sign">実戦で覚えるプログラミング！</p>
                         <p class="card-text card-text-sign last mb-0">何も考えずに真似して作って見よう！</p>
-                        <a href="{{ route('register') }}" class="card-sign-button">今すぐはじめよう！</a>
+                        <a href="{{ route('register') }}" class="card-sign-button">新規登録はこちら！</a>
                     </div>
                     <div class="card-video px-0" id="pc-panel-right">
                         @if (!empty($youtube_link))
@@ -33,10 +33,20 @@
     </div>
 </div>
 @pc
-	@include('component.layout.panel_language_pc')
+	@if (Auth::check() == false)
+		@include('component.layout.panel_language_pc')
+	@endif
+	@normal_user
+		@include('component.layout.panel_language_pc')
+	@endnormal_user
 @endpc
 @sp
-	@include('component.layout.panel_language_sp')
+	@if (Auth::check() == false)
+		@include('component.layout.panel_language_sp')
+	@endif
+	@normal_user
+		@include('component.layout.panel_language_sp')
+	@endnormal_user
 @endsp
 @foreach ($lessons as $lesson)
     @if (!empty($lesson['lesson_details']))

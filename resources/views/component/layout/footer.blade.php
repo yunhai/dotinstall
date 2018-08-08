@@ -2,7 +2,7 @@
     <div class="container-fluid  px-5 pad_t40 pad_b40">
         <div class="row">
             <div class="col-lg-6 col-md-6 text-center footer-container-left">
-                <h6 class="mar_b10">5分動画で実践的にプログラミングを習得！</h6>
+                <h6 class="mar_b10" style="white-space: nowrap;">5分動画で実践的にプログラミングを習得！</h6>
                 <h4 class="title-widget">
                     <a class="" href="/"><img class="img-logo" src="/img/logo_footer.png" alt="cogwheel"></a>
                 </h4>
@@ -28,7 +28,6 @@
                 <hr>
                 <ul class="pad_l20 mar_b0">
                     <li class="pb-1"><a href="{{ route('lesson') }}">レッスン一覧（{{ $global_total_lessons }}）</a></li>
-                    <li><a href="#">有料会員ご説明</a></li>
                 </ul>
             </div>
         </div>

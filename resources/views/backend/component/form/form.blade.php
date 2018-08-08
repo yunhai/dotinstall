@@ -30,7 +30,7 @@
             </table>
             <div class="form-group text-center">
                 <span class="btn btn-secondary btn-sm j-goback" data-url={{ $form_back_url ?? '' }}>キャンセル</span>
-                <input type="submit" class="btn btn-primary btn-sm" value="{{ $form_btn }}">
+                <input type="submit" class="btn btn-primary btn-sm j-submit" value="{{ $form_btn }}">
             </div>
         </form>
     </div>

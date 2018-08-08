@@ -56,6 +56,7 @@ export default class ChuckUpload {
         if (list.length > maxFileUpload) {
             $(list[0]).remove();
         }
+        $target.removeClass('j-uploadDirty');
     }
 
     callbackVideo(obj, $target, $callback) {
@@ -205,6 +206,7 @@ export default class ChuckUpload {
     bindFileAdded(resumable, $target, $callback) {
         resumable.on('fileAdded', (file) => {
             if (this.validate(file, $target.data('type'))) {
+                $target.addClass('j-uploadDirty');
                 const html = `
                     <div class='dd-callback__item dd-callback__${file.uniqueIdentifier}'>
                         <span class="dd-callback__filename">[${file.fileName}]</span>

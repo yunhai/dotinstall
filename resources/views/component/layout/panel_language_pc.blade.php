@@ -20,21 +20,12 @@
 							<p class="card-text text-white">動画数は、今からどんどん増えます！</p>
 							<p class="card-text text-white">動画増えても料金は変わらず、見放題！</p>
 						</div>	
-					</div>
-					@if (Auth::check() == false)
-						<div class="card-body-language-right">
-							<span class="card-right-img-980">
-								<img class="card-img card-img-980" src="/img/img_980.png">
-							</span>
-						</div>
-					@endif
-					@normal_user
-						<div class="card-body-language-right">
-							<span class="card-right-img-980">
-								<img class="card-img card-img-980" src="/img/img_980.png">
-							</span>
-						</div>
-					@endnormal_user
+					</div>					
+					<div class="card-body-language-right">
+						<span class="card-right-img-980">
+							<img class="card-img card-img-980" src="/img/img_980.png">
+						</span>
+					</div>					
 				</div>
 			</div>
 		</div>

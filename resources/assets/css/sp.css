@@ -9,6 +9,36 @@
 .row .container-fluid.container-divider .divider {
     margin-top: 20px;
 }
+.box-panel-language {
+	height: 138px;
+	background-color: #1993FC;
+}
+.card-body-language-left {
+	text-align: center;
+	width: 60%;
+}
+.card-body-language-right {
+	width: 40%;
+}
+.card-img-app, .card-img-objective_c, .card-img-swift {
+	width: 23px;
+}
+.card-language-btn {
+	border-bottom: 1px solid #fff;
+	padding-bottom: 10px;
+}
+.card-language-text {
+	font-size: 10px;
+    margin-top: 10px;
+    margin-left: 18px;
+}
+.card-right-img-980 {
+	display: block;
+    margin-left: 30px;
+}
+.card-img-980 {
+	width: 80px;
+}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;

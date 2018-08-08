@@ -29,9 +29,9 @@
                                                 @csrf
 
                                                 <div class="form-group row mb-4">
-                                                    <label for="email" class="col-md-3 col-form-label">メールアドレス</label>
+                                                    <label for="email" class="col-md-4 col-form-label">メールアドレス</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                                                         @if ($errors->has('email'))
@@ -43,9 +43,9 @@
                                                 </div>
 
                                                 <div class="form-group row mb-4">
-                                                    <label for="password" class="col-md-3 col-form-label">パスワード</label>
+                                                    <label for="password" class="col-md-4 col-form-label">パスワード</label>
 
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-8">
                                                         <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
                                                         @if ($errors->has('password'))
@@ -63,8 +63,7 @@
                                                                 <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
                                                             </label>
                                                         </p>
-                                                        <!--<button type="submit" class="btn border-0 p-0"><img class="card-img-top" src="/img/btn_login.png"></button>-->
-                                                        <button type="submit" class="btn btn-sm bg-button px-5">ログイン</button>
+                                                        <button type="submit" class="btn btn-sm bg-button pad_l20 pad_r20">ログイン</button>
                                                         <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                     </div>
                                                 </div>

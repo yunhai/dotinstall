@@ -36,52 +36,49 @@
                 @php $video_path = $video['path']; @endphp
                 <source src="@media_path($video_path)" type="video/mp4" size="720" >
             </video>
+            <div class="container-fluid">
+                <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
+                    <div class="col-7 pl-0 pr-0">
+                        @if ($target['is_closeable'])
+                            <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-to-complete">
+                                完了する
+                            </a>
+                        @else
+                            <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-complete">
+                                完了
+                            </a>
+                        @endif
+                        @if ($target['popup'])
+                        @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
+                        </a>
+                        @endif
+                        @normal_user
+                            <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
+                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
+                                <span>月額会員に登録する</span>
+                            </a>
+                        @endnormal_user
+                    </div>
+
+                    <div class="col-5  pl-0 pr-0 text-right">
+                        @if ($prev_video)
+                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">前の動画
+                        </a>
+                        @endif
+                        @if ($next_video)
+                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">次の動画
+                        </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
         @endif
     </div>
-    <div class="box border-top-0 px-5 box-sp">
-        <div class="card card-video-list">
+    <div class="box px-5 box-sp">
+        <div class="card card-video-list" @if (!empty($lesson_details)) style="border-top: 1px solid #bca9af;" @endif>
             <div class="container-fluid pl-0 pr-0">
-                <div class="container-fluid">
-                    <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
-                        <div class="col-7 pl-0 pr-0">
-                            @if ($target['is_closeable'])
-                                <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">
-                                    完了する
-                                </a>
-                            @else
-                                <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-complete">
-                                    完了
-                                </a>
-                            @endif
-                            @if ($target['popup'])
-                            @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                            <a href="javascript:;" class="btn btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
-                                <!--<img class="btn-sorce-conformation" src="/img/btn_sorce_conformation.png">-->
-                            </a>
-                            @endif
-                            @normal_user
-                                <a href="{{ route('user.upgrade') }}" class="btn btn-sm bg-button-user-diamond">
-	                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-	                                <span>ダイヤモンド会員に登録する</span>
-                                </a>
-                            @endnormal_user
-                        </div>
-
-                        <div class="col-5  pl-0 pr-0 text-right">
-                            @if ($prev_video)
-                            <a class="btn btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">前の動画
-                                <!--<img class="btn-prev" src="/img/btn-prev.png">-->
-                            </a>
-                            @endif
-                            @if ($next_video)
-                            <a class="btn btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">次の動画
-                                <!--<img class="btn-next" src="/img/btn-next.png">-->
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
                 @include('component.lesson.item', ['lesson_details' => $lesson_details])
             </div>
         </div>
