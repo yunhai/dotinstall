@@ -9,7 +9,12 @@
 
 @push('js')
     <script src="https://cdn.plyr.io/3.3.20/plyr.js"></script>
-    <script type="text/javascript" src="/js/video.js"></script>
+    @normal_user
+        <script type="text/javascript" src="/js/video.normal.js"></script>
+    @endnormal_user
+    @diamond_user
+        <script type="text/javascript" src="/js/video.diamond.js"></script>
+    @enddiamond_user
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
     <script type="text/javascript" src="/js/ace.js"></script>
