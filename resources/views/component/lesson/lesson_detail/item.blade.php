@@ -15,7 +15,7 @@
         @endnormal_user
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
-            <span class="play-btn"><i class="fa fa-play"></i></span>
+			<img class="play-btn" src="/img/play_mark.png">
         @else
             @php
                 $path = '';
