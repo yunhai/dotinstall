@@ -28,42 +28,76 @@
             @endif
         @endif
         </a>
-        <div class="card-body text-center pl-0 pr-0">
-            <p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
-            @if (empty($path))
-                <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
-            @endif
-            @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
-                @if (!empty($target['popup']))
-                    @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                    <p class="card-text mar_b5">
-                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
-                        </a>
-                    </p>
-                @else
-                    <p class="card-text mar_b5">
-                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認
-                        </a>
-                    </p>
-                @endif
-                @if (!empty($target['is_closeable']))
-                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-to-complete">
-                        完了する
-                    </a>
-                @else
-                    <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-complete">
-                        完了
-                    </a>
-                @endif
-            @else
-                <p class="card-text mar_b5">
-                    <a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース確認
-                    </a>
-                </p>
-                <a href="{{ route('login') }}" class="btn-sm bg-button-to-complete">完了する
-                </a>
-            @endif
-        </div>
+		@pc
+			<div class="card-body text-center pl-0 pr-0">
+				<p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
+				@if (empty($path))
+					<p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
+				@endif
+				@if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
+					<p class="card-text">
+						@if (!empty($target['popup']))
+							@php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認</a>
+						@else						
+							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認</a>
+						@endif
+						@if (!empty($target['is_closeable']))
+							<a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-to-complete">
+								完了する
+							</a>
+						@else
+							<a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-complete">
+								完了
+							</a>
+						@endif
+					</p>
+				@else
+					<p class="card-text">
+						<a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
+						<a href="{{ route('login') }}" class="btn-sm bg-button-to-complete">完了する</a>
+					</p>
+				@endif
+			</div>
+		@endpc
+		@sp
+			<div class="card-body text-center pl-0 pr-0">
+				<p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
+				@if (empty($path))
+					<p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
+				@endif
+				@if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
+					@if (!empty($target['popup']))
+						@php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+						<p class="card-text mar_b5">
+							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
+							</a>
+						</p>
+					@else
+						<p class="card-text mar_b5">
+							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認
+							</a>
+						</p>
+					@endif
+					@if (!empty($target['is_closeable']))
+						<a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-to-complete">
+							完了する
+						</a>
+					@else
+						<a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-complete">
+							完了
+						</a>
+					@endif
+				@else
+					<p class="card-text mar_b5">
+						<a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース確認
+						</a>
+					</p>
+					<a href="{{ route('login') }}" class="btn-sm bg-button-to-complete">完了する
+					</a>
+				@endif
+			</div>
+		@endsp
     </div>
 </div>
 @if($loop->iteration % 4 == 0 && $loop->count > 4 && $loop->last != $loop->count )
