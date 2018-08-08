@@ -1,4 +1,4 @@
-<div class="box box-panel box-panel-language mb-0">
+<div class="box box-panel box-panel-language mar_b10">
 	<div class="card">
 		<div class="card-img-overlay px-5">
 			<div class="card-body">

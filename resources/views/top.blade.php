@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/js/ace.js"></script>
 @endpush
 @section('content')
-<div class="box box-panel mb-0">
+<div class="box box-panel mar_b10">
     <div class="card">
 		<img class="card-img card-img-panel" src="/img/panel.jpg">
         <div class="card-img-overlay px-5">
