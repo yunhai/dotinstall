@@ -34,6 +34,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('lesson', 'Lesson\Lesson@getIndex')->name('backend.lesson.index');
     Route::get('lesson/create', 'Lesson\Lesson@getCreate')->name('backend.lesson.create');
     Route::post('lesson/create', 'Lesson\Lesson@postCreate');
+    Route::post('lesson/sort', 'Lesson\Lesson@postSort');
     Route::get('lesson/{lesson_id}/edit', 'Lesson\Lesson@getEdit')->name('backend.lesson.edit');
     Route::post('lesson/{lesson_id}/edit', 'Lesson\Lesson@postEdit');
     Route::get('lesson/{lesson_id}/delete', 'Lesson\Lesson@getDelete')->name('backend.lesson.delete');

@@ -12,4 +12,9 @@ class Base extends Controller
     {
         return view("client.{$view}", $option);
     }
+
+    protected function json(array $data = [])
+    {
+        return response()->json($data);
+    }
 }

@@ -34,7 +34,7 @@ class Lesson extends Base
         ];
         return $this::with($with)
                     ->enable()
-                    ->orderBy('id', 'asc')
+                    ->orderBy('sort')
                     ->get()
                     ->toArray();
     }
@@ -43,7 +43,7 @@ class Lesson extends Base
     {
         $lessons = $this::with(['ms_categories'])
                         ->enable()
-                        ->orderBy('id', 'asc')
+                        ->orderBy('sort')
                         ->get();
 
         if (!empty($lessons)) {

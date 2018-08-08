@@ -70,3 +70,6 @@ table .btn {
         margin-top: calc(100vh - 40px);
     }
 }
+.sortable tr:hover {
+    cursor: pointer;
+}

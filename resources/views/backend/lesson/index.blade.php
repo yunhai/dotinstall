@@ -1,5 +1,12 @@
 @extends('backend.layout.master')
 @section('title', 'レッスン一覧')
+@push('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet"> 
+@endpush
+@push('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+    <script src="/js/backend/common/sortable.js"></script>
+@endpush
 @section('content')
     @section('list_header')
         <div class="row">
@@ -58,5 +65,5 @@
             ],
         ];
     @endphp
-    @include('backend.component.list.paging', ['table' => $table, 'data' => $lessons])
+    @include('backend.component.list.sortable', ['table' => $table, 'data' => $lessons])
 @stop

@@ -35,5 +35,5 @@
             ],
         ];
     @endphp
-    @include('backend.component.list.paging', ['table' => $table, 'data' => $data])
+    @include('backend.component.list.index', ['table' => $table, 'data' => $data])
 @stop

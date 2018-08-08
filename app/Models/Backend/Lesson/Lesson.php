@@ -13,6 +13,7 @@ class Lesson extends Base
         'caption',
         'poster',
         'note',
+        'sort',
         'mode',
         'free_mode',
         'category_id',
@@ -42,5 +43,30 @@ class Lesson extends Base
         $this
             ->where('id', $lesson_id)
             ->update(['video_count' => $count]);
+    }
+
+    public function sort(array $list)
+    {
+        foreach ($list as $index => $id) {
+            $this->where('id', $id)->update(['sort' => ++$index]);
+        }
+    }
+    
+    public function getCount()
+    {
+        return $this->count();
+    }
+
+    public function remove($id)
+    {
+        parent::remove($id);
+        $target = $this
+                    ->select(['id', 'sort'])
+                    ->withTrashed()
+                    ->where('id', $id)
+                    ->first();
+        $this->where('sort', '>', $target->sort)
+            ->decrement('sort', 1);
+        return true;
     }
 }

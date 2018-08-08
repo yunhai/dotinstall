@@ -35,9 +35,7 @@ class AffiliatorInvitation extends Base
             }
         }
 
-        $data = $query
-                    ->orderBy('id', 'desc')
-                    ->paginate(100);
+        $data = $query->orderBy('id', 'desc')->get();
 
         $form = array_merge($this->form($data), compact('year', 'month'));
         return $this->render('affiliator.affiliator_invitation.index', compact('data', 'form'));

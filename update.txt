@@ -7,3 +7,6 @@ ALTER TABLE `users` ADD `grade` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `rol
 
 //180801
 ALTER TABLE `affiliator_invitations` DROP `free`;
+
+//180809
+ALTER TABLE `lessons` ADD `sort` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `note`;

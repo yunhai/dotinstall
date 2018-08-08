@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Base;
 use App\Http\Requests\Backend\Lesson\PostInput;
 use App\Models\Backend\Lesson\Lesson as LessonModel;
 use App\Models\Backend\MsCategory as MsCategoryModel;
+use Illuminate\Http\Request;
 
 class Lesson extends Base
 {
@@ -17,10 +18,21 @@ class Lesson extends Base
 
     public function getIndex()
     {
-        $lessons = $this->model->orderBy('id', 'desc')->paginate(20);
+        $lessons = $this->model
+                    ->orderBy('sort')
+                    ->get();
+
         $form = $this->form();
 
         return $this->render('lesson.index', compact('lessons', 'form'));
+    }
+    
+    public function postSort(Request $request)
+    {
+        $input = $request->input();
+        $this->model->sort($input['id']);
+        
+        return $this->json(['result' => 'ok']);
     }
 
     public function getEdit($id)
@@ -71,7 +83,7 @@ class Lesson extends Base
                   ->with('delete.success', 'delete.success');
     }
 
-    protected function makeInput(PostInput $request, int $id = 0, bool $mode = MODE_CREATE)
+    protected function makeInput(PostInput $request, int $id = 0, int $mode = MODE_CREATE)
     {
         $input = $request->all();
         $input['poster'] = 0;
@@ -79,6 +91,10 @@ class Lesson extends Base
         $input['note'] = '';
         $input['mode'] = 1;
         $input['free_mode'] = 0;
+
+        if ($mode == MODE_CREATE) {
+            $input['sort'] = $this->model->count() + 1;
+        }
 
         return $input;
     }
