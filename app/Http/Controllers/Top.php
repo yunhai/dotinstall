@@ -6,8 +6,8 @@ use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Media as MediaModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Models\YoutubeLink as YoutubeLink;
-
 use Auth;
+use Illuminate\Http\Request;
 use Storage;
 
 class Top extends Base
@@ -22,8 +22,15 @@ class Top extends Base
         $this->youtube_link = $youtube_link;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $input = $request->all();
+
+        if (!empty($input['token'])) {
+            $affiliator_token = $input['token'];
+            session(compact('affiliator_token'));
+        }
+
         $lessons = $this->model->getLessonsForHome();
 
         if ($lessons) {

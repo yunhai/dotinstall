@@ -51,7 +51,7 @@ class RegisterController extends Controller
             $affiliator_id = $affiliator['id'];
             $data['affiliator_id'] = $affiliator_id;
         }
-        
+
         $model = new User();
         $target = $model->init($data);
 
@@ -76,6 +76,11 @@ class RegisterController extends Controller
         $input = $request->all();
         $input['grade'] = USER_GRADE_NORMAL;
 
+        $affiliator_token = $request->session()->pull('affiliator_token', '');
+
+        if ($affiliator_token) {
+            $input['token'] = $affiliator_token;
+        }
         return $this->makeRegister($input);
     }
 
