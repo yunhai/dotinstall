@@ -331,6 +331,7 @@ body {
     border-bottom-left-radius: 6px !important;
     text-align: center;
     color: #000 !important;
+	padding-top: 0.6rem;
 }
 .bg-button, .bg-button:not(:disabled):not(.disabled).active, .bg-button:not(:disabled):not(.disabled):active {
     background: repeating-linear-gradient(
