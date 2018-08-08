@@ -39,9 +39,15 @@ class LessonDetail extends Base
         $lesson_details = $this->formatLessonDetail($lesson_details, $media, $user_id);
         $lessons = $this->lesson_model->get($lesson_id);
 
-        if (Auth::check() && Auth::user()->grade == USER_GRADE_NORMAL && $lessons['free_mode'] == LESSON_DETAIL_FREE_MODE_CHARGE) {
-            return redirect()->route('mypage');
-        }
+        if (Auth::check()) {
+			if (Auth::user()->grade == USER_GRADE_NORMAL && $lessons['free_mode'] == LESSON_DETAIL_FREE_MODE_CHARGE) {
+				return redirect()->route('mypage');
+			}
+        } else {
+			if ($lessons['free_mode'] != LESSON_DETAIL_FREE_MODE_CHARGE) {
+				return redirect()->route('login');
+			}
+		}
 
         $target = [];
         $prev_video = [];

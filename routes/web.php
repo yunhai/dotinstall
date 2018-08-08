@@ -31,7 +31,7 @@ Route::get('company', 'Page@getCompany')->name('company');
 
 Route::get('lesson', 'Lesson\Lesson@getLesson')->name('lesson');
 Route::get('lesson/{lesson_id}/detail', 'Lesson\Lesson@getDetail')->name('lesson.detail');
-Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}', 'Lesson\LessonDetail\LessonDetail@getDetail')->name('lesson_detail.detail')->middleware('web.user');
+Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}', 'Lesson\LessonDetail\LessonDetail@getDetail')->name('lesson_detail.detail');
 Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/resource/download', 'Lesson\LessonDetail\LessonDetail@getDownloadResource')->name('lesson_detail.resource.download');
 
 Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.download');
