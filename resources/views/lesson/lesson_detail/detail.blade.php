@@ -9,10 +9,16 @@
 
 @push('js')
     <script src="https://cdn.plyr.io/3.3.20/plyr.js"></script>
-    <script type="text/javascript" src="/js/video.js"></script>
+    @normal_user
+        <script type="text/javascript" src="/js/video.normal.js"></script>
+    @endnormal_user
+    @diamond_user
+        <script type="text/javascript" src="/js/video.diamond.js"></script>
+    @enddiamond_user
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
     <script type="text/javascript" src="/js/ace.js"></script>
+    <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
 @endpush
 
 @section('content')
@@ -39,22 +45,35 @@
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
-                        @if ($target['is_closeable'])
-                            <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-to-complete">
-                                完了する
-                            </a>
+                        @php
+                            if ($target['is_closeable']) {
+                                $text = '完了する';
+                                $css_class = 'bg-button-to-complete';
+                            } else {
+                                $text = '完了';
+                                $css_class = 'bg-button-complete';
+                            }
+                        @endphp
+                        @if (Auth::check())
+                        <a href="javascript:;" class="btn-sm {{ $css_class }} j-lessonDetailCloseReopen"
+                           data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                           data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                           data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
+                         >
+                            {{ $text }}
+                        </a>
                         @else
-                            <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn btn-sm bg-button-complete">
-                                完了
-                            </a>
+                        <a href="{{ route('login') }}" class="btn-sm {{ $css_class }} ">
+                            {{ $text }}
+                        </a>
                         @endif
                         @if ($target['popup'])
                         @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                        <a href="javascript:;" class="btn btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
+                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
                         </a>
                         @endif
                         @normal_user
-                            <a href="{{ route('user.upgrade') }}" class="btn btn-sm bg-button-user-diamond">
+                            <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
                                 <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
                                 <span>月額会員に登録する</span>
                             </a>
@@ -63,11 +82,11 @@
 
                     <div class="col-5  pl-0 pr-0 text-right">
                         @if ($prev_video)
-                        <a class="btn btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">前の動画
+                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">前の動画
                         </a>
                         @endif
                         @if ($next_video)
-                        <a class="btn btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">次の動画
+                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">次の動画
                         </a>
                         @endif
                     </div>

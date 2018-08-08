@@ -63,7 +63,7 @@
                                                                 <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
                                                             </label>
                                                         </p>
-                                                        <button type="submit" class="btn btn-sm bg-button pad_l20 pad_r20">ログイン</button>
+                                                        <button type="submit" class="bg-button pad_l20 pad_r20">ログイン</button>
                                                         <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                     </div>
                                                 </div>
@@ -82,10 +82,20 @@
 
                             <div class="card-body px-4">
                                 <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
-                                <a href="/auth/twitter" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>
-                                <a href="/auth/facebook" class="btn btn-facebook btn-block"><span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span></a>
-                                <a href="/auth/yahoo" class="btn btn-yahoo btn-block"><span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">ログイン</span></a>
-                                <a href="/auth/google" class="btn btn-google btn-block"><span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleログイン</span></a>
+								<!--
+                                <a href="/auth/twitter" class="btn btn-twitter btn-block">
+									<span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span>
+								</a>
+								-->
+                                <a href="/auth/facebook" class="btn btn-facebook btn-block">
+									<span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span>
+								</a>
+                                <a href="/auth/yahoo" class="btn btn-yahoo btn-block">
+									<span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">ログイン</span>
+								</a>
+                                <a href="/auth/google" class="btn btn-google btn-block">
+									<span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleログイン</span>
+								</a>
                                 <p class="mar_t10 mar_b0 text-danger">ログイン時に SNS に勝手に投稿されることはありません</p>
                             </div>
                         </div>

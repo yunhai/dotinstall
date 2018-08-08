@@ -27,7 +27,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    @php $qrlink = route('register.affiliator', ['token' => $affiliator['token']]); @endphp
+                                    @php $qrlink = route('landing_page', ['token' => $affiliator['token']]); @endphp
                                     <img src="https://chart.googleapis.com/chart?cht=qr&amp;chs=100x100&amp;chl={{ $qrlink }}">
                                 </td>
                                 <td>{{ $qrlink }}</td>

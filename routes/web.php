@@ -13,6 +13,8 @@
 Auth::routes();
 
 Route::get('', 'Top@index')->name('top');
+Route::get('?token={token}', 'Top@index')->name('landing_page');
+
 Route::post('login', 'Auth\LoginController@postLogin');
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
@@ -21,7 +23,6 @@ Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->n
 Route::get('register/diamond', 'Auth\RegisterController@getRegisterDiamond')->name('register.diamond');
 Route::post('register/diamond', 'Auth\RegisterController@registerDiamond');
 Route::get('register/done', 'Auth\RegisterController@registerDone')->name('register.done');
-Route::get('register/diamond/?token={token}', 'Auth\RegisterController@register')->name('register.affiliator');
 
 Route::get('contact/finish', 'Contact@getFinish')->name('contact.finish');
 Route::get('contact', 'Contact@getContact')->name('contact.contact');
@@ -30,7 +31,7 @@ Route::get('company', 'Page@getCompany')->name('company');
 
 Route::get('lesson', 'Lesson\Lesson@getLesson')->name('lesson');
 Route::get('lesson/{lesson_id}/detail', 'Lesson\Lesson@getDetail')->name('lesson.detail');
-Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}', 'Lesson\LessonDetail\LessonDetail@getDetail')->name('lesson_detail.detail')->middleware('web.user');
+Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}', 'Lesson\LessonDetail\LessonDetail@getDetail')->name('lesson_detail.detail');
 Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/resource/download', 'Lesson\LessonDetail\LessonDetail@getDownloadResource')->name('lesson_detail.resource.download');
 
 Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.download');

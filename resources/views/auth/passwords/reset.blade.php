@@ -69,7 +69,7 @@
 
                                                 <div class="form-group row mb-0">
                                                     <div class="col text-center">
-                                                        <button type="submit" class="btn btn-sm bg-button">パスワードを再設定する</button>
+                                                        <button type="submit" class="bg-button">パスワードを再設定する</button>
                                                     </div>
                                                 </div>
                                             </form>

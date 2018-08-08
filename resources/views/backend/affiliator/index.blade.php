@@ -31,7 +31,7 @@
                 'qrcode' => [
                     'field' => '',
                     'tpl' => '
-                        <img src="https://chart.googleapis.com/chart?cht=qr&amp;chs=100x100&amp;chl=' . route('register.affiliator', ['token' => ':token']) . '">
+                        <img src="https://chart.googleapis.com/chart?cht=qr&amp;chs=100x100&amp;chl=' . route('landing_page', ['token' => ':token']) . '">
                     ',
                     'tpl_arg' => [
                         ':token' => 'token'
@@ -43,7 +43,7 @@
                 ],
                 'url' => [
                     'field' => '',
-                    'tpl' => route('register.affiliator', ['token' => ':token'])
+                    'tpl' => route('landing_page', ['token' => ':token'])
                     ,
                     'tpl_arg' => [
                         ':token' => 'token'

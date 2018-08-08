@@ -14,6 +14,11 @@ class Base extends Controller
         return view($view, $option);
     }
 
+    protected function json(array $data = [])
+    {
+        return response()->json($data);
+    }
+
     protected function redirect(string $route_name, array $option = [])
     {
         return redirect()->route($route_name, $option);

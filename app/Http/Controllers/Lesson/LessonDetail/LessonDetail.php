@@ -31,17 +31,13 @@ class LessonDetail extends Base
 
     public function getDetail(int $lesson_id, int $lesson_detail_id)
     {
-        $user_id = Auth::check() ? Auth::user()->id : 0;
+        $user_id = Auth::id() ?: 0;
 
         $lesson_details = $this->model->getAll($lesson_id);
 
         $media = $this->getMedia($lesson_details);
         $lesson_details = $this->formatLessonDetail($lesson_details, $media, $user_id);
         $lessons = $this->lesson_model->get($lesson_id);
-
-        if (Auth::check() && Auth::user()->grade == USER_GRADE_NORMAL && $lessons['free_mode'] == LESSON_DETAIL_FREE_MODE_CHARGE) {
-            return redirect()->route('mypage');
-        }
 
         $target = [];
         $prev_video = [];
@@ -64,9 +60,16 @@ class LessonDetail extends Base
             $prev_id = $detail['id'];
         }
 
+        $free_mode = $target['free_mode'];
         if ($user_id) {
+            if (Auth::user()->grade == USER_GRADE_NORMAL && !$free_mode) {
+                return $this->redirect('mypage');
+            }
+
             $this->updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id);
             $this->updateLearningLog($user_id, $lesson_detail_id, $target);
+        } elseif (!$free_mode) {
+            return $this->redirect('login');
         }
 
         return $this->render(
@@ -147,7 +150,7 @@ class LessonDetail extends Base
             $this->user_lesson_detail_model->close($user_id, $lesson_id, $lesson_detail_id);
         }
 
-        return $this->back('lesson_detail.detail', ['lesson_id' => $lesson_id, 'lesson_detail_id' => $lesson_detail_id]);
+        return $this->json(['result' => true]);
     }
 
     public function getReopen(int $lesson_id, int $lesson_detail_id)
@@ -156,7 +159,7 @@ class LessonDetail extends Base
 
         $this->user_lesson_detail_model->reopen($user_id, $lesson_id, $lesson_detail_id);
 
-        return $this->back('lesson_detail.detail', ['lesson_id' => $lesson_id, 'lesson_detail_id' => $lesson_detail_id]);
+        return $this->json(['result' => true]);
     }
 
     public function getDownloadResource(int $lesson_id, int $lesson_detail_id)

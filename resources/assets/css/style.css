@@ -281,11 +281,7 @@ body {
     position: relative;
 }
 .play-btn {
-	background-color: #282828;
-    border-radius: 50%;
-    padding: 5px 9px;
-    font-size: 12px;
-    color: #fff;
+	width: 30px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -335,6 +331,7 @@ body {
     border-bottom-left-radius: 6px !important;
     text-align: center;
     color: #000 !important;
+	padding-top: 0.6rem;
 }
 .bg-button, .bg-button:not(:disabled):not(.disabled).active, .bg-button:not(:disabled):not(.disabled):active {
     background: repeating-linear-gradient(
@@ -348,8 +345,14 @@ body {
     border-radius: 6px !important;
     text-align: center;
     color: #fff !important;
+	font-size: 0.75rem;
+    padding-top: .27rem;
+    padding-bottom: .25rem;
+    display: inline-block;
+    cursor: pointer;
 }
 .bg-button-source-confirmation {
+	display: inline-block;
     background: repeating-linear-gradient(
         -45deg,
         #f9dbb0,
@@ -359,12 +362,18 @@ body {
     );
     border: 2px solid #fbc276;
     text-align: center;
+    text-decoration: none;
     color: #212529 !important;
-    font-size: 0.625rem;
+    font-size: 10px;
     font-weight: bold;
-    padding: 0.12rem .5rem;
+	padding-left: .5rem;
+	padding-right: .5rem;
+	padding-top: 2px;
+	padding-bottom: 2px;
+    border-radius: .2rem;
 }
 .bg-button-to-complete {
+	display: inline-block;
     background: repeating-linear-gradient(
         -45deg,
         #bababa,
@@ -374,12 +383,18 @@ body {
     );
     border: 2px solid #e3e3e3;
     text-align: center;
+    text-decoration: none;
     color: #212529 !important;
-    font-size: 0.625rem;
+	font-size: 10px;
     font-weight: bold;
-    padding: 0.12rem 0.8rem;
+    padding-left: 0.82rem;
+    padding-right: 0.82rem;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: .2rem;
 }
 .bg-button-complete {
+	display: inline-block;
     background: repeating-linear-gradient(
         -45deg,
         #27e9fb,
@@ -389,10 +404,14 @@ body {
     );
     border: 2px solid #24dced;
     text-align: center;
+    text-decoration: none;
     color: #212529 !important;
-    font-size: 0.625rem;
+    font-size: 10px;
     font-weight: bold;
-    padding: 0.12rem 1.42rem;
+    padding-left: 1.44rem;
+    padding-right: 1.44rem;
+	padding-top: 2px;
+    padding-bottom: 2px;
 }
 .bg-button-user-diamond {
     background: repeating-linear-gradient(
@@ -405,17 +424,23 @@ body {
     border: 2px solid #ae90fe;
     text-align: center;
     color: #fff !important;
-    font-size: 0.625rem;
+    font-size: 10px;
     font-weight: bold;
-    padding: 2px 23px;
+    padding: 2px 20px;
+}
+.bg-button-source-confirmation:hover, 
+.bg-button-to-complete:hover,
+.bg-button-complete:hover {
+	text-decoration: none;
 }
 .bg-button-paginate, .bg-button-paginate:hover {
+	display: inline-block;
 	background-color: #837F80;
 	color: #fff;
 	border: none;
     border-radius: 0;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    font-size: 10px;
+    text-decoration: none;
 }
 /* BREADCRUMB
 ------------------------------------------------------------ */

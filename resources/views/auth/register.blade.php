@@ -137,7 +137,7 @@
                                                         <p class="mt-3">
                                                             <a href="{{ route('terms') }}" target="_blank">利用規約に同意</a>
                                                         </p>
-                                                        <button type="submit" class="btn btn-sm bg-button pad_l25 pad_r25">登録する</button>
+                                                        <button type="submit" class="bg-button pad_l25 pad_r25">登録する</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -165,9 +165,11 @@
                                     <p class="mar_b0">パスワードを設定したい場合は、ユーザー登録後に設定変更画面からおこなってください。</p>
                                 @else
                                     <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
+									<!--
                                     <a href="/auth/twitter" class="btn btn-twitter btn-block">
                                         <span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span>
                                     </a>
+									-->
                                     <a href="/auth/facebook" class="btn btn-facebook btn-block">
                                         <span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span>
                                     </a>
