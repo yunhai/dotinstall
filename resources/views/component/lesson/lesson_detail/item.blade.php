@@ -36,12 +36,12 @@
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 @if (!empty($target['popup']))
                     @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                    <p class="card-text mar_b8">
+                    <p class="card-text mar_b5">
                         <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
                         </a>
                     </p>
                 @else
-                    <p class="card-text mar_b8">
+                    <p class="card-text mar_b5">
                         <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認
                         </a>
                     </p>
@@ -56,7 +56,7 @@
                     </a>
                 @endif
             @else
-                <p class="card-text mar_b8">
+                <p class="card-text mar_b5">
                     <a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース確認
                     </a>
                 </p>
