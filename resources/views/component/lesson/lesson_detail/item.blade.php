@@ -128,11 +128,13 @@
 		@endsp
     </div>
 </div>
-@if($loop->iteration % 4 == 0 && $loop->count > 4 && $loop->last != $loop->count )
-    <div class="container-fluid container-divider">
-        <div class="divider"></div>
-    </div>
-@endif
+@pc
+	@if($loop->iteration % 4 == 0 && $loop->count > 4 && $loop->last != $loop->count )
+	    <div class="container-fluid container-divider">
+	        <div class="divider"></div>
+	    </div>
+	@endif
+@endpc
 @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
     @if (!empty($target['popup']))
         @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
