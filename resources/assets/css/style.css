@@ -345,6 +345,11 @@ body {
     border-radius: 6px !important;
     text-align: center;
     color: #fff !important;
+	font-size: 0.75rem;
+    padding-top: .27rem;
+    padding-bottom: .25rem;
+    display: inline-block;
+    cursor: pointer;
 }
 .bg-button-source-confirmation {
 	display: inline-block;

@@ -63,7 +63,7 @@
                                                                 <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
                                                             </label>
                                                         </p>
-                                                        <button type="submit" class="btn btn-sm bg-button pad_l20 pad_r20">ログイン</button>
+                                                        <button type="submit" class="bg-button pad_l20 pad_r20">ログイン</button>
                                                         <div class="help-block mt-3"><a href="{{ route('password.request') }}">パスワードを忘れた方はこちらへ</a></div>
                                                     </div>
                                                 </div>

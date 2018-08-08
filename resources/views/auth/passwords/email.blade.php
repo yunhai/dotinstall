@@ -54,7 +54,7 @@
 
                                                 <div class="form-group row mb-0">
                                                     <div class="col text-center">
-                                                        <button type="submit" class="btn btn-sm bg-button">メールを送信する</button>
+                                                        <button type="submit" class="bg-button">メールを送信する</button>
                                                     </div>
                                                 </div>
                                             </form>
