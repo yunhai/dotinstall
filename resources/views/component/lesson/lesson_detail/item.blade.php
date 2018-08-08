@@ -46,14 +46,28 @@
                         </a>
                     </p>
                 @endif
-                @if (!empty($target['is_closeable']))
-                    <a href="{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-to-complete">
-                        完了する
-                    </a>
+
+                @php
+                    if ($target['is_closeable']) {
+                        $text = '完了する';
+                        $css_class = 'bg-button-to-complete';
+                    } else {
+                        $text = '完了';
+                        $css_class = 'bg-button-complete';
+                    }
+                @endphp
+                @if (Auth::check())
+                <a href="javascript:;" class="btn-sm {{ $css_class }} j-lessonDetailCloseReopen"
+                   data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                   data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                   data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
+                 >
+                    {{ $text }}
+                </a>
                 @else
-                    <a href="{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" class="btn-sm bg-button-complete">
-                        完了
-                    </a>
+                <a href="{{ route('login') }}" class="btn-sm {{ $css_class }} ">
+                    {{ $text }}
+                </a>
                 @endif
             @else
                 <p class="card-text mar_b5">
