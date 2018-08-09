@@ -68,7 +68,7 @@ class LessonDetail extends Base
 
             $this->updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id);
             $this->updateLearningLog($user_id, $lesson_detail_id, $target);
-        } elseif (!$free_mode) {
+        } elseif ($free_mode != LESSON_DETAIL_FREE_MODE_FREE) {
             return $this->redirect('login');
         }
 
