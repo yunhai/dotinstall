@@ -21,5 +21,6 @@ class Media extends Base
         'original_name',
         'mime',
         'type',
+        'size',
     ];
 }
