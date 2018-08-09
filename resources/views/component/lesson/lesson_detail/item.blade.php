@@ -39,7 +39,7 @@
 							@php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
 							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認</a>
 						@else
-							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm">ソース確認</a>
+							<a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース確認</a>
 						@endif
 
 						@php
