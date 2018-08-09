@@ -26,12 +26,12 @@ class Lesson extends Base
 
         return $this->render('lesson.index', compact('lessons', 'form'));
     }
-    
+
     public function postSort(Request $request)
     {
         $input = $request->input();
         $this->model->sort($input['id']);
-        
+
         return $this->json(['result' => 'ok']);
     }
 
