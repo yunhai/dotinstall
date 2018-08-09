@@ -11,9 +11,7 @@
             <div class="modal-body">
                 素材ダウンロード
                 <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download ml-5 btn--resource" role="button" aria-pressed="true">素材ダウンロードする</a>
-                @if ($content)
-                    <hr style="border-color: #837f80;">
-                @endif
+                <hr style="border-color: #837f80;" class="mb-0">
             </div>
             @endif
             @if ($content)
@@ -39,6 +37,8 @@
                     </div>
                 @endforeach
             </div>
+			@else
+				<p class="text-center">ソースコードはありません</p>
             @endif
         </div>
     </div>
