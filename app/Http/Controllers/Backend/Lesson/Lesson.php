@@ -60,7 +60,6 @@ class Lesson extends Base
     {
         $option = [
             'form' => $this->form()
-
         ];
         return $this->render('lesson.input', $option);
     }
@@ -103,7 +102,9 @@ class Lesson extends Base
     {
         $category = $this->getAvailableCategory();
         $mode = config('master.common.mode');
-        return compact('category', 'mode');
+
+        $difficulty = config('master.lesson.difficulty');
+        return compact('category', 'mode', 'difficulty');
     }
 
     private function getAvailableCategory($available_category = true)

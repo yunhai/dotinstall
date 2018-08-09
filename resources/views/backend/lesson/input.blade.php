@@ -30,6 +30,16 @@
                     'field_value' => array_get($target, 'name', ''),
                     'field_type' => 'text'
                 ],
+                'difficulty' => [
+                    'field_label' => 'レベル',
+                    'field_name' => 'difficulty',
+                    'field_value' => array_get($target, 'difficulty', ''),
+                    'field_type' => 'select',
+                    'field_option' => $form['difficulty'],
+                    'field_attribute' => [
+                        'title' => '選択なし'
+                    ]
+                ],
                 'category_id' => [
                     'field_label' => 'カテゴリー',
                     'field_name' => 'category_id',

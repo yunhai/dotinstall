@@ -1,7 +1,7 @@
 @extends('backend.layout.master')
 @section('title', 'レッスン一覧')
 @push('css')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">
 @endpush
 @push('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
@@ -25,6 +25,7 @@
             'title' => 'カテゴリー',
             'header' => [
                 'レッスン一名',
+                'レベル',
                 'カテゴリー',
                 '動画',
                 '',
@@ -32,6 +33,13 @@
             'body' => [
                 'name' => [
                     'field' => 'name',
+                ],
+                'difficulty' => [
+                    'field' => 'difficulty',
+                    'option' => $form['difficulty'],
+                    'attr' => [
+                        'style' => 'width:15%',
+                    ]
                 ],
                 'category' => [
                     'field' => 'category_id',
