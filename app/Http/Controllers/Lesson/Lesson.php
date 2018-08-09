@@ -7,6 +7,8 @@ use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Media as MediaModel;
 use App\Models\User\UserLesson as UserLessonModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
+use App\Http\Requests\Lesson\GetFilter;
+
 use Auth;
 use Storage;
 
@@ -22,9 +24,11 @@ class Lesson extends Base
         $this->user_lesson_detail_model = $user_lesson_detail_model;
     }
 
-    public function getLesson()
+    public function getLesson(GetFilter $request)
     {
-        $lessons = $this->model->getLessons();
+        $fitler = $request->all();
+
+        $lessons = $this->model->getLessons($fitler);
         $lesson_id = data_get($lessons, '*.id');
         $stat = $this->user_lesson_model->getStat($lesson_id);
         return $this->render('lesson.index', compact('lessons', 'stat'));
@@ -71,15 +75,19 @@ class Lesson extends Base
             $lesson_details[$key]['is_closeable'] = $user_id
                     && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
 
-            foreach ($detail['source_code_contents'] as $index => $item) {
-                $path = $media[$item['media_id']]['path'] ?? '';
-                if ($path && $storage->exists($path)) {
-                    $item['filename'] = $media[$item['media_id']]['original_name'];
-                    $item['content'] = $storage->get($path);
-                    $lesson_details[$key]['source_code_contents'][$index] = $item;
-                } else {
-                    unset($detail['source_code_contents'][$index]);
-                    unset($lesson_details[$key]['source_code_contents'][$index]);
+            if (empty($detail['source_code_contents'])) {
+                $detail['source_code_contents'] = [];
+            } else {
+                foreach ($detail['source_code_contents'] as $index => $item) {
+                    $path = $media[$item['media_id']]['path'] ?? '';
+                    if ($path && $storage->exists($path)) {
+                        $item['filename'] = $media[$item['media_id']]['original_name'];
+                        $item['content'] = $storage->get($path);
+                        $lesson_details[$key]['source_code_contents'][$index] = $item;
+                    } else {
+                        unset($detail['source_code_contents'][$index]);
+                        unset($lesson_details[$key]['source_code_contents'][$index]);
+                    }
                 }
             }
 

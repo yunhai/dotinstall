@@ -19,6 +19,7 @@ class CreateLessonsTable extends Migration
             $table->string('name', 256);
             $table->text('caption')->nullable();
             $table->text('note')->nullable();
+            $table->unsignedInteger('difficulty')->default(1);
             $table->unsignedInteger('sort')->default(0);
             $table->unsignedTinyInteger('mode')->default(0);
             $table->unsignedTinyInteger('free_mode')->default(0);

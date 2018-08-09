@@ -39,13 +39,29 @@ class Lesson extends Base
                     ->toArray();
     }
 
-    public function getLessons()
+    public function getLessons(array $filter = [])
     {
-        $lessons = $this::with(['ms_categories'])
+        $db = $this::with(['ms_categories'])
                         ->enable()
-                        ->orderBy('sort')
-                        ->get();
+                        ->orderBy('sort');
 
+        if ($filter) {
+            if (!empty($filter['keyword'])) {
+                $db->where('name', 'like', '%' . $filter['keyword'] . '%');
+            }
+            $map = [
+                'category' => 'category_id',
+                'difficulty' => 'difficulty',
+            ];
+            foreach($map as $key => $name) {
+                if (empty($filter[$key])) {
+                    continue;
+                }
+                $db->where($name, $filter[$key]);
+            }
+        }
+
+        $lessons = $db->get();
         if (!empty($lessons)) {
             $lessons = $lessons->toArray();
         }

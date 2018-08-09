@@ -18,6 +18,7 @@ class Lesson extends Base
         'free_mode',
         'category_id',
         'video_count',
+        'difficulty',
     ];
 
     public function posters()

@@ -10,3 +10,6 @@ ALTER TABLE `affiliator_invitations` DROP `free`;
 
 //180809
 ALTER TABLE `lessons` ADD `sort` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `note`;
+
+//180810
+ALTER TABLE `lessons` ADD `difficulty` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `mode`;
