@@ -237,7 +237,7 @@ body {
 .lession-heading {
 	display: flex;
 	align-items: center;
-    background-color: #f3f4f6;
+    background-color: #dadbdd;
     padding: 0.5rem 1rem;
 }
 .lession-heading img {
