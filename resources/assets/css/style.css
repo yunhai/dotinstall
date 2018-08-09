@@ -442,6 +442,16 @@ body {
     font-size: 10px;
     text-decoration: none;
 }
+.bg-button-setting-video, .bg-button-setting-video:hover {
+    display: inline-block;
+    background-color: #27e9fb;
+    color: #212529;
+    border: none;
+    border-radius: 0;
+    font-size: 10px;
+	font-weight: bold;
+    text-decoration: none;
+}
 /* BREADCRUMB
 ------------------------------------------------------------ */
 .breadcrumb {
