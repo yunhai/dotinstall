@@ -50,6 +50,13 @@
                         'title' => '選択なし'
                     ]
                 ],
+                'mode' => [
+                    'field_label' => '表示状況',
+                    'field_name' => 'mode',
+                    'field_value' => array_get($target, 'mode', ''),
+                    'field_type' => 'radio',
+                    'field_option' => $form['mode'],
+                ],
             ],
             'form_attribute' => [
             ]

@@ -66,7 +66,11 @@
                                                 @php
                                                     $html = $row['tpl'];
                                                     foreach($row['tpl_arg'] as $key => $value) {
-                                                        $html = str_replace($key, $item[$value], $html);
+                                                        if (is_array($value)) {
+                                                            $html = str_replace($key, array_get($value[0], $item[$value[1]], ''), $html);
+                                                        } else {
+                                                            $html = str_replace($key, $item[$value], $html);
+                                                        }
                                                     }
                                                     echo $html;
                                                 @endphp

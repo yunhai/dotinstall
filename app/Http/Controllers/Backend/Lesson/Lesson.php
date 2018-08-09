@@ -23,7 +23,6 @@ class Lesson extends Base
                     ->get();
 
         $form = $this->form();
-
         return $this->render('lesson.index', compact('lessons', 'form'));
     }
 
@@ -85,10 +84,10 @@ class Lesson extends Base
     protected function makeInput(PostInput $request, int $id = 0, int $mode = MODE_CREATE)
     {
         $input = $request->all();
+    
         $input['poster'] = 0;
         $input['caption'] = '';
         $input['note'] = '';
-        $input['mode'] = 1;
         $input['free_mode'] = 0;
 
         if ($mode == MODE_CREATE) {

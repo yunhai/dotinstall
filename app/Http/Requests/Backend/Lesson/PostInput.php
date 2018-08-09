@@ -10,6 +10,7 @@ class PostInput extends Base
     {
         return [
             'name' => 'required|max:256',
+            'mode' => 'nullable|integer',
             'difficulty' => 'required|integer',
             'category_id' => 'required|integer|exists:ms_categories,id',
         ];

@@ -25,20 +25,26 @@
             'title' => 'カテゴリー',
             'header' => [
                 'レッスン一名',
-                'レベル',
+                '表示状況',
                 'カテゴリー',
                 '動画',
                 '',
             ],
             'body' => [
                 'name' => [
-                    'field' => 'name',
+                    'field' => '',
+                    'tpl' => '【:difficulty】【＃:sort】:name',
+                    'tpl_arg' => [
+                        ':difficulty' => [$form['difficulty'], 'difficulty'],
+                        ':sort' => 'sort',
+                        ':name' => 'name',
+                    ]
                 ],
-                'difficulty' => [
-                    'field' => 'difficulty',
-                    'option' => $form['difficulty'],
+                'mode' => [
+                    'field' => 'mode',
+                    'option' => $form['mode'],
                     'attr' => [
-                        'style' => 'width:15%',
+                        'style' => 'width:10%',
                     ]
                 ],
                 'category' => [
