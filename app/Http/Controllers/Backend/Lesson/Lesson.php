@@ -99,7 +99,7 @@ class Lesson extends Base
 
     private function form($available_category = true)
     {
-        $category = $this->getAvailableCategory();
+        $category = $this->getAvailableCategory($available_category);
         $mode = config('master.common.mode');
 
         $difficulty = config('master.lesson.difficulty');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Lesson;
 use App\Http\Controllers\Base;
 use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Media as MediaModel;
+use App\Models\MsCategory as MsCategoryModel;
 use App\Models\User\UserLesson as UserLessonModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Http\Requests\Lesson\GetFilter;
@@ -31,7 +32,18 @@ class Lesson extends Base
         $lessons = $this->model->getLessons($fitler);
         $lesson_id = data_get($lessons, '*.id');
         $stat = $this->user_lesson_model->getStat($lesson_id);
-        return $this->render('lesson.index', compact('lessons', 'stat'));
+        
+        $form = $this->form();
+        return $this->render('lesson.index', compact('lessons', 'stat', 'form'));
+    }
+    
+    private function form()
+    {
+        $model = new MsCategoryModel();
+        $category = $model->getList();
+
+        $difficulty = config('master.lesson.difficulty');
+        return compact('category', 'difficulty');
     }
 
     public function getDetail($lesson_id)

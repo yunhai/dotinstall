@@ -49,6 +49,7 @@
         @include('component.layout.panel_language_sp')
     @endnormal_user
 @endsp
+
 @foreach ($lessons as $lesson)
     @if (!empty($lesson['lesson_details']))
         <div class="box box-sp">

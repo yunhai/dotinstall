@@ -30,19 +30,56 @@ class Top extends Base
             $affiliator_token = $input['token'];
             session(compact('affiliator_token'));
         }
+        
+        $user = Auth::check() ? Auth::user() : null;
+        
+        $is_diamond = ($user->grade === USER_GRADE_DIAMOND) && false;
 
+        if ($is_diamond) {
+            $this->getDiamondUserLesson();
+        } else {
+            $this->getNormalUserLesson();
+        }
+
+        $lessons = $this->getNormalUserLesson();
+        $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
+
+        return $this->render('top', compact('lessons', 'youtube_link'));
+    }
+    
+    private function getDiamondUserLesson()
+    {
+        $lessons = $this->model->getLessons();
+
+        $result = [];
+        foreach ($lessons as $item) {
+            $difficulty = $item['difficulty'];
+            $category = $item['category_id'];
+            
+            if (!isset($result[$difficulty])) {
+                $result[$difficulty] = [
+                    $category => []
+                ];
+            } elseif (isset($result[$difficulty][$category])) {
+                $result[$difficulty][$category] = [];
+            }
+            $result[$difficulty][$category] = $item;
+        };
+
+        return $result;
+    }
+    
+    private function getNormalUserLesson()
+    {
         $lessons = $this->model->getLessonsForHome();
-
         if ($lessons) {
             $media = $this->getMedia($lessons);
-            $user_id = Auth::check() ? Auth::user()->id : 0;
+            $user_id = Auth::id() ?: 0;
             foreach ($lessons as $index => $item) {
                 $lessons[$index] = $this->format($item, $media, $user_id);
             }
         }
-
-        $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
-        return $this->render('top', compact('lessons', 'youtube_link'));
+        return $lessons;
     }
 
     private function getMedia($lessons)
