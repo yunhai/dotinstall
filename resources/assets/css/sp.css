@@ -39,6 +39,9 @@
 .card-img-980 {
 	width: 80px;
 }
+.card-text-name {
+	height: 36px;
+}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;
