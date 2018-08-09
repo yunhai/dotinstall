@@ -19,18 +19,43 @@ var style = {
   }
 };
 
-// Create an instance of the card Element.
-var card = elements.create('card', {style: style, hidePostalCode: true});
-card.mount('#card-element');
+var card = elements.create('cardNumber', {
+    style: style,
+    placeholder: 'カード番号'
+});
+card.mount('#card-number');
 
-// Handle real-time validation errors from the card Element.
-card.addEventListener('change', function(event) {
+var cardExpiry = elements.create('cardExpiry', {
+    style: style,
+    placeholder: '月 / 年'
+});
+cardExpiry.mount('#card-expiry');
+
+var cardCvc = elements.create('cardCvc', {
+    style: style,
+    placeholder: 'CVC'
+});
+cardCvc.mount('#card-cvc');
+
+function stripeErrorHandler(event) {
   var displayError = document.getElementById('card-errors');
   if (event.error) {
     displayError.textContent = event.error.message;
   } else {
     displayError.textContent = '';
   }
+}
+
+card.addEventListener('change', function(event) {
+    stripeErrorHandler(event)
+});
+
+cardExpiry.addEventListener('change', function(event) {
+    stripeErrorHandler(event)
+});
+
+cardCvc.addEventListener('change', function(event) {
+    stripeErrorHandler(event)
 });
 
 function stripeTokenHandler(token) {

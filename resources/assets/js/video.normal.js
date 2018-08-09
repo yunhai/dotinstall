@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   const player = new Plyr('#j-player',
       {
-          controls: ['play-large', 'restart', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+          controls: ['play-large', 'restart', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
           settings: ['speed'],
           loadSprite: true,
           iconUrl: 'https://cdn.plyr.io/3.3.20/plyr.svg',
@@ -56,5 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
           tooltips: { controls: false, seek: true }
       }
   );
-  $('#j-player').removeClass('hidden')
+
+  $('[data-plyr="settings"]').click((e) => {
+    e.preventDefault();
+    const $target = $(e.target);
+    $target.parent().find('form').css('display', 'none');
+    $('#modal_diamond_user').modal();
+  })
+
+  $('#j-player').removeClass('hidden');
 });
