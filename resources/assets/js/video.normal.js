@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
           volume: 1,
           muted: true,
           i18n: i18n,
-          tooltips: { controls: false, seek: true }
+          tooltips: { controls: false, seek: true },
+          speed: { selected: 0.75, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] }
       }
   );
 
