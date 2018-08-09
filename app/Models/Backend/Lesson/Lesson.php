@@ -51,22 +51,24 @@ class Lesson extends Base
             $this->where('id', $id)->update(['sort' => ++$index]);
         }
     }
-    
+
     public function getCount()
     {
         return $this->count();
     }
 
-    public function remove($id)
+    public function remove(int $id)
     {
         parent::remove($id);
+
         $target = $this
                     ->select(['id', 'sort'])
                     ->withTrashed()
                     ->where('id', $id)
                     ->first();
+
         $this->where('sort', '>', $target->sort)
-            ->decrement('sort', 1);
+             ->decrement('sort', 1);
         return true;
     }
 }

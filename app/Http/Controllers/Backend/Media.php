@@ -24,11 +24,38 @@ class Media extends Base
 
     public function getDownload(int $media_id)
     {
-        $target = $this->model->get($media_id);
+      set_time_limit(3600);
 
-        return response(Storage::disk('media')->get($target['path']))
-            ->header('Content-Type', $target['mime'])
-            ->header('Content-Disposition', 'attachment; filename="' . $target['original_name'] . '"');
+      $target = $this->model->get($media_id);
+
+      $fs = Storage::disk('media')->getDriver();
+
+      $file_path = $target['path'];
+      $file_name = $target['original_name'];
+      $file_mime = $target['mime'];
+      $file_size = $target['size'];
+      $handle = $fs->readStream($file_path);
+
+      header('Pragma: public');
+      header('Expires: 0');
+      header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+      header('Cache-Control: private', false);
+      header('Content-Transfer-Encoding: binary');
+      header('Content-Disposition: attachment; filename="' . $file_name . '";');
+      header('Content-Type: ' . $file_mime);
+      header('Content-Length: ' . $file_size);
+
+      $chunkSize = 1024 * 1024;
+
+      while (!feof($handle)) {
+        $buffer = fread($handle, $chunkSize);
+        echo $buffer;
+        ob_flush();
+        flush();
+      }
+
+      fclose($handle);
+      return '';
     }
 
     public function postContent(Request $request)
