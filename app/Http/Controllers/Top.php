@@ -62,20 +62,44 @@ class Top extends Base
         $storage = Storage::disk('media');
         $lesson_details = $lesson['lesson_details'];
 
+        // foreach ($lesson_details as $key => $detail) {
+        //     $lesson_details[$key]['is_closeable'] = $user_id
+        //             && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
+        //
+        //     foreach ($detail['source_code_contents'] as $index => $item) {
+        //         $path = $media[$item['media_id']]['path'] ?? '';
+        //         if ($path && $storage->exists($path)) {
+        //             $item['filename'] = $media[$item['media_id']]['original_name'];
+        //             $item['content'] = $storage->get($path);
+        //             $lesson_details[$key]['source_code_contents'][$index] = $item;
+        //         } else {
+        //             unset($detail['source_code_contents'][$index]);
+        //             unset($lesson_details[$key]['source_code_contents'][$index]);
+        //         }
+        //     }
+        //
+        //     $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
+        //                                     $detail['resources'];
+        // }
+
         foreach ($lesson_details as $key => $detail) {
             $lesson_details[$key]['is_closeable'] = $user_id
                     && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
 
-            foreach ($detail['source_code_contents'] as $index => $item) {
-                $path = $media[$item['media_id']]['path'] ?? '';
-                if ($path && $storage->exists($path)) {
-                    $item['filename'] = $media[$item['media_id']]['original_name'];
-                    $item['content'] = $storage->get($path);
-                    $lesson_details[$key]['source_code_contents'][$index] = $item;
-                } else {
-                    unset($detail['source_code_contents'][$index]);
-                    unset($lesson_details[$key]['source_code_contents'][$index]);
+            if (!empty($detail['source_code_contents'])) {
+                foreach ($detail['source_code_contents'] as $index => $item) {
+                    $path = $media[$item['media_id']]['path'] ?? '';
+                    if ($path && $storage->exists($path)) {
+                        $item['filename'] = $media[$item['media_id']]['original_name'];
+                        $item['content'] = $storage->get($path);
+                        $lesson_details[$key]['source_code_contents'][$index] = $item;
+                    } else {
+                        unset($detail['source_code_contents'][$index]);
+                        unset($lesson_details[$key]['source_code_contents'][$index]);
+                    }
                 }
+            } else {
+                $detail['source_code_contents'] = [];
             }
 
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
