@@ -76,9 +76,10 @@
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right"></label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-3 text-center">
                                     <span id='j-submit' type="btn" class="p-0" style="cursor: pointer;">
-                                        <img class="img-fluid" src="/img/btn_charge.png" width="38%">
+                                        <img class="img-fluid" src="/img/bg_button_charge.png" width="100%">
+										<span class="button-charge centered">月額会員に登録する</span>
                                     </span>
                                 </div>
                             </div>
