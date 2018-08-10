@@ -39,7 +39,7 @@
 	        </div>
 	        <div class="col-3">
 	            <div class="input-group">
-					<input type="text" class="form-control" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
+					<input type="text" class="form-control form-control-search" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
 					<button class="btn-search">検索</button>
 		        </div>
 	        </div>
