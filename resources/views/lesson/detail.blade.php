@@ -23,7 +23,7 @@
             <div class="lession-heading w-100 px-5">
                 <img class="img-fluid" src="/img/light-bulb.png">
                 <div class="@pc col-10 @endpc @sp col-7 @endsp pr-0 pad_l5 font-weight-bold">
-                	<span>【{{ $filter_form['difficulty'][$target['difficulty']] }}】【＃{{ $target['id'] }}】{{ $target['name'] }}</span>
+                	<span>【{{ $filter_form['difficulty'][$target['difficulty']] }}】【＃{{ $target['sort'] }}】{{ $target['name'] }}</span>
                 </div>
                 <div class="@pc col-2 @endpc @sp col-5 @endsp">
                 	<span class="lession-heading-url float-right">{{ $count }} 人が学習中です</span>
