@@ -38,7 +38,7 @@ class Lesson extends Base
 
         $filter_form = $this->form($fitler);
 
-        return $this->render('lesson.index', compact('lessons', 'stat', 'filter_form'));
+        return $this->render('lesson.index', compact('lessons', 'filter_form'));
     }
 
     private function lessonStat(array $lessons = [], array $lesson_id_list = []) {
