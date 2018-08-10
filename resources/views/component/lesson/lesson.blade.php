@@ -73,12 +73,14 @@
                               </a>
                             </div>
                             <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 mar_t10 @endsp px-0">
-                              <span class="mar_r15">{{ number_format($lesson['lesson_learning_count']) }} 人が学習中</span>
-                                @if ($lesson['lesson_detail_close_count'] >= $lesson['video_count'])
-                                    <span class="btn-all-complete">全て完了</span>
-                                @else
-                                    {{ $lesson['lesson_detail_close_count'] }} / {{ $lesson['video_count'] }}
-                                @endif
+                              <span class="@if (Auth::check()) mar_r15 @endif">{{ number_format($lesson['lesson_learning_count']) }} 人が学習中</span>
+								@if (!empty(Auth::check()))
+									@if ($lesson['lesson_detail_close_count'] >= $lesson['video_count'])
+										<span class="btn-all-complete">全て完了</span>
+									@else
+										{{ $lesson['lesson_detail_close_count'] }} / {{ $lesson['video_count'] }}
+									@endif
+								@endif
                             </div>
                         </li>
                     @endforeach
