@@ -35,6 +35,10 @@
                 ],
                 'post_date' => [
                     'field' => 'post_date',
+                    'attr' => [
+                        'style' => 'width:15%',
+                        'class' => 'text-center'
+                    ]
                 ],
                 'button' => [
                     'field' => '',

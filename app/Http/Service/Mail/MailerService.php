@@ -13,12 +13,16 @@ class MailerService
             $mailable = new $name($mail);
         }
 
-        $mailer = call_user_func_array(['Mail', 'to'], $mail['to']);
+        if (!empty($mail['to'])) {
+            $mailer = call_user_func_array(['Mail', 'to'], $mail['to']);
+        }
+
         if (!empty($mail['bcc'])) {
             foreach ($mail['bcc'] as $bcc) {
                 $mailer = call_user_func_array(['Mail', 'bcc'], $bcc);
             }
         }
+
         $mailer->send($mailable);
     }
 }

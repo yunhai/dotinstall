@@ -79,21 +79,19 @@ class SendNotifications extends Command
                             'bcc' => [],
                         ];
                     }
-                    if (empty($mail_detail['to'])) {
+                    if (empty($mail_detail['bcc'])) {
                         $mail_detail = [
-                            'to' => [$recipient['email'], $recipient['name']],
                             'title' => $notification['title'],
                             'content' => $notification['content'],
                             'bcc' => [],
                         ];
-                    } else {
-                        $bcc = [$recipient['email'], $recipient['name']];
-                        array_push($mail_detail['bcc'], $bcc);
                     }
+                    $bcc = [$recipient['email'], $recipient['name']];
+                    array_push($mail_detail['bcc'], $bcc);
                 }
             }
 
-            if ($mail_detail['to']) {
+            if ($mail_detail['bcc']) {
                 array_push($mail_list, $mail_detail);
             }
         }
