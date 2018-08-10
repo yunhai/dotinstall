@@ -33,7 +33,6 @@ class Top extends Base
         }
 
         $user_id = Auth::id() ?: 0;
-        $user_id = 0;
         if ($user_id) {
             $filter_form = $this->filterForm();
             $lessons = $this->getLogedInLesson($input);
