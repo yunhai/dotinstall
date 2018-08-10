@@ -3,6 +3,7 @@
 namespace App\Models\User;
 
 use App\Models\Base;
+use App\Models\Lesson\Lesson;
 use App\Models\User\UserLearningLog;
 use Carbon\Carbon;
 
@@ -15,6 +16,27 @@ class UserLessonDetail extends Base
         'close_date',
         'mode',
     ];
+
+    public function lessons()
+    {
+        return $this->belongsTo(Lesson::class)
+                    ->enable();
+    }
+
+    public function getByLessonId(int $user_id, array $lesson_id)
+    {
+        $fields = [
+          'lesson_details.lesson_id',
+          'user_lesson_details.lesson_detail_id',
+          'user_lesson_details.mode',
+        ];
+
+        return $this->select($fields)
+                    ->join('lesson_details', 'lesson_detail_id', '=', 'lesson_details.id')
+                    ->where('user_id', $user_id)
+                    ->get()
+                    ->toArray();
+    }
 
     public function learn(int $user_id, int $lesson_id, int $lesson_detail_id)
     {

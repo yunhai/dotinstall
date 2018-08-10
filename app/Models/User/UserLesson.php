@@ -16,6 +16,16 @@ class UserLesson extends Base
         'mode',
     ];
 
+    public function countUserByLessonIdList(array $lesson_id_list = []) {
+        return $this
+                  ->select('lesson_id', DB::raw('count(id) as total'))
+                  ->whereIn('lesson_id', $lesson_id_list)
+                  ->groupBy('lesson_id')
+                  ->get()
+                  ->pluck('total', 'lesson_id')
+                  ->toArray();
+    }
+
     public function enroll(int $user_id, int $lesson_id)
     {
         $data = [
