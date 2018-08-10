@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Media as MediaModel;
+use App\Models\MsCategory as MsCategoryModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Models\YoutubeLink as YoutubeLink;
 use Auth;
@@ -30,32 +31,40 @@ class Top extends Base
             $affiliator_token = $input['token'];
             session(compact('affiliator_token'));
         }
-        
+
         $user = Auth::check() ? Auth::user() : null;
-        
-        $is_diamond = ($user->grade === USER_GRADE_DIAMOND) && false;
 
+        $is_diamond = ($user->grade === USER_GRADE_DIAMOND);
+        $is_diamond = $is_diamond && 0;
         if ($is_diamond) {
-            $this->getDiamondUserLesson();
+            $filter_form = $this->filterForm();
+            $lessons = $this->getDiamondUserLesson($input);
         } else {
-            $this->getNormalUserLesson();
+            $filter_form = [];
+            $lessons = $this->getNormalUserLesson();
         }
-
-        $lessons = $this->getNormalUserLesson();
         $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
-
-        return $this->render('top', compact('lessons', 'youtube_link'));
+        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form'));
     }
-    
-    private function getDiamondUserLesson()
+
+    private function filterForm()
     {
-        $lessons = $this->model->getLessons();
+        $model = new MsCategoryModel();
+        $category = $model->getList();
+
+        $difficulty = config('master.lesson.difficulty');
+        return compact('category', 'difficulty');
+    }
+
+    private function getDiamondUserLesson(array $filter = [])
+    {
+        $lessons = $this->model->getLessons($filter);
 
         $result = [];
         foreach ($lessons as $item) {
             $difficulty = $item['difficulty'];
             $category = $item['category_id'];
-            
+
             if (!isset($result[$difficulty])) {
                 $result[$difficulty] = [
                     $category => []
@@ -68,7 +77,7 @@ class Top extends Base
 
         return $result;
     }
-    
+
     private function getNormalUserLesson()
     {
         $lessons = $this->model->getLessonsForHome();
