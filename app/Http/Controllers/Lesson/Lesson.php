@@ -30,11 +30,35 @@ class Lesson extends Base
         $fitler = $request->all();
 
         $lessons = $this->model->getLessons($fitler);
+
+        if ($lessons) {
+            $lessons = $this->groupLesson($lessons);
+        }
+
         $lesson_id = data_get($lessons, '*.id');
         $stat = $this->user_lesson_model->getStat($lesson_id);
 
         $filter_form = $this->form();
         return $this->render('lesson.index', compact('lessons', 'stat', 'filter_form'));
+    }
+
+    private function groupLesson(array $lessons = []) {
+        $result = [];
+        foreach ($lessons as $item) {
+            $difficulty = $item['difficulty'];
+            $category = $item['category_id'];
+
+            if (!isset($result[$difficulty])) {
+                $result[$difficulty] = [
+                    $category => []
+                ];
+            } elseif (!isset($result[$difficulty][$category])) {
+                $result[$difficulty][$category] = [];
+            }
+            array_push($result[$difficulty][$category], $item);
+        };
+
+        return $result;
     }
 
     private function form()
