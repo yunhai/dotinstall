@@ -34,7 +34,7 @@ class Top extends Base
 
         $user = Auth::check() ? Auth::user() : null;
 
-        $is_diamond = ($user->grade === USER_GRADE_DIAMOND);
+        $is_diamond = ($user && $user->grade === USER_GRADE_DIAMOND);
         $is_diamond = $is_diamond && 0;
         if ($is_diamond) {
             $filter_form = $this->filterForm();
@@ -43,6 +43,7 @@ class Top extends Base
             $filter_form = [];
             $lessons = $this->getNormalUserLesson();
         }
+
         $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form'));
     }
