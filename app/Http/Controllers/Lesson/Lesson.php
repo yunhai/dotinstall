@@ -30,16 +30,51 @@ class Lesson extends Base
         $fitler = $request->all();
 
         $lessons = $this->model->getLessons($fitler);
-
+        $lesson_id = data_get($lessons, '*.id');
         if ($lessons) {
+            $lessons = $this->lessonStat($lessons, $lesson_id);
             $lessons = $this->groupLesson($lessons);
         }
 
-        $lesson_id = data_get($lessons, '*.id');
-        $stat = $this->user_lesson_model->getStat($lesson_id);
+        $filter_form = $this->form($fitler);
 
-        $filter_form = $this->form();
         return $this->render('lesson.index', compact('lessons', 'stat', 'filter_form'));
+    }
+
+    private function lessonStat(array $lessons = [], array $lesson_id_list = []) {
+        $lesson_user_count_list = $this->user_lesson_model->countUserByLessonIdList($lesson_id_list);
+
+        $user_id = Auth::id() ?: 0;
+        $data = $this->user_lesson_detail_model->getByLessonId($user_id, $lesson_id_list);
+
+        $lesson_detail_close_list = [];
+        foreach ($data as $item) {
+            $lesson_id = $item['lesson_id'];
+            $user_lesson_detail_mode = $item['mode'];
+            if (empty($lesson_detail_close_list[$lesson_id])) {
+                $lesson_detail_close_list[$lesson_id] = 0;
+            }
+            if ($user_lesson_detail_mode == USER_LESSON_DETAIL_MODE_CLOSE) {
+                $lesson_detail_close_list[$lesson_id]++;
+            }
+        }
+
+        foreach($lessons as &$item) {
+            $lesson_id = $item['id'];
+            $item['lesson_learning_count'] = $lesson_user_count_list[$lesson_id] ?? 0;
+            $item['lesson_detail_close_count'] = $lesson_detail_close_list[$lesson_id] ?? 0;
+        }
+
+        return $lessons;
+    }
+
+    private function form(array $input_value = [])
+    {
+        $model = new MsCategoryModel();
+        $category = $model->getList();
+
+        $difficulty = config('master.lesson.difficulty');
+        return compact('category', 'difficulty', 'input_value');
     }
 
     private function groupLesson(array $lessons = []) {
@@ -75,20 +110,10 @@ class Lesson extends Base
             $media = $this->getMedia($target);
             $target = $this->format($target, $media, $user_id);
         }
-		
-		$filter_form = $this->form();
 
+        $filter_form = $this->form();
         $stat = $this->user_lesson_model->getStat([$lesson_id]);
         return $this->render('lesson.detail', compact('target', 'stat', 'filter_form'));
-    }
-	
-	private function form()
-    {
-        $model = new MsCategoryModel();
-        $category = $model->getList();
-
-        $difficulty = config('master.lesson.difficulty');
-        return compact('category', 'difficulty');
     }
 
     private function getMedia($lessons)
