@@ -33,14 +33,13 @@ class Top extends Base
         }
 
         $user_id = Auth::id() ?: 0;
+		$filter_form = $this->filterForm();
         if ($user_id) {
-            $filter_form = $this->filterForm();
             $lessons = $this->getLogedInLesson($input);
         } else {
-            $filter_form = [];
             $lessons = $this->getUnLogInLesson();
         }
-
+		
         $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form'));
     }
