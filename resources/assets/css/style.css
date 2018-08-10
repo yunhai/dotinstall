@@ -286,6 +286,8 @@ body {
     cursor: pointer;
 }
 .form-control-search {
+	color: #837f80;
+	border-color: #837f80;
 	border-radius: 0;
 }
 .pickup {
@@ -492,6 +494,10 @@ body {
     font-size: 10px;
 	font-weight: bold;
     text-decoration: none;
+}
+.input-group-difficulty select, .input-group-category select {
+	color: #837f80;
+	border-color: #837f80;
 }
 /* BREADCRUMB
 ------------------------------------------------------------ */
