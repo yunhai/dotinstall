@@ -61,15 +61,6 @@ class Lesson extends Base
         return $result;
     }
 
-    private function form()
-    {
-        $model = new MsCategoryModel();
-        $category = $model->getList();
-
-        $difficulty = config('master.lesson.difficulty');
-        return compact('category', 'difficulty');
-    }
-
     public function getDetail($lesson_id)
     {
         $user_id = Auth::check() ? Auth::user()->id : 0;
@@ -89,6 +80,15 @@ class Lesson extends Base
 
         $stat = $this->user_lesson_model->getStat([$lesson_id]);
         return $this->render('lesson.detail', compact('target', 'stat', 'filter_form'));
+    }
+	
+	private function form()
+    {
+        $model = new MsCategoryModel();
+        $category = $model->getList();
+
+        $difficulty = config('master.lesson.difficulty');
+        return compact('category', 'difficulty');
     }
 
     private function getMedia($lessons)
