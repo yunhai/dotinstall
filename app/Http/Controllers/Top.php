@@ -32,16 +32,14 @@ class Top extends Base
             session(compact('affiliator_token'));
         }
 
-        $user = Auth::check() ? Auth::user() : null;
-
-        $is_diamond = ($user && $user->grade === USER_GRADE_DIAMOND);
-        $is_diamond = $is_diamond && 0;
-        if ($is_diamond) {
+        $user_id = Auth::id() ?: 0;
+        $user_id = 0;
+        if ($user_id) {
             $filter_form = $this->filterForm();
-            $lessons = $this->getDiamondUserLesson($input);
+            $lessons = $this->getLogedInLesson($input);
         } else {
             $filter_form = [];
-            $lessons = $this->getNormalUserLesson();
+            $lessons = $this->getUnLogInLesson();
         }
 
         $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
@@ -57,7 +55,7 @@ class Top extends Base
         return compact('category', 'difficulty');
     }
 
-    private function getDiamondUserLesson(array $filter = [])
+    private function getLogedInLesson(array $filter = [])
     {
         $lessons = $this->model->getLessons($filter);
 
@@ -73,13 +71,13 @@ class Top extends Base
             } elseif (isset($result[$difficulty][$category])) {
                 $result[$difficulty][$category] = [];
             }
-            $result[$difficulty][$category] = $item;
+            array_push($result[$difficulty][$category], $item);
         };
 
         return $result;
     }
 
-    private function getNormalUserLesson()
+    private function getUnLogInLesson()
     {
         $lessons = $this->model->getLessonsForHome();
         if ($lessons) {
