@@ -77,4 +77,8 @@ class Lesson extends Base
                     ->first()
                     ->toArray();
     }
+
+    public function countLesson() {
+        return $this->enable()->count();
+    }
 }

@@ -10,7 +10,8 @@ class WebGlobalVariable
 {
     public function handle($request, Closure $next)
     {
-        View::share('global_total_lessons', Lesson::count());
+        $lesson_model = new Lesson();
+        View::share('global_total_lessons', $lesson_model->countLesson());
 
         return $next($request);
     }
