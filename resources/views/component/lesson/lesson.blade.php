@@ -83,7 +83,7 @@
 							</div>
 							<div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 mar_t10 @endsp px-0">
 							  <span class="mar_r15">28,643 人が学習中</span>
-							  <a href="" class="btn-all-complete">全て完了</a>
+							  <span class="btn-all-complete">全て完了</span>
 							</div>
 						</li>
 					@endforeach
