@@ -1,13 +1,27 @@
 <div class="box">
 	<form method="GET" action="">
+		@php
+            $diff = '';
+            if (!empty(app('request')->input('difficulty'))) {
+                $diff = app('request')->input('difficulty');
+            }
+			$cate = '';
+            if (!empty(app('request')->input('category'))) {
+                $cate = app('request')->input('category');
+            }
+			$keyword = '';
+            if (!empty(app('request')->input('keyword'))) {
+                $keyword = app('request')->input('keyword');
+            }
+        @endphp
 	    <div class="form-group form-group-search-lesson row justify-content-center">
-			@csrf
 	        <div class="col-3">
 		        <div class="input-group">
 			        <label for="level" class="col-3 col-form-label px-0">段階</label>
-					<select class="col-7">
+					<select name="difficulty" class="col-7">
+						<option value="" @if (empty($diff)) selected @endif></option>
 						@foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
-							<option value="{{ $difficulty_id }}" name="difficulty">{{ $difficulty }}</option>
+							<option value="{{ $difficulty_id }}" @if ($diff == $difficulty_id) selected @endif>{{ $difficulty }}</option>
 						@endforeach
 					</select>
 		        </div>
@@ -15,16 +29,17 @@
 	        <div class="col-3">
 		        <div class="input-group">
 			        <label for="level" class="col-3 col-form-label px-0">カテゴリ</label>
-					<select class="col-7">
+					<select name="category" class="col-7">
+						<option value="" @if (empty($cate)) selected @endif></option>
 						@foreach ($filter_form['category'] as $cat_id => $cat)
-							<option value="{{ $cat_id }}" name="category">{{ $cat }}</option>
+							<option value="{{ $cat_id }}" @if ($cate == $cat_id) selected @endif>{{ $cat }}</option>
 						@endforeach
 					</select>
 		        </div>
 	        </div>
 	        <div class="col-3">
 	            <div class="input-group">
-					<input type="text" class="form-control" name="keyword" value="" placeholder="動画検索">
+					<input type="text" class="form-control" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
 					<button class="btn-search">検索</button>
 		        </div>
 	        </div>
