@@ -72,9 +72,9 @@ class LessonDetail extends Base
         } elseif ($free_mode != LESSON_DETAIL_FREE_MODE_FREE) {
             return $this->redirect('login');
         }
-		
-		$filter_form = $this->form();
-		
+
+        $filter_form = $this->form();
+
         return $this->render(
             'lesson.lesson_detail.detail',
             compact(
@@ -85,12 +85,12 @@ class LessonDetail extends Base
                 'target',
                 'prev_video',
                 'next_video',
-				'filter_form'
+                'filter_form'
             )
         );
     }
-	
-	private function form()
+
+    private function form()
     {
         $model = new MsCategoryModel();
         $category = $model->getList();
@@ -189,6 +189,7 @@ class LessonDetail extends Base
         $filename = Carbon::now()->format('Ymdhis').'.zip';
 
         $fullpath = $public_dir . $filename;
+        register_shutdown_function('unlink', $fullpath);
 
         $zip = Zipper::make($fullpath);
         $storage = Storage::disk('media');
@@ -204,6 +205,7 @@ class LessonDetail extends Base
         }
 
         $zip->close();
+
         return response()->download($fullpath);
     }
 }
