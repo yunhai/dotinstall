@@ -22,7 +22,7 @@
 
 @section('content')
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 px-5">{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
+    <div class="box ttlCommon border-bottom-0 mb-0 px-5">【{{ $filter_form['difficulty'][$lessons['difficulty']] }}】【＃{{ $lessons['id'] }}】{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
     <div class="box mb-0">
         <div class="card">
             <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>

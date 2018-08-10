@@ -9,6 +9,7 @@ use App\Models\Lesson\LessonDetail\LessonDetailAttachment as LessonDetailAttachm
 use App\Models\Media as MediaModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Models\User\UserLearningLog as UserLearningLogModel;
+use App\Models\MsCategory as MsCategoryModel;
 
 use Auth;
 use Carbon\Carbon;
@@ -71,7 +72,9 @@ class LessonDetail extends Base
         } elseif ($free_mode != LESSON_DETAIL_FREE_MODE_FREE) {
             return $this->redirect('login');
         }
-
+		
+		$filter_form = $this->form();
+		
         return $this->render(
             'lesson.lesson_detail.detail',
             compact(
@@ -81,9 +84,19 @@ class LessonDetail extends Base
                 'lessons',
                 'target',
                 'prev_video',
-                'next_video'
+                'next_video',
+				'filter_form'
             )
         );
+    }
+	
+	private function form()
+    {
+        $model = new MsCategoryModel();
+        $category = $model->getList();
+
+        $difficulty = config('master.lesson.difficulty');
+        return compact('category', 'difficulty');
     }
 
     private function updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id)
