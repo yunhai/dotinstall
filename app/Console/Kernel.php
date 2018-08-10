@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        '\App\Console\Commands\Cleaner\Chunk',
         '\App\Console\Commands\SendNotifications',
     ];
 
@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('notification:send')
-                 ->hourly();
+        $schedule->command('notification:send')->hourly();
+        $schedule->command('cleaner:chunk')->hourly();
     }
 
     /**
