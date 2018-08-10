@@ -8,6 +8,9 @@ Add a line in the http section:
 http {
     client_max_body_size 100M;
 }
+
+#mklink /j /path/to/laravel/public/avatars /path/to/laravel/storage/avatars
+#ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"
 ############################################
 
 #ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"
