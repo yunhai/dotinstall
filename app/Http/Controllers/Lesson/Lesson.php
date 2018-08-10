@@ -32,11 +32,11 @@ class Lesson extends Base
         $lessons = $this->model->getLessons($fitler);
         $lesson_id = data_get($lessons, '*.id');
         $stat = $this->user_lesson_model->getStat($lesson_id);
-        
-        $form = $this->form();
-        return $this->render('lesson.index', compact('lessons', 'stat', 'form'));
+
+        $filter_form = $this->form();
+        return $this->render('lesson.index', compact('lessons', 'stat', 'filter_form'));
     }
-    
+
     private function form()
     {
         $model = new MsCategoryModel();
