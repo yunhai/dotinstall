@@ -15,10 +15,10 @@
             }
         @endphp
 	    <div class="form-group form-group-search-lesson row justify-content-center">
-	        <div class="col-3">
-		        <div class="input-group">
+	        <div class="@pc col-3 @endpc @sp col-12 @endsp">
+		        <div class="input-group input-group-difficulty">
 			        <label for="level" class="col-3 col-form-label px-0">段階</label>
-					<select name="difficulty" class="col-7">
+					<select name="difficulty" class="@pc col-7 @endpc @sp col-9 @endsp">
 						<option value="" @if (empty($diff)) selected @endif></option>
 						@foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
 							<option value="{{ $difficulty_id }}" @if ($diff == $difficulty_id) selected @endif>{{ $difficulty }}</option>
@@ -26,10 +26,10 @@
 					</select>
 		        </div>
 	        </div>
-	        <div class="col-3">
-		        <div class="input-group">
+	        <div class="@pc col-3 @endpc @sp col-12 @endsp">
+		        <div class="input-group input-group-category">
 			        <label for="level" class="col-3 col-form-label px-0">カテゴリ</label>
-					<select name="category" class="col-7">
+					<select name="category" class="@pc col-7 @endpc @sp col-9 @endsp">
 						<option value="" @if (empty($cate)) selected @endif></option>
 						@foreach ($filter_form['category'] as $cat_id => $cat)
 							<option value="{{ $cat_id }}" @if ($cate == $cat_id) selected @endif>{{ $cat }}</option>
@@ -37,7 +37,7 @@
 					</select>
 		        </div>
 	        </div>
-	        <div class="col-3">
+	        <div class="@pc col-3 @endpc @sp col-12 @endsp">
 	            <div class="input-group">
 					<input type="text" class="form-control form-control-search" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
 					<button class="btn-search">検索</button>

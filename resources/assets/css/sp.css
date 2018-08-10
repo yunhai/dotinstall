@@ -42,6 +42,9 @@
 .card-text-name {
 	height: 36px;
 }
+.input-group-difficulty, .input-group-category {
+	margin-bottom: 1rem;
+}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;
