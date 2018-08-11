@@ -1,4 +1,11 @@
 @charset "utf-8";
+.navbar-brand {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.navbar-brand .img-logo {
+	height: 27px;
+}
 .nav-item-user .dropdown-toggle::after {
     margin-left: 0;
     position: relative;
