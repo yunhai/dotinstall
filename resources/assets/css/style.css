@@ -70,11 +70,13 @@ body {
     background-color: #04e734;
     border-color: #04e734;
     border-radius: 6px;
+    padding-bottom: 4px;
 }
 .btn-line:hover {
     color: #fff;
     background-color: #00E000;
     border-color: #00E000;
+    padding-bottom: 4px;
 }
 .btn-twitter {
     display: table;
@@ -82,6 +84,7 @@ body {
     color: #fff;
     background-color: #1da1f3;
     border-radius: 5px;
+    padding-bottom: 4px;
 }
 .btn-twitter span img {
     width: 19px;
@@ -92,8 +95,7 @@ body {
     text-align: left;
     width: 75%;
     background-color: #1da1f3;
-    padding-top: .375rem;
-    padding-bottom: .375rem;
+    padding-bottom: 4px;
 }
 .btn-twitter:hover {
     color: #fff;
@@ -104,6 +106,7 @@ body {
     color: #fff;
     background-color: #3b579d;
     border-radius: 5px;
+    padding-bottom: 4px;
 }
 .btn-facebook span img {
     width: 12px;
@@ -114,8 +117,7 @@ body {
     text-align: left;
     width: 75%;
     background-color: #3b579d;
-    padding-top: .375rem;
-    padding-bottom: .375rem;
+    padding-bottom: 4px;
 }
 .btn-facebook:hover {
     color: #fff;
@@ -127,6 +129,7 @@ body {
     background-color: #fff;
     border: 1px solid #ff0033;
     border-radius: 5px;
+    padding-bottom: 4px;
 }
 .btn-yahoo span img {
 	vertical-align: baseline;
@@ -374,7 +377,6 @@ body {
     border-bottom-left-radius: 6px !important;
     text-align: center;
     color: #000 !important;
-	/*padding-top: 0.6rem;*/
 	padding-bottom: 6px;
 }
 .bg-button, .bg-button:not(:disabled):not(.disabled).active, .bg-button:not(:disabled):not(.disabled):active {
