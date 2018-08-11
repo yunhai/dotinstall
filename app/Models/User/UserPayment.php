@@ -30,16 +30,13 @@ class UserPayment extends Base
         $this->create($data);
     }
 
-    public function getLastPaymentByUserId($user_id)
+    public function getHistory($user_id)
     {
-        $target = $this->select('id', 'stripe_id', 'stripe_amount', 'stripe_status', 'stripe_time')
-                        ->where('stripe_status', USER_PAYMENT_CHARGE_SUCCEEDED)
-                        ->where('user_id', $user_id)
-                        ->orderBy('stripe_time', 'desc')
-                        ->first();
-        if ($target) {
-            return $target->toArray();
-        }
-        return [];
+        return $this->select('id', 'stripe_amount', 'stripe_status', 'stripe_time')
+                    ->where('stripe_status', USER_PAYMENT_CHARGE_SUCCEEDED)
+                    ->where('user_id', $user_id)
+                    ->orderBy('stripe_time', 'desc')
+                    ->get()
+                    ->toArray();
     }
 }

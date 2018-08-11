@@ -10,21 +10,32 @@ use Carbon\Carbon;
 
 class MyPage extends Base
 {
+    public function __construct(
+        UserPaymentModel $user_payment_model,
+        UserStatModel $user_stat,
+        NotificationModel $notification
+    ) {
+        $this->user_payment_model = $user_payment_model;
+        $this->user_stat = $user_stat;
+        $this->notification = $notification;
+    }
+    
     public function getMyPage()
     {
-        $user = Auth::user()->toArray();
-        $user_id = $user['id'];
+        $user_id = Auth::id() ?: 0;
 
         $stat = $this->getUserStat($user_id);
         $notifications = $this->getNotification(5);
-        $next_pay_date = $this->getNextPaymentDate($user_id);
-        return $this->render('mypage', compact('stat', 'notifications', 'next_pay_date'));
+        
+        $payment_history = $this->getPaymentHistory($user_id);
+        $next_pay_date = $this->getNextPaymentDate($payment_history);
+        
+        return $this->render('mypage', compact('stat', 'notifications', 'next_pay_date', 'payment_history'));
     }
 
     private function getUserStat(int $user_id)
     {
-        $model = new UserStatModel();
-        $stat = $model->getByUserId($user_id);
+        $stat = $this->user_stat->getByUserId($user_id);
 
         $result = [
             'closed_lesson_detail_count' => 0,
@@ -51,8 +62,7 @@ class MyPage extends Base
 
     private function getNotification($limit = 4)
     {
-        $model = new NotificationModel();
-        $result = $model->list($limit);
+        $result = $this->notification->list($limit);
         foreach ($result as &$item) {
             $post_date = Carbon::createFromFormat('Y-m-d H:i:s', $item['post_date']);
             $item['post_date_short'] = $post_date->format('m/d');
@@ -62,10 +72,9 @@ class MyPage extends Base
         return $result;
     }
 
-    private function getNextPaymentDate($user_id)
+    private function getNextPaymentDate(array $payment_history = [])
     {
-        $model = new UserPaymentModel();
-        $result = $model->getLastPaymentByUserId($user_id);
+        $result = array_shift($payment_history);
 
         if ($result) {
             return Carbon::createFromFormat('Y-m-d H:i:s', $result['stripe_time'])
@@ -73,5 +82,10 @@ class MyPage extends Base
                         ->format('Y年m月d日');
         }
         return '';
+    }
+    
+    private function getPaymentHistory(int $user_id)
+    {
+        return $this->user_payment_model->getHistory($user_id);
     }
 }
