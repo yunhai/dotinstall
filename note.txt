@@ -11,6 +11,9 @@ http {
 
 #mklink /j /path/to/laravel/public/avatars /path/to/laravel/storage/avatars
 #ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"
+
+glupgp1@gmail.com
+gg551129
 ############################################
 
 #ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"
