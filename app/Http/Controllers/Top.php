@@ -37,14 +37,16 @@ class Top extends Base
 
         $user_id = Auth::id() ?: 0;
         $filter_form = $this->filterForm($input);
+        $lesson_info = [];
         if ($user_id) {
             $lessons = $this->getLogedInLesson($input);
+            $lesson_info = $this->lessonInfo($lessons);
         } else {
             $lessons = $this->getUnLogInLesson();
         }
-
+        
         $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
-        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form'));
+        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
     }
 
     private function filterForm(array $input_value = [])
@@ -118,6 +120,21 @@ class Top extends Base
             }
         }
         return $lessons;
+    }
+    
+    private function lessonInfo(array $lessons = [])
+    {
+	    $lesson_total = $video_total = 0;
+        foreach ($lessons as $item) {
+    		foreach ($item as $item_detail) {
+        		$lesson_total += count($item_detail);
+        		foreach ($item_detail as $detail) {
+	        		$video_total += $detail['video_count'];
+	            };
+            }; 
+        };
+        
+        return compact('lesson_total', 'video_total');
     }
 
     private function getMedia($lessons)

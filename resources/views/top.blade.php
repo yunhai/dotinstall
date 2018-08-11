@@ -15,7 +15,7 @@
 @endnormal_user
 @if (Auth::check() == false)
 	@include('component.top.panel', ['youtube_link' => $youtube_link])
-	@include('component.top.video', ['filter_form' => $filter_form, 'lessons' => $lessons])
+	@include('component.top.video', ['lessons' => $lessons])
 @else
 	@include('component.top.lesson', ['lessons' => $lessons])
 @endif

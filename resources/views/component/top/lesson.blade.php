@@ -4,4 +4,4 @@
 		<li class="breadcrumb-item active">レッスン一覧</li>
 	</ol>
 </div>
-@include('component.lesson.lesson', ['filter_form' => $filter_form, 'lessons' => $lessons])
+@include('component.lesson.lesson', ['filter_form' => $filter_form, 'lessons' => $lessons, 'lesson_info' => $lesson_info])

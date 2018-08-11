@@ -44,7 +44,7 @@
                 <span>簡単な実戦でプログラムを覚えよう！</span>
             </div>
             <div class="col-7 pr-0 text-right">
-                <span>レッスン一覧 〇〇レッスン　〇〇本の動画で提供中</span>
+                <span>レッスン一覧 {{ isset($lesson_info['lesson_total']) ? $lesson_info['lesson_total'] : 0 }}レッスン　{{ isset($lesson_info['video_total']) ? $lesson_info['video_total'] : 0 }}本の動画で提供中</span>
             </div>
         </div>
     </div>
