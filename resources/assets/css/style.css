@@ -285,6 +285,9 @@ body {
 	border-width: 0;
     cursor: pointer;
 }
+.btn-search:focus {
+    outline: none;
+}
 .form-control-search {
 	color: #837f80;
 	border-color: #837f80;
