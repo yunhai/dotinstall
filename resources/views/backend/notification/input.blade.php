@@ -3,7 +3,7 @@
 @php
     $target = $target ?? [];
     $form = [
-        'form_btn' => '保存',
+        'form_btn' => '送信',
         'form_label' => '通知',
         'form_back_url' => route('backend.notification.index'),
         'form_field' => [

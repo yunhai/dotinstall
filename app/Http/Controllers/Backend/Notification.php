@@ -53,6 +53,10 @@ class Notification extends Base
         $notification_id = $target->id;
         $mail->init($notification_id);
 
+        $base = base_path();
+        $command = "cd {$base} && php artisan notification:send > /dev/null 2>/dev/null &";
+        shell_exec($command);
+
         return redirect()
                   ->route('backend.notification.index')
                   ->with('input.success', 'input.success');
