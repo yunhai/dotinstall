@@ -390,7 +390,7 @@ body {
     color: #fff !important;
 	font-size: 0.75rem;
     padding-top: .3rem;
-    padding-bottom: .25rem;
+    padding-bottom: 2px;
     display: inline-block;
     cursor: pointer;
 }
