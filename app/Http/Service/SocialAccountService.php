@@ -9,9 +9,9 @@ class SocialAccountService
 {
     public static function createOrGetUser(ProviderUser $providerUser, $provider)
     {
-        $account = User::whereProvider($provider)
+        return User::whereProvider($provider)
             ->whereProviderUserId($providerUser->getId())
+            ->where('mode', MODE_ENABLE)
             ->first();
-        return $account;
     }
 }
