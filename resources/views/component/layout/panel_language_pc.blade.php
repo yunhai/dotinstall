@@ -2,7 +2,7 @@
 	<div class="card">
 		<div class="card-img-overlay px-5">
 			<div class="card-body">
-				<div class="row align-items-center ml-0">
+				<div class="row align-items-center mar_l40">
 					<div class="card-body-language-left">
 						<div class="card-language card-language-btn text-center">
 							<span class="mar_r10">
