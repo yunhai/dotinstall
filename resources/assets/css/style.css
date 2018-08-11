@@ -84,7 +84,6 @@ body {
     color: #fff;
     background-color: #1da1f3;
     border-radius: 5px;
-    padding-bottom: 4px;
 }
 .btn-twitter span img {
     width: 19px;
@@ -95,7 +94,6 @@ body {
     text-align: left;
     width: 75%;
     background-color: #1da1f3;
-    padding-bottom: 4px;
 }
 .btn-twitter:hover {
     color: #fff;
@@ -106,7 +104,6 @@ body {
     color: #fff;
     background-color: #3b579d;
     border-radius: 5px;
-    padding-bottom: 4px;
 }
 .btn-facebook span img {
     width: 12px;
@@ -117,7 +114,6 @@ body {
     text-align: left;
     width: 75%;
     background-color: #3b579d;
-    padding-bottom: 4px;
 }
 .btn-facebook:hover {
     color: #fff;
@@ -129,7 +125,6 @@ body {
     background-color: #fff;
     border: 1px solid #ff0033;
     border-radius: 5px;
-    padding-bottom: 4px;
 }
 .btn-yahoo span img {
 	vertical-align: baseline;
