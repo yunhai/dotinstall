@@ -44,7 +44,7 @@
                         @else
                         <h4><p class="card-text">{{ $next_pay_date }}</p></h4>
                         <h4><p class="card-text">&yen;{{ constant('MEMBERSHIP_FEE') }}円<span style="font-size: 10px;">税別</span></p></h4>
-                        <p class="card-text">
+                        <p class="card-text mb-0">
                             <a href="javascript:;" data-toggle="modal" data-target=".payment-history-modal-sm">購入履歴</a>
                         </p>
                         <p class="card-text">
