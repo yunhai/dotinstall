@@ -50,7 +50,7 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
                         <a class="nav-link" href="{{ route('register') }}" role="tab">新規登録</a>
-                        <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register.diamond') }}" role="tab"><span class="mr-2"><img class="img-fluid" src="/img/charge_diamond.png" width="15px;"></span>有料会員になる</a>
+                        <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register.diamond') }}" role="tab"><span class="mr-2"><img class="img-fluid" src="/img/charge_diamond.png" width="15px;"></span>月額会員になる</a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
