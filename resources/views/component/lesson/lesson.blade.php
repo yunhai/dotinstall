@@ -78,7 +78,7 @@
 									@if ($lesson['lesson_detail_close_count'] >= $lesson['video_count'])
 										<span class="btn-all-complete">全て完了</span>
 									@else
-										<span style="min-width: 38px;">{{ $lesson['lesson_detail_close_count'] }} / {{ $lesson['video_count'] }}</span>
+										<span style="min-width: 38px;">完了 / {{ $lesson['lesson_detail_close_count'] }}</span>
 									@endif
 								@endif
                             </div>
