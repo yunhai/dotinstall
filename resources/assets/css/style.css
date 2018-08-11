@@ -417,7 +417,7 @@ body {
 	padding-left: .5rem;
 	padding-right: .5rem;
 	padding-top: 2px;
-	padding-bottom: 2px;
+	padding-bottom: 1px;
     border-radius: .2rem;
 }
 .bg-button-to-complete {
@@ -438,7 +438,7 @@ body {
     padding-left: 0.82rem;
     padding-right: 0.82rem;
     padding-top: 2px;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     border-radius: .2rem;
 }
 .bg-button-complete {
@@ -459,7 +459,7 @@ body {
     padding-left: 1.44rem;
     padding-right: 1.44rem;
 	padding-top: 2px;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
 }
 .bg-button-user-diamond {
     background: repeating-linear-gradient(
