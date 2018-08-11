@@ -69,7 +69,7 @@
                         <li class="list-group-item list-group-item-lesson px-0">
                             <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
                               <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="d-flex align-items-center">
-                                  <span>【{{ $filter_form['difficulty'][$level] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}</span>
+                                  <span>【{{ $filter_form['difficulty'][$level] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                               </a>
                             </div>
                             <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 mar_t10 @endsp px-0">
