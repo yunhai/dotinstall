@@ -37,7 +37,7 @@
         </div>
     </form>
 </div>
-<div class="box mb-0">
+<div class="box">
     <div class="card">
         <div class="lession-nar w-100 px-5 d-flex align-items-center">
             <div class="col-5 pl-0 pr-0">
@@ -49,7 +49,7 @@
         </div>
     </div>
 </div>
-<div class="box mb-0">
+<div class="box mar_t20 mar_b20">
     @foreach ($lessons as $level => $category_list)
         @foreach ($category_list as $categoy_id => $lesson_item)
             <div class="card">
