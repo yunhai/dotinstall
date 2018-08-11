@@ -33,10 +33,10 @@ body #pc-col-7 {
 	padding-right: 0;
 }
 .pl-5, .px-5 {
-    padding-left: 5px!important;
+    padding-left: 10px!important;
 }
 .pr-5, .px-5 {
-    padding-right: 5px!important;
+    padding-right: 10px!important;
 }
 .box .card .card-text-header {
     font-size: 2rem;
