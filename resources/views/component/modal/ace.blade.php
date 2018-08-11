@@ -38,7 +38,7 @@
                 @endforeach
             </div>
 			@else
-				<p class="text-center">ソースコードはありません</p>
+				<p class="text-center" @if (empty($resources)) style="margin-top: 16px;" @endif>ソースコードはありません</p>
             @endif
         </div>
     </div>
