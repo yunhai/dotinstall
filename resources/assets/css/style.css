@@ -519,6 +519,9 @@ body {
 	color: #837f80;
 	border-color: #837f80;
 }
+.input-group-difficulty select:focus, .input-group-category select:focus {
+	outline: none;
+}
 /* BREADCRUMB
 ------------------------------------------------------------ */
 .breadcrumb {
