@@ -1,6 +1,7 @@
 {
     "/js/backend/common/upload.js": "/js/backend/common/upload.js",
-    "/css/app.css": "/css/app.css",
     "/js/backend/common/select.js": "/js/backend/common/select.js",
+    "/css/app.css": "/css/app.css",
+    "/js/backend/common/sortable.js": "/js/backend/common/sortable.js",
     "/js/backend/app.js": "/js/backend/app.js"
 }
