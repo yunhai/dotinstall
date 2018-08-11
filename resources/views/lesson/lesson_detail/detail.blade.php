@@ -71,6 +71,12 @@
                         <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
                         </a>
                         @endif
+                        @unlogin
+                            <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
+                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
+                                <span>月額会員に登録する</span>
+                            </a>
+                        @endunlogin
                         @normal_user
                             <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
                                 <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
