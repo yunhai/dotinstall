@@ -55,7 +55,7 @@ class LoginController extends Controller
             return redirect()->route('top');
         }
 
-        return redirect()->back()->with('status', '');
+        return redirect()->back()->with('error', 'メールアドレスかパスワードが間違っています。');
     }
 
     public function getLogout()

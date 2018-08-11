@@ -1,5 +1,26 @@
 @extends('layout.master')
 @section('title', 'ログイン')
+@push('js')
+    @if (session('error'))
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#error').modal('show');
+        });
+    </script>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="error" data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-sm">
+                  <div class="modal-content rounded-0">
+                      <div class="modal-body">
+                          <p class="mb-0">{{ session('error') }}</p>
+                      </div>
+                      <div class="modal-footer" style="padding: 0; justify-content:center;">
+                          <a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">OK</a>
+                      </div>
+                  </div>
+              </div>
+        </div>
+    @endif
+@endpush
 @section('breadcrumbs', Breadcrumbs::render('login'))
 @section('content')
 <div id="content">
