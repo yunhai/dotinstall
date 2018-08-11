@@ -14,12 +14,11 @@ class Mail extends Base
         'mode'
     ];
 
-    public function getPendingList($limit = 50)
+    public function getPendingList()
     {
         $list = $this->select('id', 'user_id', 'notification_id')
                     ->where('mode', MAIL_MODE_PENDING)
                     ->orderBy('id')
-                    ->limit($limit)
                     ->get();
         if ($list) {
             return $list->toArray();
@@ -27,13 +26,14 @@ class Mail extends Base
         return [];
     }
 
-    public function updadeSentModeByIdList(array $list = [])
+    public function updadeSentModeByUserIdNotificationId(int $user_id, int $notification_id)
     {
         $update = [
             'flush_date' => Carbon::now()->format('Y-m-d H:i:s'),
             'mode' => MAIL_MODE_SENT,
         ];
-        $this->whereIn('id', $list)
+        $this->where('user_id', $user_id)
+            ->where('notification_id', $notification_id)
             ->update($update);
         return true;
     }

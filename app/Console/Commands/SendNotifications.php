@@ -55,44 +55,21 @@ class SendNotifications extends Command
         }
 
         $mail_list = [];
-        $max = 3;
         foreach ($target_list as $notification_id => $list) {
-            $mail_detail = [
-                'title' => '',
-                'content' => '',
-                'to' => '',
-                'bcc' => [],
-            ];
-            $index = 1;
             foreach ($list as $item) {
                 $notification = $notification_list[$item['notification_id']] ?? [];
                 $recipient = $user_list[$item['user_id']] ?? [];
 
                 if ($recipient && $notification) {
-                    if ($index++ > $max) {
-                        array_push($mail_list, $mail_detail);
-                        $index = 1;
-                        $mail_detail = [
-                            'title' => '',
-                            'content' => '',
-                            'to' => [],
-                            'bcc' => [],
-                        ];
-                    }
-                    if (empty($mail_detail['bcc'])) {
-                        $mail_detail = [
-                            'title' => $notification['title'],
-                            'content' => $notification['content'],
-                            'bcc' => [],
-                        ];
-                    }
-                    $bcc = [$recipient['email'], $recipient['name']];
-                    array_push($mail_detail['bcc'], $bcc);
+                    $mail_detail = [
+                        'user_id' => $item['user_id'],
+                        'notification_id' => $item['notification_id'],
+                        'title' => $notification['title'],
+                        'content' => $notification['content'],
+                        'to' => [$recipient['email'], $recipient['name']],
+                    ];
+                    array_push($mail_list, $mail_detail);
                 }
-            }
-
-            if ($mail_detail['bcc']) {
-                array_push($mail_list, $mail_detail);
             }
         }
 
@@ -100,20 +77,20 @@ class SendNotifications extends Command
         foreach ($mail_list as $mail) {
             $name = 'Mail\Console\Notification\NotificationEmail';
             $mailer->send($name, $mail);
+            $this->updateEmailListMode($mail['user_id'], $mail['notification_id']);
         }
 
-        $this->updateEmailListMode($sent_list);
         return true;
     }
 
     private function getPendingEmailList()
     {
-        return $this->mail_model->getPendingList(50);
+        return $this->mail_model->getPendingList();
     }
 
-    private function updateEmailListMode(array $sent_list)
+    private function updateEmailListMode(int $user_id, int $notification_id)
     {
-        return $this->mail_model->updadeSentModeByIdList($sent_list);
+        return $this->mail_model->updadeSentModeByUserIdNotificationId($user_id, $notification_id);
     }
 
     private function getNotificationList(array $notification_id_list)
