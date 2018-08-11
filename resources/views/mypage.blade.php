@@ -43,7 +43,7 @@
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額\{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
                         @else
                         <h4><p class="card-text">{{ $next_pay_date }}</p></h4>
-                        <h4><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円</p></h4>
+                        <h4><p class="card-text">\{{ constant('MEMBERSHIP_FEE') }}円<span style="font-size: 10px;">税別</span></p></h4>
                         <p class="card-text">
                             <a href="javascript:;"  data-toggle="modal" data-target=".user-downgrade-modal-sm">【月額会員を止める】</a>
                         </p>
