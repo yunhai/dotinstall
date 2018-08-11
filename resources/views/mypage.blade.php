@@ -45,7 +45,10 @@
                         <h4><p class="card-text">{{ $next_pay_date }}</p></h4>
                         <h4><p class="card-text">&yen;{{ constant('MEMBERSHIP_FEE') }}円<span style="font-size: 10px;">税別</span></p></h4>
                         <p class="card-text">
-                            <a href="javascript:;"  data-toggle="modal" data-target=".user-downgrade-modal-sm">【月額会員を止める】</a>
+                            <a href="javascript:;" data-toggle="modal" data-target=".payment-history-modal-sm">購入履歴</a>
+                        </p>
+                        <p class="card-text">
+                            <a href="javascript:;" data-toggle="modal" data-target=".user-downgrade-modal-sm">【月額会員を止める】</a>
                         </p>
                         @endnormal_user
                     </div>
@@ -91,6 +94,33 @@
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade payment-history-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content rounded-0" style="height: auto;">
+			<div class="modal-body p-0">
+				<table class="table table-borderless mb-0">
+					<thead>
+						<tr>
+							<td scope="col">日付</td>
+							<td scope="col">金額</td>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($payment_history as $history)
+							<tr>
+								<td scope="row">{{ $history['stripe_time'] }}</td>
+								<td>{{ $history['stripe_amount'] }}</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer" style="padding: 0;">
+				<a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="modal fade user-downgrade-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
