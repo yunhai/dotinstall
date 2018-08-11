@@ -40,6 +40,7 @@ body #pc-col-7 {
 }
 .box .card .card-text-header {
     font-size: 2rem;
+    padding-bottom: 20px;
 }
 .box .card .card-body .row .card-sign .card-text-sign {
     font-size: 1.1rem;
