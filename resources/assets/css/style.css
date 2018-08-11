@@ -349,7 +349,8 @@ body {
 }
 .lession-nar {
     background-color: #ece8e9;
-    padding: .65rem 1rem;
+    padding-top: .65rem;
+    padding-bottom: .64rem;
 }
 /* Stripe
 ------------------------------------------------------------ */
