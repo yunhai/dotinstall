@@ -54,6 +54,7 @@ body #pc-col-7 {
 }
 .card-body-language-right {
 	width: 40%;
+	text-align: center;
 }
 .card-img-app, .card-img-objective_c, .card-img-swift {
 	width: 43px;
