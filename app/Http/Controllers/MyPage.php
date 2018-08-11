@@ -77,7 +77,7 @@ class MyPage extends Base
         $result = array_shift($payment_history);
 
         if ($result) {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $result['stripe_time'])
+            return Carbon::createFromFormat('Y/m/d', $result['stripe_time'])
                         ->addMonth()
                         ->format('Y年m月d日');
         }
@@ -86,6 +86,12 @@ class MyPage extends Base
     
     private function getPaymentHistory(int $user_id)
     {
-        return $this->user_payment_model->getHistory($user_id);
+        $result = $this->user_payment_model->getHistory($user_id);
+        foreach ($result as &$item) {
+            $item['stripe_time'] = Carbon::createFromFormat('Y-m-d H:i:s', $item['stripe_time'])
+                                    ->format('Y/m/d');
+        }
+        return $result;
+        dd($result);
     }
 }
