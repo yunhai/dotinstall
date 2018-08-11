@@ -243,12 +243,13 @@ body {
     height: 25px;
 }
 .lession-heading-url {
-    /*margin-top: 5px;*/
     margin-left: auto;
 }
 .lession-header {
 	background-color: #253147;
 	color: #fff;
+	padding-top: 0.5rem;
+	padding-bottom: 0.4rem;
 }
 .lession-header a {
 	color: #fff;
