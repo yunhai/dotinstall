@@ -22,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
             return Auth::check();
         });
 
+        Blade::if('unlogin', function () {
+            return !Auth::check();
+        });
+
         Blade::if('diamond_user', function () {
             if (Auth::check()) {
                 return (Auth::user()->grade == USER_GRADE_DIAMOND);
