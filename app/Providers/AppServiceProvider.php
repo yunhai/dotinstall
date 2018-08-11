@@ -18,6 +18,10 @@ class AppServiceProvider extends ServiceProvider
         $this->bootSocialiteLine();
         $this->bootSocialiteYahooJp();
 
+        Blade::if('logined', function () {
+            return Auth::check();
+        });
+
         Blade::if('diamond_user', function () {
             if (Auth::check()) {
                 return (Auth::user()->grade == USER_GRADE_DIAMOND);

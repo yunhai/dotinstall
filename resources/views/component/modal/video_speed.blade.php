@@ -6,7 +6,7 @@
             </div>
             <div class="modal-footer" style="padding: 0;">
                 <a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">後で月額会員になる</a>
-                <a href="{{ route('user.upgrade') }}" class="btn">月額会員になる</a>
+                <a href="@logined {{ route('user.upgrade') }} @else  {{ route('register.diamond') }} @endlogined" class="btn">月額会員になる</a>
             </div>
         </div>
     </div>
