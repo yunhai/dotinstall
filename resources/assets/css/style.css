@@ -95,14 +95,14 @@ body {
     color: #fff;
 }
 .btn-facebook {
-    display: table;
-    padding: 0;
+	display: flex;
+    align-items: end;
     color: #fff;
     background-color: #3b579d;
     border-radius: 5px;
     padding-top: 6px;
-    padding-bottom: 4px;
-    padding-left: 12px;
+    padding-bottom: 6px;
+    padding-left: 20px;
     padding-right: 9px;
 }
 .btn-facebook span img {
@@ -110,9 +110,9 @@ body {
     display: inline-block;
 }
 .btn-facebook .btn-facebook-label {
-    display: table-cell;
-    text-align: left;
-    width: 75%;
+    /*display: table-cell;
+    text-align: left;*/
+    width: 90%;
     background-color: #3b579d;
 }
 .btn-facebook:hover {
