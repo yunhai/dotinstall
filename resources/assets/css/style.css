@@ -287,16 +287,20 @@ body {
 .btn-search {
 	background-color: #837f80;
     color: #fff;
-	padding: .25rem .5rem;
     font-size: 0.75rem;
     border-radius: .2rem;
 	border-width: 0;
     cursor: pointer;
+    padding-top: .25rem;
+    padding-bottom: .24rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 .btn-search:focus {
     outline: none;
 }
 .form-control-search {
+	margin-right: 2px;
 	color: #837f80;
 	border-color: #837f80;
 	border-radius: 0;
