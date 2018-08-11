@@ -70,7 +70,7 @@ body {
     background-color: #04e734;
     border-color: #04e734;
     border-radius: 6px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
 }
 .btn-line:hover {
     color: #fff;
@@ -103,10 +103,10 @@ body {
     color: #fff;
     background-color: #3b579d;
     border-radius: 5px;
-    padding-top: .375rem;
-    padding-bottom: .275rem;
-    padding-left: .75rem;
-    padding-right: .75rem;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 9px;
 }
 .btn-facebook span img {
     width: 12px;
@@ -138,10 +138,10 @@ body {
     display: table-cell;
     width: 75%;
     background-color: #ff0033;
-    padding-top: .375rem;
-    padding-bottom: .275rem;
-    padding-left: .75rem;
-    padding-right: .75rem;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .btn-yahoo:hover {
     color: #fff;
@@ -163,10 +163,10 @@ body {
     display: table-cell;
     width: 75%;
     background-color: #4484f3;
-    padding-top: .375rem;
-    padding-bottom: .275rem;
-    padding-left: .75rem;
-    padding-right: .75rem;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .btn-google:hover {
     color: #fff;
