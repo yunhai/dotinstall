@@ -8,6 +8,7 @@
 @push('js')
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
     <script type="text/javascript" src="/js/ace.js"></script>
+    <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
 @endpush
 
 @section('content')
