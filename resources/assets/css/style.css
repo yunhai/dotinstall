@@ -106,6 +106,7 @@ body {
     padding-right: 9px;
 }
 .btn-facebook span img {
+	vertical-align: top;
     width: 12px;
     display: inline-block;
 }
