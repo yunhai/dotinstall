@@ -292,8 +292,8 @@ body {
     border-radius: .2rem;
 	border-width: 0;
     cursor: pointer;
-    padding-top: .25rem;
-    padding-bottom: .24rem;
+    padding-top: 4px;
+    padding-bottom: 2px;
     padding-left: .5rem;
     padding-right: .5rem;
 }
