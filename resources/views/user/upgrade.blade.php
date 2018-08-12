@@ -65,7 +65,7 @@
                                             <div id="card-cvc" class='col card-element'></div>
                                         </div>
                                     </div>
-                                    <div id="card-errors" role="alert"></div>
+                                    <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
                                     @if (!empty(session('error')))
                                         @foreach (session('error') as $error)
                                             <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;">{{ $error }}</div>
