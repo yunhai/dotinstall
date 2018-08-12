@@ -1,5 +1,5 @@
 <div class="modal fade user-upgrade-modal-sm" id="{{ $modal_id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-0" style="height: auto;">
             <div class="modal-body">
                 <p class="mb-0">月額会員になるとすべての動画が見る事が出来ます。</p>
