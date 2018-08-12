@@ -42,7 +42,7 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         $input = $request->all();
-        
+ 
         $credentials = [
             'email' => $input['email'],
             'password' => $input['password'],
@@ -61,6 +61,6 @@ class LoginController extends Controller
     public function getLogout()
     {
         auth('web')->logout();
-        return redirect('');
+        return redirect()->route('top');
     }
 }

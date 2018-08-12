@@ -27,6 +27,20 @@ class User extends Base
         return $this->render('user.upgrade');
     }
 
+    public function getDestroy()
+    {
+        $user_id = Auth::id();
+        if (Auth::user()->grade == USER_GRADE_DIAMOND) {
+            $payment_service = new StripeService();
+            $payment_service->cancel($user_id);
+        }
+
+        $this->model->remove($user_id);
+
+        auth('web')->logout();
+        return redirect()->route('top');
+    }
+
     public function postUpgrade(Request $request)
     {
         $user = Auth::user()->toArray();

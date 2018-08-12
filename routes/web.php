@@ -56,6 +56,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('user/password', 'User@getChangePassword')->name('user.change_password')->middleware('web.user');
     Route::post('user/password', 'User@postChangePassword')->middleware('web.user');
+    Route::get('user/destroy', 'User@getDestroy')->name('user.destroy')->middleware('web.user');
 
     Route::get('logout', 'Auth\LoginController@getLogout')->name('logout')->middleware('web.user');
 });

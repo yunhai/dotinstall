@@ -9,10 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Traits\User\UserTrack;
 use Laravel\Cashier\Billable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable, UserTrack, Billable;
+    use Notifiable, UserTrack, Billable, SoftDeletes;
 
     protected $fillable = [
       'name',
@@ -66,5 +67,11 @@ class User extends Authenticatable
             ->update(['user_id' => $target->id]);
 
         return $target;
+    }
+    
+    public function remove(int $id)
+    {
+        $this->findOrFail($id)->delete($id);
+        return true;
     }
 }
