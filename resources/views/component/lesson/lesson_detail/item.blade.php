@@ -34,12 +34,12 @@ $allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE')
                     @if ($allow_access)
                         @if (!empty($target['popup']))
                             @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                            <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/写真素材</a>
+                            <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/素材</a>
                         @else
-                            <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/写真素材</a>
+                            <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/素材</a>
                         @endif
                     @else
-                        <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-source-confirmation">ソース/写真素材</a>
+                        <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-source-confirmation">ソース/素材</a>
                     @endif
 
                     @php
@@ -67,7 +67,7 @@ $allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE')
                 </p>
             @else
                 <p class="card-text">
-                    <a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース/写真素材</a>
+                    <a href="{{ route('login') }}" class="btn-sm bg-button-source-confirmation">ソース/素材</a>
                     <a href="{{ route('login') }}" class="btn-sm bg-button-to-complete">完了する</a>
                 </p>
             @endif
