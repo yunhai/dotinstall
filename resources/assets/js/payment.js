@@ -33,7 +33,7 @@ cardExpiry.mount('#card-expiry')
 
 var cardCvc = elements.create('cardCvc', {
     style: style,
-    placeholder: '確認コード３行',
+    placeholder: 'CVC',
 })
 cardCvc.mount('#card-cvc')
 
