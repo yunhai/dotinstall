@@ -53,14 +53,11 @@
                             <p>動画は全て見放題となります！動画は毎月増えます！</p>
                             <p>※ 毎月自動的に決済されます。<br>※ 購入後、設定変更画面から自動更新を停止することもできます。</p>
                         </div>
-                        <div class="form-group form-group-stripe mb-0 border-bottom-0">
-                            <div class="form-group row">
-                                <p class="col-md-4 col-form-label text-md-left">月額会員、月額/980円（税別）<p>
-                            </div>
-                            <div class="form-group row">
-                                <label for="card_number" class="col-md-4 col-form-label text-md-right">クレジットカード番号</label>
+                        <div class="row border-bottom-0 justify-content-center mx-auto mb-0">
+                            <div class="@pc col-8 @endpc @sp col-12 @endsp">
+                                <label for="card_number" class="col col-form-label">クレジットカード番号</label>
 
-                                <div class="col-md-6">
+                                <div class="col">
                                     <div class='container' id='card-holder'>
                                         <div class='row'>
                                             <div id="card-number" class='col-7 card-element'></div>
@@ -75,19 +72,30 @@
                                         @endforeach
                                     @endif
                                 </div>
+                                <label for="card_number" class="col col-form-label">※ 半角数字で入力</label>
                             </div>
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right"></label>
-
-                                <div class="col-md-3 text-center">
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
+                                <div class="@pc col-5 @endpc @sp col-6 @endsp">
+                                    <img class="img-fluid" src="/img/charge.png" width="100%">
+                                </div>
+                            </div>
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
+                                <div class="@pc col-5 @endpc @sp col-12 @endsp">
+                                    ※ デビットカードご利用可能です。
+                                </div>
+                            </div>
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t20 mar_b20">
+                                <div class="col">
+                                     ※ 有料会員利用規約に同意されたうえでご登録ください。
+                                </div>
+                            </div>
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
+                                <div class="@pc col-5 @endpc @sp col-8 @endsp text-center">
                                     <span id='j-submit' type="btn" class="p-0" style="cursor: pointer;">
                                         <img class="img-fluid" src="/img/bg_button_charge.png" width="100%">
                                         <span class="button-charge centered">月額会員に登録する</span>
                                     </span>
                                 </div>
-                            </div>
-                            <div class="form-group mb-0">
-                                <p class="card-text">※ 弊社からクレジットカード会社への請求が行なわれる時期は翌月中旬となります。<br>※ 月額会員利用規約に同意されたうえでご登録ください。</p>
                             </div>
                         </div>
                     </form>
