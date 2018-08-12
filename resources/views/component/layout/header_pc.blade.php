@@ -1,5 +1,5 @@
 <!-- /HEADER -->
-<h1 class="d-block px-5 py-2 mb-0 text-left text-bold text-white old-bv font_12">簡単な実戦でプログラミングを習得５分動画学習</h1>
+<h1 class="d-block px-5 py-2 mb-0 text-left text-bold text-white old-bv font_12">小学生から大人まで簡単な実戦でプログラミングを習得５分動画学習</h1>
 <nav class="navbar navbar-expand navbar-light px-5 pt-0 pb-0">
     <a class="navbar-brand" href="/"><img class="img-logo" src="/img/logo_header.jpg" alt="cogwheel"></a>
 
