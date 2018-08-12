@@ -38,7 +38,7 @@
             <div class="card">
                 <div class="card-header card-header-upgrade">
                     <span><img class="img-fluid" src="/img/charge_diamond.png" width="25px;"></span>
-                    <span>月額会員になる</span>
+                    <span style="margin-bottom: -3px;">月額会員になる</span>
                 </div>
 
                 <div class="card-body">
