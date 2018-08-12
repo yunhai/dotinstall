@@ -11,6 +11,13 @@ body #pc-col-7 {
 }
 #pc-panel-left {
 	width: 40%;
+	text-align: center;
+}
+#pc-panel-left .card-text-sign {
+	text-align: left;
+}
+#pc-panel-left .card-sign-button {
+	margin-left: -45px;
 }
 #pc-panel-right {
 	width: 60%;
@@ -97,5 +104,5 @@ body #pc-col-7 {
     height: 43px;
 }
 .box .card .card-body .row .card-sign .card-sign-button {
-    margin-left: 71px;
+    /*margin-left: 71px;*/
 }
