@@ -37,7 +37,7 @@
         <div class="col-12 mar_b20 px-0">
             <div class="card">
                 <div class="card-header card-header-upgrade">
-                    <span><img class="img-fluid" src="/img/charge_diamond.png" width="25px;"></span>
+                    <span class="mr-1 text-center"><img class="img-fluid" src="/img/charge_diamond.png" width="25px;"></span>
                     <span style="margin-bottom: -3px;">月額会員になる</span>
                 </div>
 
@@ -62,7 +62,7 @@
                                         <div class='row'>
                                             <div id="card-number" class='col-7 card-element'></div>
                                             <div id="card-expiry" class='col-2 card-element'></div>
-                                            <div id="card-cvc" class='col card-element' style="padding-left: 55px;"></div>
+                                            <div id="card-cvc" class='col card-element' @pc style="padding-left: 55px;" @endpc></div>
                                         </div>
                                     </div>
                                     <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
