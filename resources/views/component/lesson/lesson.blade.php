@@ -69,18 +69,19 @@
                         <li class="list-group-item list-group-item-lesson px-0">
                             <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
                               <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="d-flex align-items-center">
-                                  <span>【{{ $filter_form['difficulty'][$level] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
+                                  @php $is_all_finish = ($lesson['lesson_detail_close_count'] >= $lesson['video_count']) ; @endphp
+                                  <span @if($is_all_finish) style='text-decoration: line-through' @endif>【{{ $filter_form['difficulty'][$level] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                               </a>
                             </div>
                             <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 mar_t10 @endsp px-0">
-                              <span class="@if (Auth::check()) mar_r15 @endif">{{ number_format($lesson['lesson_learning_count']) }} 人が学習中</span>
-								@if (!empty(Auth::check()))
-									@if ($lesson['lesson_detail_close_count'] >= $lesson['video_count'])
-										<span class="btn-all-complete">全て完了</span>
-									@else
-										<span style="min-width: 38px;">完了 / {{ $lesson['lesson_detail_close_count'] }}</span>
-									@endif
-								@endif
+                                <span class="@if (Auth::check()) mar_r15 @endif">{{ number_format($lesson['lesson_learning_count']) }} 人が学習中</span>
+                                @if (!empty(Auth::check()))
+                                    @if ($is_all_finish)
+                                        <span class="btn-all-complete">全て完了</span>
+                                    @else
+                                        <span style="min-width: 38px;">完了 / {{ $lesson['lesson_detail_close_count'] }}</span>
+                                    @endif
+                                @endif
                             </div>
                         </li>
                     @endforeach

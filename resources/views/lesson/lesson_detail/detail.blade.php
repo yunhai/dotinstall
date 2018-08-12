@@ -88,21 +88,20 @@
                             <a href="{{ $redirect }}" class="btn-sm {{ $css_class }} ">
                                 {{ $text }}
                             </a>
-                            @unlogin
-                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
-                                <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
-                                    <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-                                    <span>月額会員に登録する</span>
-                                </a>
-                            @endunlogin
-                            @normal_user
-                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
-                                <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
-                                    <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-                                    <span>月額会員に登録する</span>
-                                </a>
-                            @endnormal_user
+                            <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
                         @endif
+                        @unlogin
+                            <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
+                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
+                                <span>月額会員に登録する</span>
+                            </a>
+                        @endunlogin
+                        @normal_user
+                            <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
+                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
+                                <span>月額会員に登録する</span>
+                            </a>
+                        @endnormal_user
                     </div>
 
                     <div class="col-5  pl-0 pr-0 text-right">
