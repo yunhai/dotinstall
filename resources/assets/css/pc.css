@@ -96,3 +96,6 @@ body #pc-col-7 {
 .col-lesson .card-text-name {
     height: 43px;
 }
+.box .card .card-body .row .card-sign .card-sign-button {
+    margin-left: 71px;
+}
