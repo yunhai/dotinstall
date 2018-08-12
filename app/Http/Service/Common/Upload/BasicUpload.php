@@ -30,6 +30,7 @@ class BasicUpload
         $hash_name = $file->hashName();
 
         $extension = substr($original_name, strrpos($original_name, '.') + 1);
+        $extension = substr($extension, 0, 8);
         $size = $file->getClientSize();
 
         $hash_name = substr($hash_name, 0, strrpos($hash_name, '.') + 1);
