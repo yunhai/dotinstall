@@ -101,11 +101,15 @@ body {
     background-color: #3b579d;
     border-radius: 5px;
     padding-top: 6px;
-    padding-bottom: 6px;
+    padding-bottom: 4px;
     padding-left: 20px;
     padding-right: 9px;
 }
+.btn-facebook span:first-child {
+	margin-top: -2px;
+}
 .btn-facebook span img {
+	vertical-align: top;
     width: 12px;
     display: inline-block;
 }
@@ -152,7 +156,7 @@ body {
     border-radius: 5px;
 }
 .btn-google span img {
-	vertical-align: bottom;
+	vertical-align: top;
     width: 16px;
     display: inline-block;
 }
@@ -442,7 +446,7 @@ body {
         #acacac 5px,
         #acacac 10px
     );
-    border: 2px solid #e3e3e3;
+    border: 2px solid #acacac;
     text-align: center;
     text-decoration: none;
     color: #212529 !important;
@@ -475,6 +479,7 @@ body {
     padding-bottom: 1px;
 }
 .bg-button-user-diamond {
+	display: inline-block;
     background: repeating-linear-gradient(
         -45deg,
         #b5adff,
@@ -487,6 +492,10 @@ body {
     color: #fff !important;
     font-size: 10px;
     font-weight: bold;
+    padding-left: .5rem;
+    padding-right: .5rem;
+	padding-top: 2px;
+    padding-bottom: 1px;
 }
 .bg-button-source-confirmation:hover, 
 .bg-button-to-complete:hover,
