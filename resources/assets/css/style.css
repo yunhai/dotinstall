@@ -374,6 +374,11 @@ body {
 }
 /* Stripe
 ------------------------------------------------------------ */
+.card-header-upgrade {
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
 .form-group-stripe {
     border-bottom: 1px solid #bca9af;
 }

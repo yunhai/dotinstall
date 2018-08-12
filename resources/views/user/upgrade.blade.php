@@ -36,7 +36,7 @@
     <div class="box-user mar_t20 mar_b20 px-5">
         <div class="col-12 mar_b20 px-0">
             <div class="card">
-                <div class="card-header text-center">
+                <div class="card-header card-header-upgrade">
                     <span><img class="img-fluid" src="/img/charge_diamond.png" width="25px;"></span>
                     <span>月額会員になる</span>
                 </div>
