@@ -8,15 +8,7 @@ $allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE')
           <img class="pickup" src="/img/pickup.png">
         @endif
         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
-        @normal_user
-            @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-                <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
-            @else
-                <a href="javascript:;" data-toggle="modal" data-target=".user-upgrade-modal-sm" class="lesson_href">
-            @endif
-        @else
-            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
-        @endnormal_user
+        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
             <img class="play-btn" src="/img/play_mark.png">

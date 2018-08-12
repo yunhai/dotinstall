@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if ($('#j-player').hasClass('j-video_deny')) {
         player.on('playing', event => {
             player.stop();
-            alert('stop');
             $('#modal_video_deny').modal();
         });
     }
