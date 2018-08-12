@@ -78,10 +78,10 @@
                                 {{ $text }}
                             </a>
                             @if (empty($target['popup']))
-                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース確認</a>
+                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/写真素材</a>
                             @else
                                 @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認</a>
+                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/写真素材</a>
                                 @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
                             @endif
                         @else 
@@ -89,14 +89,14 @@
                                 {{ $text }}
                             </a>
                             @unlogin
-                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
+                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース/写真素材</a>
                                 <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
                                     <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
                                     <span>月額会員に登録する</span>
                                 </a>
                             @endunlogin
                             @normal_user
-                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
+                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース/写真素材</a>
                                 <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
                                     <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
                                     <span>月額会員に登録する</span>
