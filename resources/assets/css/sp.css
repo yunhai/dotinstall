@@ -143,16 +143,13 @@
         margin-bottom: 0.2rem;
     }
     .box .card .card-body .row .card-sign {
+	    text-align: center;
         width: 100%;
         margin-top: 5%;
 	}
-    .box .card .card-body .row .card-sign .card-text-sign {
-        font-size: 1rem;
-        color: #4a4949;
-    }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
-        margin-top: 10%;
+        margin-top: 5%;
     }
     .box .card-body .row .card-video {
         display: none;
