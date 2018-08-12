@@ -101,9 +101,12 @@ body {
     background-color: #3b579d;
     border-radius: 5px;
     padding-top: 6px;
-    padding-bottom: 6px;
+    padding-bottom: 4px;
     padding-left: 20px;
     padding-right: 9px;
+}
+.btn-facebook span:first-child {
+	margin-top: -1px;
 }
 .btn-facebook span img {
 	vertical-align: top;
