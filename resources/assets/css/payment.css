@@ -1,5 +1,4 @@
 .StripeElement{
-  padding: 5px 13px;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
 }
@@ -17,6 +16,8 @@
 }
 
 .card-element {
-    margin: 2px 0 3px;
     color: #dc3545;
+    float: left;
+    margin: 3px 0 1px;
 }
+

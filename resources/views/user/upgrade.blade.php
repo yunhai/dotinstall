@@ -61,13 +61,10 @@
                                 <label for="card_number" class="col-md-4 col-form-label text-md-right">クレジットカード番号</label>
 
                                 <div class="col-md-6">
-                                    <div id="card-element1"></div>
-                                    <div class='container' id='card-holder'>
-                                        <div class='row'>
-                                            <div id="card-number" class='col-7 card-element'></div>
-                                            <div id="card-expiry" class='col-2 card-element'></div>
-                                            <div id="card-cvc" class='col card-element'></div>
-                                        </div>
+                                    <div id='card-holder' style='width: 420px; overflow: hidden; padding: 5px 10px;'>
+                                        <div id="card-number" class='card-element' style='width: 200px;'></div>
+                                        <div id="card-expiry" class='card-element' style='width: 75px;'></div>
+                                        <div id="card-cvc" class='card-element' style='width: 120px;'></div>
                                     </div>
                                     <div id="card-errors" role="alert"></div>
                                     @if (!empty(session('error')))
