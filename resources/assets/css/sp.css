@@ -4,7 +4,7 @@
 	padding-top: 0;
 }
 .navbar-brand .img-logo {
-	height: 27px;
+	height: 23px;
 }
 .nav-item-user .dropdown-toggle::after {
     margin-left: 0;
@@ -52,6 +52,15 @@
 .input-group-difficulty, .input-group-category {
 	margin-bottom: 1rem;
 }
+.card-img-overlay {
+	padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+.card-text-sign.last {
+	margin-bottom: 0.5rem;
+}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;
@@ -91,7 +100,7 @@
         padding: 0;
     }
     .box .card .card-text-header {
-        font-size: 18px !important;
+        font-size: 20px !important;
         margin-top: 0 !important;
         padding-bottom: 0 !important;
     }
@@ -102,9 +111,6 @@
     .box .card .card-body .row .card-sign .card-text-sign {
         font-size: 0.8125rem !important;
         color: #4a4949;
-    }
-    .box .card .card-body .row .card-sign .card-text-sign.last {
-        margin-bottom: 0 !important;
     }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
@@ -143,9 +149,6 @@
     .box .card .card-body .row .card-sign .card-text-sign {
         font-size: 1rem;
         color: #4a4949;
-    }
-    .box .card .card-body .row .card-sign .card-text-sign.last {
-        margin-bottom: 1.2rem;
     }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
