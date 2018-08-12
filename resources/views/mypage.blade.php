@@ -26,6 +26,9 @@
                                 </a>
                             </p>
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額&yen;{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
+                            <p class="card-text">
+                                <a href="javascript:;" data-toggle="modal" data-target=".user-destroy-modal-sm">【退会する】</a>
+                            </p>
                         @endnormal_user
                     </div>
                 </div>
