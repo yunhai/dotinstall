@@ -21,6 +21,14 @@
 @endpush
 
 @section('content')
+@php
+    $redirect = route('login');
+    if (Auth::check()) {
+        if (Auth::user()->grade == USER_GRADE_NORMAL) {
+            $redirect = route('user.upgrade');
+        }
+    }
+@endphp
 <div id="content">
     <div class="box ttlCommon border-bottom-0 mb-0 px-5">【{{ $filter_form['difficulty'][$lessons['difficulty']] }}】【＃{{ $lessons['sort'] }}】{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
     <div class="box mb-0">
@@ -37,7 +45,14 @@
         @endphp
         @if ($video)
         <div class="@sp player @endsp @pc player-yt @endpc">
-            <video controls crossorigin playsinline id="j-player" class='hidden'>
+            @php
+                $video_css_class = 'j-video_deny';
+                if ($allow_access) {
+                    $video_css_class = 'j-video_allow';
+                }
+            @endphp
+
+            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}'>
                 @php $video_path = $video['path']; @endphp
                 <source src="@media_path($video_path)" type="video/mp4" size="720" >
             </video>
@@ -53,45 +68,52 @@
                                 $css_class = 'bg-button-complete';
                             }
                         @endphp
-                        @if (Auth::check())
-                        <a href="javascript:;" class="btn-sm {{ $css_class }} j-lessonDetailCloseReopen"
-                           data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
-                           data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
-                           data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
-                         >
-                            {{ $text }}
-                        </a>
-                        @else
-                        <a href="{{ route('login') }}" class="btn-sm {{ $css_class }} ">
-                            {{ $text }}
-                        </a>
-                        @endif
-                        @if ($target['popup'])
-                        @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認
-                        </a>
-                        @endif
-                        @unlogin
-                            <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
-                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-                                <span>月額会員に登録する</span>
+
+                        @if ($allow_access)
+                            <a href="javascript:;" class="btn-sm {{ $css_class }} j-lessonDetailCloseReopen"
+                               data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                               data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                               data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
+                             >
+                                {{ $text }}
                             </a>
-                        @endunlogin
-                        @normal_user
-                            <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
-                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-                                <span>月額会員に登録する</span>
+                            @if (empty($target['popup']))
+                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース確認</a>
+                            @else
+                                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース確認</a>
+                                @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
+                            @endif
+                        @else 
+                            <a href="{{ $redirect }}" class="btn-sm {{ $css_class }} ">
+                                {{ $text }}
                             </a>
-                        @endnormal_user
+                            @unlogin
+                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
+                                <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
+                                    <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
+                                    <span>月額会員に登録する</span>
+                                </a>
+                            @endunlogin
+                            @normal_user
+                                <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース確認</a>
+                                <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
+                                    <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
+                                    <span>月額会員に登録する</span>
+                                </a>
+                            @endnormal_user
+                        @endif
                     </div>
 
                     <div class="col-5  pl-0 pr-0 text-right">
                         @if ($prev_video)
-                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">前の動画
+                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
+                            前の動画
                         </a>
                         @endif
                         @if ($next_video)
-                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">次の動画
+                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">
+                            次の動画
                         </a>
                         @endif
                     </div>
@@ -108,8 +130,6 @@
         </div>
     </div>
 </div>
-@if ($target['popup'])
-    @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
-@endif
 @include('component.modal.video_speed', ['modal_id' => 'modal_diamond_user'])
+@include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
 @stop

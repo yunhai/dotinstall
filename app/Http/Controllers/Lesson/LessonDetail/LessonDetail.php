@@ -61,16 +61,12 @@ class LessonDetail extends Base
             $prev_id = $detail['id'];
         }
 
-        $free_mode = $target['free_mode'];
-        if ($user_id) {
-            if (Auth::user()->grade == USER_GRADE_NORMAL && !$free_mode) {
-                return $this->redirect('mypage');
-            }
+        $allow_access = ($target['free_mode'] === LESSON_DETAIL_FREE_MODE_FREE) ||
+                        $user_id && Auth::user()->grade == USER_GRADE_DIAMOND;
 
+        if ($user_id) {
             $this->updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id);
             $this->updateLearningLog($user_id, $lesson_detail_id, $target);
-        } elseif ($free_mode != LESSON_DETAIL_FREE_MODE_FREE) {
-            return $this->redirect('login');
         }
 
         $filter_form = $this->form();
@@ -85,7 +81,8 @@ class LessonDetail extends Base
                 'target',
                 'prev_video',
                 'next_video',
-                'filter_form'
+                'filter_form',
+                'allow_access'
             )
         );
     }

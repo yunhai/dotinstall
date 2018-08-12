@@ -1,9 +1,6 @@
 @php
-$allow_access = Auth::check() && 
-                (
-                    Auth::user()->grade == USER_GRADE_DIAMOND ||
-                    Auth::user()->grade == USER_GRADE_NORMAL && $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE') 
-                );
+$allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE') || 
+                (Auth::check() && Auth::user()->grade == USER_GRADE_DIAMOND);
 @endphp
 <div class="col-lesson col-lesson-item col-sm-6">
     <div class="card">

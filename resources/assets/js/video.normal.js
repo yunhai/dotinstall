@@ -42,28 +42,36 @@ document.addEventListener('DOMContentLoaded', () => {
             480: 'SD',
         },
     };
-  const player = new Plyr('#j-player',
-      {
-          controls: ['play-large', 'restart', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
-          settings: ['speed'],
-          loadSprite: true,
-          iconUrl: 'https://cdn.plyr.io/3.3.20/plyr.svg',
-          blankUrl: 'https://cdn.plyr.io/static/blank.mp4',
-          seekTime: 20,
-          volume: 1,
-          muted: true,
-          i18n: i18n,
-          tooltips: { controls: false, seek: true },
-          speed: { selected: 0.75, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] }
-      }
-  );
+    const player = new Plyr('#j-player',
+        {
+            controls: ['play-large', 'restart', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+            settings: ['speed'],
+            loadSprite: true,
+            iconUrl: 'https://cdn.plyr.io/3.3.20/plyr.svg',
+            blankUrl: 'https://cdn.plyr.io/static/blank.mp4',
+            seekTime: 20,
+            volume: 1,
+            muted: true,
+            i18n: i18n,
+            tooltips: { controls: false, seek: true },
+            speed: { selected: 0.75, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] }
+        }
+    );
 
-  $('[data-plyr="settings"]').click((e) => {
-    e.preventDefault();
-    const $target = $(e.target);
-    $target.parent().find('form').css('display', 'none');
-    $('#modal_diamond_user').modal();
-  })
+    if ($('#j-player').hasClass('j-video_deny')) {
+        player.on('playing', event => {
+            player.stop();
+            alert('stop');
+            $('#modal_video_deny').modal();
+        });
+    }
 
-  $('#j-player').removeClass('hidden');
+    $('[data-plyr="settings"]').click((e) => {
+        e.preventDefault();
+        const $target = $(e.target);
+        $target.parent().find('form').css('display', 'none');
+        $('#modal_diamond_user').modal();
+    });
+
+    $('#j-player').removeClass('hidden');
 });
