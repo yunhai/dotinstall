@@ -62,7 +62,7 @@
                                         <div class='row'>
                                             <div id="card-number" class='col-7 card-element'></div>
                                             <div id="card-expiry" class='col-2 card-element'></div>
-                                            <div id="card-cvc" class='col card-element' style="padding-left: 35px;"></div>
+                                            <div id="card-cvc" class='col card-element' style="padding-left: 45px;"></div>
                                         </div>
                                     </div>
                                     <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
