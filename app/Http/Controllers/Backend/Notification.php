@@ -24,7 +24,7 @@ class Notification extends Base
     public function getEdit($id)
     {
         $target = $this->model->get($id);
-        $form = $this->form();
+        $form = $this->form(MODE_EDIT);
         return $this->render('notification.input', compact('target', 'form'));
     }
 
@@ -40,7 +40,7 @@ class Notification extends Base
 
     public function getCreate()
     {
-        $form = $this->form();
+        $form = $this->form(MODE_CREATE);
         return $this->render('notification.input', compact('form'));
     }
 
@@ -70,9 +70,10 @@ class Notification extends Base
                 ->with('delete.success', 'delete.success');
     }
 
-    protected function form()
+    protected function form(int $mode = 0)
     {
         return [
+            'mode' => $mode
         ];
     }
 }
