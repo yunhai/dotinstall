@@ -153,7 +153,7 @@ body {
     border-radius: 5px;
 }
 .btn-google span img {
-	vertical-align: bottom;
+	vertical-align: top;
     width: 16px;
     display: inline-block;
 }
