@@ -305,6 +305,8 @@ body {
 	color: #837f80;
 	border-color: #837f80;
 	border-radius: 0;
+	padding-top: 7px;
+    padding-bottom: 5px;
 }
 .form-control-search:focus {
     outline: none;
