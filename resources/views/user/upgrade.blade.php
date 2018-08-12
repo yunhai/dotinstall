@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t20 mar_b20">
-                                <div class="col">
+                                <div class="col text-center">
                                      ※ 有料会員利用規約に同意されたうえでご登録ください。
                                 </div>
                             </div>
