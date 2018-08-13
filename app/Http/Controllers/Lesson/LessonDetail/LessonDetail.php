@@ -132,7 +132,13 @@ class LessonDetail extends Base
                     unset($lesson_details[$key]['source_code_contents'][$index]);
                 }
             }
-
+            $resources_item = [];
+            if (!empty($detail['resources'])) {
+                foreach ($detail['resources'] as $index => $item) {
+                    $resources_item[$index] = $media[$item['media_id']] ?? [];
+                }
+            }
+            $lesson_details[$key]['resources_item'] = $resources_item;
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
                                             $detail['resources'];
         }
@@ -143,6 +149,8 @@ class LessonDetail extends Base
     private function getMedia($lesson_details)
     {
         $media_id = data_get($lesson_details, '*.source_code_contents.*.media_id');
+        $tmp = data_get($lesson_details, '*.resources.*.media_id');
+        $media_id = array_merge($media_id, $tmp);
         $tmp = (new MediaModel)->retrieve($media_id);
 
         $media = [];

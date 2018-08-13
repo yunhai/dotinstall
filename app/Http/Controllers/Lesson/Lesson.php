@@ -174,6 +174,7 @@ class Lesson extends Base
                     }
                 }
             }
+
             $resources_item = [];
             if (!empty($detail['resources'])) {
                 foreach ($detail['resources'] as $index => $item) {
