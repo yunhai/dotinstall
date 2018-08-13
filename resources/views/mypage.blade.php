@@ -45,17 +45,19 @@
                             </p>
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額&yen;{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
                         @else
-                        <h4><p class="card-text">{{ $next_pay_date }}</p></h4>
+                        <h4><p class="card-text" style="padding-top:15px">{{ $next_pay_date }}</p></h4>
                         <h4><p class="card-text">&yen;{{ constant('MEMBERSHIP_FEE') }}円<span style="font-size: 10px;">税別</span></p></h4>
-                        <p class="card-text mb-0">
-                            <a href="javascript:;" data-toggle="modal" data-target=".payment-history-modal-sm">【購入履歴】</a>
-                        </p>
-                        <p class="card-text mb-0">
-                            <a href="javascript:;" data-toggle="modal" data-target=".user-downgrade-modal-sm">【課金停止する】</a>
-                        </p>
-                        <p class="card-text">
-                            <a href="javascript:;" data-toggle="modal" data-target=".user-destroy-modal-sm">【退会する】</a>
-                        </p>
+                        <div style="line-height: 10px; text-align: left;padding-left: 80px;padding-top: 8px;">
+                            <p>
+                                <a href="javascript:;" data-toggle="modal" data-target=".payment-history-modal-sm">【購入履歴】</a>
+                            </p>
+                            <p>
+                                <a href="javascript:;" data-toggle="modal" data-target=".user-downgrade-modal-sm">【課金停止する】</a>
+                            </p>
+                            <p>
+                                <a href="javascript:;" data-toggle="modal" data-target=".user-destroy-modal-sm">【退会する】</a>
+                            </p>
+                        </div>
                         @endnormal_user
                     </div>
                 </div>
@@ -116,7 +118,7 @@
 						@foreach($payment_history as $history)
 							<tr>
 								<td scope="row">{{ $history['stripe_time'] }}</td>
-								<td>{{ $history['stripe_amount'] }}</td>
+								<td>￥{{ $history['stripe_amount'] }}円</td>
 							</tr>
 						@endforeach
 					</tbody>
