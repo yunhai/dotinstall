@@ -5,17 +5,29 @@ class Office
 {
     public function read($target)
     {
+        $content = '';
         if (isset($target) && !file_exists($target)) {
             return '';
         }
-
         $extension = substr($target, strrpos($target, '.') + 1);
-        if ($extension == 'doc') {
-            return $this->read_doc($target);
-        } elseif ($extension == 'docx') {
-            return $this->read_docx($target);
+        switch ($extension) {
+            case 'doc':
+                $content = $this->read_doc($target);
+                break;
+            case 'docx':
+                $content = $this->read_docx($target);
+                if (empty($content)) {
+                    $base = base_path();
+                    $command = "cd {$base}/nodejs && node docx2txt.js {$target}";
+                    $content = shell_exec($command);
+                }
+                break;
+            default:
+                $content = file_get_contents($target);
+                break;
         }
-        return file_get_contents($target);
+
+        return $content;
     }
 
     private function read_doc($target)

@@ -32,3 +32,6 @@ https://stripe.com/docs/stripe-js
 php artisan migrate
 php artisan db:seed
 php artisan notification:send
+
+npm install --save textract
+https://github.com/dbashford/textract

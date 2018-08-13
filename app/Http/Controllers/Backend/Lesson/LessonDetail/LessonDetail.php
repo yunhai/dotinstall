@@ -152,7 +152,7 @@ class LessonDetail extends Base
             }
         }
         if ($ref) {
-            $attachments = array_merge($attachments, $this->makeSourceCodeConent($ref));
+            $attachments = array_merge($attachments, $this->makeSourceCodeContent($ref));
         }
 
         if ($update_media) {
@@ -164,7 +164,7 @@ class LessonDetail extends Base
         return $input;
     }
 
-    private function makeSourceCodeConent(array $ref)
+    private function makeSourceCodeContent(array $ref)
     {
         $lesson_detail_attactment = [];
         $reader = new OfficeReader();
@@ -172,7 +172,8 @@ class LessonDetail extends Base
         foreach ($ref as $media_id => $item) {
             $media_path = storage_path('app/media') . '/' . $item['path'];
             $content = $reader->read($media_path);
-            array_push($lesson_detail_attactment, $this->storeContent($content, $media_id, $item)) ;
+
+            array_push($lesson_detail_attactment, $this->storeContent($content, $media_id, $item));
         }
 
         return $lesson_detail_attactment;
