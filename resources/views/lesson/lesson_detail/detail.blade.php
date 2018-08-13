@@ -68,26 +68,28 @@
                                 $css_class = 'bg-button-complete';
                             }
                         @endphp
-
-                        @if ($allow_access)
-                            <a href="javascript:;" class="btn-sm {{ $css_class }} j-lessonDetailCloseReopen"
+                        @if (Auth::check() && $allow_access)
+                            <a href="javascript:;" class="btn-sm {{ $css_class }}  j-lessonDetailCloseReopen"
                                data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
                                data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
                                data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
                              >
                                 {{ $text }}
                             </a>
-                            @if (empty($target['popup']))
-                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/素材</a>
-                            @else
-                                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/素材</a>
-                                @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
-                            @endif
-                        @else 
+                        @else
                             <a href="{{ $redirect }}" class="btn-sm {{ $css_class }} ">
                                 {{ $text }}
                             </a>
+                        @endif
+                        @if ($allow_access)
+                            @if (!empty($target['popup']))
+                                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                                @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
+                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/素材</a>
+                            @else
+                                <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/素材</a>
+                            @endif
+                        @else
                             <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース/素材</a>
                         @endif
                         @unlogin
