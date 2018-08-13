@@ -111,7 +111,8 @@
                         'data-download' => 1,
                         'data-query' => '{"media_type": "image"}',
                         'data-type' => 'image',
-                        'data-max_file_upload' => 10
+                        'data-max_file_upload' => 10,
+                        'data-width' => 200,
                     ],
                     'field_advance' => [
                     ],

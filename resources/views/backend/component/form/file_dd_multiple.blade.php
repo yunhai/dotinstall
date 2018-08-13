@@ -58,7 +58,10 @@
                                       Your browser does not support HTML5 video.
                                     </video>
                                 @elseif ($target['type'] === 'image')
-                                    <img width="400" src="@media_path($media_path)" class='dd-preview-image' />
+                                    @php
+                                        $width = $field_attribute['data-width'] ?? 400
+                                    @endphp
+                                    <img width="{{ $width }}" src="@media_path($media_path)" class='dd-preview-image' />
                                 @endif
 
                                 @if ($field_attribute['data-type'] === 'msword')
