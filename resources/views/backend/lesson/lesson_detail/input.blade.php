@@ -109,8 +109,8 @@
                     'field_attribute' => [
                         'data-url' => route('backend.media.chuck'),
                         'data-download' => 1,
-                        'data-query' => '{"media_type": "document"}',
-                        'data-type' => 'all',
+                        'data-query' => '{"media_type": "image"}',
+                        'data-type' => 'image',
                         'data-max_file_upload' => 10
                     ],
                     'field_advance' => [
