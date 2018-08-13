@@ -355,7 +355,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
-.play-btn svg:hover path:first-child {
+.col-lesson .card a:hover path:first-child {
   fill: #FC0D1B;
   /*transition: all ease 0.3s;*/
 }
