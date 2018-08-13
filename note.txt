@@ -35,3 +35,5 @@ php artisan notification:send
 
 npm install --save textract
 https://github.com/dbashford/textract
+
+cd public && sudo rm -rf css img js vendor && cd ../

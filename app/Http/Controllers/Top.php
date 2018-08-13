@@ -44,7 +44,7 @@ class Top extends Base
         } else {
             $lessons = $this->getUnLogInLesson();
         }
-        
+
         $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
     }
@@ -82,7 +82,8 @@ class Top extends Base
         return $result;
     }
 
-    private function lessonStat(array $lessons = [], array $lesson_id_list = []) {
+    private function lessonStat(array $lessons = [], array $lesson_id_list = [])
+    {
         $lesson_user_count_list = $this->user_lesson_model->countUserByLessonIdList($lesson_id_list);
 
         $user_id = Auth::id() ?: 0;
@@ -100,7 +101,7 @@ class Top extends Base
             }
         }
 
-        foreach($lessons as &$item) {
+        foreach ($lessons as &$item) {
             $lesson_id = $item['id'];
             $item['lesson_learning_count'] = $lesson_user_count_list[$lesson_id] ?? 0;
             $item['lesson_detail_close_count'] = $lesson_detail_close_list[$lesson_id] ?? 0;
@@ -119,19 +120,20 @@ class Top extends Base
                 $lessons[$index] = $this->format($item, $media, $user_id);
             }
         }
+
         return $lessons;
     }
     
     private function lessonInfo(array $lessons = [])
     {
-	    $lesson_total = $video_total = 0;
+        $lesson_total = $video_total = 0;
         foreach ($lessons as $item) {
-    		foreach ($item as $item_detail) {
-        		$lesson_total += count($item_detail);
-        		foreach ($item_detail as $detail) {
-	        		$video_total += $detail['video_count'];
-	            };
-            }; 
+            foreach ($item as $item_detail) {
+                $lesson_total += count($item_detail);
+                foreach ($item_detail as $detail) {
+                    $video_total += $detail['video_count'];
+                };
+            };
         };
         
         return compact('lesson_total', 'video_total');
@@ -140,6 +142,9 @@ class Top extends Base
     private function getMedia($lessons)
     {
         $media_id = data_get($lessons, '*.lesson_details.*.source_code_contents.*.media_id');
+
+        $tmp = data_get($lessons, '*.lesson_details.*.resources.*.media_id');
+        $media_id = array_merge($media_id, $tmp);
 
         $tmp = (new MediaModel)->retrieve($media_id);
         $media = [];
@@ -174,10 +179,17 @@ class Top extends Base
                 }
             }
 
+            $resources_item = [];
+            if (!empty($detail['resources'])) {
+                foreach ($detail['resources'] as $index => $item) {
+                    $resources_item[$index] = $media[$item['media_id']] ?? [];
+                }
+            }
+            $lesson_details[$key]['resources_item'] = $resources_item;
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
                                             $detail['resources'];
         }
-
+        // dd($lesson_details);
         $lesson['lesson_details'] = $lesson_details;
         return $lesson;
     }

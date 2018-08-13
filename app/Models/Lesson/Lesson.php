@@ -30,8 +30,7 @@ class Lesson extends Base
             'lesson_details.videos',
             'lesson_details.posters',
             'lesson_details.source_code_contents',
-            'lesson_details.resources',
-            'ms_categories'
+            'lesson_details.resources'
         ];
         return $this::with($with)
                     ->enable()
@@ -74,7 +73,6 @@ class Lesson extends Base
         $with = ['lesson_details.source_code_contents', 'lesson_details.resources', 'lesson_details.posters', 'ms_categories'];
         return $this::with($with)
                     ->where('id', $lesson_id)
-                    // ->orderBy('lesson_details.sort', $lesson_id)
                     ->enable()
                     ->first()
                     ->toArray();
