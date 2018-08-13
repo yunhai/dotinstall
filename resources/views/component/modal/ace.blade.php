@@ -28,9 +28,7 @@
                         <div class="modal-body" style="height: 480px;">
                             <div class='ace__item'>
                                 <div class='ace__item--body' data-id='ace_edit_{{ $item['id'] }}' data-language='{{ $item['language'] }}'>
-                                    <div id='ace_edit_{{ $item['id'] }}' class='ace__item--editor'>
-                                        {!! $item['content'] !!}
-                                    </div>
+                                    <div id='ace_edit_{{ $item['id'] }}' class='ace__item--editor'>{!! ($item['content']) !!}</div>
                                 </div>
                             </div>
                         </div>

@@ -10,6 +10,7 @@ class Lesson extends Base
     public function lesson_details()
     {
         return $this->hasMany(LessonDetail::class)
+                    ->orderBy('sort')
                     ->enable();
     }
 
@@ -53,7 +54,7 @@ class Lesson extends Base
                 'category' => 'category_id',
                 'difficulty' => 'difficulty',
             ];
-            foreach($map as $key => $name) {
+            foreach ($map as $key => $name) {
                 if (empty($filter[$key])) {
                     continue;
                 }
@@ -73,12 +74,14 @@ class Lesson extends Base
         $with = ['lesson_details.source_code_contents', 'lesson_details.resources', 'lesson_details.posters', 'ms_categories'];
         return $this::with($with)
                     ->where('id', $lesson_id)
+                    // ->orderBy('lesson_details.sort', $lesson_id)
                     ->enable()
                     ->first()
                     ->toArray();
     }
 
-    public function countLesson() {
+    public function countLesson()
+    {
         return $this->enable()->count();
     }
 }

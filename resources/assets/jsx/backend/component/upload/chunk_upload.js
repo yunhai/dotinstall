@@ -190,7 +190,7 @@ export default class ChuckUpload {
             'video': ['mp4'],
             'image': ['jpg', 'jpeg', 'png'],
             'document': ['zip', 'docx', 'doc', 'pdf', 'txt'],
-            'msword': ['docx', 'doc'],
+            'msword': ['docx', 'doc', 'txt'],
         }
         const ext = fileName.substr(fileName.lastIndexOf('.') + 1);
         const allow = extMap[mediaType] || [];
