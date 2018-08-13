@@ -43,7 +43,8 @@ class Lesson extends Base
         return $this->render('lesson.index', compact('lessons', 'filter_form', 'lesson_info'));
     }
 
-    private function lessonStat(array $lessons = [], array $lesson_id_list = []) {
+    private function lessonStat(array $lessons = [], array $lesson_id_list = [])
+    {
         $lesson_user_count_list = $this->user_lesson_model->countUserByLessonIdList($lesson_id_list);
 
         $user_id = Auth::id() ?: 0;
@@ -61,7 +62,7 @@ class Lesson extends Base
             }
         }
 
-        foreach($lessons as &$item) {
+        foreach ($lessons as &$item) {
             $lesson_id = $item['id'];
             $item['lesson_learning_count'] = $lesson_user_count_list[$lesson_id] ?? 0;
             $item['lesson_detail_close_count'] = $lesson_detail_close_list[$lesson_id] ?? 0;
@@ -79,7 +80,8 @@ class Lesson extends Base
         return compact('category', 'difficulty', 'input_value');
     }
 
-    private function groupLesson(array $lessons = []) {
+    private function groupLesson(array $lessons = [])
+    {
         $result = [];
         foreach ($lessons as $item) {
             $difficulty = $item['difficulty'];
@@ -100,14 +102,14 @@ class Lesson extends Base
     
     private function lessonInfo(array $lessons = [])
     {
-	    $lesson_total = $video_total = 0;
+        $lesson_total = $video_total = 0;
         foreach ($lessons as $item) {
-    		foreach ($item as $item_detail) {
-        		$lesson_total += count($item_detail);
-        		foreach ($item_detail as $detail) {
-	        		$video_total += $detail['video_count'];
-	            };
-            }; 
+            foreach ($item as $item_detail) {
+                $lesson_total += count($item_detail);
+                foreach ($item_detail as $detail) {
+                    $video_total += $detail['video_count'];
+                };
+            };
         };
         
         return compact('lesson_total', 'video_total');
@@ -115,7 +117,7 @@ class Lesson extends Base
 
     public function getDetail($lesson_id)
     {
-        $user_id = Auth::check() ? Auth::user()->id : 0;
+        $user_id = Auth::id() ?: 0;
         if ($user_id) {
             if (!$this->user_lesson_model->enrolled($user_id, $lesson_id)) {
                 $this->user_lesson_model->enroll($user_id, $lesson_id);
@@ -136,6 +138,8 @@ class Lesson extends Base
     private function getMedia($lessons)
     {
         $media_id = data_get($lessons, 'lesson_details.*.source_code_contents.*.media_id');
+        $tmp = data_get($lessons, 'lesson_details.*.resources.*.media_id');
+        $media_id = array_merge($media_id, $tmp);
 
         $tmp = (new MediaModel)->retrieve($media_id);
         $media = [];
@@ -170,7 +174,13 @@ class Lesson extends Base
                     }
                 }
             }
-
+            $resources_item = [];
+            if (!empty($detail['resources'])) {
+                foreach ($detail['resources'] as $index => $item) {
+                    $resources_item[$index] = $media[$item['media_id']] ?? [];
+                }
+            }
+            $lesson_details[$key]['resources_item'] = $resources_item;
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
                                             $detail['resources'];
         }

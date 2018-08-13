@@ -189,7 +189,7 @@ class Top extends Base
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
                                             $detail['resources'];
         }
-        // dd($lesson_details);
+
         $lesson['lesson_details'] = $lesson_details;
         return $lesson;
     }

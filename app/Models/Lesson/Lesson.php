@@ -70,7 +70,11 @@ class Lesson extends Base
 
     public function getLessonByLessonId($lesson_id)
     {
-        $with = ['lesson_details.source_code_contents', 'lesson_details.resources', 'lesson_details.posters', 'ms_categories'];
+        $with = [
+            'lesson_details.source_code_contents',
+            'lesson_details.resources',
+            'lesson_details.posters'
+        ];
         return $this::with($with)
                     ->where('id', $lesson_id)
                     ->enable()
