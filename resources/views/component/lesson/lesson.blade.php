@@ -49,7 +49,7 @@
         </div>
     </div>
 </div>
-<div class="box mar_t20 mar_b20">
+<div class="box mar_t20">
     @foreach ($lessons as $level => $category_list)
         @foreach ($category_list as $categoy_id => $lesson_item)
             <div class="card">
