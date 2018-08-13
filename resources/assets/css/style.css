@@ -313,11 +313,14 @@ body {
     box-shadow: none;
 }
 .pickup {
-    max-width: 18%;
-    position: absolute;
-    right: -14px;
-    top: -20px;
+	position: absolute;
     z-index: 3;
+	background-color: #fd0c56;
+    color: #fff;
+	padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 .card-sign-button {
     background: repeating-linear-gradient(

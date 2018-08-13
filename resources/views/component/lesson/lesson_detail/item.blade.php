@@ -5,10 +5,10 @@ $allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE')
 <div class="col-lesson col-lesson-item col-sm-6">
     <div class="card">
         @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-          <img class="pickup" src="/img/pickup.png">
+			<span class="pickup">無料</span>
         @endif
         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
-        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title='{{ $target['name'] }}' class="lesson_href">
+        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
         @if ($path)
             <img class="card-img-top card-img-video" src="@media_path($path)">
             <img class="play-btn" src="/img/play_mark.png">
