@@ -118,7 +118,7 @@
 						@foreach($payment_history as $history)
 							<tr>
 								<td scope="row">{{ $history['stripe_time'] }}</td>
-								<td>￥{{ $history['stripe_amount'] }}円</td>
+								<td>￥{{ $history['stripe_amount'] }}円（税別）</td>
 							</tr>
 						@endforeach
 					</tbody>
