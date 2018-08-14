@@ -10,7 +10,9 @@
             @if (!empty($resources))
             <div class="modal-body">
 	            @if (!empty($resources_item))
-	            	<p>素材ダウンロード</p>
+					<p>素材ダウンロード
+						<a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download ml-5 btn--resource" role="button" aria-pressed="true">素材を一括ダウンロードする</a>
+					</p>
 		            <div class="row" style="margin-bottom: 1rem;">
 			            @foreach($resources_item as $res)
 			            	@php
@@ -28,10 +30,6 @@
 			            @endforeach
 		            </div>
 	            @endif
-	            <p>
-		            素材ダウンロード
-					<a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download ml-5 btn--resource" role="button" aria-pressed="true">素材ダウンロードする</a>
-	            </p>
                 <hr style="border-color: #837f80;" class="mb-0">
             </div>
             @endif
