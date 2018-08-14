@@ -1,6 +1,6 @@
 @foreach ($lessons as $lesson)
     @if (!empty($lesson['lesson_details']))
-        <div class="box box-sp">
+        <div class="box">
             <div class="card">
                 <div class="lession-heading lession-header w-100 px-5">
                     <img class="img-fluid" src="/img/img_flash.png" />

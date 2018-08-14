@@ -105,6 +105,12 @@
     font-size: 16px !important;
     color: #4a4949;
 }
+.col-lesson {
+    margin-top: 0px;
+}
+.card-video-list {
+	margin-top: 20px;
+}
 .card-login, .card-login-social {
     min-height: 243px;
 }

@@ -123,7 +123,7 @@
         </div>
         @endif
     </div>
-    <div class="box px-5 box-sp">
+    <div class="box px-5">
         <div class="card card-video-list" @if (!empty($lesson_details)) style="border-top: 1px solid #bca9af;" @endif>
             <div class="container-fluid pl-0 pr-0">
                 @include('component.lesson.item', ['lesson_details' => $lesson_details])
