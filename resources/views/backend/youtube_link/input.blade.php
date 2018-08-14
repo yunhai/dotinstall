@@ -1,5 +1,8 @@
 @extends('backend.layout.master')
 @section('title', 'Youtubeリンク編集')
+@push('js')
+    <script src="/js/backend/youtube.js"></script>
+@endpush
 @php
     $target = $target ?? [];
 
@@ -19,6 +22,12 @@
                 'field_name' => 'link',
                 'field_value' => array_get($target, 'link', ''),
                 'field_type' => 'text'
+            ],
+            'youtube_id' => [
+                'field_label' => '',
+                'field_name' => 'youtube_id',
+                'field_value' => array_get($target, 'youtube_id', ''),
+                'field_type' => 'hidden'
             ],
             'mode' => [
                 'field_label' => '公開状況',

@@ -2,7 +2,7 @@
     <td class="aside">{{ $field_label }}</td>
     <td>
         <div>
-            <select class="form-control j-select"
+            <select id='{{ $field_id ?? $field_name }}' class="form-control j-select"
                 name="{{ $field_name }}"
                 @if (!empty($field_attribute))
                     @foreach ($field_attribute as $key => $value)

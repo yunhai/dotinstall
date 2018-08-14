@@ -13,3 +13,6 @@ ALTER TABLE `lessons` ADD `sort` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `note`;
 
 //180810
 ALTER TABLE `lessons` ADD `difficulty` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `mode`;
+
+//180814
+ALTER TABLE `youtube_links` ADD `youtube_id` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL AFTER `link`;

@@ -11,6 +11,7 @@ class PostInput extends Base
         return [
             'name' => 'required|max:256',
             'link' => 'required|max:512',
+            'youtube_id' => 'nullable',
             'mode' => 'required|integer',
         ];
     }
