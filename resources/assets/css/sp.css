@@ -63,13 +63,14 @@
 	width: 34px;
 }
 .card-language-btn {
+	width: 95%;
 	border-bottom: 1px solid #fff;
 	padding-bottom: 10px;
 }
 .card-language-text {
 	text-align: center;
 	font-size: 12px;
-    width: 216px;
+    width: 245px;
     margin: 0 auto;
     margin-top: 10px;
 }
