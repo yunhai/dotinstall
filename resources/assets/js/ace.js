@@ -7,4 +7,5 @@ $('.ace__item--body').each((index, item) => {
     editor = ace.edit(id);
     editor.setTheme("ace/theme/chrome");
     editor.getSession().setMode(`ace/mode/${language}`);
+    editor.session.setUseWrapMode(true);
 })
