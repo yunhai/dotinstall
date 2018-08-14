@@ -60,9 +60,9 @@
                                 <div class="col">
                                     <div class='container' id='card-holder'>
                                         <div class='row'>
-                                            <div id="card-number" class='col-5 card-element'></div>
+                                            <div id="card-number" class='@pc col-5 @endpc @sp col-7 @endsp card-element'></div>
                                             <div id="card-expiry" class='col-2 card-element'></div>
-                                            <div id="card-cvc" class='col card-element' @pc style="padding-left: 55px;" @endpc></div>
+                                            <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 55px;" @endpc></div>
                                         </div>
                                     </div>
                                     <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
