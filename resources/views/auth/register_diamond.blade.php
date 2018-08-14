@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title', '新規登録')
-@section('breadcrumbs', Breadcrumbs::render('register'))
+@section('breadcrumbs', Breadcrumbs::render('register.diamond'))
 @section('content')
 <div id="content">
     @if (app('request')->input('provider') == 'line')

@@ -51,6 +51,12 @@ Breadcrumbs::for('register', function ($trail) {
     $trail->push('新規登録', route('register'));
 });
 
+// 月額会員
+Breadcrumbs::for('register.diamond', function ($trail) {
+    $trail->parent('top');
+    $trail->push('月額会員', route('register.diamond'));
+});
+
 // パスワード再設定手続き
 Breadcrumbs::for('password.request', function ($trail) {
     $trail->parent('top');
