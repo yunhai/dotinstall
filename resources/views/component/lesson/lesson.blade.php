@@ -10,6 +10,7 @@
         		$class_form_group = "col-3";
         		$class_form_label = "col-3";
         		$class_select = "col-7";
+        		$class_lession_header_info = "col-8";
         	@endphp
         @endpc
         @sp
@@ -17,6 +18,7 @@
         		$class_form_group = "col-12";
         		$class_form_label = "col-2";
         		$class_select = "col-10";
+        		$class_lession_header_info = "col-12";
         	@endphp
         @endsp
         <div class="form-group form-group-search-lesson row justify-content-center">
@@ -69,12 +71,14 @@
             <div class="card">
                 <div class="lession-heading lession-header w-100 px-5">
                     <img class="img-fluid" src="/img/img_flash.png" />
-                    <div class="col-8 pr-0 pad_l5 font-weight-bold">
+                    <div class="{{ $class_lession_header_info }} pr-0 pad_l5 font-weight-bold">
                         <span>{{ $filter_form['difficulty'][$level] }}　{{ $filter_form['category'][$categoy_id] }}</span>
                     </div>
-                    <div class="col-4">
-                        <a href="javascript:;" class="lession-heading-url float-right">レッスン一覧</a>
-                    </div>
+                    @pc
+	                    <div class="col-4">
+	                        <a href="javascript:;" class="lession-heading-url float-right">レッスン一覧</a>
+	                    </div>
+                    @endpc
                 </div>
             </div>
             <div class="px-5">
