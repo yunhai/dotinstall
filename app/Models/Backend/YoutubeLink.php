@@ -7,6 +7,7 @@ class YoutubeLink extends Base
     public $fillable = [
         'name',
         'link',
+        'youtube_id',
         'mode',
     ];
 }

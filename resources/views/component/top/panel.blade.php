@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-video px-0" id="pc-panel-right">
                         @if (!empty($youtube_link))
-                            <iframe width="480" height="240" src="{{ $youtube_link['link'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <iframe width="480" height="240" src="https://www.youtube.com/embed/{{ $youtube_link['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         @endif
                     </div>
                 </div>

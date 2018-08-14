@@ -123,7 +123,7 @@ class Top extends Base
 
         return $lessons;
     }
-    
+
     private function lessonInfo(array $lessons = [])
     {
         $lesson_total = $video_total = 0;
@@ -135,7 +135,7 @@ class Top extends Base
                 };
             };
         };
-        
+
         return compact('lesson_total', 'video_total');
     }
 

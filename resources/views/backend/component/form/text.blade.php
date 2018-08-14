@@ -1,7 +1,7 @@
 <tr>
     <td class="aside">{{ $field_label }}</td>
     <td>
-        <input name="{{ $field_name }}" class="form-control" value="{{ $field_value }}"
+        <input id='{{ $field_id ?? $field_name }}' name="{{ $field_name }}" class="form-control" value="{{ $field_value }}"
             @if (!empty($field_attribute))
             @foreach ($field_attribute as $key => $value)
                 {{ $key }}="{{ $value }}"
