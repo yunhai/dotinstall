@@ -113,6 +113,10 @@
 .btn-facebook span:first-child {
     margin-left: 10px;
 }
+.footer-container-left {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;
