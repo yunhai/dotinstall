@@ -10,6 +10,15 @@
     margin-left: 0;
     position: relative;
 }
+.old-bv {
+	font-size: 11px;
+}
+.pr-5, .px-5 {
+    padding-right: 10px!important;
+}
+.pl-5, .px-5 {
+    padding-left: 10px!important;
+}
 .box-sp {
 	margin-bottom: 20px;
 }
@@ -108,12 +117,6 @@
 @media (max-width: 991.98px) {
     .tab-pane-user.row {
         margin: 0 auto;
-    }
-    .pr-5, .px-5 {
-        padding-right: 1rem!important;
-    }
-    .pl-5, .px-5 {
-        padding-left: 1rem!important;
     }
     .box .card .btn-request .btn-to-complete {
         margin-bottom: 5px;
