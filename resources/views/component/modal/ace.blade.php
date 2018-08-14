@@ -9,8 +9,29 @@
             </div>
             @if (!empty($resources))
             <div class="modal-body">
-                素材ダウンロード
-                <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download ml-5 btn--resource" role="button" aria-pressed="true">素材ダウンロードする</a>
+	            @if (!empty($resources_item))
+	            	<p>素材ダウンロード</p>
+		            <div class="row" style="margin-bottom: 1rem;">
+			            @foreach($resources_item as $res)
+			            	@php
+			            		$media_id = $res['id']; 
+			            		$path = $res['path'];
+			            	@endphp
+			            	<div class="col-2">
+				            	<div class="card">
+					            	<img class="img-thumbnail" src="@media_path($path)" style="width: 200px; height: 78px;">
+					            	<div class="card-body p-1">
+										<p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
+					            	</div>
+				            	</div>
+			            	</div>
+			            @endforeach
+		            </div>
+	            @endif
+	            <p>
+		            素材ダウンロード
+					<a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download ml-5 btn--resource" role="button" aria-pressed="true">素材ダウンロードする</a>
+	            </p>
                 <hr style="border-color: #837f80;" class="mb-0">
             </div>
             @endif
