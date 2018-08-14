@@ -33,6 +33,7 @@ class Lesson extends Base
             'lesson_details.resources'
         ];
         return $this::with($with)
+        			->take(3)
                     ->enable()
                     ->orderBy('sort')
                     ->get()
