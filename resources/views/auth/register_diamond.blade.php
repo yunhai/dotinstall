@@ -46,6 +46,7 @@
                 <p class="mar_b20">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
             @endif
             <div class="row">
+	            @pc
                 <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
@@ -54,6 +55,7 @@
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
+                @endpc
                 <div class="col-lg-7 pl-0 pr-0">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" role="tabpanel">
@@ -146,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="@pc col-3 @endpc @sp col-sm-12 mar_t20 @endsp">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                         <div class="card card-register-social">
                             <div class="card-header text-center">

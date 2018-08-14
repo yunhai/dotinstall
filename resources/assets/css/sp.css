@@ -25,19 +25,26 @@
 .row .container-fluid.container-divider .divider {
     margin-top: 20px;
 }
+.card-body-text {
+	padding-top: 4px !important;
+}
+.box .card .card-body .row .card-sign {
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+}
 .box-panel-language {
 	/*height: 138px;*/
 	background-color: #1993FC;
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .card-panel-language {
 	background-color: #1993FC;
 }
 .card-body-language-left {
-	width: 65%;
-	text-align: center;
-	margin-right: 5%;
+	width: 70%;
+    text-align: center;
 }
 .card-body-language-right {
 	width: 30%;
@@ -51,9 +58,8 @@
 }
 .card-language-text {
 	text-align: center;
-	font-size: 11px;
+	font-size: 13px;
     margin-top: 10px;
-    margin-left: 24px;
 }
 .card-language-text .card-text {
 	text-align: left;
@@ -63,7 +69,7 @@
     /*margin-left: 30px;*/
 }
 .card-img-980 {
-	width: 98px;
+	width: 110px;
 }
 .card-text-name {
 	height: 36px;
@@ -87,6 +93,9 @@
 }
 .card-register, .card-register-social {
     min-height: 274px;
+}
+.btn-facebook span:first-child {
+    margin-left: 10px;
 }
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
@@ -123,17 +132,10 @@
          flex: 0 0 50%;
          max-width: 50%;
      }
-    .box .card .card-body {
-        padding: 0;
-    }
     .box .card .card-text-header {
         font-size: 20px !important;
         margin-top: 0 !important;
         padding-bottom: 0 !important;
-    }
-    .box .card-body .row .card-sign {
-        margin-top: 0 !important;
-        text-align: center;
     }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
@@ -165,11 +167,6 @@
     .box .card-body .row p {
         margin-bottom: 0.2rem;
     }
-    .box .card .card-body .row .card-sign {
-	    text-align: center;
-        width: 100%;
-        margin-top: 5%;
-	}
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
         margin-top: 5%;
