@@ -9,7 +9,7 @@
         	@php
         		$class_form_group = "col-3";
         		$class_form_label = "col-3";
-        		$class_select = "col-7";
+        		$class_select = "col-9";
         		$class_lession_header_info = "col-8";
         	@endphp
         @endpc
