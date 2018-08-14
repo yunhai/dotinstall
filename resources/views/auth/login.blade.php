@@ -102,22 +102,22 @@
                             <div class="card-header text-center">その他の方法でログイン</div>
 
                             <div class="card-body px-4">
+                                <!--
                                 <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
-								<!--
                                 <a href="/auth/twitter" class="btn btn-twitter btn-block">
-									<span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span>
-								</a>
-								-->
+                                    <span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span>
+                                </a>
+                                -->
                                 <a href="/auth/facebook" class="btn btn-facebook btn-block">
-									<span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span>
-								</a>
+                                    <span><img class="img-fluid" src="img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span>
+                                </a>
                                 <a href="/auth/yahoo" class="btn btn-yahoo btn-block">
-									<span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">ログイン</span>
-								</a>
+                                    <span><img class="img-fluid" src="img/yahoo.png"></span> <span class="btn-yahoo-label">ログイン</span>
+                                </a>
                                 <a href="/auth/google" class="btn btn-google btn-block">
-									<span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleログイン</span>
-								</a>
-                                <p class="mar_t10 mar_b0 text-danger">ログイン時に SNS に勝手に投稿されることはありません</p>
+                                    <span><img class="img-fluid" src="img/google.png"></span> <span class="btn-google-label">Googleログイン</span>
+                                </a>
+                                <p class="mar_t15 mar_b0 text-danger">ログイン時に SNS に勝手に投稿されることはありません</p>
                             </div>
                         </div>
                     </div>

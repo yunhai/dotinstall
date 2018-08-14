@@ -60,7 +60,7 @@
                                 <div class="col">
                                     <div class='container' id='card-holder'>
                                         <div class='row'>
-                                            <div id="card-number" class='col-7 card-element'></div>
+                                            <div id="card-number" class='col-5 card-element'></div>
                                             <div id="card-expiry" class='col-2 card-element'></div>
                                             <div id="card-cvc" class='col card-element' @pc style="padding-left: 55px;" @endpc></div>
                                         </div>

@@ -2,8 +2,8 @@
     @if (!empty($lesson['lesson_details']))
         <div class="box box-sp">
             <div class="card">
-                <div class="lession-heading w-100 px-5">
-                    <img class="img-fluid" src="/img/light-bulb.png" />
+                <div class="lession-heading lession-header w-100 px-5">
+                    <img class="img-fluid" src="/img/img_flash.png" />
                     <div class="col-8 pr-0 pad_l5 font-weight-bold">
                         <span>【{{ $filter_form['difficulty'][$lesson['difficulty']] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                     </div>

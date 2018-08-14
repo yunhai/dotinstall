@@ -1,5 +1,5 @@
 @php
-$allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE') || 
+$allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE') ||
                 (Auth::check() && Auth::user()->grade == USER_GRADE_DIAMOND);
 @endphp
 <div class="col-lesson col-lesson-item col-sm-6">
@@ -25,7 +25,7 @@ $allow_access = $target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE')
             <span class='j-captureVideo' data-url="@media_path($path)"></span>
             @endif
         @endif
-        </a>    
+        </a>
         <div class="card-body text-center pl-0 pr-0">
             <p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
             @if (empty($path))

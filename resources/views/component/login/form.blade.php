@@ -49,7 +49,7 @@
             <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                 <div class="card">
                     <div class="card-header">その他の方法でログイン</div>
-    
+
                     <div class="card-body">
                         <a href="" class="btn btn-line btn-block">LINEログイン</a>
                         <a href="" class="btn btn-twitter btn-block"><span><img class="img-fluid" src="img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span></a>

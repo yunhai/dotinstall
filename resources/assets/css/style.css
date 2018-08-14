@@ -131,7 +131,7 @@ body {
     border-radius: 5px;
 }
 .btn-yahoo span img {
-	vertical-align: baseline;
+	/*vertical-align: baseline;*/
     width: 20px;
     display: inline-block;
 }
@@ -156,15 +156,15 @@ body {
     border-radius: 5px;
 }
 .btn-google span img {
-	vertical-align: top;
-    width: 16px;
+	/*vertical-align: top;*/
+    width: 13px;
     display: inline-block;
 }
 .btn-google .btn-google-label {
     display: table-cell;
     width: 75%;
     background-color: #4484f3;
-    padding-top: 6px;
+    padding-top: 7px;
     padding-bottom: 4px;
     padding-left: 12px;
     padding-right: 12px;
@@ -318,7 +318,7 @@ body {
 	background-color: #fd0c56;
     color: #fff;
 	padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
     padding-left: 25px;
     padding-right: 25px;
 }
@@ -512,7 +512,7 @@ body {
 	padding-top: 2px;
     padding-bottom: 1px;
 }
-.bg-button-source-confirmation:hover, 
+.bg-button-source-confirmation:hover,
 .bg-button-to-complete:hover,
 .bg-button-complete:hover {
 	text-decoration: none;
