@@ -111,6 +111,9 @@ html {
 .col-lesson {
     margin-top: 0px;
 }
+.col-lesson-item .card-body {
+	padding-top: 10px;
+}
 .card-video-list {
 	margin-top: 20px;
 }
