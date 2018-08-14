@@ -8,4 +8,5 @@ $('.ace__item--body').each((index, item) => {
     editor.setTheme("ace/theme/chrome");
     editor.getSession().setMode(`ace/mode/${language}`);
     editor.session.setUseWrapMode(true);
+    editor.setShowPrintMargin(false);
 })
