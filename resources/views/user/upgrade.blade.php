@@ -54,7 +54,7 @@
                             <p>※ 毎月自動的に決済されます。<br>※ 購入後、設定変更画面から自動更新を停止することもできます。</p>
                         </div>
                         <div class="row border-bottom-0 justify-content-center mx-auto mb-0">
-                            <div class="@pc col-8 @endpc @sp col-12 @endsp">
+                            <div class="@pc col-8 @endpc @sp col-12 px-0 @endsp">
                                 <label for="card_number" class="col col-form-label">クレジットカード番号</label>
 
                                 <div class="col">
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
-                                <div class="@pc col-5 @endpc @sp col-12 @endsp">
+                                <div class="@pc col-5 @endpc @sp col-12 text-center @endsp">
                                     ※ デビットカードご利用可能です。
                                 </div>
                             </div>

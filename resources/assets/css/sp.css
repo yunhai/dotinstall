@@ -13,38 +13,57 @@
 .box-sp {
 	margin-bottom: 20px;
 }
+.box-panel-yt {
+	background-image: url("/img/panel.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 198px;
+}
+.box-yt {
+	height: 211px;
+}
 .row .container-fluid.container-divider .divider {
     margin-top: 20px;
 }
 .box-panel-language {
-	height: 138px;
+	/*height: 138px;*/
+	background-color: #1993FC;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.card-panel-language {
 	background-color: #1993FC;
 }
 .card-body-language-left {
+	width: 65%;
 	text-align: center;
-	width: 60%;
+	margin-right: 5%;
 }
 .card-body-language-right {
-	width: 40%;
+	width: 30%;
 }
 .card-img-app, .card-img-objective_c, .card-img-swift {
-	width: 23px;
+	width: 34px;
 }
 .card-language-btn {
 	border-bottom: 1px solid #fff;
 	padding-bottom: 10px;
 }
 .card-language-text {
-	font-size: 10px;
+	text-align: center;
+	font-size: 11px;
     margin-top: 10px;
-    margin-left: 18px;
+    margin-left: 24px;
+}
+.card-language-text .card-text {
+	text-align: left;
 }
 .card-right-img-980 {
 	display: block;
-    margin-left: 30px;
+    /*margin-left: 30px;*/
 }
 .card-img-980 {
-	width: 80px;
+	width: 98px;
 }
 .card-text-name {
 	height: 36px;
@@ -53,13 +72,21 @@
 	margin-bottom: 1rem;
 }
 .card-img-overlay {
-	padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+	/*padding-top: 0.8rem;
+    padding-bottom: 0.8rem;*/
 }
 .card-text-sign.last {
 	margin-bottom: 0.7rem !important;
+}
+.box .card .card-body .row .card-sign .card-text-sign {
+    font-size: 16px !important;
+    color: #4a4949;
+}
+.card-login, .card-login-social {
+    min-height: 243px;
+}
+.card-register, .card-register-social {
+    min-height: 274px;
 }
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
@@ -108,10 +135,6 @@
         margin-top: 0 !important;
         text-align: center;
     }
-    .box .card .card-body .row .card-sign .card-text-sign {
-        font-size: 0.8125rem !important;
-        color: #4a4949;
-    }
     .box .card .card-body .row .card-sign .card-sign-button {
         font-size: 0.8125rem;
         margin-top: 0 !important;
@@ -136,8 +159,8 @@
         padding-top: 0;
     }
     .box .card .card-body .row {
-        margin-left: 2px;
-        margin-right: 2px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
     .box .card-body .row p {
         margin-bottom: 0.2rem;

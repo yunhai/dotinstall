@@ -4,12 +4,14 @@
             <div class="card">
                 <div class="lession-heading lession-header w-100 px-5">
                     <img class="img-fluid" src="/img/img_flash.png" />
-                    <div class="col-8 pr-0 pad_l5 font-weight-bold">
+                    <div class="@pc col-8 @endpc @sp col-12 @endsp pr-0 pad_l5 font-weight-bold">
                         <span>【{{ $filter_form['difficulty'][$lesson['difficulty']] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                     </div>
-                    <div class="col-4">
-                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
-                    </div>
+					@pc
+						<div class="col-4">
+							<a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
+						</div>
+					@endpc
                 </div>
             </div>
             <div class="card card-video-list">
