@@ -60,7 +60,6 @@ function stripeErrorHandler(event) {
 }
 
 card.addEventListener('change', function(event) {
-    
     stripeErrorHandler(event);
 })
 

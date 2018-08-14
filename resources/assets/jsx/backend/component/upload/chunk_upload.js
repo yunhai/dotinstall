@@ -225,10 +225,23 @@ export default class ChuckUpload {
     bindFileSuccess(resumable, $target, $callback) {
         resumable.on('fileSuccess', (file, message) => {
             const $callback = $target.find(`.dd-callback__${file.uniqueIdentifier}`);
-            $callback.find('.dd-callback__progress').html('');
-            $callback.addClass('dd-completed');
+            $target.removeClass('j-uploadDirty');
+
             const obj = JSON.parse(message);
-            this.callback(obj, $target, $callback);
+            const check = obj.size;
+            const path = obj.path;
+
+            const url = `/admin/media/checksum?path=${path}&check=${check}`;
+            $.get(url, (data) => {
+                if (data.result) {
+                    $callback.find('.dd-callback__progress').html('');
+                    $callback.addClass('dd-completed');
+                    this.callback(obj, $target, $callback);
+                } else {
+                    $callback.find('.dd-callback__progress').html('');
+                    alert('アップロードする間に、エラー発生しましたので、もう一度試していただけませんか？');
+                }
+            });
         });
     }
 

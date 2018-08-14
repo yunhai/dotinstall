@@ -47,6 +47,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('lesson/{lesson_id}/lesson_detail/{lesson_detail_id}/delete', 'Lesson\LessonDetail\LessonDetail@getDelete')->name('backend.lesson_detail.delete');
 
     Route::post('media/chunk', 'Media@postChunk')->name('backend.media.chuck');
+    Route::get('media/checksum', 'Media@getChecksum')->name('backend.media.checksum');
     Route::get('media/download/{media_id}', 'Media@getDownload')->name('backend.media.download');
     Route::post('media/upload', 'Media@postUpload')->name('backend.media.upload');
     Route::post('media/content', 'Media@postContent')->name('backend.media.content');
