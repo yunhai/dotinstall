@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\User\PostInput;
+use App\Http\Requests\Backend\User\GetFilter;
+
 use App\Models\Backend\User as UserModel;
 
 class User extends Base
@@ -14,13 +16,20 @@ class User extends Base
         $this->model = $user_model;
     }
 
-    public function getIndex()
+    public function getIndex(GetFilter $request)
     {
-        $users = $this->model
-                    ->where('role', USER_ROLE_PUBLIC)
-                    ->orderBy('id', 'desc')
-                    ->paginate(20);
-        return $this->render('user.index', compact('users'));
+        $filter_form = $request->all();
+        $data = $this->model->get($filter_form);
+        $form = $this->form();
+        return $this->render('user.index', compact('data', 'filter_form', 'form'));
+    }
+    
+    private function form()
+    {
+        return [
+            'grade' => config('master.user.grade'),
+            'mode' => config('master.user.mode'),
+        ];
     }
 
     public function getEdit($id)

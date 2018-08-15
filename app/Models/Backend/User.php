@@ -19,6 +19,20 @@ class User extends Authenticatable
         'role',
     ];
 
+    public function get(array $filter = [])
+    {
+        $db = $this->where('role', USER_ROLE_PUBLIC)
+                    ->orderBy('id', 'desc');
+
+        if ($filter) {
+            if (!empty($filter['fullname'])) {
+                $db->where('name', 'like', '%' . $filter['fullname'] . '%');
+            }
+        }
+
+        return $db->paginate(20);
+    }
+
     public function createAffiliatorUser(array $data)
     {
         $result = [

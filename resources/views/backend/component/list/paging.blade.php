@@ -98,7 +98,7 @@
                     </div>
                     <div class="col-sm-12 col-md-7">
                         <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                             {!! $data->links() !!}
+                             {!! $data->appends(request()->except('page'))->links() !!}
                         </div>
                     </div>
                 </div>

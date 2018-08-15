@@ -31,7 +31,8 @@
                 ],
                 'name' => [
                     'field' => '',
-                    'apply' => ['nl2br', 'content']
+                    'apply' => ['nl2br', 'apply_value'],
+                    'apply_value' => 'content'
                 ],
                 'post_date' => [
                     'field' => 'post_date',
