@@ -41,6 +41,8 @@ Route::get('terms', 'Page@getTerms')->name('terms');
 Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('ajax/lesson/filter', 'Lesson\Lesson@ajaxFilter')->name('ajax.lesson.filter')->middleware('web.user');
+    
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');
 
     Route::get('lesson/{lesson_id}/enroll', 'Lesson\Lesson@getEnroll')->name('lesson.enroll')->middleware('web.user');

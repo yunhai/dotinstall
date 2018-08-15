@@ -1,58 +1,4 @@
-<div class="box">
-    <form method="GET" action="">
-        @php
-            $diff = array_get($filter_form, 'input_value.difficulty');
-            $cate = array_get($filter_form, 'input_value.category');
-            $keyword = array_get($filter_form, 'input_value.keyword');
-        @endphp
-        @pc
-        	@php
-        		$class_form_group = "col-3";
-        		$class_form_label = "col-3";
-        		$class_select = "col-9";
-        		$class_lession_header_info = "col-8";
-        	@endphp
-        @endpc
-        @sp
-        	@php
-        		$class_form_group = "col-12";
-        		$class_form_label = "col-2";
-        		$class_select = "col-10";
-        		$class_lession_header_info = "col-12";
-        	@endphp
-        @endsp
-        <div class="form-group form-group-search-lesson row justify-content-center">
-            <div class="{{ $class_form_group }}">
-                <div class="input-group input-group-difficulty">
-                    <label for="level" class="{{ $class_form_label }} col-form-label px-0">段階</label>
-                    <select name="difficulty" class="{{ $class_select }}">
-                        <option value="" @if (empty($diff)) selected @endif>全ての動画</option>
-                        @foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
-                            <option value="{{ $difficulty_id }}" @if ($diff == $difficulty_id) selected @endif>{{ $difficulty }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="{{ $class_form_group }}">
-                <div class="input-group input-group-category">
-                    <label for="level" class="{{ $class_form_label }} col-form-label px-0">カテゴリ</label>
-                    <select name="category" class="{{ $class_select }}">
-                        <option value="" @if (empty($cate)) selected @endif>全ての動画</option>
-                        @foreach ($filter_form['category'] as $cat_id => $cat)
-                            <option value="{{ $cat_id }}" @if ($cate == $cat_id) selected @endif>{{ $cat }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="{{ $class_form_group }}">
-                <div class="input-group">
-                    <input type="text" class="form-control form-control-search" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
-                    <button class="btn-search">検索</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
+@include('component.lesson.filter.form', ['filter_form' => $filter_form, 'lessons' => $lessons])
 <div class="box">
     <div class="card">
         <div class="lession-nar w-100 px-5 d-flex align-items-center">
@@ -65,46 +11,6 @@
         </div>
     </div>
 </div>
-<div class="box mar_t20">
-    @foreach ($lessons as $level => $category_list)
-        @foreach ($category_list as $categoy_id => $lesson_item)
-            <div class="card">
-                <div class="lession-heading lession-header w-100 px-5">
-                    <img class="img-fluid" src="/img/img_flash.png" />
-                    <div class="{{ $class_lession_header_info }} pr-0 pad_l5 font-weight-bold">
-                        <span>{{ $filter_form['difficulty'][$level] }}　{{ $filter_form['category'][$categoy_id] }}</span>
-                    </div>
-                    @pc
-	                    <div class="col-4">
-	                        <a href="javascript:;" class="lession-heading-url float-right">レッスン一覧</a>
-	                    </div>
-                    @endpc
-                </div>
-            </div>
-            <div class="px-5">
-                <ul class="list-group w-100">
-                    @foreach ($lesson_item as $lesson)
-                        <li class="list-group-item list-group-item-lesson px-0">
-                            <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
-                              <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="d-flex align-items-center">
-                                  @php $is_all_finish = ($lesson['lesson_detail_close_count'] >= $lesson['video_count']) ; @endphp
-                                  <span @if($is_all_finish) style='text-decoration: line-through' @endif>【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
-                              </a>
-                            </div>
-                            <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 mar_t10 @endsp px-0">
-                                <span class="@if (Auth::check()) mar_r15 @endif">{{ number_format($lesson['lesson_learning_count']) }} 人が学習中</span>
-                                @if (!empty(Auth::check()))
-                                    @if ($is_all_finish)
-                                        <span class="btn-all-complete">全て完了</span>
-                                    @else
-                                        <span style="min-width: 38px;">完了 / {{ $lesson['lesson_detail_close_count'] }}</span>
-                                    @endif
-                                @endif
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endforeach
-    @endforeach
+<div class="box mar_t20" id='j-lessonFilterResult'>
+    @include('component.lesson.filter.result', ['filter_form' => $filter_form, 'lessons' => $lessons])
 </div>

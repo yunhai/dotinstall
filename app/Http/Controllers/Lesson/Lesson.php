@@ -25,10 +25,23 @@ class Lesson extends Base
         $this->user_lesson_detail_model = $user_lesson_detail_model;
     }
 
+    
+    public function ajaxFilter(GetFilter $request)
+    {
+        $fitler = $request->all();
+        $params = $this->retrieveLesson($fitler);
+        return $this->render('ajax.lesson.filter', $params);
+    }
+
     public function getLesson(GetFilter $request)
     {
         $fitler = $request->all();
-
+        $params = $this->retrieveLesson($fitler);
+        return $this->render('lesson.index', $params);
+    }
+    
+    private function retrieveLesson(array $fitler = [])
+    {
         $lessons = $this->model->getLessons($fitler);
         $lesson_id = data_get($lessons, '*.id');
         $lesson_info = [];
@@ -39,8 +52,7 @@ class Lesson extends Base
         }
 
         $filter_form = $this->form($fitler);
-
-        return $this->render('lesson.index', compact('lessons', 'filter_form', 'lesson_info'));
+        return compact('lessons', 'lesson_info', 'filter_form');
     }
 
     private function lessonStat(array $lessons = [], array $lesson_id_list = [])

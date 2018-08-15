@@ -6,24 +6,28 @@
 
 @push('js')
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
+    <script type="text/javascript" src="/js/lesson/filter.js"></script>
     <script type="text/javascript" src="/js/ace.js"></script>
     <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
 @endpush
+
 @section('content')
-@normal_user
-	@include('component.top.panel', ['youtube_link' => $youtube_link])
-@endnormal_user
-@if (Auth::check() == false)
-	@include('component.top.panel', ['youtube_link' => $youtube_link])
-	@include('component.top.video', ['lessons' => $lessons])
-@else
-	@include('component.top.lesson', ['lessons' => $lessons])
-@endif
-<div class="box mb-0">
-    <div class="card-lesson-total text-center">
-        <p class="card-text">
-            <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $global_total_lessons }}）</a>
-        </p>
+    @normal_user
+        @include('component.top.panel', ['youtube_link' => $youtube_link])
+    @endnormal_user
+
+    @if (Auth::check() == false)
+        @include('component.top.panel', ['youtube_link' => $youtube_link])
+        @include('component.top.video', ['lessons' => $lessons])
+    @else
+        @include('component.top.lesson', ['lessons' => $lessons])
+    @endif
+    
+    <div class="box mb-0">
+        <div class="card-lesson-total text-center">
+            <p class="card-text">
+                <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $global_total_lessons }}）</a>
+            </p>
+        </div>
     </div>
-</div>
 @stop
