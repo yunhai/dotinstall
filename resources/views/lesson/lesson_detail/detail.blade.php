@@ -59,28 +59,35 @@
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
-                        @php
-                            if ($target['is_closeable']) {
-                                $text = '完了する';
-                                $css_class = 'bg-button-to-complete';
-                            } else {
-                                $text = '完了';
-                                $css_class = 'bg-button-complete';
-                            }
-                        @endphp
-                        @if (Auth::check() && $allow_access)
-                            <a href="javascript:;" class="btn-sm {{ $css_class }}  j-lessonDetailCloseReopen"
-                               data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
-                               data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
-                               data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
-                             >
-                                {{ $text }}
-                            </a>
+                        @if (Auth::check())
+                            @php
+                                if ($target['is_closeable']) {
+                                    $text = '完了する';
+                                    $css_class = 'bg-button-to-complete';
+                                } else {
+                                    $text = '完了';
+                                    $css_class = 'bg-button-complete';
+                                }
+                            @endphp
+                            @if ($allow_access)
+                                <a href="javascript:;" class="btn-sm {{ $css_class }}  j-lessonDetailCloseReopen"
+                                   data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                                   data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
+                                   data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
+                                 >
+                                    {{ $text }}
+                                </a>
+                            @else
+                                <a href="{{ $redirect }}" class="btn-sm {{ $css_class }} ">
+                                    {{ $text }}
+                                </a>
+                            @endif
                         @else
-                            <a href="{{ $redirect }}" class="btn-sm {{ $css_class }} ">
-                                {{ $text }}
+                            <a href="{{ $redirect }}" class="btn-sm bg-button-to-complete" style="opacity: .6;">
+                                完了する
                             </a>
                         @endif
+
                         @if ($allow_access)
                             @if (!empty($target['popup']))
                                 @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
