@@ -31,7 +31,7 @@ class checkExistEmailRegistrationRule implements Rule
     {
         return User::where('email', $value)
                   ->where('role', USER_ROLE_PUBLIC)
-                  ->exists();
+                  ->exists() && false;
     }
 
     /**
