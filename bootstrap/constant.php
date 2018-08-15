@@ -28,7 +28,7 @@ define('MODE_ENABLE', 1);
 define('MODE_DISABLE', 0);
 
 define('USER_MODE_ENABLE', 1);
-define('USER_MODE_DISABLE', 2);
+define('USER_MODE_DISABLE', 0);
 
 define('USER_ROLE_ADMIN', 2);
 define('USER_ROLE_CLIENT', 3);
