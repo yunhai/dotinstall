@@ -22,8 +22,8 @@
         <div class="form-group form-group-search-lesson row justify-content-center">
             <div class="{{ $class_form_group }}">
                 <div class="input-group input-group-difficulty">
-                    <label for="level" class="{{ $class_form_label }} col-form-label px-0">段階xx</label>
-                    <select id='filter-difficulty' name="difficulty" class="{{ $class_select }} j-lessonFilter">
+                    <label for="level" class="{{ $class_form_label }} col-form-label px-0">段階</label>
+                    <select id='filter-difficulty' name="difficulty" class="{{ $class_select }} j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
                         <option value="" @if (empty($diff)) selected @endif>全ての動画</option>
                         @foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
                             <option value="{{ $difficulty_id }}" @if ($diff == $difficulty_id) selected @endif>{{ $difficulty }}</option>
@@ -34,7 +34,7 @@
             <div class="{{ $class_form_group }}">
                 <div class="input-group input-group-category">
                     <label for="level" class="{{ $class_form_label }} col-form-label px-0">カテゴリ</label>
-                    <select id='filter-category' name="category" class="{{ $class_select }} j-lessonFilter">
+                    <select id='filter-category' name="category" class="{{ $class_select }} j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
                         <option value="" @if (empty($cate)) selected @endif>全ての動画</option>
                         @foreach ($filter_form['category'] as $cat_id => $cat)
                             <option value="{{ $cat_id }}" @if ($cate == $cat_id) selected @endif>{{ $cat }}</option>

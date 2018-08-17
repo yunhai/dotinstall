@@ -164,8 +164,8 @@
                                     <p>メールアドレスは運営側からの連絡をする際に必要となります。</p>
                                     <p class="mar_b0">パスワードを設定したい場合は、ユーザー登録後に設定変更画面からおこなってください。</p>
                                 @else
+                                    <!--
                                     <a href="/auth/line" class="btn btn-line btn-block">LINEログイン</a>
-									<!--
                                     <a href="/auth/twitter" class="btn btn-twitter btn-block">
                                         <span><img class="img-fluid" src="/img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span>
                                     </a>

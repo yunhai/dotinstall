@@ -7,8 +7,7 @@
                 <div class="row @pc align-items-end @endpc">
                     <div class="pc-card-sign card-sign p-0" id="pc-panel-left">
                         <p class="card-text card-text-sign">５分動画！小学生から大人まで！</p>
-                        <p class="card-text card-text-sign">実戦で覚えるプログラミング！</p>
-                        <p class="card-text card-text-sign last">何も考えずに真似して作って見よう！</p>
+                        <p class="card-text card-text-sign last">何も考えずに真似して作ってみよう！</p>
                         <a href="{{ route('register') }}" class="card-sign-button">新規登録はこちら！</a>
                     </div>
                     <div class="card-video px-0" id="pc-panel-right">

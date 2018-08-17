@@ -88,7 +88,7 @@
                             </a>
                         @endif
 
-                        
+
                         @unlogin
                             <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
                                 <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
@@ -123,16 +123,16 @@
     <div class="box px-5">
         <div class="card card-video-list" @if (!empty($lesson_details)) style="border-top: 1px solid #bca9af;" @endif>
             <div class="container-fluid pl-0 pr-0">
-	            <!--@include('component.lesson.item', ['lesson_details' => $lesson_details])-->
-            	<div class="row">
-	            	<div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
-		            	@php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                <!--@include('component.lesson.item', ['lesson_details' => $lesson_details])-->
+                <div class="row">
+                    <div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
+                        @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
                         @include('component.lesson.lesson_detail.resource', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
-	            	</div>
-	            	<div class="col-3 pl-0">
-		            	@include('component.lesson.lesson_detail.thumbnail', ['lesson_details' => $lesson_details])
-	            	</div>
-            	</div>
+                    </div>
+                    <div class="col-3 pl-0">
+                        @include('component.lesson.lesson_detail.thumbnail', ['lesson_details' => $lesson_details])
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -15,16 +15,16 @@
 						</span>
 					</div>
 					<div class="card-language card-language-text">
-						<p class="card-text text-white">IPHONEアプリ開発レッスン動画</p>
-						<p class="card-text text-white">小学生から大人まで簡単な実戦形式列数</p>
-						<p class="card-text text-white">プログラミング５分動画レッスン</p>
-					</div>	
-				</div>					
+						<p class="card-text text-white">■IPHONEアプリ開発レッスン動画</p>
+						<p class="card-text text-white">■小学生から大人まで簡単な実戦形式で学ぶ</p>
+						<p class="card-text text-white">■プログラミング５分動画レッスン</p>
+					</div>
+				</div>
 				<div class="card-body-language-right">
 					<span class="card-right-img-980">
 						<img class="card-img card-img-980" src="/img/img_980.png">
 					</span>
-				</div>					
+				</div>
 			</div>
 		</div>
 	</div>
