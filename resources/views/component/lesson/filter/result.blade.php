@@ -34,7 +34,7 @@
                               <span @if($is_all_finish) style='text-decoration: line-through' @endif>【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                           </a>
                         </div>
-                        <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 mar_t10 @endsp px-0">
+                        <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 text-right mar_t10 @endsp px-0">
                             <span class="@if (Auth::check()) mar_r15 @endif">{{ number_format($lesson['lesson_learning_count']) }} 人が学習中</span>
                             @if (!empty(Auth::check()))
                                 @if ($is_all_finish)
