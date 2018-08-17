@@ -45,3 +45,14 @@
 .btn-download:hover {
     color: #fff;
 }
+.btn-download-resource {
+    padding: .25rem 1rem;
+    font-size: 0.8125rem;
+    color: #fff;
+    background-color: #837f80;
+    border-color: #837f80;
+	border-radius: 0;
+}
+.btn-download:hover {
+    color: #fff;
+}

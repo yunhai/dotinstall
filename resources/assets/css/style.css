@@ -631,6 +631,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.tab-content.tab-content-resource {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 .row-resource {
 	padding-top: 20px;
 	padding-bottom: 20px;
