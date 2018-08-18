@@ -6,7 +6,7 @@
 
 @push('js')
     <script src="https://js.stripe.com/v3/"></script>
-    <script>var STRIPE_KEY = "{{ env('STRIPE_KEY') }}";</script>
+    <script>var STRIPE_KEY = "{{ config('services.stripe.key') }}";</script>
     <script src="/js/payment.js"></script>
     @if (session('success'))
     <script type="text/javascript">
