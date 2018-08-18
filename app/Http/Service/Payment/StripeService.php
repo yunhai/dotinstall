@@ -11,7 +11,7 @@ class StripeService
         $user = User::find($user_id);
 
         try {
-            $user->newSubscription('main', env('STRIPE_SUPSCRIPTION_ID'))->create($token);
+            $user->newSubscription('main', config('services.stripe.subcription_id'))->create($token);
 
             return true;
         } catch (\Stripe\Error\Card $e) {

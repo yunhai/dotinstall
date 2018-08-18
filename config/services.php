@@ -31,9 +31,11 @@ return [
 
     'stripe' => [
         'model' => App\Models\User\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+        'key' => env('STRIPE_MODE') == 'live' ? env('STRIPE_KEY_LIVE') : env('STRIPE_KEY_TEST'),
+        'secret' => env('STRIPE_MODE') == 'live' ? env('STRIPE_SECRET_LIVE') : env('STRIPE_SECRET_TEST'),
+        'subcription_id' => env('STRIPE_MODE') == 'live' ? env('STRIPE_SUPSCRIPTION_ID_LIVE') : env('STRIPE_SUPSCRIPTION_ID_TEST'),
     ],
+
     'line' => [
         'client_id' => env('LINE_APP_ID'),
         'client_secret' => env('LINE_APP_SECRET'),
