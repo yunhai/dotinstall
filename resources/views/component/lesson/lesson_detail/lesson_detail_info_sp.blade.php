@@ -58,7 +58,7 @@
 			@else
 				<div class="tab-pane-resource" style="border-top: 1px solid #bca9af; margin-top: 20px;">
 					<div class="tab-pane fade show active" role="tabpanel">
-						<div class="modal-body" style="height: 500px;">
+						<div class="modal-body">
 			                <p class="text-center">このレッスンにはソースコードありません</p>
 			            </div>
 					</div>
@@ -68,7 +68,7 @@
 			<div class="tab-pane-resource">
 				<div class="resource-primary">ソースコード</div>
 				<div class="tab-pane fade show active" role="tabpanel">
-					<div class="modal-body" style="height: 500px;">
+					<div class="modal-body">
 		                <p>ソースコードは有料会員になると表示されます。</p>
 		                <p>
 			                <a href="{{ route('register.diamond') }}">有料会員になる</a>
