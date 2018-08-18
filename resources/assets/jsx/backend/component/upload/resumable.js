@@ -477,7 +477,38 @@
           if(_error) return;
           $.resumableObj.fire('fileProgress', $); // it's at least progress
           if($.isComplete()) {
-            $.resumableObj.fire('fileSuccess', $, message);
+              const $file = $.file;
+              var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
+                  chunkSize = 2097152,                             // Read in chunks of 2MB
+                  chunks = Math.ceil($file.size / chunkSize),
+                  currentChunk = 0,
+                  spark = new SparkMD5.ArrayBuffer(),
+                  fileReader = new FileReader();
+              
+              fileReader.onload =  (e) => {
+                  spark.append(e.target.result);
+                  currentChunk++;
+
+                  if (currentChunk < chunks) {
+                      loadNext();
+                  } else {
+                      $.resumableObj.fire('fileSuccess', $, message, spark.end());
+                      return spark.end();
+                  }
+              };
+
+              fileReader.onerror = function () {
+                  console.warn('oops, something went wrong.');
+              };
+              
+              function loadNext() {
+                  var start = currentChunk * chunkSize,
+                      end = ((start + chunkSize) >= $file.size) ? $file.size : start + chunkSize;
+              
+                  fileReader.readAsArrayBuffer(blobSlice.call($file, start, end));
+              }
+              
+              loadNext();
           }
           break;
         case 'retry':

@@ -24,5 +24,5 @@ $(() => {
             return;
         }
         $target.closest('form').submit();
-    })
+    });
 });

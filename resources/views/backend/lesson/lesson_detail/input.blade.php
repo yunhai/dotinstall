@@ -11,6 +11,7 @@
     <script src="/vendor/backend/summernote/lang/summernote-ja-JP.js"></script>
     <script src="/js/backend/editor/summernote.js"></script>
     <script src="/js/backend/common/upload.js"></script>
+    <script src="/js/backend/spark-md5.min.js"></script>
     <script src="/vendor/backend/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="/js/backend/common/select.js"></script>
 @endpush
@@ -59,6 +60,7 @@
                     'field_value' => array_get($target, 'videos', ''),
                     'field_type' => 'file_dd',
                     'field_attribute' => [
+                        'id' => 'j-videoUpload',
                         'data-url' => route('backend.media.chuck'),
                         'data-preview' => 1,
                         'data-query' => '{"media_type": "video"}',
