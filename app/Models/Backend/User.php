@@ -37,7 +37,6 @@ class User extends Authenticatable
     {
         $list = $this->select('id', 'mode', 'grade')
                     ->where('role', USER_ROLE_PUBLIC)
-                    ->where('mode', MODE_ENABLE)
                     ->get()
                     ->toArray();
 
