@@ -27,14 +27,15 @@ class Media extends Base
         $media = $request->get('path');
         $check_sum = $request->get('checksum');
 
-        $md5 = shell_exec('md5sum ' . escapeshellarg(Storage::disk('media')->path($media)));
+        $path = Storage::disk('media')->path($media);
+        $md5 = shell_exec('md5sum ' . escapeshellarg($path));
         if ($md5) {
             $tmp = explode(' ', $md5);
             $md5 = array_shift($tmp);
         }
 
         $result = ($check_sum == $md5);
-        return $this->json(compact('result', 'md5'));
+        return $this->json(compact('result', 'md5', 'check_sum', 'path'));
     }
 
     public function getDownload(int $media_id)
