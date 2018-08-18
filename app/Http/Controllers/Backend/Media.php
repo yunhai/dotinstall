@@ -25,10 +25,16 @@ class Media extends Base
     public function getChecksum(Request $request)
     {
         $media = $request->get('path');
-        $check = $request->get('check');
-        $size = Storage::disk('media')->size($media) ;
+        $check_sum = $request->get('checksum');
 
-        return $this->json(['result' => ($size == $check)]);
+        $md5 = shell_exec('md5sum ' . escapeshellarg(Storage::disk('media')->path($media)));
+        if ($md5) {
+            $tmp = explode(' ', $md5);
+            $md5 = array_shift($tmp);
+        }
+
+        $result = ($check_sum == $md5);
+        return $this->json(compact('result', 'md5'));
     }
 
     public function getDownload(int $media_id)

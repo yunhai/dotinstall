@@ -223,7 +223,7 @@ export default class ChuckUpload {
     }
 
     bindFileSuccess(resumable, $target, $callback) {
-        resumable.on('fileSuccess', (file, message) => {
+        resumable.on('fileSuccess', (file, message, checksum) => {
             const $callback = $target.find(`.dd-callback__${file.uniqueIdentifier}`);
             $target.removeClass('j-uploadDirty');
 
@@ -231,7 +231,7 @@ export default class ChuckUpload {
             const check = obj.size;
             const path = obj.path;
 
-            const url = `/admin/media/checksum?path=${path}&check=${check}`;
+            const url = `/admin/media/checksum?path=${path}&size=${check}&checksum=${checksum}`;
             $.get(url, (data) => {
                 if (data.result) {
                     $callback.find('.dd-callback__progress').html('');
