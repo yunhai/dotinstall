@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-header text-center">次のレッスン</div>
+    <div class="card-header text-center">レッスン一覧</div>
     <div class="card-body">
         @foreach ($lesson_details as $target)
             <div class="@sp col-sm-6 @endsp">

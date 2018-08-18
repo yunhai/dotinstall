@@ -13,13 +13,13 @@
 				</div>
 			</div>
 			<div class="container-fluid" style="border-top: 1px solid #bca9af;"></div>
-			<div class="row row-resource" @if (empty($content)) style="padding-bottom: 0px;" @endif>
+			<div class="container-fluid row row-resource" @if (empty($content)) style="padding-bottom: 0px;" @endif>
 				@foreach($resources_item as $res)
 					@php
 	            		$media_id = $res['id']; 
 	            		$path = $res['path'];
 	            	@endphp
-					<div class="col-2">
+					<div class="col-thumbnail-2">
 						<div class="card">
 							<img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
 							<div class="card-body pl-1 pr-1 pt-0 pb-0">
@@ -54,6 +54,14 @@
 					</div>
 				</div>
 			@endforeach
+		@else
+			<div class="tab-pane-resource" style="border-top: 1px solid #bca9af; margin-top: 20px;">
+				<div class="tab-pane fade show active" role="tabpanel">
+					<div class="modal-body" style="height: 500px;">
+		                <p class="text-center">このレッスンにはソースコードありません</p>
+		            </div>
+				</div>
+			</div>
 		@endif
 	@else
 		<div class="tab-pane-resource">

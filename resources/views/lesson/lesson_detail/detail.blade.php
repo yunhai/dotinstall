@@ -123,7 +123,6 @@
     <div class="box px-5">
         <div class="card card-video-list" @if (!empty($lesson_details)) style="border-top: 1px solid #bca9af;" @endif>
             <div class="container-fluid pl-0 pr-0">
-                <!--@include('component.lesson.item', ['lesson_details' => $lesson_details])-->
                 <div class="row">
                     <div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
                         @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
