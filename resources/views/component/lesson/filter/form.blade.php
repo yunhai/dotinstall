@@ -24,7 +24,7 @@
         <div class="form-group form-group-search-lesson row justify-content-center">
             <div class="{{ $class_form_group }}">
                 <div class="input-group input-group-difficulty">
-                    <label for="level" class="{{ $class_form_difficulty_label }} col-form-label px-0">段階</label>
+                    <label for="level" class="{{ $class_form_difficulty_label }} col-form-label px-0" style="    text-align: right; padding-right: 10px !important;">段階</label>
                     <select id='filter-difficulty' name="difficulty" class="{{ $class_difficulty_select }} j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
                         <option value="" @if (empty($diff)) selected @endif>全ての動画</option>
                         @foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
