@@ -7,12 +7,11 @@
 <div class="tab-content tab-content-resource {{ $padding_0 }}" id="{{ $modal_id }}">
 	@if ($allow_access)
 		@if (!empty($resources_item))
-			<div class="row row-resource pt-0">
+			<div class="row-resource pt-0" style="border-bottom: 1px solid #bca9af;">
 				<div class="col">
 					<a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-download-resource">素材を一括ダウンロードする</a>
 				</div>
 			</div>
-			<div class="container-fluid" style="border-top: 1px solid #bca9af;"></div>
 			<div class="container-fluid">
 				<div class="row row-resource px-5" @if (empty($content)) style="padding-bottom: 0px;" @endif>
 					@foreach($resources_item as $res)
@@ -33,12 +32,11 @@
 			</div>
 		@endif
 	@else
-		<div class="row row-resource pt-0">
+		<div class="row-resource pt-0">
 			<div class="col">
 				<a href="javascript:;" class="btn btn-download-resource">素材を一括ダウンロードする</a>（有料会員になるとダウンロードできます。）
 			</div>
 		</div>
-		<div class="container-fluid" style="border-top: 1px solid #bca9af;"></div>
 	@endif
 	@if ($allow_access)
 		@if ($content)
