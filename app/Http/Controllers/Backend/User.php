@@ -21,10 +21,12 @@ class User extends Base
     {
         $filter_form = $request->all();
         $data = $this->model->get($filter_form);
+
+        $statis = $this->model->statis();
         $form = $this->form();
-        return $this->render('user.index', compact('data', 'filter_form', 'form'));
+        return $this->render('user.index', compact('data', 'filter_form', 'form', 'statis'));
     }
-    
+
     private function form()
     {
         return [

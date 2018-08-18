@@ -33,6 +33,28 @@ class User extends Authenticatable
         return $db->paginate(20);
     }
 
+    public function statis()
+    {
+        $list = $this->select('id', 'mode', 'grade')
+                    ->where('role', USER_ROLE_PUBLIC)
+                    ->where('mode', MODE_ENABLE)
+                    ->get()
+                    ->toArray();
+
+        $member_total = count($list);
+        $member_normal = 0;
+        $member_diamond = 0;
+
+        foreach ($list as $item) {
+            if ($item['grade'] == USER_GRADE_DIAMOND) {
+                $member_diamond++;
+                continue;
+            }
+            $member_normal++;
+        }
+        return compact('member_total', 'member_normal', 'member_diamond');
+    }
+
     public function createAffiliatorUser(array $data)
     {
         $result = [

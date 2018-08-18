@@ -2,6 +2,12 @@
 @section('title', 'ユーザー')
 @section('content')
     @section('list_header')
+        <div class='statis'>
+            <label>無料人数: </label>
+            <span>{{ $statis['member_diamond'] }}</span> <br />
+            <label>有料人数: </label>
+            <span>{{ $statis['member_normal'] }}</span>
+        </div>
         @include('backend.component.filter.user.user', $filter_form ?? [])
     @stop
     @php

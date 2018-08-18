@@ -73,3 +73,6 @@ table .btn {
 .sortable tr:hover {
     cursor: pointer;
 }
+.statis label {
+    font-weight: bold;
+}
