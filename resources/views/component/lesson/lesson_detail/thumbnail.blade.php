@@ -2,7 +2,7 @@
     <div class="card-header text-center">レッスン一覧</div>
     <div class="card-body">
         @foreach ($lesson_details as $target)
-            <div class="@sp col-sm-6 @endsp">
+            <div class="card-body-thumbnail @sp col-sm-6 @endsp">
                 <div class="card">
                     @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
                         <span class="pickup">無料</span>
@@ -26,7 +26,7 @@
                         @endif
                     @endif
                     </a>
-                    <div class="card-body text-center" style="padding-top:10px;">
+                    <div class="card-body text-center pl-0 pr-0" style="padding-top:10px;">
                         <p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
 
                         @if (empty($path))

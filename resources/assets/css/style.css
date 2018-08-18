@@ -358,8 +358,10 @@ body {
     transform: translate(-50%, -50%);
 }
 .col-lesson .card a:hover path:first-child {
-  fill: #FC0D1B;
-  /*transition: all ease 0.3s;*/
+  fivl: #FC0D1B;
+}
+.card-body-thumbnail .card a:hover path:first-child {
+  fivl: #FC0D1B;
 }
 /* lESSON
 ------------------------------------------------------------ */

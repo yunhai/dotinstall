@@ -22,7 +22,7 @@
 					<div class="col-thumbnail-2">
 						<div class="card">
 							<img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
-							<div class="card-body pl-1 pr-1 pt-0 pb-0">
+							<div class="card-body pl-1 pr-1 pt-1 pb-1">
 								<p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
 							</div>
 						</div>
