@@ -21,7 +21,7 @@
 		            	@endphp
 						<div class="col-thumbnail-2">
 							<div class="card">
-								<img class="img-thumbnail" src="@media_path($path)" style="height: auto;">
+								<img class="img-thumbnail" src="@media_path($path)" style="height: 78px">
 								<div class="card-body pl-1 pr-1 pt-1 pb-1">
 									<p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
 								</div>
@@ -65,6 +65,7 @@
 		@endif
 	@else
 		<div class="tab-pane-resource">
+			<div class="resource-primary">ソースコード</div>
 			<div class="tab-pane fade show active" role="tabpanel">
 				<div class="modal-body" style="height: 500px;">
 	                <p>ソースコードは有料会員になると表示されます。</p>
