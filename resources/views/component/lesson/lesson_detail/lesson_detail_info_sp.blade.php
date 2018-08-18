@@ -33,7 +33,7 @@
 				</div>
 			@endif
 		@else
-			<div class="row-resource pt-0">
+			<div class="row-resource">
 				<div class="col">
 					<a href="javascript:;" class="btn btn-download-resource">素材を一括ダウンロードする</a>（有料会員になるとダウンロードできます。）
 				</div>
