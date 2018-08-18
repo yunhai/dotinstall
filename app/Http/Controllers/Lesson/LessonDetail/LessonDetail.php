@@ -188,6 +188,14 @@ class LessonDetail extends Base
         return $this->zip($resource);
     }
 
+    public function getDownloadSourceCode(int $lesson_id, int $lesson_detail_id)
+    {
+        $lesson_detail_attachmentl_model = new LessonDetailAttachmentlModel();
+        $resource = $lesson_detail_attachmentl_model->getSourceCode($lesson_detail_id);
+
+        return $this->zip($resource);
+    }
+
     private function zip($folder)
     {
         $public_dir = storage_path() . '/app/tmp/';

@@ -27,4 +27,12 @@ class LessonDetailAttachment extends Base
                     ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_RESOURCE)
                     ->get();
     }
+
+    public function getSourceCode(int $lesson_detail_id)
+    {
+        return $this->with(['media'])
+                    ->where('lesson_detail_id', $lesson_detail_id)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE)
+                    ->get();
+    }
 }
