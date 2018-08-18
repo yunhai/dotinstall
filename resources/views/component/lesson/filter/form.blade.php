@@ -10,20 +10,22 @@
                 $class_form_group = "col-3";
                 $class_form_label = "col-3";
                 $class_select = "col-9";
+                $class_form_difficulty_label = "col-2";
+                $class_difficulty_select = "col-10";
             @endphp
         @endpc
         @sp
             @php
                 $class_form_group = "col-12";
-                $class_form_label = "col-2";
-                $class_select = "col-10";
+                $class_form_difficulty_label = $class_form_label = "col-2";
+                $class_difficulty_select = $class_select = "col-10";
             @endphp
         @endsp
         <div class="form-group form-group-search-lesson row justify-content-center">
             <div class="{{ $class_form_group }}">
                 <div class="input-group input-group-difficulty">
-                    <label for="level" class="{{ $class_form_label }} col-form-label px-0">段階</label>
-                    <select id='filter-difficulty' name="difficulty" class="{{ $class_select }} j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
+                    <label for="level" class="{{ $class_form_difficulty_label }} col-form-label px-0">段階</label>
+                    <select id='filter-difficulty' name="difficulty" class="{{ $class_difficulty_select }} j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
                         <option value="" @if (empty($diff)) selected @endif>全ての動画</option>
                         @foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
                             <option value="{{ $difficulty_id }}" @if ($diff == $difficulty_id) selected @endif>{{ $difficulty }}</option>
