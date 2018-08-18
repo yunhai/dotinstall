@@ -1,5 +1,26 @@
 @extends('layout.master')
 @section('title', 'パスワード再設定手続き')
+@push('js')
+    @if (session('status'))
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#status').modal('show');
+        });
+    </script>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="status" data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-sm">
+                  <div class="modal-content rounded-0">
+                      <div class="modal-body">
+                          <p class="mb-0">登録メールアドレスに送信しました。ご確認お願いいたします。</p>
+                      </div>
+                      <div class="modal-footer" style="padding: 0; justify-content:center;">
+                          <a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">OK</a>
+                      </div>
+                  </div>
+              </div>
+        </div>
+    @endif
+@endpush
 @section('breadcrumbs', Breadcrumbs::render('password.request'))
 @section('content')
 <div id="content">
