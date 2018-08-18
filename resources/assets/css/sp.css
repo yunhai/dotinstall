@@ -134,6 +134,10 @@ html, body {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.footer .title-widget {
+    font-size: 0.8125rem;
+    margin-bottom: 1rem;
+}
 @media (min-width: 768px) {
   	.col-lesson.col-md-3 {
         -webkit-box-flex: 0;
