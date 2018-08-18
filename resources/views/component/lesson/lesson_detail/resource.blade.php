@@ -13,21 +13,23 @@
 				</div>
 			</div>
 			<div class="container-fluid" style="border-top: 1px solid #bca9af;"></div>
-			<div class="container-fluid row row-resource" @if (empty($content)) style="padding-bottom: 0px;" @endif>
-				@foreach($resources_item as $res)
-					@php
-	            		$media_id = $res['id']; 
-	            		$path = $res['path'];
-	            	@endphp
-					<div class="col-thumbnail-2">
-						<div class="card">
-							<img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
-							<div class="card-body pl-1 pr-1 pt-1 pb-1">
-								<p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
+			<div class="container-fluid">
+				<div class="row row-resource px-5" @if (empty($content)) style="padding-bottom: 0px;" @endif>
+					@foreach($resources_item as $res)
+						@php
+		            		$media_id = $res['id']; 
+		            		$path = $res['path'];
+		            	@endphp
+						<div class="col-thumbnail-2">
+							<div class="card">
+								<img class="img-thumbnail" src="@media_path($path)" style="height: auto;">
+								<div class="card-body pl-1 pr-1 pt-1 pb-1">
+									<p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
+								</div>
 							</div>
 						</div>
-					</div>
-				@endforeach
+					@endforeach
+				</div>
 			</div>
 		@endif
 	@else
