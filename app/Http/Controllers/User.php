@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\PostChangePassword as PostChangePasswordRequest;
 use App\Http\Service\Payment\StripeService;
 use App\Http\Service\UtmTracking\UtmTrackingService;
-use App\Http\Requests\User\PostChangePassword as PostChangePasswordRequest;
+use App\Http\Service\Mail\MailerService;
 use App\Models\User\User as UserModel;
+use App\Models\Subscription;
+use Carbon\Carbon;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -83,16 +86,49 @@ class User extends Base
             return redirect()->route('mypage');
         }
 
-        $user_id = Auth::user()->id;
+        $user = Auth::user()->toArray();
+        $user_id = $user['id'];
+
         $payment_service = new StripeService();
         $flag = $payment_service->cancel($user_id);
 
         if ($flag) {
+            $this->sendStopDiamondEmail($user);
             $this->model->updateGrade($user_id, USER_GRADE_NORMAL);
             return redirect()->back()->with('success', true);
         }
 
         return redirect()->back()->with('error', $error);
+    }
+
+    private function getDiamondDeadline(int $user_id)
+    {
+        $subcription_model = new Subscription();
+        $result = $subcription_model->lastest($user_id);
+        if ($result['ends_at']) {
+            return Carbon::createFromFormat('Y-m-d H:i:s', $result['ends_at'])
+                        ->addMonth()
+                        ->format('Y年m月d日');
+        }
+        return '';
+    }
+
+    private function sendStopDiamondEmail(array $user)
+    {
+        $user_id = $user['id'];
+        $mailer = new MailerService();
+        $name = 'Mail\User\StopDiamondEmail';
+
+        $mail = [
+            'to' => [$user['email'], $user['name']],
+            'title' => '有料会員をストップいたしました',
+            'data' => [
+                'user' => $user,
+                'deadline' => $this->getDiamondDeadline($user_id)
+            ]
+        ];
+
+        $mailer->send($name, $mail);
     }
 
     public function getChangePassword()

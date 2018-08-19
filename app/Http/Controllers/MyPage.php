@@ -26,10 +26,10 @@ class MyPage extends Base
 
         $stat = $this->getUserStat($user_id);
         $notifications = $this->getNotification(5);
-        
+
         $payment_history = $this->getPaymentHistory($user_id);
         $next_pay_date = $this->getNextPaymentDate($payment_history);
-        
+
         return $this->render('mypage', compact('stat', 'notifications', 'next_pay_date', 'payment_history'));
     }
 
@@ -83,7 +83,7 @@ class MyPage extends Base
         }
         return '';
     }
-    
+
     private function getPaymentHistory(int $user_id)
     {
         $result = $this->user_payment_model->getHistory($user_id);
@@ -92,6 +92,5 @@ class MyPage extends Base
                                     ->format('Y/m/d');
         }
         return $result;
-        dd($result);
     }
 }
