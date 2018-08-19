@@ -48,7 +48,8 @@
                         <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/素材</a>
                     @endif
                 @else
-                    <a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース/素材</a>
+                    <!--<a href="{{ $redirect }}" class="btn-sm bg-button-source-confirmation">ソース/素材</a>-->
+                    <a href="javascript:;" id="modal_request_login" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".user-login-modal-sm">ソース/素材</a>
                 @endif
 
                 @if (Auth::check())
@@ -95,4 +96,5 @@
 @endif
 @if (empty(Auth::check()))
     @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
+    @include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
 @endif
