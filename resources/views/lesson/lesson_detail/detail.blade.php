@@ -83,9 +83,7 @@
                                 </a>
                             @endif
                         @else
-                            <a href="{{ $redirect }}" class="btn-sm bg-button-to-complete" style="opacity: .6;">
-                                完了する
-                            </a>
+                            <a href="javascript:;" id="modal_video_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-request-upgrade-modal-sm">完了する</a>
                         @endif
 
 
