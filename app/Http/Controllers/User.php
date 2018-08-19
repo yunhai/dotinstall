@@ -66,6 +66,7 @@ class User extends Base
         $flag = $payment_service->charge($user_id, $token, $error);
 
         if ($flag) {
+            $this->sendRegistryDiamondEmail($user);
             return redirect()->back()->with('success', true);
         }
 
@@ -113,6 +114,22 @@ class User extends Base
         return '';
     }
 
+    private function sendRegistryDiamondEmail(array $user)
+    {
+        $user_id = $user['id'];
+        $mailer = new MailerService();
+        $name = 'Mail\User\RegistryDiamondEmail';
+
+        $mail = [
+            'to' => [$user['email'], $user['name']],
+            'data' => [
+                'user' => $user
+            ]
+        ];
+
+        $mailer->send($name, $mail);
+    }
+
     private function sendStopDiamondEmail(array $user)
     {
         $user_id = $user['id'];
@@ -121,7 +138,6 @@ class User extends Base
 
         $mail = [
             'to' => [$user['email'], $user['name']],
-            'title' => '有料会員をストップいたしました',
             'data' => [
                 'user' => $user,
                 'deadline' => $this->getDiamondDeadline($user_id)

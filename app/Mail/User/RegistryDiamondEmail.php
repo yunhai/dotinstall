@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class StopDiamondEmail extends Mailable
+class RegistryDiamondEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -21,8 +21,8 @@ class StopDiamondEmail extends Mailable
     public function build()
     {
         return $this->from(env('APP_MAIL'), env('APP_NAME'))
-                    ->subject('有料会員をストップいたしました')
-                    ->view('emails.user.stop_diamond')
+                    ->subject('月額会員になっており、誠にありがとうございます')
+                    ->view('emails.user.registry_diamond')
                     ->with('data', $this->data['data']);
     }
 }
