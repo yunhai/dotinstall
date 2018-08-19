@@ -27,3 +27,4 @@
         @include('component.layout.panel_language_sp')
     @endnormal_user
 @endsp
+@include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])

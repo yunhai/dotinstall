@@ -71,12 +71,12 @@
                             {{ $text }}
                         </a>
                     @else
-                        <a href="{{ $redirect }}" class="btn-sm {{ $css_class }}">
+                        <a href="javascript:;" class="btn-sm {{ $css_class }}" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">
                             {{ $text }}
                         </a>
                     @endif
                 @else
-                    <a href="javascript:;" id="modal_request_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-request-deny-modal-sm">完了する</a>
+                    <a href="javascript:;" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
                 @endif
             </p>
         </div>
@@ -93,8 +93,5 @@
     @if (!empty($target['popup']))
         @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [],  'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
     @endif
-@endif
-@if (empty(Auth::check()))
-    @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @endif
 @include('component.modal.request_login', ['modal_id' => 'modal_request_login', 'redirect' => $redirect])

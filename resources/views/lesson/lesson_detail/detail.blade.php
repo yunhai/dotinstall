@@ -78,12 +78,12 @@
                                     {{ $text }}
                                 </a>
                             @else
-                                <a href="{{ $redirect }}" class="btn-sm {{ $css_class }} ">
+                                <a href="javascript:;" class="btn-sm {{ $css_class }}" data-toggle="modal" data-target="#modal_request_deny">
                                     {{ $text }}
                                 </a>
                             @endif
                         @else
-                            <a href="javascript:;" id="modal_request_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-request-deny-modal-sm">完了する</a>
+                            <a href="javascript:;" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
                         @endif
 
 
