@@ -74,10 +74,8 @@
                             {{ $text }}
                         </a>
                     @endif
-                @else 
-                    <a href="{{ $redirect }}" class="btn-sm bg-button-to-complete" style="opacity: .6;">
-                        完了する
-                    </a>
+                @else
+                    <a href="javascript:;" id="modal_video_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-upgrade-modal-sm">完了する</a>
                 @endif
             </p>
         </div>
@@ -95,4 +93,6 @@
         @include('component.modal.ace', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [],  'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']])
     @endif
 @endif
-
+@if (empty(Auth::check()))
+    @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
+@endif
