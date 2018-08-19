@@ -76,7 +76,7 @@
 <div class="col-3 pl-0">
     <div class="card">
 	    <div class="card-header text-center">レッスン一覧</div>
-	    <div class="card-body">
+	    <div class="card-body pb-0">
 	        @foreach ($lesson_details as $target)
 	            <div class="col-lesson mt-0 @sp col-sm-6 @endsp">
 	                <div class="card">
