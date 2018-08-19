@@ -19,7 +19,7 @@
                 </div>
                 @pc
                     <div class="col-4">
-                        <a href="javascript:;" class="lession-heading-url float-right">レッスン一覧</a>
+                        <span class="lession-heading-url float-right">レッスン一覧</span>
                     </div>
                 @endpc
             </div>

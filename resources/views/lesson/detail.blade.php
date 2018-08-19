@@ -42,4 +42,5 @@
 </div>
 
 @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
+@include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
 @stop

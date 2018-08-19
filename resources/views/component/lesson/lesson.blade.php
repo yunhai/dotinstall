@@ -1,13 +1,13 @@
 @include('component.lesson.filter.form', ['filter_form' => $filter_form, 'lessons' => $lessons])
 @pc
-	@php
-		$class_col_left = 'col-5';
-	@endphp
+    @php
+        $class_col_left = 'col-5';
+    @endphp
 @endpc
 @sp
-	@php
-		$class_col_left = 'col-12';
-	@endphp
+    @php
+        $class_col_left = 'col-12';
+    @endphp
 @endsp
 <div class="box">
     <div class="card">
@@ -16,9 +16,9 @@
                 <span>簡単な実戦でプログラムを覚えよう！</span>
             </div>
             @pc
-	            <div class="col-7 pr-0 text-right">
-	                <span>レッスン一覧 {{ isset($lesson_info['lesson_total']) ? $lesson_info['lesson_total'] : 0 }}レッスン　{{ isset($lesson_info['video_total']) ? $lesson_info['video_total'] : 0 }}本の動画で提供中</span>
-	            </div>
+                <div class="col-7 pr-0 text-right">
+                    <span>レッスン一覧 {{ isset($lesson_info['lesson_total']) ? $lesson_info['lesson_total'] : 0 }}レッスン　{{ isset($lesson_info['video_total']) ? $lesson_info['video_total'] : 0 }}本の動画で提供中</span>
+                </div>
             @endpc
         </div>
     </div>

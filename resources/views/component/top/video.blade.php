@@ -7,11 +7,11 @@
                     <div class="@pc col-8 @endpc @sp col-12 @endsp pr-0 pad_l5 font-weight-bold">
                         <span>【{{ $filter_form['difficulty'][$lesson['difficulty']] }}】【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                     </div>
-					@pc
-						<div class="col-4">
-							<a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
-						</div>
-					@endpc
+                    @pc
+                        <div class="col-4">
+                            <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="lession-heading-url float-right">レッスン一覧</a>
+                        </div>
+                    @endpc
                 </div>
             </div>
             <div class="card card-video-list">

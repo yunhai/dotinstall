@@ -86,7 +86,6 @@
                             <a href="javascript:;" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
                         @endif
 
-
                         @unlogin
                             <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
                                 <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
