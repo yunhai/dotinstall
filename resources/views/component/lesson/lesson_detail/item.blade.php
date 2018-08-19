@@ -96,5 +96,5 @@
 @endif
 @if (empty(Auth::check()))
     @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
-    @include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
 @endif
+@include('component.modal.request_login', ['modal_id' => 'modal_request_login', 'redirect' => $redirect])
