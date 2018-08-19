@@ -76,7 +76,7 @@
                         </a>
                     @endif
                 @else
-                    <a href="javascript:;" id="modal_video_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-upgrade-modal-sm">完了する</a>
+                    <a href="javascript:;" id="modal_request_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-request-deny-modal-sm">完了する</a>
                 @endif
             </p>
         </div>
@@ -95,6 +95,6 @@
     @endif
 @endif
 @if (empty(Auth::check()))
-    @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
+    @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @endif
 @include('component.modal.request_login', ['modal_id' => 'modal_request_login', 'redirect' => $redirect])

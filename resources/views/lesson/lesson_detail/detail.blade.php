@@ -83,7 +83,7 @@
                                 </a>
                             @endif
                         @else
-                            <a href="javascript:;" id="modal_video_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-request-upgrade-modal-sm">完了する</a>
+                            <a href="javascript:;" id="modal_request_deny" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target=".user-request-deny-modal-sm">完了する</a>
                         @endif
 
 
@@ -137,4 +137,5 @@
 </div>
 @include('component.modal.video_speed', ['modal_id' => 'modal_diamond_user'])
 @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
+@include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @stop
