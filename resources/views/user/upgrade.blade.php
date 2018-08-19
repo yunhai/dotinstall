@@ -59,10 +59,10 @@
 
                                 <div class="col">
                                     <div class='container' id='card-holder'>
-                                        <div class='row'>
+                                        <div class='row' @sp style="font-size:8px; padding-top:3px;" @endsp>
                                             <div id="card-number" class='@pc col-5 @endpc @sp col-7 @endsp card-element'></div>
-                                            <div id="card-expiry" class='col-2 card-element'></div>
-                                            <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 55px;" @endpc></div>
+                                            <div id="card-expiry" class='col-3 card-element' style="flex:0 0 23%"></div>
+                                            <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 55px;" @endpc @sp style="padding-right:5px" @endsp></div>
                                         </div>
                                     </div>
                                     <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
@@ -75,7 +75,7 @@
                                 <label for="card_number" class="col col-form-label">※ 半角数字で入力</label>
                             </div>
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
-                                <div class="@pc col-5 @endpc @sp col-6 @endsp">
+                                <div class="@pc col-5 @endpc @sp col-8 @endsp">
                                     <img class="img-fluid" src="/img/charge.png" width="100%">
                                 </div>
                             </div>

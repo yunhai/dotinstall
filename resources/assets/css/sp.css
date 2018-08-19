@@ -207,3 +207,8 @@ html, body {
         width: 260px;
     }
 }
+.img-diamond {
+    width: 30px;
+    max-width: 40px;
+    height: auto;
+}

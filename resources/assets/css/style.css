@@ -556,15 +556,11 @@ body {
 .old-bv {
     background-color: #263147;
 }
-.img-diamond {
-    width: 40px;
-    max-width: 40px;
-    height: auto;
-}
 .img-video {
     width: 23px;
     max-width: 23px;
     height: auto;
+    vertical-align: -webkit-baseline-middle;
 }
 .img-user {
     width: 23px;

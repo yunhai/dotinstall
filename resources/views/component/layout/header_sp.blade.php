@@ -12,8 +12,8 @@
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('user.upgrade') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
-                        <span class="d-lg-none">月額会員</span>
-                        <span class="d-none d-lg-block">月額会員</span>
+                        <span class="d-lg-none">月額会員になる</span>
+                        <span class="d-none d-lg-block">月額会員になる</span>
                     </a>
                 </li>
                 @endnormal_user
@@ -24,10 +24,10 @@
                         <span class="d-none d-lg-block">レッスン一覧</span>
                     </a>
                 </li>
-
+                <!--
                 <li class="nav-item nav-item-user dropdown">
                     <a class="nav-link text-lg-center dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img class="img-user mb-2" src="/img/user.jpg" alt="">
+                        <img class="img-user" src="/img/user.jpg" alt="">
                         <span class="d-lg-none">{{ Auth::user()->name }}</span>
                         <span class="d-none d-lg-block">{{ Auth::user()->name }}</span>
                     </a>
@@ -35,23 +35,46 @@
                         <a class="dropdown-item" href="{{ route('mypage') }}">
                             <div class="dropdown-message small">マイページ</div>
                         </a>
-                        @if (!Auth::user()->provider)
                         <a class="dropdown-item" href="{{ route('user.change_password') }}">
                             <div class="dropdown-message small">パスワード変更</div>
                         </a>
-                        @endif
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">
                             <div class="dropdown-message small">ログアウト</div>
                         </a>
                     </div>
                 </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link text-lg-center" href="{{ route('mypage') }}">
+                        <img class="img-video" src="/img/user.jpg" alt="マイページ" style="padding-bottom:9px;">
+                        <span class="d-lg-none">マイページ</span>
+                        <span class="d-none d-lg-block">マイページ</span>
+                    </a>
+                </li>
+                <!--
+                <li
+                 class="nav-item">
+                    <a class="nav-link text-lg-center" href="{{ route('user.change_password') }}">
+                        <img class="img-video mb-2" src="/img/change-password.png" alt="パスワード変更">
+                        <span class="d-lg-none">パスワード変更</span>
+                        <span class="d-none d-lg-block">パスワード変更</span>
+                    </a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link text-lg-center" href="{{ route('logout') }}">
+                        <img class="img-video mb-2" src="/img/logout.png" alt="ログアウト">
+                        <span class="d-lg-none">ログアウト</span>
+                        <span class="d-none d-lg-block">ログアウト</span>
+                    </a>
+                </li>
             @else
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('register.diamond') }}">
-                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="月額会員">
-                        <span class="d-lg-none">月額会員</span>
-                        <span class="d-none d-lg-block">月額会員</span>
+                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="月額会員になる">
+                        <span class="d-lg-none">月額会員になる</span>
+                        <span class="d-none d-lg-block">月額会員になる</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -63,7 +86,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="/login">
-                        <img class="img-user mb-2" src="/img/user.jpg" alt="ログイン">
+                        <img class="img-user" src="/img/user.jpg" alt="ログイン">
                         <span class="d-lg-none">ログイン</span>
                         <span class="d-none d-lg-block">ログイン</span>
                     </a>

@@ -11,7 +11,7 @@
 					<div class="row row-resource px-5" @if (empty($content)) style="padding-bottom: 0px;" @endif>
 						@foreach($resources_item as $res)
 							@php
-			            		$media_id = $res['id']; 
+			            		$media_id = $res['id'];
 			            		$path = $res['path'];
 			            	@endphp
 							<div class="col-thumbnail-2">
@@ -105,7 +105,7 @@
 	                    </a>
 	                    <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:10px;">
 	                        <p class="card-text card-text-name @pc mb-0 @endpc text-left">{{ $target['name'] }}</p>
-	
+
 	                        @if (empty($path))
 	                            <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
 	                        @endif

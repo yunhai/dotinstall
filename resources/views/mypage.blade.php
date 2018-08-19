@@ -13,9 +13,9 @@
                         <h4>
                             <p class="card-text">
                                 @normal_user
-                                    <span style="font-size: 10px;">現在：</span>無料会員
+                                    <span style="font-size: 13px;">現在：</span>無料会員
                                 @else
-                                    <span style="font-size: 10px;">現在：</span>月額会員
+                                    <span style="font-size: 13px;">現在：</span>月額会員
                                 @endnormal_user
                             </p>
                         </h4>

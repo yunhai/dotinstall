@@ -10,7 +10,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-center" href="{{ route('user.upgrade') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="月額会員">
-                        <span class="d-block">月額会員</span>
+                        <span class="d-block">月額会員になる</span>
                     </a>
                 </li>
                 @endnormal_user
@@ -45,7 +45,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-center" href="{{ route('register.diamond') }}">
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="月額会員">
-                        <span class="d-block">月額会員</span>
+                        <span class="d-block">月額会員になる</span>
                     </a>
                 </li>
                 <li class="nav-item">

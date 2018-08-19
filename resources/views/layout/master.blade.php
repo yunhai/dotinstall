@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="noydir,noodp,index,follow">
         <meta content='IE=edge' http-equiv='X-UA-Compatible' />
-        <meta content='width=device-width, initial-scale=1' name='viewport' />
+        <meta content='width=device-width, initial-scale=1, user-scalable=no' name='viewport' />
         <meta name=”description” content=” 小学生から大人までＩＰＨＯＮＥアプリ開発レッスン動画。swift言語レッスン動画見放題！” />
 
         <title>@yield('title')</title>
@@ -28,7 +28,7 @@
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
-		
+
 		  gtag('config', 'UA-123965724-1');
 		</script>
     </head>
