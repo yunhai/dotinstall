@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group form-group-stripe">
                             <p>お支払い方法    クレジットカード<p>
-                            <p>動画は全て見放題となります！動画は毎月増えます！</p>
+                            <p>動画は全て見放題となります！</p>
                             <p>※ 毎月自動的に決済されます。<br>※ 購入後、設定変更画面から自動更新を停止することもできます。</p>
                         </div>
                         <div class="row border-bottom-0 justify-content-center mx-auto mb-0">
