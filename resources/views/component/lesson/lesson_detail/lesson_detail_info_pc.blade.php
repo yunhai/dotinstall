@@ -50,7 +50,8 @@
 					</div>
 				@endforeach
 			@else
-				<div class="tab-pane-resource" style="border-top: 1px solid #bca9af; margin-top: 20px;">
+				<div class="tab-pane-resource" @if (!empty($resources_item)) style="margin-top: 20px;" @endif>
+					<div class="resource-primary">ソースコード</div>
 					<div class="tab-pane fade show active" role="tabpanel">
 						<div class="modal-body">
 			                <p class="text-center">このレッスンにはソースコードありません</p>
