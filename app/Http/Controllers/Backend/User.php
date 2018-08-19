@@ -72,4 +72,16 @@ class User extends Base
 
         return redirect()->route('backend.user.index');
     }
+
+    public function getBlock(int $user_id)
+    {
+        $this->model->updateMode($user_id, MODE_DISABLE);
+        return redirect()->route('backend.user.index');
+    }
+
+    public function getUnblock(int $user_id)
+    {
+        $this->model->updateMode($user_id, MODE_ENABLE);
+        return redirect()->route('backend.user.index');
+    }
 }

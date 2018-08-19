@@ -73,4 +73,11 @@ class User extends Authenticatable
     {
         $this->where('affiliator_id', $affiliator_id)->delete();
     }
+
+    public function updateMode(int $user_id, int $mode)
+    {
+        $this->where('id', $user_id)
+            ->update(['mode' => $mode]);
+        return true;
+    }
 }

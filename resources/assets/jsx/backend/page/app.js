@@ -15,4 +15,7 @@ $(() => {
 
         history.back();
     });
+
+    $('.j-mode11').hide();
+    $('.j-mode00').hide();
 });
