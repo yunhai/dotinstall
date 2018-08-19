@@ -48,8 +48,8 @@
                     'tpl' => '
                         <a class="btn btn-info btn-sm" href="' . route('backend.user.edit', ['user_id' => ':id']) . '">編集</a>
                         <a class="btn btn-secondary btn-sm" href="' . route('backend.user.change_password', ['user_id' => ':id']) . '">パスワード変更</a>
-                        <a class="btn btn-warning btn-sm j-mode:mode0" href="' . route('backend.user.block', ['user_id' => ':id']) . '">Block</a>
-                        <a class="btn btn-success btn-sm j-mode:mode1" href="' . route('backend.user.unblock', ['user_id' => ':id']) . '">Unblock</a>
+                        <a class="btn btn-warning btn-sm j-mode:mode0" href="' . route('backend.user.block', ['user_id' => ':id']) . '">停止</a>
+                        <a class="btn btn-success btn-sm j-mode:mode1" href="' . route('backend.user.unblock', ['user_id' => ':id']) . '">開始</a>
                         <a href="' . route('backend.user.delete', ['user_id' => ':id']) . '" class="btn btn-danger btn-sm" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
                     ',
                     'tpl_arg' => [
