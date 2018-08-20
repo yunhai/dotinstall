@@ -12,17 +12,18 @@
 @endpush
 
 @section('content')
+<!--
     @normal_user
         @include('component.top.panel', ['youtube_link' => $youtube_link])
     @endnormal_user
-
+-->
     @if (Auth::check() == false)
         @include('component.top.panel', ['youtube_link' => $youtube_link])
         @include('component.top.video', ['lessons' => $lessons])
     @else
         @include('component.top.lesson', ['lessons' => $lessons])
     @endif
-    
+
     <div class="box mb-0">
         <div class="card-lesson-total text-center">
             <p class="card-text">

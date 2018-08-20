@@ -47,7 +47,7 @@
                 -->
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('mypage') }}">
-                        <img class="img-user" src="/img/user.jpg" alt="マイページ" style="padding-bottom:9px;">
+                        <img class="img-user" src="/img/user.jpg" alt="マイページ" style="margin-top:-10px;">
                         <span class="d-lg-none">マイページ</span>
                         <span class="d-none d-lg-block">マイページ</span>
                     </a>
@@ -86,7 +86,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="/login">
-                        <img class="img-user" src="/img/user.jpg" alt="ログイン">
+                        <img class="img-user" src="/img/user.jpg" alt="ログイン" style="margin-top:-10px;">
                         <span class="d-lg-none">ログイン</span>
                         <span class="d-none d-lg-block">ログイン</span>
                     </a>
