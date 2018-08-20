@@ -52,7 +52,7 @@
         @endforeach
     @endforeach
 @else
-    <div class="card" style='text-align: -webkit-center;'>
+    <div class="card" style='text-align: -webkit-center; padding-top:100px; padding-bottom:100px'>
         <p>検索結果はありません</p>
     </div>
 @endif

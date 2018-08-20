@@ -21,8 +21,8 @@
                 <h6 class="title-widget">ソーシャルメディア</h6>
                 <hr>
                 <ul class="pad_l20">
-                    <li class="pb-1"><a href="https://twitter.com/E3POTVXDRuT5yEe">Twitter</a></li>
-                    <li><a href="https://www.facebook.com/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0go-562934900892573/?modal=admin_todo_tour">Facebook</a></li>
+                    <li class="pb-1"><a href="https://twitter.com/E3POTVXDRuT5yEe" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.facebook.com/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0go-562934900892573/?modal=admin_todo_tour" target="_blank">Facebook</a></li>
                 </ul>
                 <h6 class="title-widget">サービス</h6>
                 <hr>

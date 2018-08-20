@@ -159,14 +159,14 @@ body {
 	/*vertical-align: top;*/
     width: 13px;
     display: inline-block;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
 }
 .btn-google .btn-google-label {
     display: table-cell;
     width: 75%;
     background-color: #4484f3;
     padding-top: 7px;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
     padding-left: 12px;
     padding-right: 12px;
 }
@@ -566,6 +566,7 @@ body {
     width: 23px;
     max-width: 23px;
     height: auto;
+    vertical-align: -webkit-baseline-middle;
 }
 .img-party {
     width: 23px;
@@ -574,6 +575,12 @@ body {
 }
 .img-logo {
     height: 30px;
+}
+.img-logout {
+    width: 23px;
+    max-width: 23px;
+    height: auto;
+    vertical-align: bottom;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -622,7 +629,7 @@ body {
 .button-charge {
 	width: 100%;
     color: #fff;
-	font-weight: bold;
+    padding-top: 2px;
 }
 .centered {
     position: absolute;

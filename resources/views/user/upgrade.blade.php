@@ -53,16 +53,16 @@
                             <p>動画は全て見放題となります！</p>
                             <p>※ 毎月自動的に決済されます。<br>※ 購入後、設定変更画面から自動更新を停止することもできます。</p>
                         </div>
-                        <div class="row border-bottom-0 justify-content-center mx-auto mb-0">
+                        <div class="row border-bottom-0 justify-content-center @pc mx-auto @endpc mb-0">
                             <div class="@pc col-8 @endpc @sp col-12 px-0 @endsp">
                                 <label for="card_number" class="col col-form-label">クレジットカード番号</label>
 
                                 <div class="col">
                                     <div class='container' id='card-holder'>
-                                        <div class='row' @sp style="font-size:8px; padding-top:3px;" @endsp>
-                                            <div id="card-number" class='@pc col-5 @endpc @sp col-7 @endsp card-element'></div>
-                                            <div id="card-expiry" class='col-3 card-element' style="flex:0 0 23%"></div>
-                                            <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 55px;" @endpc @sp style="padding-right:5px" @endsp></div>
+                                        <div class='row' @sp style="padding-bottom:2px" @endsp>
+                                            <div id="card-number" class='@pc col-5 @endpc @sp col-7 @endsp card-element' @sp style="flex:0 0 60%; max-width:60%;" @endsp></div>
+                                            <div id="card-expiry" class='col-3 card-element'></div>
+                                            <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 55px;" @endpc @sp style="padding-right:5px;padding-left: 3px;" @endsp></div>
                                         </div>
                                     </div>
                                     <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
@@ -84,7 +84,7 @@
                                     ※ デビットカードご利用可能です。
                                 </div>
                             </div>
-                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t20 mar_b20">
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t10 mar_b20">
                                 <div class="col text-center">
                                      ※ 有料会員利用規約に同意されたうえでご登録ください。
                                 </div>

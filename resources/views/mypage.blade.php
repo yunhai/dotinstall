@@ -20,11 +20,13 @@
                             </p>
                         </h4>
                         @normal_user
+                        <!--
                             <p class="card-text">
                                 <a href="{{ route('user.upgrade') }}">
                                     <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>月額会員になる
                                 </a>
                             </p>
+                        -->
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額&yen;{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
                             <p class="card-text">
                                 <a href="javascript:;" data-toggle="modal" data-target=".user-destroy-modal-sm">【退会する】</a>
@@ -40,7 +42,7 @@
                         @normal_user
                             <p class="card-text">
                                 <a href="{{ route('user.upgrade') }}">
-                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>月額会員になる
+                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;" style="padding-bottom: 2px;"></span>月額会員になる
                                 </a>
                             </p>
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額&yen;{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
