@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         '\App\Console\Commands\Cleaner\Chunk',
-        '\App\Console\Commands\SendNotifications',
+        '\App\Console\Commands\User\UserDiamondEndAt',
     ];
 
     /**
@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('cleaner:chunk')->hourly();
+        $schedule->command('cleaner:user_diamond_ends_at')->daily('0:00');
     }
 
     /**

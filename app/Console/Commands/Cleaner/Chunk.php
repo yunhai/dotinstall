@@ -37,10 +37,10 @@ class Chunk extends Command
      */
     public function handle()
     {
-        $break_time = time() - 86400;
+        $break_time = time() - 14400;
         $dir = storage_path() . '/app/chunks/';
         $files = array_diff(scandir($dir), ['..', '.']);
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $location = $dir . $file;
             if (is_dir($location)) {
                 continue;
