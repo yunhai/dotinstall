@@ -65,5 +65,4 @@
         ];
     @endphp
     @include('backend.component.list.paging', ['table' => $table, 'data' => $data])
-    @include('backend.component.modal.user.confirm_delete')
 @stop
