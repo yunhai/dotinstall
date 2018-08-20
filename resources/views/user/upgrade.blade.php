@@ -27,6 +27,17 @@
               </div>
         </div>
     @endif
+    <script type="text/javascript">
+		$('#agree').change(function() {
+	        if ($(this).is(":checked")) {
+	            $("#j-submit").css("cursor", "pointer");
+	            $("#j-submit").css("opacity", "1");
+	        } else {
+		        $("#j-submit").css("cursor", "auto");
+	            $("#j-submit").css("opacity", "0.6");
+	        }    
+	    });
+    </script>
 @endpush
 @section('breadcrumbs', Breadcrumbs::render('user.upgrade'))
 
@@ -84,14 +95,22 @@
                                     ※ デビットカードご利用可能です。
                                 </div>
                             </div>
-                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t10 mar_b20">
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t10">
                                 <div class="col text-center">
                                      ※ 有料会員利用規約に同意されたうえでご登録ください。
                                 </div>
                             </div>
+                            <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t10 mar_b20">
+                                <div class="col text-center">
+									 	<div class="form-check">
+									    	<input type="checkbox" class="form-check-input" id="agree">
+											<label class="form-check-label" for="agree">有料会員利用規約<a target="_blank" href="{{ route('terms') }}">に同意</a></label>
+									  </div>
+                                </div>
+                            </div>
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
                                 <div class="@pc col-5 @endpc @sp col-8 @endsp text-center">
-                                    <span id='j-submit' type="btn" class="p-0" style="cursor: pointer;">
+                                    <span id='j-submit' type="btn" class="p-0" style="opacity: 0.6">
                                         <img class="img-fluid" src="/img/bg_button_charge.png" width="100%">
                                         <span class="button-charge centered">月額会員に登録する</span>
                                     </span>
