@@ -35,7 +35,7 @@
 	        } else {
 		        $("#j-submit").css("cursor", "auto");
 	            $("#j-submit").css("opacity", "0.6");
-	        }    
+	        }
 	    });
     </script>
 @endpush
@@ -103,8 +103,8 @@
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t10 mar_b20">
                                 <div class="col text-center">
 									 	<div class="form-check">
-									    	<input type="checkbox" class="form-check-input" id="agree">
-											<label class="form-check-label" for="agree">有料会員利用規約<a target="_blank" href="{{ route('terms') }}">に同意</a></label>
+									    	<input type="checkbox" class="form-check-input" id="agree" style='margin-top:3px;'>
+											<label class="form-check-label" for="agree">有料会員<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
 									  </div>
                                 </div>
                             </div>
