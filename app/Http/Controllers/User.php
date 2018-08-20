@@ -23,7 +23,7 @@ class User extends Base
 
     public function getUpgrade()
     {
-        if (Auth::user()->grade == USER_GRADE_DIAMOND) {
+        if (Auth::user()->grade == USER_GRADE_DIAMOND && Auth::user()->diamond) {
             return redirect()->route('mypage');
         }
 
@@ -48,7 +48,7 @@ class User extends Base
     {
         $user = Auth::user()->toArray();
 
-        if ($user['grade'] == USER_GRADE_DIAMOND) {
+        if ($user['grade'] == USER_GRADE_DIAMOND && Auth::user()->diamond) {
             return redirect()->route('mypage');
         }
 
@@ -94,24 +94,42 @@ class User extends Base
         $flag = $payment_service->cancel($user_id);
 
         if ($flag) {
-            $this->sendStopDiamondEmail($user);
-            $this->model->updateGrade($user_id, USER_GRADE_NORMAL);
+            $last_subscription = $this->getLastSubscription($user_id);
+            $this->sendStopDiamondEmail($user, $last_subscription);
+            $this->model->updateDiamondEndAt($user_id, $last_subscription);
             return redirect()->back()->with('success', true);
         }
 
         return redirect()->back()->with('error', $error);
     }
 
-    private function getDiamondDeadline(int $user_id)
+    private function getLastSubscription($user_id)
     {
         $subcription_model = new Subscription();
-        $result = $subcription_model->lastest($user_id);
-        if ($result['ends_at']) {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $result['ends_at'])
+        return $subcription_model->lastest($user_id);
+    }
+
+    private function sendStopDiamondEmail(array $user, array $subscription)
+    {
+        $deadline = '';
+        if ($subscription['ends_at']) {
+            $deadline = Carbon::createFromFormat('Y-m-d H:i:s', $subscription['ends_at'])
                         ->addMonth()
                         ->format('Y年m月d日');
         }
-        return '';
+
+        $mailer = new MailerService();
+        $name = 'Mail\User\StopDiamondEmail';
+
+        $mail = [
+            'to' => [$user['email'], $user['name']],
+            'data' => [
+                'user' => $user,
+                'deadline' => $deadline
+            ]
+        ];
+
+        $mailer->send($name, $mail);
     }
 
     private function sendRegistryDiamondEmail(array $user)
@@ -124,23 +142,6 @@ class User extends Base
             'to' => [$user['email'], $user['name']],
             'data' => [
                 'user' => $user
-            ]
-        ];
-
-        $mailer->send($name, $mail);
-    }
-
-    private function sendStopDiamondEmail(array $user)
-    {
-        $user_id = $user['id'];
-        $mailer = new MailerService();
-        $name = 'Mail\User\StopDiamondEmail';
-
-        $mail = [
-            'to' => [$user['email'], $user['name']],
-            'data' => [
-                'user' => $user,
-                'deadline' => $this->getDiamondDeadline($user_id)
             ]
         ];
 

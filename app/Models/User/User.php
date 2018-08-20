@@ -2,27 +2,28 @@
 
 namespace App\Models\User;
 
+use App\Models\Traits\User\UserTrack;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Traits\User\UserTrack;
-use Laravel\Cashier\Billable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
     use Notifiable, UserTrack, Billable, SoftDeletes;
 
     protected $fillable = [
-      'name',
-      'email',
-      'password',
-      'provider',
-      'provider_user_id',
-      'affiliator_id',
-      'grade'
+        'name',
+        'email',
+        'password',
+        'provider',
+        'provider_user_id',
+        'affiliator_id',
+        'grade',
+        'diamond_ends_at',
     ];
 
     protected $hidden = [
@@ -32,8 +33,13 @@ class User extends Authenticatable
 
     public function updateGrade(int $user_id, int $grade)
     {
+        $data = ['grade' => $grade];
+        if ($grade == USER_GRADE_DIAMOND) {
+            $data['diamond_ends_at'] = null;
+        }
+
         $this->where('id', $user_id)
-            ->update(['grade' => $grade]);
+            ->update($data);
         return true;
     }
 
@@ -44,7 +50,7 @@ class User extends Authenticatable
 
     public function init(array $data)
     {
-	    $name = strstr($data['email'], '@', true);
+        $name = strstr($data['email'], '@', true);
         $result = [
             'name' => $name,
             'email' => $data['email'],
@@ -69,10 +75,17 @@ class User extends Authenticatable
 
         return $target;
     }
-    
+
     public function remove(int $id)
     {
         $this->findOrFail($id)->delete($id);
+        return true;
+    }
+
+    public function updateDiamondEndAt(int $user_id, array $subscription)
+    {
+        $this->where('id', $user_id)
+            ->update(['diamond_ends_at' => $subscription['ends_at']]);
         return true;
     }
 }

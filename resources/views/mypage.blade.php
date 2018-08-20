@@ -2,6 +2,15 @@
 @section('title', 'マイページ')
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('mypage'))
+@php
+    $user_grade = 'normal';
+    if (Auth::user()->grade == USER_GRADE_DIAMOND) {
+        $user_grade = 'diamond';
+        if (Auth::user()->diamond_ends_at) {
+            $user_grade = 'diamond_end_pending';
+        }
+    }
+@endphp
 <div id="content">
     <div class="box ttlCommon mb-0 px-5">マイページ</div>
     <div class="box-mypage px-5">
@@ -11,27 +20,27 @@
                     <div class="card-header">ステータス</div>
                     <div class="card card-body justify-content-center text-center border-0">
                         <h4>
+                            @if ($user_grade == 'diamond_end_pending')
+                                <p class="card-text" style="font-size: 14px;"> 2015/10/23まで視聴可能</p>
+                            @endif
                             <p class="card-text">
-                                @normal_user
+                                @if ($user_grade == 'normal' || $user_grade == 'diamond_end_pending')
                                     <span style="font-size: 13px;">現在：</span>無料会員
-                                @else
+                                @elseif ($user_grade == 'normal')
+                                    @if (Auth::user()->diamond_ends_at)
+                                    <span style="font-size: 13px;">現在：</span>無料会員
+                                    @else
                                     <span style="font-size: 13px;">現在：</span>月額会員
-                                @endnormal_user
+                                    @endif
+                                @endif
                             </p>
                         </h4>
-                        @normal_user
-                        <!--
-                            <p class="card-text">
-                                <a href="{{ route('user.upgrade') }}">
-                                    <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;"></span>月額会員になる
-                                </a>
-                            </p>
-                        -->
+                        @if ($user_grade == 'normal' || $user_grade == 'diamond_end_pending')
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額&yen;{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
                             <p class="card-text">
                                 <a href="javascript:;" data-toggle="modal" data-target=".user-destroy-modal-sm">【退会する】</a>
                             </p>
-                        @endnormal_user
+                        @endif
                     </div>
                 </div>
             </div>
@@ -39,14 +48,14 @@
                 <div class="card card-mypage">
                     <div class="card-header">次回課金日/値段</div>
                     <div class="card card-body justify-content-center text-center border-0">
-                        @normal_user
+                        @if ($user_grade == 'normal' || $user_grade == 'diamond_end_pending')
                             <p class="card-text">
                                 <a href="{{ route('user.upgrade') }}">
                                     <span class="mr-2"><img class="img-fluid" src="img/charge_diamond.png" width="15px;" style="padding-bottom: 2px;"></span>月額会員になる
                                 </a>
                             </p>
                             <p class="card-text">月額会員になると、全ての動画見放題となります！月額&yen;{{ constant('MEMBERSHIP_FEE') }}円（税別）</p>
-                        @else
+                        @elseif ($user_grade == 'diamond')
                         <h4><p class="card-text" style="padding-top:15px">{{ $next_pay_date }}</p></h4>
                         <h4><p class="card-text">&yen;{{ constant('MEMBERSHIP_FEE') }}円<span style="font-size: 10px;">税別</span></p></h4>
                         <div style="line-height: 10px; text-align: left;padding-left: 80px;padding-top: 8px;">
@@ -60,7 +69,7 @@
                                 <a href="javascript:;" data-toggle="modal" data-target=".user-destroy-modal-sm">【退会する】</a>
                             </p>
                         </div>
-                        @endnormal_user
+                        @endif
                     </div>
                 </div>
             </div>
@@ -106,57 +115,57 @@
     </div>
 </div>
 <div class="modal fade payment-history-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content rounded-0" style="height: auto;">
-			<div class="modal-body p-0">
-				<table class="table table-borderless mb-0">
-					<thead>
-						<tr>
-							<td scope="col">日付</td>
-							<td scope="col">金額</td>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach($payment_history as $history)
-							<tr>
-								<td scope="row">{{ $history['stripe_time'] }}</td>
-								<td>￥{{ $history['stripe_amount'] }}円（税別）</td>
-							</tr>
-						@endforeach
-					</tbody>
-				</table>
-			</div>
-			<div class="modal-footer" style="padding: 0;">
-				<a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0" style="height: auto;">
+            <div class="modal-body p-0">
+                <table class="table table-borderless mb-0">
+                    <thead>
+                        <tr>
+                            <td scope="col">日付</td>
+                            <td scope="col">金額</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($payment_history as $history)
+                            <tr>
+                                <td scope="row">{{ $history['stripe_time'] }}</td>
+                                <td>￥{{ $history['stripe_amount'] }}円（税別）</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer" style="padding: 0;">
+                <a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal fade user-downgrade-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content rounded-0" style="height: auto;">
-			<div class="modal-body">
-				<p class="mb-0">月額会員をストップしますか？</p>
-			</div>
-			<div class="modal-footer" style="padding: 0;">
-				<a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
-				<a href="{{ route('user.downgrade') }}" class="btn font_12">OK</a>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded-0" style="height: auto;">
+            <div class="modal-body">
+                <p class="mb-0">月額会員をストップしますか？</p>
+            </div>
+            <div class="modal-footer" style="padding: 0;">
+                <a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
+                <a href="{{ route('user.downgrade') }}" class="btn font_12">OK</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal fade user-destroy-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content rounded-0" style="height: auto;">
-			<div class="modal-body">
-				<p class="mb-0">退会してよろしいでしょうか？</p>
-			</div>
-			<div class="modal-footer" style="padding: 0;">
-				<a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
-				<a href="{{ route('user.destroy') }}" class="btn font_12">OK</a>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded-0" style="height: auto;">
+            <div class="modal-body">
+                <p class="mb-0">退会してよろしいでしょうか？</p>
+            </div>
+            <div class="modal-footer" style="padding: 0;">
+                <a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
+                <a href="{{ route('user.destroy') }}" class="btn font_12">OK</a>
+            </div>
+        </div>
+    </div>
 </div>
 @foreach($notifications as $notification)
     @include('component.modal.info', ['modal_id' => 'model--notification_' . $notification['id'], 'target' => $notification])
