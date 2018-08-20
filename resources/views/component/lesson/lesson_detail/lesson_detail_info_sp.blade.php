@@ -29,7 +29,7 @@
 		@else
 			<div class="row-resource">
 				<div class="col">
-					<a href="javascript:;" class="btn btn-download-resource" data-toggle="modal" data-target="#modal_request_deny">素材を一括ダウンロードする</a>
+					<a href="javascript:;" class="btn btn-download-resource" data-toggle="modal" data-target="#modal_resource_download_deny">素材を一括ダウンロードする</a>
 					<p class="card-text">（有料会員になるとダウンロードできます。）</p>
 				</div>
 			</div>

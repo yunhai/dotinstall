@@ -137,4 +137,5 @@
 @include('component.modal.video_speed', ['modal_id' => 'modal_diamond_user'])
 @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
 @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
+@include('component.modal.resource_download_deny', ['modal_id' => 'modal_resource_download_deny'])
 @stop
