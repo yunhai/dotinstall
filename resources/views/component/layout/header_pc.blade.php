@@ -24,7 +24,7 @@
                 <li class="nav-item nav-item-user dropdown">
                     <a class="nav-link text-center dropdown-toggle" data-toggle="dropdown" href="#">
                         <img class="img-user mb-2" src="/img/user.jpg" alt="">
-                        <span class="d-block">{{ Auth::user()->name }}</span>
+                        <span class="d-block">{{ $name }}</span>
                     </a>
                     <div class="dropdown-menu rounded-0" style="right: 0; left: auto;">
                         <a class="dropdown-item" href="{{ route('mypage') }}">
