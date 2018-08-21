@@ -37,7 +37,7 @@
             @endif
 
             <div class="row">
-	            @pc
+                @pc
                 <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>

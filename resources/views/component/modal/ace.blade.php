@@ -9,27 +9,27 @@
             </div>
             @if (!empty($resources))
             <div class="modal-body">
-	            @if (!empty($resources_item))
-					<p>素材ダウンロード
-						<a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download @pc ml-5 @endpc btn--resource" role="button" aria-pressed="true">素材を一括ダウンロードする</a>
-					</p>
-		            <div class="row" style="margin-bottom: 1rem;">
-			            @foreach($resources_item as $res)
-			            	@php
-			            		$media_id = $res['id']; 
-			            		$path = $res['path'];
-			            	@endphp
-			            	<div class="@pc col-2 @endpc @sp col-4 @endsp">
-				            	<div class="card">
-					            	<img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
-					            	<div class="card-body p-1">
-										<p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
-					            	</div>
-				            	</div>
-			            	</div>
-			            @endforeach
-		            </div>
-	            @endif
+                @if (!empty($resources_item))
+                    <p>素材ダウンロード
+                        <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-sm btn-download @pc ml-5 @endpc btn--resource" role="button" aria-pressed="true">素材を一括ダウンロードする</a>
+                    </p>
+                    <div class="row" style="margin-bottom: 1rem;">
+                        @foreach($resources_item as $res)
+                            @php
+                                $media_id = $res['id']; 
+                                $path = $res['path'];
+                            @endphp
+                            <div class="@pc col-2 @endpc @sp col-4 @endsp">
+                                <div class="card">
+                                    <img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
+                                    <div class="card-body p-1">
+                                        <p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
                 <hr style="border-color: #837f80;" class="mb-0">
             </div>
             @endif

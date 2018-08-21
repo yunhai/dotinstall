@@ -15,22 +15,21 @@
         <link href="/css/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
         @pc
-			<link href="/css/pc.css" media="all" rel="stylesheet" type="text/css" />
-		@endpc
-		@sp
-			<link href="/css/sp.css" media="all" rel="stylesheet" type="text/css" />
-		@endsp
+            <link href="/css/pc.css" media="all" rel="stylesheet" type="text/css" />
+        @endpc
+        @sp
+            <link href="/css/sp.css" media="all" rel="stylesheet" type="text/css" />
+        @endsp
         <link href="/css/privacy.css" media="all" rel="stylesheet" type="text/css" />
         @stack('css')
         <!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123965724-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'UA-123965724-1');
-		</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123965724-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-123965724-1');
+        </script>
     </head>
     <body>
         @include('component.layout.header')

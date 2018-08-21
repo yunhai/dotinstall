@@ -46,7 +46,7 @@
                 <p class="mar_b20">初めての方はまずはユーザー登録をしてください。なお、外部サービスのアカウントで登録すると、後日簡単にログインすることができます。</p>
             @endif
             <div class="row">
-	            @pc
+                @pc
                 <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
@@ -169,7 +169,7 @@
                                     <a href="/auth/twitter" class="btn btn-twitter btn-block">
                                         <span><img class="img-fluid" src="/img/twitter.png"></span> <span class="btn-twitter-label">Twitterログイン</span>
                                     </a>
-									-->
+                                    -->
                                     <a href="/auth/facebook" class="btn btn-facebook btn-block">
                                         <span><img class="img-fluid" src="/img/facebook.png"></span> <span class="btn-facebook-label">Facebookログイン</span>
                                     </a>

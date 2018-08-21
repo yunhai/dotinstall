@@ -50,9 +50,14 @@
                 if ($allow_access) {
                     $video_css_class = 'j-video_allow';
                 }
+
+                $poster = array_shift($target['posters']);
+                $poster_path = $poster['path'];
             @endphp
 
-            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}' preload="metadata">
+            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}' preload="auto"
+                poster='@media_path($poster_path)'
+            >
                 @php $video_path = $video['path']; @endphp
                 <source src="@media_path($video_path)" type="video/mp4" size="720" >
             </video>
@@ -121,14 +126,14 @@
         <div class="card card-video-list" @if (!empty($lesson_details)) style="border-top: 1px solid #bca9af;" @endif>
             <div class="container-fluid pl-0 pr-0">
                 <div class="row">
-	                @pc
-	                	@php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                    @pc
+                        @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
                         @include('component.lesson.lesson_detail.lesson_detail_info_pc', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
-	                @endpc
-	                @sp
-	                	@php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
+                    @endpc
+                    @sp
+                        @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
                         @include('component.lesson.lesson_detail.lesson_detail_info_sp', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
-	                @endsp
+                    @endsp
                 </div>
             </div>
         </div>
