@@ -52,7 +52,7 @@
                 }
             @endphp
 
-            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}'>
+            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}' preload="metadata">
                 @php $video_path = $video['path']; @endphp
                 <source src="@media_path($video_path)" type="video/mp4" size="720" >
             </video>
