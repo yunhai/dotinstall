@@ -26,12 +26,8 @@
                             <p class="card-text">
                                 @if ($user_grade == 'normal' || $user_grade == 'diamond_end_pending')
                                     <span style="font-size: 13px;">現在：</span>無料会員
-                                @elseif ($user_grade == 'normal')
-                                    @if (Auth::user()->diamond_ends_at)
-                                    <span style="font-size: 13px;">現在：</span>無料会員
-                                    @else
+                                @elseif ($user_grade == 'diamond')
                                     <span style="font-size: 13px;">現在：</span>月額会員
-                                    @endif
                                 @endif
                             </p>
                         </h4>
