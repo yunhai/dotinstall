@@ -21,7 +21,7 @@
                     <div class="card card-body justify-content-center text-center border-0">
                         <h4>
                             @if ($user_grade == 'diamond_end_pending')
-                                <p class="card-text" style="font-size: 14px;"> 2015/10/23まで視聴可能</p>
+                                <p class="card-text" style="font-size: 14px;"> {{ $diamond_ends_at }}まで視聴可能</p>
                             @endif
                             <p class="card-text">
                                 @if ($user_grade == 'normal' || $user_grade == 'diamond_end_pending')

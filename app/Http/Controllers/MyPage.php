@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User\UserStat as UserStatModel;
 use App\Models\User\UserPayment as UserPaymentModel;
 use App\Models\Notification as NotificationModel;
+use App\Models\Subscription;
 use Auth;
 use Carbon\Carbon;
 
@@ -29,8 +30,21 @@ class MyPage extends Base
 
         $payment_history = $this->getPaymentHistory($user_id);
         $next_pay_date = $this->getNextPaymentDate($payment_history);
+        $diamond_ends_at = $this->getDiamondEndsAt($user_id);
+        return $this->render('mypage', compact('stat', 'notifications', 'next_pay_date', 'payment_history', 'diamond_ends_at'));
+    }
 
-        return $this->render('mypage', compact('stat', 'notifications', 'next_pay_date', 'payment_history'));
+    private function getDiamondEndsAt($user_id)
+    {
+        $subcription_model = new Subscription();
+        $subscription = $subcription_model->lastest($user_id);
+        if ($subscription['ends_at']) {
+            return Carbon::createFromFormat('Y-m-d H:i:s', $subscription['ends_at'])
+                        ->addMonth()
+                        ->format('Y年m月d日');
+        }
+
+        return '';
     }
 
     private function getUserStat(int $user_id)
