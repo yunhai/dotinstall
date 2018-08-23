@@ -8,7 +8,7 @@
         <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
             <p class="mar_b20">パスワードを再設定するには以下から新しいパスワードを入力してください。</p>
             <div class="row">
-	            @pc
+                @pc
                 <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>

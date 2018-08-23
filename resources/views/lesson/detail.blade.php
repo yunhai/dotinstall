@@ -24,11 +24,11 @@
             <div class="lession-heading w-100 px-5">
                 <img class="img-fluid" src="/img/light-bulb.png">
                 <div class="@pc col-10 @endpc pr-0 pad_l5 font-weight-bold">
-                	<span>【{{ $filter_form['difficulty'][$target['difficulty']] }}】【＃{{ $target['sort'] }}】{{ $target['name'] }}（全{{ $target['video_count'] }}回）</span>
+                    <span>【{{ $filter_form['difficulty'][$target['difficulty']] }}】【＃{{ $target['sort'] }}】{{ $target['name'] }}（全{{ $target['video_count'] }}回）</span>
                 </div>
                 @pc
                 <div class="@pc col-2 @endpc @sp col-5 @endsp">
-                	<span class="lession-heading-url float-right">{{ $count }} 人が学習中です</span>
+                    <span class="lession-heading-url float-right">{{ $count }} 人が学習中です</span>
                 </div>
                 @endpc
             </div>
