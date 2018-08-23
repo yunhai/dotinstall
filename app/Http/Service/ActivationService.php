@@ -22,13 +22,13 @@ class ActivationService
         if ($user->mode || !$this->shouldSend($user)) {
             return;
         }
-    
+
         $token = $this->userActivation->createActivation($user);
         $user->activation_link = route('user.activate', $token);
-        
+
         $mailer = new MailerService();
         $name = 'Mail\User\ActivationEmail';
-    
+
         $mail = [
             'to' => [$user->email],
             'title' => MAIL_SUBJECT_USER_ACTIVATION,
@@ -50,6 +50,8 @@ class ActivationService
 
         if ($user->grade !== USER_GRADE_PENDING_DIAMOND) {
             $user->grade = USER_GRADE_NORMAL;
+        } else {
+            $user->grade = USER_GRADE_DIAMOND;
         }
 
         $user->save();
