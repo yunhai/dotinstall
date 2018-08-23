@@ -50,8 +50,6 @@ class ActivationService
 
         if ($user->grade !== USER_GRADE_PENDING_DIAMOND) {
             $user->grade = USER_GRADE_NORMAL;
-        } else {
-            $user->grade = USER_GRADE_DIAMOND;
         }
 
         $user->save();
