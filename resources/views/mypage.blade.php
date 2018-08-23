@@ -138,10 +138,19 @@
     </div>
 </div>
 <div class="modal fade user-downgrade-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-sm" style="max-width:460px;">
         <div class="modal-content rounded-0" style="height: auto;">
             <div class="modal-body">
-                <p class="mb-0">月額会員をストップしますか？</p>
+                <p class="mb-0">
+                    月額会員をストップしてよろしいでしょうか？</br>
+                    月額会員をストップした後にマイページより期間を確認する事が出来ます。</br></br>
+                    【注意】</br>
+                    月額会員をストップしても購入日より一か月間は視聴可能となっております。</br>
+                    視聴期間が残ってる期間中に、再度有料会員になったとしても</br>
+                    残りの視聴可能日数は加算されませんのでお気を付けください。</br>
+                    再度購入した日より１か月間、視聴可能となります。</br></br>
+                    何かご不明の事がありましたら、お問い合わせよりご連絡ください。</br>
+                </p>
             </div>
             <div class="modal-footer" style="padding: 0;">
                 <a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>
@@ -151,10 +160,14 @@
     </div>
 </div>
 <div class="modal fade user-destroy-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-sm" style="max-width:420px;">
         <div class="modal-content rounded-0" style="height: auto;">
             <div class="modal-body">
-                <p class="mb-0">退会してよろしいでしょうか？</p>
+                <p class="mb-0">
+                    退会してもよろしいでしょうか？</br>
+                    退会してしまうと視聴期間が残ってたとしても視聴できなくなります。</br>
+                    何かご不明な事がありましたら、お問い合わせよりご連絡ください。</br>
+                </p>
             </div>
             <div class="modal-footer" style="padding: 0;">
                 <a href="javascript:;" class="btn font_12" data-dismiss="modal" aria-label="Close">閉じる</a>

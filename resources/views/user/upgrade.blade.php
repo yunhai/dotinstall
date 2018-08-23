@@ -15,10 +15,12 @@
         });
     </script>
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-sm">
+              <div class="modal-dialog modal-sm" style="max-width:420px;">
                   <div class="modal-content rounded-0">
                       <div class="modal-body">
-                          <p class="mb-0">月額会員になりました。<br>ありがとうございました！</p>
+                          <p class="mb-0">月額会員ご登録ありがとうございます。</br>
+                            マイページより購入履歴がご確認できます。</br>
+                            何かご不明な事がありましたら、お問い合わせよりご連絡ください。</p>
                       </div>
                       <div class="modal-footer" style="padding: 0; justify-content:center;">
                           <a href="{{ route('top') }}" class="btn">OK</a>

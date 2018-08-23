@@ -1,4 +1,4 @@
-<div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
+<div class="col-9 pr-0" style="border-right: 1px solid #bca9af;border-top: 1px solid #bca9af; padding-left: 0px;">
 	<div class="tab-content tab-content-resource pt-0" id="{{ $modal_id }}">
 		@if ($allow_access)
 			@if (!empty($resources_item))
@@ -76,7 +76,7 @@
 </div>
 <div class="col-3 pl-0">
     <div class="card">
-	    <div class="card-header text-center">レッスン一覧</div>
+	    <div class="card-header text-center" style="border-radius:0;border-top: 1px solid #bca9af;">レッスン一覧</div>
 	    <div class="card-body pb-0">
 	        @foreach ($lesson_details as $target)
 	            <div class="col-lesson mt-0 @sp col-sm-6 @endsp">

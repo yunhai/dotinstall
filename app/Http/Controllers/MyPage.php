@@ -20,7 +20,7 @@ class MyPage extends Base
         $this->user_stat = $user_stat;
         $this->notification = $notification;
     }
-    
+
     public function getMyPage()
     {
         $user_id = Auth::id() ?: 0;
@@ -38,9 +38,9 @@ class MyPage extends Base
     {
         $subcription_model = new Subscription();
         $subscription = $subcription_model->lastest($user_id);
-        if ($subscription['ends_at']) {
+        if (!empty($subscription['ends_at'])) {
             return Carbon::createFromFormat('Y-m-d H:i:s', $subscription['ends_at'])
-                        ->addMonth()
+                        //->addMonth()
                         ->format('Y年m月d日');
         }
 

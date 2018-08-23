@@ -114,7 +114,7 @@ class User extends Base
         $deadline = '';
         if ($subscription['ends_at']) {
             $deadline = Carbon::createFromFormat('Y-m-d H:i:s', $subscription['ends_at'])
-                        ->addMonth()
+                        //->addMonth()
                         ->format('Y年m月d日');
         }
 

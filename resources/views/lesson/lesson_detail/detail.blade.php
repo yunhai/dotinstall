@@ -51,11 +51,15 @@
                     $video_css_class = 'j-video_allow';
                 }
             @endphp
-
+<!--
             <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}' preload="metadata">
                 @php $video_path = $video['path']; @endphp
                 <source src="@media_path($video_path)" type="video/mp4" size="720" >
             </video>
+-->
+            <div class="plyr__video-embed" id="j-player">
+                <iframe src="https://player.vimeo.com/video/286133800?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen allowtransparency></iframe>
+            </div>
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
@@ -118,7 +122,7 @@
         @endif
     </div>
     <div class="box px-5">
-        <div class="card card-video-list" @if (!empty($lesson_details)) style="border-top: 1px solid #bca9af;" @endif>
+        <div class="card card-video-list" @if (!empty($lesson_details)) @endif>
             <div class="container-fluid pl-0 pr-0">
                 <div class="row">
 	                @pc

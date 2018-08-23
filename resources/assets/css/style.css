@@ -318,7 +318,7 @@ body {
     z-index: 3;
 	background-color: #fd0c56;
     color: #fff;
-	padding-top: 5px;
+	padding-top: 4px;
     padding-bottom: 3px;
     padding-left: 25px;
     padding-right: 25px;
@@ -451,7 +451,7 @@ body {
     font-weight: bold;
 	padding-left: .5rem;
 	padding-right: .5rem;
-	padding-top: 2px;
+	padding-top: 3px;
 	padding-bottom: 1px;
     border-radius: .2rem;
 }
@@ -647,7 +647,7 @@ body {
 }
 .resource-primary {
 	position: relative;
-    padding: .75rem 1.25rem;
+    padding: .85rem 1.25rem .75rem 1.25rem;
     background-color: #253147;
     color: #fff;
 }

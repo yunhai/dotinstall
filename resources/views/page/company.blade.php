@@ -11,9 +11,6 @@
 
                 <div class="card-body">
                     <div class="form-group">
-                        <p>【社名】プログラミングゴー<p>
-                    </div>
-                    <div class="form-group">
                         <p>【代表取締役社長】 　田中　誠<p>
                     </div>
                     <div class="form-group">

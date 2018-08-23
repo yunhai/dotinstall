@@ -1,5 +1,5 @@
 <div class="col-12" style="border-right: 1px solid #bca9af;">
-	<div class="tab-content tab-content-resource pt-0" id="{{ $modal_id }}">
+	<div class="tab-content tab-content-resource pt-0 pb-0" id="{{ $modal_id }}">
 		@if ($allow_access)
 			@if (!empty($resources_item))
 				<div class="row-resource" style="border-bottom: 1px solid #bca9af;">

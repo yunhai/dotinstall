@@ -62,7 +62,7 @@
                             <div class="tab-pane-user row">
                                 <div class="col">
                                     <div class="card card-register">
-                                        <div class="card-header">新規登録</div>
+                                        <div class="card-header">新規登録（クレジットカード決済のみご利用可能です。）</div>
 
                                         <div class="card-body">
                                             <form method="POST" aria-label="新規ユーザー登録">
