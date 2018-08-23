@@ -19,7 +19,7 @@ class UtmTracking
 
         if ($a8) {
             $response = $next($request);
-            return $response->withCookie(cookie('utm_a82', $a8, 129600));
+            return $response->withCookie(cookie('utm_a8', $a8, 129600));
         }
 
         return $next($request);
