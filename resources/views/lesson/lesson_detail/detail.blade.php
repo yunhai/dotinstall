@@ -50,17 +50,9 @@
                 if ($allow_access) {
                     $video_css_class = 'j-video_allow';
                 }
-
-                $poster = array_shift($target['posters']);
-                $poster_path = $poster['path'];
             @endphp
 
-            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}' preload="auto"
-                poster='@media_path($poster_path)'
-            >
-                @php $video_path = $video['path']; @endphp
-                <source src="@media_path($video_path)" type="video/mp4" size="720" >
-            </video>
+            <div id="j-player" data-plyr-provider="vimeo" data-plyr-embed-id="https://player.vimeo.com/video/286133800" class='hidden {{ $video_css_class }}' ></div>
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
