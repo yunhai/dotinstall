@@ -32,7 +32,7 @@
                             <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
                               <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" class="d-flex align-items-center">
                                   @php $is_all_finish = ($lesson['lesson_detail_close_count'] >= $lesson['video_count']) ; @endphp
-                                  <span @if($is_all_finish) style='text-decoration: line-through' @endif>【＃{{ $lesson['sort'] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
+                                  <span @if($is_all_finish) style='text-decoration: line-through' @endif>{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                               </a>
                             </div>
                             <div class="@pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 text-right mar_t10 @endsp px-0">

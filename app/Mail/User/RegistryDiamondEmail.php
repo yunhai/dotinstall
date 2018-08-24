@@ -21,7 +21,7 @@ class RegistryDiamondEmail extends Mailable
     public function build()
     {
         return $this->from(env('APP_MAIL'), env('APP_NAME'))
-                    ->subject('月額会員になっており、誠にありがとうございます')
+                    ->subject('プログラミングGO　月額会員のご確認')
                     ->view('emails.user.registry_diamond')
                     ->with('data', $this->data['data']);
     }

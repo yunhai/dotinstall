@@ -25,7 +25,7 @@ class Lesson extends Base
         $this->user_lesson_detail_model = $user_lesson_detail_model;
     }
 
-    
+
     public function ajaxFilter(GetFilter $request)
     {
         $fitler = $request->all();
@@ -39,7 +39,7 @@ class Lesson extends Base
         $params = $this->retrieveLesson($fitler);
         return $this->render('lesson.index', $params);
     }
-    
+
     private function retrieveLesson(array $fitler = [])
     {
         $lessons = $this->model->getLessons($fitler);
@@ -111,7 +111,7 @@ class Lesson extends Base
 
         return $result;
     }
-    
+
     private function lessonInfo(array $lessons = [])
     {
         $lesson_total = $video_total = 0;
@@ -123,7 +123,7 @@ class Lesson extends Base
                 };
             };
         };
-        
+
         return compact('lesson_total', 'video_total');
     }
 
