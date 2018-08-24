@@ -74,7 +74,6 @@
             </div>
         @endif
     </div>
->>>>>>> 2fa26405829956700981acf7ee3a5fab3f232873
 </div>
 <div class="col-12">
     <div class="card-header text-center">レッスン一覧</div>
