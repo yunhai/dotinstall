@@ -106,14 +106,7 @@ class LessonDetail extends Base
         $input['lesson_id'] = $lesson_id;
 
         $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
-
-        $video = empty($input['video']) ? [] : current($input['video']);
-        $video_id = 0;
-        if ($video) {
-            $video_id = $video['id'];
-            $input['duration'] = empty($video['duration']) ? 0 : $video['duration'];
-        }
-        $input['video'] = $video_id;
+        $input['duration'] = empty($video['duration']) ? 0 : $video['duration'];
         $input['mode'] = MODE_ENABLE;
 
         $map = [

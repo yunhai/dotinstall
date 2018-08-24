@@ -27,13 +27,12 @@ class Lesson extends Base
     public function getLessonsForHome()
     {
         $with = [
-            'lesson_details.videos',
             'lesson_details.posters',
             'lesson_details.source_code_contents',
             'lesson_details.resources'
         ];
         return $this::with($with)
-        			->take(3)
+                    ->take(3)
                     ->enable()
                     ->orderBy('sort')
                     ->get()

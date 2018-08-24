@@ -67,5 +67,4 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltips: { controls: false, seek: true },
         speed: { selected: 0.75, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] },
     })
-    $('#j-player').removeClass('hidden')
 })

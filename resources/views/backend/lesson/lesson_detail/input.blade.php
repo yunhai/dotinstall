@@ -54,6 +54,16 @@
                     'field_value' => array_get($target, 'sort', ''),
                     'field_type' => 'text'
                 ],
+                'url' => [
+                    'field_label' => '動画',
+                    'field_name' => 'url',
+                    'field_value' => array_get($target, 'url', ''),
+                    'field_type' => 'vimeo',
+                    'field_attribute' => [
+                        'id' => 'j-videoUpload',
+                    ]
+                ],
+                /*
                 'video' => [
                     'field_label' => '動画',
                     'field_name' => 'video',
@@ -68,7 +78,7 @@
                         'data-max_file_upload' => 1,
                         'data-video_duration' => $video_duration ?? 0
                     ]
-                ],
+                ],*/
                 'poster' => [
                     'field_label' => 'サムネイル',
                     'field_name' => 'poster',

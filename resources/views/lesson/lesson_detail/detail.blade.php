@@ -37,13 +37,7 @@
         </div>
     </div>
     <div class="box px-5 mb-0 mar_t20">
-        @php
-            $video = [];
-            if (!empty($target['videos'])) {
-                $video = current($target['videos']);
-            }
-        @endphp
-        @if ($video)
+        @if ($target['url'])
         <div class="@sp player @endsp @pc player-yt @endpc">
             @php
                 $video_css_class = 'j-video_deny';
@@ -54,16 +48,12 @@
                 $poster = array_shift($target['posters']);
                 $poster_path = $poster['path'];
             @endphp
-<!--
-            <video controls crossorigin playsinline id="j-player" class='hidden {{ $video_css_class }}' preload="auto"
-                poster='@media_path($poster_path)'>
-                @php $video_path = $video['path']; @endphp
-                <source src="@media_path($video_path)" type="video/mp4" size="720" >
-            </video>
--->
-            <div class="plyr__video-embed" id="j-player">
-                <iframe src="https://player.vimeo.com/video/286133800?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen allowtransparency></iframe>
-            </div>
+
+            <div id="j-player" 
+                data-plyr-provider="vimeo" 
+                data-plyr-embed-id="{{ $target['url'] }}" 
+                class='hidden {{ $video_css_class }}'></div>
+
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">

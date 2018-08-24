@@ -74,16 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#modal_video_deny').modal()
         })
     }
-
-    $('[data-plyr="settings"]').click(e => {
-        e.preventDefault()
-        const $target = $(e.target)
-        $target
-            .parent()
-            .find('form')
-            .css('display', 'none')
-        $('#modal_diamond_user').modal()
-    })
-
-    $('#j-player').removeClass('hidden')
+    
+    player.on('ready', event => {
+        $('[data-plyr="settings"]').click(e => {
+            e.preventDefault()
+            const $target = $(e.target)
+            $target
+                .parent()
+                .find('form')
+                .css('display', 'none')
+            $('#modal_diamond_user').modal()
+        })
+    });
 })

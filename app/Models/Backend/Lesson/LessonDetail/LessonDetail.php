@@ -15,6 +15,7 @@ class LessonDetail extends Base
         'caption',
         'lesson_id',
         'video',
+        'url',
         'duration',
         'poster',
         'sort',

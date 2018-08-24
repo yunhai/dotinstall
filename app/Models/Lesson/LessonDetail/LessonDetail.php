@@ -26,11 +26,6 @@ class LessonDetail extends Base
                     ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT);
     }
 
-    public function videos()
-    {
-        return $this->hasMany(Media::class, 'id', 'video');
-    }
-
     public function posters()
     {
         return $this->hasMany(Media::class, 'id', 'poster');
@@ -43,7 +38,7 @@ class LessonDetail extends Base
 
     public function getAll($lesson_id)
     {
-        $with = ['posters',  'videos', 'source_code_contents', 'resources'];
+        $with = ['posters', 'source_code_contents', 'resources'];
         return $this::with($with)
                         ->where('lesson_id', $lesson_id)
                         ->orderBy('sort')
