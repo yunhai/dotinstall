@@ -36,6 +36,7 @@ Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/resource/download', 'Le
 Route::get('lesson/{lesson_id}/detail/{lesson_detail_id}/source_code/download', 'Lesson\LessonDetail\LessonDetail@getDownloadSourceCode')->name('lesson_detail.source_code.download');
 
 Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.download');
+Route::get('a8/test', 'Page@getA8');
 
 Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');

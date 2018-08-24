@@ -48,20 +48,28 @@ class UtmTrackingService
 
     private function triggerA8Webhook(array $target, array $info)
     {
-        $user_id = $target['user_id'];
         $unit_price = MEMBERSHIP_FEE;
         $quantity = 1;
         $total = MEMBERSHIP_FEE;
+
+        $invoice_cd = dechex(time()) . str_random(6);
+        $quantity = 1;
+        $product_id = 'a8';
         $q = [
-            'a8' => $target['utm_code'],
-            'pid' => env('A8_PID'),
-            'so' => 'user_id-' . $user_id,
-            'si' => "{$unit_price}-{$quantity}-{$total}"
+           'a8' => $target['utm_code'],
+           'pid' => env('A8_PID'),
+           'so' => $invoice_cd,
+           'si' => "{$unit_price}-{$quantity}-{$total}-{$product_id}"
         ];
-        $uri = 'https://px.a8.net/a8fly/earnings?' . http_build_query($q);
+        $uri = 'http://px.a8.net/a8fly/earnings?' . http_build_query($q);
         $ch = curl_init($uri);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_USERAGENT, request()->header('User-Agent'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         $output = curl_exec($ch);
         curl_close($ch);
+        \Log::error($uri);
+        \Log::error($output);
     }
 }
