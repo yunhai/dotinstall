@@ -212,7 +212,7 @@ body {
 }
 .col-lesson .card-img-video {
     border-radius: 0;
-    /*height: 134px;*/
+    height: 120px;
 }
 .box-request {
     padding-bottom: 20px;
@@ -319,7 +319,7 @@ body {
 	background-color: #fd0c56;
     color: #fff;
 	padding-top: 4px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
     padding-left: 25px;
     padding-right: 25px;
 }
@@ -573,9 +573,6 @@ body {
     max-width: 23px;
     height: auto;
 }
-.img-logo {
-    height: 40px;
-}
 .img-logout {
     width: 23px;
     max-width: 23px;
@@ -640,10 +637,7 @@ body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-.row-resource {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
+
 .resource-primary {
 	position: relative;
     padding: .85rem 1.25rem .75rem 1.25rem;

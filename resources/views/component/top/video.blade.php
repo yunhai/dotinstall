@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="lession-heading lession-header w-100 px-5">
                     <img class="img-fluid" src="/img/img_flash.png" />
-                    <div class="@pc col-8 @endpc @sp col-12 @endsp pr-0 pad_l5 font-weight-bold">
+                    <div class="@pc col-8 @endpc @sp col-12 @endsp pr-10 pad_l5 font-weight-bold">
                         <span>【{{ $filter_form['difficulty'][$lesson['difficulty']] }}】{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                     </div>
                     @pc
