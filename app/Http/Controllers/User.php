@@ -61,6 +61,7 @@ class User extends Base
         $input = $request->all();
         $token = $input['stripeToken'];
 
+
         $error = [];
         $payment_service = new StripeService();
         $flag = $payment_service->charge($user_id, $token, $error);

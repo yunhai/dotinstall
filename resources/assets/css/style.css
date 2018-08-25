@@ -159,14 +159,14 @@ body {
 	/*vertical-align: top;*/
     width: 13px;
     display: inline-block;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
 }
 .btn-google .btn-google-label {
     display: table-cell;
     width: 75%;
     background-color: #4484f3;
     padding-top: 7px;
-    padding-bottom: 6px;
+    padding-bottom: 5px;
     padding-left: 12px;
     padding-right: 12px;
 }
@@ -574,7 +574,7 @@ body {
     height: auto;
 }
 .img-logo {
-    height: 30px;
+    height: 40px;
 }
 .img-logout {
     width: 23px;

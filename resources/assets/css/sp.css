@@ -10,7 +10,7 @@ html, body {
 	padding-top: 0;
 }
 .navbar-brand .img-logo {
-	height: 23px;
+	height: 30px;
 }
 .nav-item-user .dropdown-toggle::after {
     margin-left: 0;

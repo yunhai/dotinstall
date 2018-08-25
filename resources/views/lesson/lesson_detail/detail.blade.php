@@ -30,7 +30,7 @@
     }
 @endphp
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 px-5">【{{ $filter_form['difficulty'][$lessons['difficulty']] }}】【＃{{ $lessons['sort'] }}】{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
+    <div class="box ttlCommon border-bottom-0 mb-0 px-5">【{{ $filter_form['difficulty'][$lessons['difficulty']] }}】{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
     <div class="box mb-0">
         <div class="card">
             <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>
@@ -49,9 +49,9 @@
                 $poster_path = $poster['path'];
             @endphp
 
-            <div id="j-player" 
-                data-plyr-provider="vimeo" 
-                data-plyr-embed-id="{{ $target['url'] }}" 
+            <div id="j-player"
+                data-plyr-provider="vimeo"
+                data-plyr-embed-id="{{ $target['url'] }}"
                 class='hidden {{ $video_css_class }}'></div>
 
             <div class="container-fluid">

@@ -26,6 +26,8 @@ class Stripe extends CashierController
     private function handleChargeWebhook($payload, $succeeded = true)
     {
         $user = $this->getUserByStripeId($payload['data']['object']['source']['customer']);
+//\Log::error(print_r($payload, true));
+//		\Log::error(print_r($user, true));		
         $user_id = $user['id'];
         $affiliator_id = $user['affiliator_id'];
 
