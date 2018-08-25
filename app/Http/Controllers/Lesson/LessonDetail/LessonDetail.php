@@ -115,23 +115,31 @@ class LessonDetail extends Base
 
     private function formatLessonDetail($lesson_details, $media, $user_id)
     {
+        $user_diamond_flag = (Auth::check() && Auth::user()->grade == USER_GRADE_DIAMOND);
+
+        $user_diamond_flag = (Auth::check() && Auth::user()->grade == USER_GRADE_DIAMOND);
         $storage = Storage::disk('media');
         foreach ($lesson_details as $key => $detail) {
             $lesson_details[$key]['is_closeable'] = $user_id
                 && !$this->user_lesson_detail_model->closed($user_id, $detail['lesson_id'], $detail['id']);
 
-            foreach ($detail['source_code_contents'] as $index => $item) {
-                $path = $media[$item['media_id']]['path'] ?? '';
+            if ($user_diamond_flag || $detail['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE')) {
+                foreach ($detail['source_code_contents'] as $index => $item) {
+                    $path = $media[$item['media_id']]['path'] ?? '';
 
-                if ($path && $storage->exists($path)) {
-                    $item['filename'] = $media[$item['media_id']]['original_name'];
-                    $item['content'] = $storage->get($path);
-                    $lesson_details[$key]['source_code_contents'][$index] = $item;
-                } else {
-                    unset($detail['source_code_contents'][$index]);
-                    unset($lesson_details[$key]['source_code_contents'][$index]);
+                    if ($path && $storage->exists($path)) {
+                        $item['filename'] = $media[$item['media_id']]['original_name'];
+                        $item['content'] = $storage->get($path);
+                        $lesson_details[$key]['source_code_contents'][$index] = $item;
+                    } else {
+                        unset($detail['source_code_contents'][$index]);
+                        unset($lesson_details[$key]['source_code_contents'][$index]);
+                    }
                 }
+            } else {
+                $lesson_details[$key]['source_code_contents'] = [];
             }
+
             $resources_item = [];
             if (!empty($detail['resources'])) {
                 foreach ($detail['resources'] as $index => $item) {
@@ -139,10 +147,9 @@ class LessonDetail extends Base
                 }
             }
             $lesson_details[$key]['resources_item'] = $resources_item;
-            $lesson_details[$key]['popup'] = $detail['source_code_contents'] ||
-                                            $detail['resources'];
+            $lesson_details[$key]['popup'] = $detail['source_code_contents'] || $detail['resources'];
         }
-
+        dd($lesson_details);
         return $lesson_details;
     }
 
