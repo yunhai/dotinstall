@@ -14,6 +14,48 @@
     <script src="/js/backend/spark-md5.min.js"></script>
     <script src="/vendor/backend/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="/js/backend/common/select.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+    function vimeo(id) {
+        const option = {
+            title: 0,
+            portrait: 0,
+            byline: 0,
+        }
+        const player = new Vimeo.Player(id, option);
+
+        player.getDuration().then(function(duration) {
+            const html = `<input type='hidden' name='duration' value='${duration}' />`;
+            $('.j-vimeoContainer').append(html);
+        });
+    }
+
+    $('#url').change((e) => {
+        var date = new Date;
+        var seconds = date.getSeconds();
+        var minutes = date.getMinutes();
+        var hour = date.getHours();
+
+        const id = `${hour}${minutes}${seconds}`;
+        const $target = $(e.target);
+        const vimeo_path = $target.val();
+        
+        if (vimeo_path) {
+            const html = `
+                <div data-vimeo-url="${vimeo_path}" 
+                    data-vimeo-title="false"
+                    data-vimeo-portrait="false"
+                    data-vimeo-byline="false"
+                    data-vimeo-width="640" id="${id}">
+                </div>
+            `;
+            $('.j-vimeoContainer').html(html);
+            vimeo(id);
+        } else {
+            $('.j-vimeoContainer').html('');
+        }
+    })
+    </script>
 @endpush
 @section('content')
     <div class='hidden' id='j-template'>
@@ -21,6 +63,9 @@
     </div>
     @php
         $target = $target ?? [];
+        print_r("<pre>");
+        print_r(Session::all('test'));
+        print_r("</pre>");
         $form = [
             'form_btn' => '保存',
             'form_label' => '動画',
@@ -60,25 +105,9 @@
                     'field_value' => array_get($target, 'url', ''),
                     'field_type' => 'vimeo',
                     'field_attribute' => [
-                        'id' => 'j-videoUpload',
+                        'data-video_duration' => @old('duration', array_get($target, 'duration', 0))
                     ]
                 ],
-                /*
-                'video' => [
-                    'field_label' => '動画',
-                    'field_name' => 'video',
-                    'field_value' => array_get($target, 'videos', ''),
-                    'field_type' => 'file_dd',
-                    'field_attribute' => [
-                        'id' => 'j-videoUpload',
-                        'data-url' => route('backend.media.chuck'),
-                        'data-preview' => 1,
-                        'data-query' => '{"media_type": "video"}',
-                        'data-type' => 'video',
-                        'data-max_file_upload' => 1,
-                        'data-video_duration' => $video_duration ?? 0
-                    ]
-                ],*/
                 'poster' => [
                     'field_label' => 'サムネイル',
                     'field_name' => 'poster',

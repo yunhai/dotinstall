@@ -104,9 +104,7 @@ class LessonDetail extends Base
     private function format(array $input, int $lesson_id, int $lesson_detail_id = 0, bool $mode = MODE_CREATE)
     {
         $input['lesson_id'] = $lesson_id;
-
         $input['poster'] = empty($input['poster']) ? 0 : key($input['poster']);
-        $input['duration'] = empty($video['duration']) ? 0 : $video['duration'];
         $input['mode'] = MODE_ENABLE;
 
         $map = [
