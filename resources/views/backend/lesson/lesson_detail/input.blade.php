@@ -63,9 +63,6 @@
     </div>
     @php
         $target = $target ?? [];
-        print_r("<pre>");
-        print_r(Session::all('test'));
-        print_r("</pre>");
         $form = [
             'form_btn' => '保存',
             'form_label' => '動画',
