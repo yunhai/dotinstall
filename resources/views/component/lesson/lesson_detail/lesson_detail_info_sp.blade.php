@@ -2,7 +2,7 @@
     <div class="tab-content tab-content-resource pt-0 pb-0" id="{{ $modal_id }}">
         @if ($allow_access)
             @if (!empty($resources_item))
-                <div class="row-resource" style="border-bottom: 1px solid #bca9af;">
+                <div class="row-resource" style="border-bottom: 1px solid #bca9af; margin-left:-5px;">
                     <div class="col">
                         <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-download-resource">素材を一括ダウンロードする</a>
                     </div>
@@ -14,7 +14,7 @@
                                 $media_id = $res['id'];
                                 $path = $res['path'];
                             @endphp
-                            <div class="col-thumbnail-2">
+                            <div class="col-thumbnail-2" style="padding-top: 20px;">
                                 <div class="card">
                                     <img class="img-thumbnail" src="@media_path($path)" style="height: 78px">
                                     <div class="card-body pl-1 pr-1 pt-1 pb-1">
@@ -28,9 +28,9 @@
             @endif
         @else
             <div class="row-resource">
-                <div class="col">
+                <div class="col" style="margin-left:-6px;">
                     <a href="javascript:;" class="btn btn-download-resource" data-toggle="modal" data-target="#modal_resource_download_deny">素材を一括ダウンロードする</a>
-                    <p class="card-text">（有料会員になるとダウンロードできます。）</p>
+                    <p class="card-text" style="margin-left:-5px;">（有料会員になるとダウンロードできます。）</p>
                 </div>
             </div>
         @endif
