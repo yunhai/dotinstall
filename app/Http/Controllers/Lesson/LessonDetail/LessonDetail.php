@@ -149,7 +149,7 @@ class LessonDetail extends Base
             $lesson_details[$key]['resources_item'] = $resources_item;
             $lesson_details[$key]['popup'] = $detail['source_code_contents'] || $detail['resources'];
         }
-        dd($lesson_details);
+
         return $lesson_details;
     }
 
