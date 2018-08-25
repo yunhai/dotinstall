@@ -1,5 +1,5 @@
-<div class="col-9 pr-0" style="border-right: 1px solid #bca9af;border-top: 1px solid #bca9af; padding-left: 0px;">
-    <div class="tab-content tab-content-resource pt-0" id="{{ $modal_id }}">
+<div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
+    <div class="tab-content tab-content-resource pt-0" id="{{ $modal_id }}" style="border-top: 1px solid #bca9af;">
         @if ($allow_access)
             @if (!empty($resources_item))
                 <div class="row-resource" style="border-bottom: 1px solid #bca9af;">
@@ -39,7 +39,7 @@
                     <div class="tab-pane-resource">
                         <div class="resource-primary">{{ $item['filename'] }}</div>
                         <div class="tab-pane fade show active" id="{{ $item['id'] }}" role="tabpanel">
-                            <div class="modal-body" style="height: 500px;">
+                            <div class="modal-body @if ($loop->last) tab-pane-resource_tab-pane_modal-body_last @endif" style="height: 500px;">
                                 <div class='ace__item'>
                                     <div class='ace__item--body' data-id='ace_edit_{{ $item['id'] }}' data-language='{{ $item['language'] }}'>
                                         <div id='ace_edit_{{ $item['id'] }}' class='ace__item--editor'>{!! ($item['content']) !!}</div>
@@ -74,7 +74,7 @@
         @endif
     </div>
 </div>
-<div class="col-3 pl-0 pr-0">
+<div class="col-3 pl-0">
     <div class="card">
         <div class="card-header text-center" style="border-radius:0;border-top: 1px solid #bca9af;">レッスン一覧</div>
         <div class="card-body pb-0">
