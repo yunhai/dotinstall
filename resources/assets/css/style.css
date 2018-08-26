@@ -637,10 +637,17 @@ body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-
+.row-resource .img-file {
+	height: 27px;
+	margin-right: 5px;
+}
 .resource-primary {
 	position: relative;
-    padding: .85rem 1.25rem .75rem 1.25rem;
+    padding: .7rem 1.25rem .5rem 1.25rem;
     background-color: #253147;
     color: #fff;
+}
+.resource-primary img {
+	height: 25px;
+    margin-right: 5px;
 }

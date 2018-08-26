@@ -1,9 +1,10 @@
 <div class="col-12" style="border-right: 1px solid #bca9af;">
-    <div class="tab-content tab-content-resource pt-0 pb-0" id="{{ $modal_id }}">
+    <div class="tab-content tab-content-resource pb-0" id="{{ $modal_id }}" style="border-top: 1px solid #bca9af;">
         @if ($allow_access)
             @if (!empty($resources_item))
                 <div class="row-resource" style="border-bottom: 1px solid #bca9af; margin-left:-5px;">
                     <div class="col">
+	                    <img class="img-fluid img-file" src="/img/img_file.png">
                         <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-download-resource">素材を一括ダウンロードする</a>
                     </div>
                 </div>
@@ -29,6 +30,7 @@
         @else
             <div class="row-resource">
                 <div class="col" style="margin-left:-6px;">
+	                <img class="img-fluid img-file" src="/img/img_file.png">
                     <a href="javascript:;" class="btn btn-download-resource" data-toggle="modal" data-target="#modal_resource_download_deny">素材を一括ダウンロードする</a>
                     <p class="card-text" style="margin-left:-5px;">（有料会員になるとダウンロードできます。）</p>
                 </div>
@@ -38,7 +40,7 @@
             @if ($content)
                 @foreach($content as $item)
                     <div class="tab-pane-resource">
-                        <div class="resource-primary">{{ $item['filename'] }}</div>
+                        <div class="resource-primary"><img class="img-fluid" src="/img/img_electricity.png">{{ $item['filename'] }}</div>
                         <div class="tab-pane fade show active" id="{{ $item['id'] }}" role="tabpanel">
                             <div class="modal-body" style="height: 500px;">
                                 <div class='ace__item'>
@@ -76,7 +78,9 @@
     </div>
 </div>
 <div class="col-12">
-    <div class="card-header text-center">レッスン一覧</div>
+    <div class="card-header card-header-lesson-detail text-center">
+	    <img class="img-fluid img-file" src="/img/img_video_player.png">レッスン一覧
+	</div>
     <div class="row card-video-list">
         @foreach ($lesson_details as $target)
             <div class="col-lesson col-sm-6 mt-0">
