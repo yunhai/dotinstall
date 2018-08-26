@@ -4,7 +4,7 @@
             @if (!empty($resources_item))
                 <div class="row-resource" style="border-bottom: 1px solid #bca9af;">
                     <div class="col">
-	                    <img class="img-fluid img-file" src="/img/img_file.png">
+	                    <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}"><img class="img-fluid img-file" src="/img/img_file.png"></a>
                         <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-download-resource">素材を一括ダウンロードする</a>
                     </div>
                 </div>
