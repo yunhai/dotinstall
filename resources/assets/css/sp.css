@@ -93,6 +93,7 @@ html, body {
 }
 .card-text-name {
 	height: 36px;
+    margin-bottom: 10px;
 }
 .input-group-difficulty, .input-group-category {
 	margin-bottom: 1rem;
