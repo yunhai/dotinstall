@@ -215,10 +215,30 @@ html, body {
     height: auto;
 }
 .img-logo {
-    height: 50px;
+    height: 45px;
 }
 
 .row-resource {
 	/*padding-top: 20px;*/
 	padding-bottom: 20px;
+}
+
+.list-group-item-lesson {
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #bca9af;
+    border-radius: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
+
+.col-lesson .card-img-video {
+    border-radius: 0;
+    display: block;
+    height: 110px;
+    width: 100%;
+    object-fit: contain;
+    vertical-align: top;
 }
