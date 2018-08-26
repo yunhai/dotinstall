@@ -53,7 +53,7 @@
                 @endforeach
             @else
                 <div class="tab-pane-resource" @if (!empty($resources_item)) style="margin-top: 20px;" @endif>
-                    <div class="resource-primary">ソースコード</div>
+                    <div class="resource-primary"><img class="img-fluid" src="/img/img_electricity.png">ソースコード</div>
                     <div class="tab-pane fade show active" role="tabpanel">
                         <div class="modal-body">
                             <p class="text-center">このレッスンにはソースコードありません</p>
@@ -63,7 +63,7 @@
             @endif
         @else
             <div class="tab-pane-resource">
-                <div class="resource-primary">ソースコード</div>
+                <div class="resource-primary"><img class="img-fluid" src="/img/img_electricity.png">ソースコード</div>
                 <div class="tab-pane fade show active" role="tabpanel">
                     <div class="modal-body">
                         <p>ソースコードは有料会員になると表示されます。</p>
