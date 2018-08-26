@@ -56,7 +56,7 @@
                 <div class="tab-pane-resource" @if (!empty($resources_item)) style="margin-top: 20px;" @endif>
                     <div class="resource-primary"><img class="img-fluid" src="/img/img_electricity.png">ソースコード</div>
                     <div class="tab-pane fade show active" role="tabpanel">
-                        <div class="modal-body">
+                        <div class="modal-body" style="padding-bottom:0px;">
                             <p class="text-center">このレッスンにはソースコードありません</p>
                         </div>
                     </div>

@@ -121,6 +121,8 @@ html, body {
 }
 .card-video-list {
 	margin-top: 20px;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
 .card-login, .card-login-social {
     min-height: 243px;
