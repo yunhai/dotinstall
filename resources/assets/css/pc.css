@@ -132,3 +132,14 @@ body #pc-col-7 {
     padding-top: 20px;
 	padding-bottom: 20px;
 }
+
+.list-group-item-lesson {
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #bca9af;
+    border-radius: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}

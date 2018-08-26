@@ -166,7 +166,7 @@ body {
     width: 75%;
     background-color: #4484f3;
     padding-top: 7px;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
     padding-left: 12px;
     padding-right: 12px;
 }
@@ -212,7 +212,8 @@ body {
 }
 .col-lesson .card-img-video {
     border-radius: 0;
-    height: 120px;
+    /*min-height: 120px;
+    max-height: 120px;*/
 }
 .box-request {
     padding-bottom: 20px;
@@ -264,15 +265,14 @@ body {
 .lession-header a {
 	color: #fff;
 }
-.list-group-item-lesson {
-	margin-bottom: 0;
-	border: none;
-    border-bottom: 1px solid #bca9af;
-    border-radius: 0;
-}
+
 .list-group-item-lesson:last-child {
     border-radius: 0;
     border-bottom: none;
+}
+.list-group-item:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
 }
 .btn-all-complete {
 	background-color: #ff7104;
@@ -640,10 +640,11 @@ body {
 .row-resource .img-file {
 	height: 27px;
 	margin-right: 5px;
+	padding-bottom: 1px;
 }
 .resource-primary {
 	position: relative;
-    padding: .7rem 1.25rem .5rem 1.25rem;
+    padding: .7rem 1.25rem .7rem 1.25rem;
     background-color: #253147;
     color: #fff;
 }

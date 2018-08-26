@@ -27,7 +27,7 @@
     <div class="box ttlCommon mb-0 px-5">プログラミングゴーにようこそ！</div>
     <div class="box-user px-5">
         <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
-            <p class="mar_b20">すでにユーザーの方はこちらからログインしてください。TwitterやFacebookとサイト連携している方は簡単にログインすることもできます。</p>
+            <p class="mar_b20">すでにユーザーの方はこちらからログインしてください。Facebookとサイト連携している方は簡単にログインすることもできます。</p>
             <div class="row">
                 <div class="col-2 d-none d-lg-block pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
@@ -81,7 +81,7 @@
                                                     <div class="col text-center">
                                                         <p class="form-check">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: .2rem;">ログイン情報を保存する
+                                                                <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: 1px;">ログイン情報を保存する
                                                             </label>
                                                         </p>
                                                         <button type="submit" class="bg-button pad_l20 pad_r20">ログイン</button>
