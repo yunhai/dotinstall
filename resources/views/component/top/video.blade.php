@@ -14,7 +14,7 @@
                     @endpc
                 </div>
             </div>
-            <div class="card card-video-list">
+            <div class="card card-video-list" @sp style="padding-left: 10px !important; padding-right: 10px !important;" @endsp>
                 <div class="container-fluid px-5">
                     @include('component.lesson.item', ['lesson_details' => $lesson['lesson_details']])
                 </div>

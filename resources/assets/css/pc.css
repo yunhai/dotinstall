@@ -143,3 +143,12 @@ body #pc-col-7 {
     padding-right: 10px !important;
     padding-left: 10px !important;
 }
+
+.col-lesson .card-img-video {
+    border-radius: 0;
+    display: block;
+    height: 120px;
+    width: 100%;
+    object-fit: contain;
+    vertical-align: top;
+}

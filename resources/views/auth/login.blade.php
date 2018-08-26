@@ -81,7 +81,7 @@
                                                     <div class="col text-center">
                                                         <p class="form-check">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="margin-top: 1px;">ログイン情報を保存する
+                                                                <input type="checkbox" name='remember_me' value='1' class="form-check-input" style="@pc margin-top: 2px; @endpc">ログイン情報を保存する
                                                             </label>
                                                         </p>
                                                         <button type="submit" class="bg-button pad_l20 pad_r20">ログイン</button>
