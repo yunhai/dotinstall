@@ -69,6 +69,20 @@ class User extends Authenticatable
         return $target->toArray();
     }
 
+    public function updateAffiliatorUser(array $data)
+    {
+        $result = [
+            'name' => $data['fullname'],
+            'email' => $data['email'],
+            'affiliator_id' => $data['affiliator_id'],
+            'password' => Hash::make($data['password']),
+            'mode' => MODE_ENABLE,
+            'role' => USER_ROLE_CLIENT,
+        ];
+
+        return $this->where('id', $data['user_id'])->update($result);
+    }
+
     public function deleteAffiliatorUser(int $affiliator_id)
     {
         $this->where('affiliator_id', $affiliator_id)->delete();

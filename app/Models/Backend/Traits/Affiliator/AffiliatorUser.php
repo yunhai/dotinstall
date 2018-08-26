@@ -12,6 +12,10 @@ trait AffiliatorUser
             $model->createUser($model);
         });
 
+        static::updated(function ($model) {
+            $model->updateUser($model);
+        });
+
         static::deleted(function ($model) {
             $model->deleteUser($model);
         });
@@ -24,6 +28,15 @@ trait AffiliatorUser
 
         $target = (new UserModel())->createAffiliatorUser($data);
         $model->where('id', $model->id)->update(['user_id' => $target['id']]);
+    }
+
+    protected function updateUser($model)
+    {
+        $data = $model->toArray();
+        $data['affiliator_id'] = $data['id'];
+        unset($data['id']);
+
+        (new UserModel())->updateAffiliatorUser($data);
     }
 
     protected function deleteUser($model)
