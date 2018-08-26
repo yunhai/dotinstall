@@ -33,11 +33,6 @@ class LoginController extends Controller
             return redirect()->route('backend.home.dashboard');
         }
 
-        $credentials['role'] = USER_ROLE_CLIENT;
-        if (Auth::guard('client')->attempt($credentials)) {
-            return redirect()->route('client.home.dashboard');
-        }
-
         return redirect()->back()->with('status', '');
     }
 
@@ -46,11 +41,6 @@ class LoginController extends Controller
         if (Auth::guard('admin')->check()) {
             Auth::guard('admin')->logout();
             return redirect()->route('backend.login.login');
-        }
-        
-        if (Auth::guard('client')->check()) {
-            Auth::guard('client')->logout();
-            return redirect()->route('client.login.login');
         }
     }
 }
