@@ -70,7 +70,7 @@ class LessonDetail extends Base
         }
 
         $filter_form = $this->form();
-    
+
         return $this->render(
             'lesson.lesson_detail.detail',
             compact(

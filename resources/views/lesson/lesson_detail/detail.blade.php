@@ -4,11 +4,22 @@
 
 @push('css')
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
+    @pc
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.3.20/plyr.css">
+    @endpc
 @endpush
 
 @push('js')
+@pc
+    <script src="https://cdn.plyr.io/3.3.20/plyr.js"></script>
+    @diamond_user
+        <script type="text/javascript" src="/js/video.diamond.js"></script>
+    @else
+        <script type="text/javascript" src="/js/video.normal.js"></script>
+    @enddiamond_user
+@else
     <script src="https://player.vimeo.com/api/player.js"></script>
-
+@endpc
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
     <script type="text/javascript" src="/js/ace.js"></script>
     <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
@@ -44,12 +55,22 @@
                 $poster_path = $poster['path'];
             @endphp
 
-            <div data-vimeo-url="{{ $target['url'] }}" 
-                data-vimeo-title="false"
-                data-vimeo-portrait="false"
-                data-vimeo-byline="false"
-                id="j-vimeo_player">
-            </div>
+            @pc
+                <div id="j-player"
+                    data-plyr-provider="vimeo"
+                    data-plyr-embed-id="{{ $target['url'] }}"
+                    class='hidden {{ $video_css_class }}'>
+                </div>
+            @else
+                <div id="j-vimeo_player"
+                    data-vimeo-url="{{ $target['url'] }}" 
+                    data-vimeo-title="0"
+                    data-vimeo-portrait="0"
+                    data-vimeo-byline="0"
+                    data-vimeo-responsive="1"
+                    class='{{ $video_css_class }}'>
+                </div>
+            @endpc
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
