@@ -44,8 +44,12 @@
                 $poster_path = $poster['path'];
             @endphp
 
-    
-            <iframe src="{{ $target['url'] }}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            <div data-vimeo-url="{{ $target['url'] }}" 
+                data-vimeo-title="false"
+                data-vimeo-portrait="false"
+                data-vimeo-byline="false"
+                id="j-vimeo_player">
+            </div>
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
