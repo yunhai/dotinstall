@@ -3,21 +3,16 @@
 @section('breadcrumbs', Breadcrumbs::render('lesson_detail'))
 
 @push('css')
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.3.20/plyr.css">
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
 @endpush
 
 @push('js')
-    <script src="https://cdn.plyr.io/3.3.20/plyr.js"></script>
-    @diamond_user
-        <script type="text/javascript" src="/js/video.diamond.js"></script>
-    @else
-        <script type="text/javascript" src="/js/video.normal.js"></script>
-    @enddiamond_user
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
     <script type="text/javascript" src="/js/ace.js"></script>
     <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
+    <script type="text/javascript" src="/js/vimeo.js"></script>
 @endpush
 
 @section('content')
@@ -49,11 +44,8 @@
                 $poster_path = $poster['path'];
             @endphp
 
-            <div id="j-player"
-                data-plyr-provider="vimeo"
-                data-plyr-embed-id="{{ $target['url'] }}"
-                class='hidden {{ $video_css_class }}'></div>
-
+    
+            <iframe src="{{ $target['url'] }}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     <div class="col-7 pl-0 pr-0">
