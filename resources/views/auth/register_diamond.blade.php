@@ -131,7 +131,7 @@
                                                     <div class="col text-center">
                                                         <p class="form-check">
                                                             <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" style="@pc margin-top: 2px; @endpc" checked>学習レポートメールを受け取る
+                                                                <input type="checkbox" class="form-check-input" style="@pc margin-top: 2px; @endpc @sp margin-top: 0px @endsp" checked>学習レポートメールを受け取る
                                                             </label>
                                                         </p>
                                                         <p class="mt-3">
