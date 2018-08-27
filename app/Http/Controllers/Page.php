@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Service\UtmTracking\UtmTrackingService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Page extends Base
 {
@@ -34,6 +35,24 @@ class Page extends Base
         if ($user_id) {
             $service = new UtmTrackingService();
             $service->webhook($user_id, []);
+        }
+
+        dd('done');
+    }
+    
+    public function getCleanUpVideo()
+    {
+        $delete_flag = request()->get('delete_flag');
+        
+        $q = 'select lesson_details.id, lesson_details.video, media.id, media.path FROM lesson_details, media WHERE lesson_details.video = media.id';
+        $list = \DB::select($q);
+        foreach ($list as $item) {
+            print_r('<pre>');
+            print_r(Storage::disk('media')->path($item->path));
+            print_r('</pre>');
+            if ($delete_flag) {
+                Storage::disk('media')->delete($item->path);
+            }
         }
 
         dd('done');
