@@ -20,7 +20,9 @@ class ChunkUpload extends BasicUpload
 
         $save = $receiver->receive();
         if ($save->isFinished()) {
-            $result = $this->store($save->getFile(), $disk_name, $path);
+            $thumbnail = $request->query('thumbnail') ? true : false;
+            $result = $this->store($save->getFile(), $disk_name, $path, $thumbnail);
+
             return array_merge($result, ['done' => 100]);
         }
 
@@ -38,7 +40,7 @@ class ChunkUpload extends BasicUpload
         if ($result['done'] === 100) {
             $result['type'] = $request->query('media_type');
             $result = $this->saveDb($result);
-
+    
             $result['url'] = Storage::disk($disk_name)->url($result['path']);
         }
         return $result;

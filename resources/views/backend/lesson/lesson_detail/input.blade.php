@@ -117,7 +117,7 @@
                     'field_attribute' => [
                         'data-url' => route('backend.media.chuck'),
                         'data-preview' => 1,
-                        'data-query' => '{"media_type": "image"}',
+                        'data-query' => '{"media_type": "image", "thumbnail": 1}',
                         'data-type' => 'image',
                         'data-max_file_upload' => 1
                     ]
@@ -134,7 +134,7 @@
                     'field_attribute' => [
                         'data-url' => route('backend.media.chuck'),
                         'data-download' => 1,
-                        'data-query' => '{"media_type": "document"}',
+                        'data-query' => '{"media_type": "document", "thumbnail": 0}',
                         'data-type' => 'msword',
                         'data-max_file_upload' => 10
                     ]
@@ -147,7 +147,7 @@
                     'field_attribute' => [
                         'data-url' => route('backend.media.chuck'),
                         'data-download' => 1,
-                        'data-query' => '{"media_type": "image"}',
+                        'data-query' => '{"media_type": "image", "thumbnail": 0}',
                         'data-type' => 'image',
                         'data-max_file_upload' => 10,
                         'data-width' => 200,

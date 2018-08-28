@@ -115,7 +115,7 @@ export default class ChuckUpload {
 
     callbackImage(obj, $target, $callback) {
         const name = $target.data('name');
-        const width = $target.data('width') || 400;
+        const width = $target.data('width') || 210;
         const html = `
             <input type='hidden' value='${obj.id}' name='${name}[${obj.id}][id]'/>
             <input type='hidden' value='image' name='${name}[${obj.id}][type]'/>
@@ -230,18 +230,25 @@ export default class ChuckUpload {
             const obj = JSON.parse(message);
             const check = obj.size;
             const path = obj.path;
+            const thumbnail = obj.thumbnail;
 
-            const url = `/admin/media/checksum?path=${path}&size=${check}&checksum=${checksum}`;
-            $.get(url, (data) => {
-                if (data.result) {
-                    $callback.find('.dd-callback__progress').html('');
-                    $callback.addClass('dd-completed');
-                    this.callback(obj, $target, $callback);
-                } else {
-                    $callback.find('.dd-callback__progress').html('');
-                    alert('アップロードする間に、エラー発生しましたので、もう一度試していただけませんか？');
-                }
-            });
+            if (thumbnail) {
+                $callback.find('.dd-callback__progress').html('');
+                $callback.addClass('dd-completed');
+                this.callback(obj, $target, $callback);
+            } else {
+                const url = `/admin/media/checksum?path=${path}&size=${check}&checksum=${checksum}`;
+                $.get(url, (data) => {
+                    if (data.result) {
+                        $callback.find('.dd-callback__progress').html('');
+                        $callback.addClass('dd-completed');
+                        this.callback(obj, $target, $callback);
+                    } else {
+                        $callback.find('.dd-callback__progress').html('');
+                        alert('アップロードする間に、エラー発生しましたので、もう一度試していただけませんか？');
+                    }
+                });
+            }
         });
     }
 

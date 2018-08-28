@@ -19,6 +19,7 @@ class Media extends Base
     {
         $uploader = new ChunkUpload();
         $info = $uploader->save($request, 'media');
+        $info['thumbnail'] = $request->query('thumbnail');
         return response()->json($info);
     }
 
