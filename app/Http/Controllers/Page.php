@@ -45,6 +45,7 @@ class Page extends Base
         $delete_flag = request()->get('delete_flag');
         
         $q = 'select lesson_details.id, lesson_details.video, media.id, media.path FROM lesson_details, media WHERE lesson_details.video = media.id';
+        $q = 'select media.id, media.path, extension FROM media WHERE media.extension = "mp4"';
         $list = \DB::select($q);
         foreach ($list as $item) {
             print_r('<pre>');
