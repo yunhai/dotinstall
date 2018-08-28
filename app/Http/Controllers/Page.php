@@ -60,30 +60,6 @@ class Page extends Base
         dd('done');
     }
     
-    public function getCleanUpPoster()
-    {
-        $delete_flag = request()->get('delete_flag');
-        
-        $q = 'select lesson_details.id, lesson_details.poster, media.path 
-        FROM lesson_details, media 
-        WHERE lesson_details.poster = media.id and lesson_details.deleted_at is null';
-        $list = \DB::select($q);
-        
-        foreach ($list as $item) {
-            print_r('<pre>');
-            print_r($item->id);
-            print_r('</pre>');
-            print_r('<pre>');
-            print_r(Storage::disk('media')->path($item->path));
-            print_r('</pre>');
-            if ($delete_flag) {
-                Storage::disk('media')->delete($item->path);
-            }
-        }
-
-        dd('done');
-    }
-    
     public function getResizePoster()
     {
         $resize = request()->get('resize');
