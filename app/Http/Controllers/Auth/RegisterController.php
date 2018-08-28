@@ -151,7 +151,7 @@ class RegisterController extends Controller
         $user = $this->activationService->activateUser($token);
         if ($user) {
             auth()->login($user);
-            $name = 'mypage';
+            $name = 'top';
 
             if ($user->grade === USER_GRADE_PENDING_DIAMOND) {
                 $name = 'user.upgrade';
