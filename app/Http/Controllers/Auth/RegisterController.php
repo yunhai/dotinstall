@@ -159,7 +159,7 @@ class RegisterController extends Controller
 
             return redirect()->route($name);
         }
-        abort(404);
+        return redirect()->route('login')->with('invalid_active_link', true);
     }
 
     public function registerDone()

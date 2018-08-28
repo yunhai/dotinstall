@@ -61,13 +61,13 @@ class User extends Base
         $input = $request->all();
         $token = $input['stripeToken'];
 
-
         $error = [];
         $payment_service = new StripeService();
         $flag = $payment_service->charge($user_id, $token, $error);
 
         if ($flag) {
             $this->sendRegistryDiamondEmail($user);
+            $this->notifyRegistryDiamondEmail();
             return redirect()->back()->with('success', true);
         }
 
@@ -127,6 +127,18 @@ class User extends Base
                 'user' => $user,
                 'deadline' => $deadline
             ]
+        ];
+
+        $mailer->send($name, $mail);
+    }
+    
+    private function notifyRegistryDiamondEmail()
+    {
+        $mailer = new MailerService();
+        $name = 'Mail\User\NotifyRegistryDiamondEmail';
+
+        $mail = [
+            'to' => [env('APP_ADMIN_MAIL'), env('APP_ADMIN_NAME')],
         ];
 
         $mailer->send($name, $mail);

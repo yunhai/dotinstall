@@ -20,6 +20,15 @@
               </div>
         </div>
     @endif
+
+    @if (session('invalid_active_link'))
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#invalid_activation_link').modal('show');
+        });
+    </script>
+    @include('component.modal.invalid_activation_link', [])
+    @endif
 @endpush
 @section('breadcrumbs', Breadcrumbs::render('login'))
 @section('content')
