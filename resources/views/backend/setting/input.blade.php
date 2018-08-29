@@ -11,7 +11,10 @@
                 'field_label' => '設定名',
                 'field_name' => 'key',
                 'field_value' => array_get($target, 'key', ''),
-                'field_type' => 'text'
+                'field_type' => 'text',
+                'field_attribute' => [
+                    'readonly' => 'readonly'
+                ]
             ],
             'value' => [
                 'field_label' => '設定値',

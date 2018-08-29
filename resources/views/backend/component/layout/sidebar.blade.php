@@ -35,10 +35,16 @@
                     <span class="nav-link-text">アフィリエイター</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="" data-placement="right" title="Youtubeリンク">
+            <li class="nav-item" data-toggle="" data-placement="right" title="通知">
                 <a class="nav-link" href="{{ route('backend.notification.index') }}">
                     <i class="fa fa-book fa-fw"></i>
                     <span class="nav-link-text">通知</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="設定">
+                <a class="nav-link" href="{{ route('backend.setting.index') }}">
+                    <i class="fa fa-book fa-fw"></i>
+                    <span class="nav-link-text">設定</span>
                 </a>
             </li>
         </ul>

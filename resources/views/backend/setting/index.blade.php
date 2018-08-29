@@ -2,7 +2,7 @@
 @section('title', '設定')
 @section('content')
     @section('list_header')
-        <div class="row">
+        <div class="row hidden">
             <div class="col-sm-12">
                 <div id="dataTable_filter" class="dataTables_filter">
                     <label>
@@ -32,7 +32,7 @@
                     'field' => '',
                     'tpl' => '
                         <a class="btn btn-info btn-sm" href="' . route('backend.setting.edit', ['setting_id' => ':id']) . '">編集</a>
-                        <a href="' . route('backend.setting.delete', ['setting_id' => ':id']) . '" class="btn btn-danger btn-sm" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
+                        <a href="' . route('backend.setting.delete', ['setting_id' => ':id']) . '" class="btn btn-danger btn-sm hidden" onclick="return confirm(\'削除してよろしいですか？\');">削除</a>
                     ',
                     'tpl_arg' => [
                         ':id' => 'id'
