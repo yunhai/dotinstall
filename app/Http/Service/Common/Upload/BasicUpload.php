@@ -64,7 +64,7 @@ class BasicUpload
 
         $path = "{$location}/{$hash_name}{$extension}";
         Image::make(Storage::disk($disk_name)->path($path_original))
-                ->resize(210, null, function ($constraint) {
+                ->resize(420, null, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 })

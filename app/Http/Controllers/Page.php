@@ -114,9 +114,6 @@ class Page extends Base
         
         $resized = [];
         foreach ($list as $item) {
-            print_r('<pre>');
-            print_r($item->id);
-            print_r('</pre>');
             $location = $item->location;
             
             $extension = substr($item->hash_name, strrpos($item->hash_name, '.'));
@@ -142,7 +139,7 @@ class Page extends Base
             if ($resize && file_exists($old)) {
                 // copy($old, $new);
                 Image::make($old)
-                    ->resize(630, null, function ($constraint) {
+                    ->resize(420, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     })
