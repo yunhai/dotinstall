@@ -114,6 +114,9 @@ class Page extends Base
         
         $resized = [];
         foreach ($list as $item) {
+            print_r('<pre>');
+            print_r($item->id);
+            print_r('</pre>');
             $location = $item->location;
             
             $extension = substr($item->hash_name, strrpos($item->hash_name, '.'));
