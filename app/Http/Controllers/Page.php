@@ -125,6 +125,12 @@ class Page extends Base
             if (in_array($old, $resized)) {
                 continue;
             }
+            print_r('<pre>new:');
+            print_r($new);
+            print_r('</pre>');
+            print_r('<pre>old:');
+            print_r($old);
+            print_r('</pre>');
             array_push($resized, $old);
             // ngang 210
             // cao 120
