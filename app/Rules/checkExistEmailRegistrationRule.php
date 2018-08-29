@@ -31,6 +31,7 @@ class checkExistEmailRegistrationRule implements Rule
     {
         return !User::where('email', $value)
                   ->where('role', USER_ROLE_PUBLIC)
+                  ->whereNull('deleted_at')
                   ->exists();
     }
 
