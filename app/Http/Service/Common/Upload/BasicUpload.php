@@ -54,15 +54,15 @@ class BasicUpload
         $original_name = $file->getClientOriginalName();
         $hash_name = $file->hashName();
 
-        $extension = substr($original_name, strrpos($original_name, '.'));
+        $extension = substr($original_name, strrpos($original_name, '.') + 1);
         $extension = substr($extension, 0, 8);
         $size = $file->getClientSize();
 
-        $hash_name = substr($hash_name, 0, strrpos($hash_name, '.'));
-        $path_original = $file->storeAs($location, "{$hash_name}_original{$extension}", ['disk' => $disk_name]);
-        $path_new = Storage::disk($disk_name)->path("{$location}/{$hash_name}{$extension}");
+        $hash_filename = substr($hash_name, 0, strrpos($hash_name, '.'));
+        $path_original = $file->storeAs($location, "{$hash_filename}_original.{$extension}", ['disk' => $disk_name]);
+        $path_new = Storage::disk($disk_name)->path("{$location}/{$hash_name}");
 
-        $path = "{$location}/{$hash_name}{$extension}";
+        $path = "{$location}/{$hash_name}";
         Image::make(Storage::disk($disk_name)->path($path_original))
                 ->resize(420, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -70,7 +70,7 @@ class BasicUpload
                 })
                 ->save($path_new);
 
-        $hash_name = trim($extension, '.');
+        $extension = trim($extension, '.');
         return compact('location', 'path', 'mime', 'original_name', 'hash_name', 'extension', 'size');
     }
 
