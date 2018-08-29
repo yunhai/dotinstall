@@ -66,6 +66,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('notification/{notification_id}/edit', 'Notification@postEdit');
     Route::get('notification/{notification_id}/delete', 'Notification@getDelete')->name('backend.notification.delete');
 
+    Route::get('setting', 'Setting@getIndex')->name('backend.setting.index');
+    Route::get('setting/create', 'Setting@getCreate')->name('backend.setting.create');
+    Route::post('setting/create', 'Setting@postCreate');
+    Route::get('setting/{setting_id}/edit', 'Setting@getEdit')->name('backend.setting.edit');
+    Route::post('setting/{setting_id}/edit', 'Setting@postEdit');
+    Route::get('setting/{setting_id}/delete', 'Setting@getDelete')->name('backend.setting.delete');
+
     Route::get('user', 'User@getIndex')->name('backend.user.index');
     Route::get('user/create', 'User@getCreate')->name('backend.user.create');
     Route::post('user/create', 'User@postCreate');
