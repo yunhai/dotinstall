@@ -39,6 +39,7 @@ Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.downlo
 Route::get('a8/test', 'Page@getA8');
 // Route::get('cleanup_video', 'Page@getCleanUpVideo');
 // Route::get('resize_poster', 'Page@getResizePoster');
+route::get('resize_poster2', 'Page@getResizePoster2');
 
 Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');

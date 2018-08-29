@@ -102,4 +102,45 @@ class Page extends Base
         }
         dd('done');
     }
+    
+    public function getResizePoster2()
+    {
+        $resize = request()->get('resize');
+        
+        $q = 'select lesson_details.id, lesson_details.poster, media.* 
+        FROM lesson_details, media 
+        WHERE lesson_details.poster = media.id and lesson_details.deleted_at is null';
+        $list = \DB::select($q);
+        
+        $resized = [];
+        foreach ($list as $item) {
+            $location = $item->location;
+            
+            $extension = substr($item->hash_name, strrpos($item->hash_name, '.'));
+            $bk_name = substr($item->hash_name, 0, strrpos($item->hash_name, '.')) . '_original' . $extension;
+        
+            $new = Storage::disk('media')->path("{$item->path}");
+            $old = Storage::disk('media')->path("{$location}/{$bk_name}");
+            
+            if (in_array($old, $resized)) {
+                continue;
+            }
+            array_push($resized, $old);
+            // ngang 210
+            // cao 120
+            // dd($item->hash_name, $old, $new);
+            // exit;
+            if ($resize && file_exists($old)) {
+                // copy($old, $new);
+                Image::make($old)
+                    ->resize(630, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->save($new);
+                // dd($old, $new);
+            }
+        }
+        dd('done');
+    }
 }
