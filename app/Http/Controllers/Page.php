@@ -125,6 +125,9 @@ class Page extends Base
             if (in_array($old, $resized)) {
                 continue;
             }
+            print_r('<pre>id:');
+            print_r($item->id);
+            print_r('</pre>');
             print_r('<pre>new:');
             print_r($new);
             print_r('</pre>');
