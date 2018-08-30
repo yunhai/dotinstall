@@ -8,15 +8,16 @@ class Setting extends Base
 {
     public $fillable = [
         'key',
+        'show_name',
         'value',
     ];
-    
+
     public function getAll()
     {
-        return $this->select('key', 'value')
+        return $this->select('key', 'show_name', 'value')
                     ->where('mode', MODE_ENABLE)
                     ->get()
-                    ->pluck('value', 'key')
+                    ->pluck('value', 'show_name', 'key')
                     ->toArray();
     }
 }

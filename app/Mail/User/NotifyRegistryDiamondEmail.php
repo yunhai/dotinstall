@@ -21,7 +21,7 @@ class NotifyRegistryDiamondEmail extends Mailable
     public function build()
     {
         return $this->from(env('APP_MAIL'), env('APP_NAME'))
-                    ->subject('新規有料会員が入ったら')
+                    ->subject('新規有料会員がありました。')
                     ->view('emails.user.notify_registry_diamond');
     }
 }

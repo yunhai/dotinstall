@@ -131,7 +131,7 @@ class User extends Base
 
         $mailer->send($name, $mail);
     }
-    
+
     private function notifyRegistryDiamondEmail()
     {
         $mailer = new MailerService();

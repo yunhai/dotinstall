@@ -7,13 +7,22 @@
         'form_label' => '設定',
         'form_back_url' => route('backend.setting.index'),
         'form_field' => [
+            'show_name' => [
+                'field_label' => '設定項目',
+                'field_name' => 'show_name',
+                'field_value' => array_get($target, 'show_name', ''),
+                'field_type' => 'text',
+                'field_attribute' => [
+                    'readonly' => 'readonly'
+                ]
+            ],
             'key' => [
-                'field_label' => '設定名',
+                'field_label' => 'ロジック名',
                 'field_name' => 'key',
                 'field_value' => array_get($target, 'key', ''),
                 'field_type' => 'text',
                 'field_attribute' => [
-                    'readonly' => 'readonly'
+                    'readonly' => 'readonly',
                 ]
             ],
             'value' => [
@@ -24,6 +33,7 @@
             ]
         ],
         'form_attribute' => [
+            'key' => 'hidden',
         ]
     ];
 @endphp

@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
         <i class="fa fa-edit"></i>
-        {{ $form_label }}
+            {{ $form_label }}
     </div>
     <div class="card-body">
         @if(Session::has('success'))

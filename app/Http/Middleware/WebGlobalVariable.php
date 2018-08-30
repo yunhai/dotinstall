@@ -21,7 +21,7 @@ class WebGlobalVariable
 
         return $next($request);
     }
-    
+
     public function userName()
     {
         if (Auth::check()) {

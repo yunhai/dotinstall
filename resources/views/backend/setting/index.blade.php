@@ -17,13 +17,13 @@
         $table = [
             'title' => '設定',
             'header' => [
-                '設定名',
+                '設定項目',
                 '設定値',
                 '',
             ],
             'body' => [
-                'key' => [
-                    'field' => 'key',
+                'show_name' => [
+                    'field' => 'show_name',
                 ],
                 'value' => [
                     'field' => 'value',

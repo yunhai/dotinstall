@@ -8,6 +8,7 @@ class Setting extends Base
 {
     public $fillable = [
         'key',
+        'show_name',
         'value',
     ];
 }
