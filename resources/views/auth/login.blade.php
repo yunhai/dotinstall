@@ -1,34 +1,19 @@
 @extends('layout.master')
 @section('title', 'ログイン')
 @push('js')
-    @if (session('error'))
     <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#error').modal('show');
-        });
-    </script>
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="error" data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-sm">
-                  <div class="modal-content rounded-0">
-                      <div class="modal-body">
-                          <p class="mb-0">{{ session('error') }}</p>
-                      </div>
-                      <div class="modal-footer" style="padding: 0; justify-content:center;">
-                          <a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">OK</a>
-                      </div>
-                  </div>
-              </div>
-        </div>
-    @endif
+        @if (session('error'))
+            $(window).on('load',function(){
+                $('#error').modal('show');
+            });
+        @endif
 
-    @if (session('invalid_active_link'))
-    <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#invalid_activation_link').modal('show');
-        });
+        @if (session('invalid_active_link'))
+            $(window).on('load',function(){
+                $('#invalid_activation_link').modal('show');
+            });
+        @endif
     </script>
-    @include('component.modal.invalid_activation_link', [])
-    @endif
 @endpush
 @section('breadcrumbs', Breadcrumbs::render('login'))
 @section('content')
@@ -135,4 +120,24 @@
         </div>
     </div>
 </div>
+
+
+@if (session('error'))
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="error" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content rounded-0">
+            <div class="modal-body">
+                <p class="mb-0">{{ session('error') }}</p>
+            </div>
+            <div class="modal-footer" style="padding: 0; justify-content:center;">
+              <a href="javascript:;" class="btn" data-dismiss="modal" aria-label="Close">OK</a>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
+@if (session('invalid_active_link'))
+    @include('component.modal.invalid_activation_link', [])
+@endif
 @endsection

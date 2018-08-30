@@ -12,25 +12,20 @@
 @endpush
 
 @section('content')
-<!--
-    @normal_user
-        @include('component.top.panel', ['youtube_link' => $youtube_link])
-    @endnormal_user
--->
-    @if (Auth::check() == false)
-        @include('component.top.panel', ['youtube_link' => $youtube_link])
-        @include('component.top.video', ['lessons' => $lessons])
-    @else
-        @include('component.top.lesson', ['lessons' => $lessons])
-    @endif
+@if (Auth::check() == false)
+    @include('component.top.panel', ['youtube_link' => $youtube_link])
+    @include('component.top.video', ['lessons' => $lessons])
+@else
+    @include('component.top.lesson', ['lessons' => $lessons])
+@endif
 
-    <div class="box mb-0">
-        <div class="card-lesson-total text-center">
-            <p class="card-text">
-                <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $global_total_lessons }}）</a>
-            </p>
-        </div>
+<div class="box mb-0">
+    <div class="card-lesson-total text-center">
+        <p class="card-text">
+            <a href="{{ route('lesson') }}">全てのレッスンを見る（{{ $global_total_lessons }}）</a>
+        </p>
     </div>
-@stop
+</div>
 @include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
 @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
+@stop
