@@ -8,10 +8,10 @@ class PostInput extends Base
 {
     public function rules()
     {
-        $id = $this->route()->parameter('setting_id');
         return [
-            'key' => 'required|max:64',
+            'key' => 'nullable',
             'value' => 'required|max:1024',
+            'show_name' => 'nullable',
         ];
     }
 }

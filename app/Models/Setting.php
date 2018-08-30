@@ -17,7 +17,7 @@ class Setting extends Base
         return $this->select('key', 'show_name', 'value')
                     ->where('mode', MODE_ENABLE)
                     ->get()
-                    ->pluck('value', 'show_name', 'key')
+                    ->pluck('value', 'key')
                     ->toArray();
     }
 }

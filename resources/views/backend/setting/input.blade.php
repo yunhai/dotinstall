@@ -16,6 +16,7 @@
                     'readonly' => 'readonly'
                 ]
             ],
+            /*
             'key' => [
                 'field_label' => 'ロジック名',
                 'field_name' => 'key',
@@ -25,6 +26,7 @@
                     'readonly' => 'readonly',
                 ]
             ],
+            */
             'value' => [
                 'field_label' => '設定値',
                 'field_name' => 'value',
