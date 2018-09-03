@@ -60,7 +60,7 @@ class Top extends Base
 
     private function getLogedInLesson(array $filter = [])
     {
-        $result = [];
+        $tmp = [];
         $lessons = $this->model->getLessons($filter);
         if ($lessons) {
             $lesson_id = data_get($lessons, '*.id');
@@ -69,15 +69,28 @@ class Top extends Base
                 $difficulty = $item['difficulty'];
                 $category = $item['category_id'];
 
-                if (!isset($result[$difficulty])) {
-                    $result[$difficulty] = [
+                if (!isset($tmp[$difficulty])) {
+                    $tmp[$difficulty] = [
                         $category => []
                     ];
-                } elseif (!isset($result[$difficulty][$category])) {
-                    $result[$difficulty][$category] = [];
+                } elseif (!isset($tmp[$difficulty][$category])) {
+                    $tmp[$difficulty][$category] = [];
                 }
-                array_push($result[$difficulty][$category], $item);
+                array_push($tmp[$difficulty][$category], $item);
             };
+        }
+
+        $sort_order = [
+            LESSON_DIFFICULTY_NEWBIE,
+            LESSON_DIFFICULTY_BEGINNER,
+            LESSON_DIFFICULTY_INTERMEDIATE,
+            LESSON_DIFFICULTY_ADVANCE,
+        ];
+        $result = [];
+        foreach ($sort_order as $item) {
+            if (!empty($tmp[$item])) {
+                $result[$item] = $tmp[$item];
+            }
         }
         return $result;
     }
