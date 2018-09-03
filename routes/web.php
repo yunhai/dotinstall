@@ -39,15 +39,14 @@ Route::get('media/download/{media_id}', 'Media@getDownload')->name('media.downlo
 Route::get('a8/test', 'Page@getA8');
 // Route::get('cleanup_video', 'Page@getCleanUpVideo');
 // Route::get('resize_poster', 'Page@getResizePoster');
-route::get('resize_poster2', 'Page@getResizePoster2');
+// route::get('resize_poster2', 'Page@getResizePoster2');
 
 Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
+Route::get('ajax/lesson/filter', 'Lesson\Lesson@ajaxFilter')->name('ajax.lesson.filter');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('ajax/lesson/filter', 'Lesson\Lesson@ajaxFilter')->name('ajax.lesson.filter')->middleware('web.user');
-    
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');
 
     Route::get('lesson/{lesson_id}/enroll', 'Lesson\Lesson@getEnroll')->name('lesson.enroll')->middleware('web.user');
