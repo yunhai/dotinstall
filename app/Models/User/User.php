@@ -50,7 +50,12 @@ class User extends Authenticatable
 
     public function init(array $data)
     {
-        $name = strstr($data['email'], '@', true);
+        if (empty($data['name'])) {
+            $name = strstr($data['email'], '@', true);
+        } else {
+            $name = $data['name'];
+        }
+
         $result = [
             'name' => $name,
             'email' => $data['email'],
