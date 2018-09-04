@@ -178,6 +178,7 @@ body {
     border-radius: 0;
 }
 .card-header {
+    padding: .75rem .75rem;
     background-color: #ece8e9;
     border-bottom: 1px solid #abaaaa;
 }

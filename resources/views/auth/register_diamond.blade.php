@@ -62,7 +62,7 @@
                             <div class="tab-pane-user row">
                                 <div class="col">
                                     <div class="card card-register">
-                                        <div class="card-header">新規登録（クレジットカード決済のみご利用可能です。）</div>
+                                        <div class="card-header">動画見放題プラン月額¥980円(税別)<br>クレジットカード決済のみとなります。</div>
 
                                         <div class="card-body">
                                             <form method="POST" aria-label="新規ユーザー登録">
@@ -151,7 +151,7 @@
                 <div class="@pc col-3 @endpc @sp col-sm-12 mar_t20 @endsp">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                         <div class="card card-register-social">
-                            <div class="card-header text-center">
+                            <div class="card-header text-center" @pc style="padding-bottom:21px; padding-top:21px" @endpc>
                                 @if (!empty(app('request')->input('provider')))
                                     なぜ入力が必要なの？
                                 @else

@@ -93,9 +93,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="/register">
-                        <img class="img-party mb-2" src="/img/party.jpg" alt="新規登録">
-                        <span class="d-lg-none">新規登録</span>
-                        <span class="d-none d-lg-block">新規登録</span>
+                        <img class="img-party mb-2" src="/img/party.jpg" alt="無料会員">
+                        <span class="d-lg-none">無料会員</span>
+                        <span class="d-none d-lg-block">無料会員</span>
                     </a>
                 </li>
             @endif

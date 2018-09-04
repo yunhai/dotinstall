@@ -62,7 +62,7 @@
                             <div class="tab-pane-user row">
                                 <div class="col">
                                     <div class="card card-register">
-                                        <div class="card-header">無理会員登録（¥980円税別クレジット決済のみご利用可能です。）</div>
+                                        <div class="card-header">無料会員登録（¥980円税別クレジット決済のみ）</div>
 
                                         <div class="card-body">
                                             <form method="POST" aria-label="新規ユーザー登録">

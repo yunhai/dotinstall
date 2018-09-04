@@ -68,8 +68,8 @@
                         </div>
                         <div class="row border-bottom-0 justify-content-center @pc mx-auto @endpc mb-0">
                             <div class="@pc col-8 @endpc @sp col-12 px-0 @endsp">
+	                            <label for="card_number" class="col col-form-label">有料コース　　月額/￥９８０円（税別）</label>
                                 <label for="card_number" class="col col-form-label">クレジットカード番号</label>
-
                                 <div class="col">
                                     <div class='container' id='card-holder'>
                                         <div class='row' @sp style="padding-bottom:2px" @endsp>

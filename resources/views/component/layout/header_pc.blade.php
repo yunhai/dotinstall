@@ -62,8 +62,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-center" href="/register">
-                        <img class="img-party mb-2" src="/img/party.jpg" alt="新規登録">
-                        <span class="d-block">新規登録</span>
+                        <img class="img-party mb-2" src="/img/party.jpg" alt="無料会員">
+                        <span class="d-block">無料会員</span>
                     </a>
                 </li>
             @endif
