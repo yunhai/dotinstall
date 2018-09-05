@@ -49,7 +49,7 @@
                 ],
                 'field_advance' => [
                 ],
-                'field_intro' => '(width: 480px, height: 240px)'
+                'field_intro' => '(サイズ：480x240)'
             ],
             'type' => [
                 'field_label' => 'Display',

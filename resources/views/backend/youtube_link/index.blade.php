@@ -35,7 +35,7 @@
                                     <th>Video名</th>
                                     <th>URL</th>
                                     <th>公開状況</th>
-                                    <th>Display</th>
+                                    <th>表示</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -53,7 +53,7 @@
                                                     $path = ($item->media)->first()->path;
                                                 }
                                             @endphp
-                                            <a href="@media_path($path)" target="_blank">@media_path($path)</a>
+                                            <a href="@media_path($path)" target="_blank">画像</a>
                                         @endif
                                     </td>
                                     <td style="width:10%" class="text-center">
