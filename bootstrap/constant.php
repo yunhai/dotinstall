@@ -49,3 +49,6 @@ define('USER_LESSON_DETAIL_MODE_LEARN', 2);
 define('USER_LESSON_DETAIL_MODE_CLOSE', 3);
 
 define('USER_UTM_A8', 1);
+
+define('YOUTUBE_TYPE_VIDEO', 1);
+define('YOUTUBE_TYPE_IMAGE', 2);

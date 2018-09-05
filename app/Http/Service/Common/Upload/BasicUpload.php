@@ -23,10 +23,10 @@ class BasicUpload
         return $this->store($target, $disk_name, $path);
     }
 
-    protected function store(UploadedFile $file, string $disk_name, string $path = null, bool $thumbnail = false)
+    protected function store(UploadedFile $file, string $disk_name, string $path = null, bool $thumbnail = false, int $width = 420)
     {
         if ($thumbnail) {
-            return $this->storeImage($file, $disk_name, $path);
+            return $this->storeImage($file, $disk_name, $path, $width);
         }
 
         $location = $this->generatePath($path);
@@ -46,7 +46,7 @@ class BasicUpload
         return compact('location', 'path', 'mime', 'original_name', 'hash_name', 'extension', 'size');
     }
 
-    protected function storeImage(UploadedFile $file, string $disk_name, string $path = null)
+    protected function storeImage(UploadedFile $file, string $disk_name, string $path = null, int $width = 420)
     {
         $location = $this->generatePath($path);
 
@@ -64,7 +64,7 @@ class BasicUpload
 
         $path = "{$location}/{$hash_name}";
         Image::make(Storage::disk($disk_name)->path($path_original))
-                ->resize(420, null, function ($constraint) {
+                ->resize($width, null, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 })

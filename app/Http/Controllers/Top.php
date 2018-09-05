@@ -12,9 +12,6 @@ use Auth;
 use Illuminate\Http\Request;
 use Storage;
 
-
-
-
 class Top extends Base
 {
     public function __construct(
@@ -48,7 +45,7 @@ class Top extends Base
             $lessons = $this->getUnLogInLesson();
         }
 
-        $youtube_link = $this->youtube_link->where('mode', MODE_ENABLE)->inRandomOrder()->first();
+        $youtube_link = $this->youtube_link->random();
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
     }
 

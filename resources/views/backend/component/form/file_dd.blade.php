@@ -22,7 +22,13 @@
             @endforeach
             data-name="{{ $field_name }}"
         >
-            <div class='dd-browser'>Upload / Drag and drop here</div>
+
+            <div class='dd-browser'>Upload / Drag and drop here
+                @if (!empty($field_intro))
+                <br />
+                {{ $field_intro }}
+                @endif
+            </div>
             <div class='dd-callback'>
                 @if (!$empty_flag)
                 @foreach($field_value as $target)

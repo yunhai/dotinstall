@@ -21,7 +21,9 @@ class ChunkUpload extends BasicUpload
         $save = $receiver->receive();
         if ($save->isFinished()) {
             $thumbnail = $request->query('thumbnail') ? true : false;
-            $result = $this->store($save->getFile(), $disk_name, $path, $thumbnail);
+            $width = $request->query('width') ?? 420;
+
+            $result = $this->store($save->getFile(), $disk_name, $path, $thumbnail, $width);
 
             return array_merge($result, ['done' => 100]);
         }

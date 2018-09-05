@@ -15,7 +15,7 @@ class YoutubeLink extends Base
 
     public function getIndex()
     {
-        $data = $this->model->paginate(20);
+        $data = $this->model->with('media')->paginate(20);
 
         $form = $this->form();
         return $this->render('youtube_link.index', compact('data', 'form'));
@@ -23,7 +23,7 @@ class YoutubeLink extends Base
 
     public function getEdit($id)
     {
-        $target = $this->model->get($id);
+        $target = $this->model->getWithRelation($id);
         $form = $this->form();
 
         return $this->render('youtube_link.input', compact('target', 'form'));
@@ -31,7 +31,7 @@ class YoutubeLink extends Base
 
     public function postEdit(PostInput $request, $id)
     {
-        $input = $request->all();
+        $input = $this->format($request->all());
         $this->model->edit($id, $input);
 
         return redirect()
@@ -51,7 +51,8 @@ class YoutubeLink extends Base
 
     public function postCreate(PostInput $request)
     {
-        $input = $request->all();
+        $input = $this->format($request->all());
+
         $target = $this->model->create($input);
 
         return redirect()
@@ -70,7 +71,16 @@ class YoutubeLink extends Base
     protected function form()
     {
         return [
-            'mode' => config('master.common.mode')
+            'mode' => config('master.common.mode'),
+            'type' => config('master.youtube.type'),
         ];
+    }
+
+    protected function format(array $input)
+    {
+        if (!empty($input['media_id'])) {
+            $input['media_id'] = key($input['media_id']);
+        }
+        return $input;
     }
 }

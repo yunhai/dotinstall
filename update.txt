@@ -22,3 +22,7 @@ ALTER TABLE `users` ADD `diamond_ends_at` TIMESTAMP NULL DEFAULT NULL AFTER `tri
 
 //180824
 ALTER TABLE `lesson_details` ADD `url` VARCHAR(512) NOT NULL AFTER `caption`;
+
+//180905
+ALTER TABLE `youtube_links` ADD `media_id` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `youtube_id`;
+ALTER TABLE `youtube_links` ADD `type` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `media_id`;
