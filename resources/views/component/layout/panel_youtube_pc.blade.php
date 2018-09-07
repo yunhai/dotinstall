@@ -25,7 +25,9 @@
                                     @foreach($youtube_link['slideshow'] as $index => $item)
                                     <div class="carousel-item @if ($index === 0) active @endif">
                                         @php $path = $item['path'] ?? ''; @endphp
-                                        <img src="@media_path($path)" width="480" height="240" />
+                                        <a href='{{ $item['url'] }}'>
+                                            <img src="@media_path($path)" width="480" height="240" />
+                                        </a>
                                     </div>
                                     @endforeach
                                   </div>
