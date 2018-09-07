@@ -14,7 +14,7 @@
                         <span>
                             <img class="card-img card-img-swift" src="/img/img_swift.png">
                         </span>-->
-                        <span class="card-text text-white" style="font-size:25px; margin-left: 45px;">無料レッスンも多数！</span>
+                        <span class="card-text text-white" style="font-size:25px; margin-left: 5px;">無料レッスンも多数！</span>
                         </div>
                         <div class="card-language card-language-text">
                             <p class="card-text text-white">■IPHONEアプリ開発レッスン動画</p>

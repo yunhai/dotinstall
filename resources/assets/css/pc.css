@@ -64,6 +64,7 @@ body #pc-col-7 {
 .card-body-language-right {
 	width: 40%;
 	text-align: center;
+    padding-right: 100px;
 }
 .card-img-app, .card-img-objective_c, .card-img-swift {
 	width: 43px;
@@ -75,7 +76,7 @@ body #pc-col-7 {
 .card-language-text {
 	font-size: 0.9125rem;
     margin-top: 20px;
-    margin-left: 140px;
+    margin-left: 120px;
 }
 .card-right-img-980 {
 	display: block;
