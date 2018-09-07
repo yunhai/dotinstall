@@ -8,7 +8,7 @@
     @if (!empty($youtube_link))
         <div class="box box-yt mb-0">
             @if ($youtube_link['type'] == YOUTUBE_TYPE_VIDEO)
-                <iframe width="100%" height="240px" src="https://www.youtube.com/embed/{{ $youtube_link['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="211px" src="https://www.youtube.com/embed/{{ $youtube_link['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             @elseif ($youtube_link['type'] == YOUTUBE_TYPE_IMAGE)
                 <div id="youtube_link_slideshow" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators carousel-indicators--round">
