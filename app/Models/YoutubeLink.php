@@ -24,29 +24,31 @@ class YoutubeLink extends Base
         $result = $this->with(['youtube_link_media'])
                     ->select('id', 'youtube_id', 'media_id', 'type')
                     ->enable()
-                    ->inRandomOrder()
-                    ->first();
+                    ->get();
 
+        $slideshow = [];
         if ($result) {
-            $slideshow = [];
-            if ($result->type == YOUTUBE_TYPE_IMAGE && $result->youtube_link_media->isNotEmpty()) {
-                foreach ($result->youtube_link_media as $item) {
+            foreach ($result as $item) {
+                if ($item->type == YOUTUBE_TYPE_IMAGE) {
+                    foreach ($item->youtube_link_media as $item2) {
+                        $tmp = [
+                            'id' => $item2->id,
+                            'url' => $item2->url,
+                            'path' => $item2->media->path,
+                            'type' => $item->type
+                        ];
+                        array_push($slideshow, $tmp);
+                    }
+                } else {
                     $tmp = [
                         'id' => $item->id,
-                        'url' => $item->url,
-                        'path' => $item->media->path,
+                        'youtube_id' => $item->youtube_id,
+                        'type' => $item->type
                     ];
                     array_push($slideshow, $tmp);
                 }
             }
-
-            return [
-                'id' => $result->id,
-                'youtube_id' => $result->youtube_id,
-                'slideshow' => $slideshow,
-                'type' => $result->type,
-            ];
         }
-        return [];
+        return $slideshow;
     }
 }

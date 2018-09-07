@@ -12,27 +12,27 @@
                     </div>
                     <div class="card-video px-0" id="pc-panel-right">
                         @if (!empty($youtube_link))
-                            @if ($youtube_link['type'] == YOUTUBE_TYPE_VIDEO)
-                                <iframe width="480" height="240" src="https://www.youtube.com/embed/{{ $youtube_link['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            @elseif ($youtube_link['type'] == YOUTUBE_TYPE_IMAGE)
-                                <div id="youtube_link_slideshow" class="carousel slide" data-ride="carousel">
-                                  <ol class="carousel-indicators carousel-indicators--round">
-                                    @foreach($youtube_link['slideshow'] as $index => $item)
-                                        <li data-target="#youtube_link_slideshow" data-slide-to="{{ $index }}" class="@if ($index === 0) active @endif"></li>
-                                    @endforeach
-                                  </ol>
-                                  <div class="carousel-inner">
-                                    @foreach($youtube_link['slideshow'] as $index => $item)
-                                    <div class="carousel-item @if ($index === 0) active @endif">
+                            <div id="youtube_link_slideshow" class="carousel slide" data-ride="carousel">
+                              <ol class="carousel-indicators carousel-indicators--round">
+                                @foreach($youtube_link as $index => $item)
+                                    <li data-target="#youtube_link_slideshow" data-slide-to="{{ $index }}" class="@if ($index === 0) active @endif"></li>
+                                @endforeach
+                              </ol>
+                              <div class="carousel-inner">
+                                @foreach($youtube_link as $index => $item)
+                                <div class="carousel-item @if ($index === 0) active @endif">
+                                    @if ($item['type'] == YOUTUBE_TYPE_VIDEO)
+                                        <iframe width="480" height="240" src="https://www.youtube.com/embed/{{ $item['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    @elseif ($item['type'] == YOUTUBE_TYPE_IMAGE)
                                         @php $path = $item['path'] ?? ''; @endphp
                                         <a href='{{ $item['url'] }}'>
                                             <img src="@media_path($path)" width="480" height="240" />
                                         </a>
-                                    </div>
-                                    @endforeach
-                                  </div>
+                                    @endif
                                 </div>
-                            @endif
+                                @endforeach
+                              </div>
+                            </div>
                         @endif
                     </div>
                 </div>
