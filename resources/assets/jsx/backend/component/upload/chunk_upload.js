@@ -116,12 +116,23 @@ export default class ChuckUpload {
     callbackImage(obj, $target, $callback) {
         const name = $target.data('name');
         const width = $target.data('width') || 210;
+        const url_flag = $target.data('type.url') || false;
+        const url_label = $target.data('type.url_label');
+
+        let sub_html = '';
+        if (url_flag) {
+            sub_html = `
+                <span>${url_label}</span>
+                <input value='' name='${name}[${obj.id}][url]' class='dd-preview_input' />
+            `;
+        }
         const html = `
             <input type='hidden' value='${obj.id}' name='${name}[${obj.id}][id]'/>
             <input type='hidden' value='image' name='${name}[${obj.id}][type]'/>
             <input type='hidden' value='${obj.path}' name='${name}[${obj.id}][path]'/>
             <input type='hidden' value='${obj.original_name}' name='${name}[${obj.id}][original_name]'/>
-            <img width="${width}" src="${obj.url}" class='dd-preview-image'/>
+            <img width="${width}" src="${obj.url}" class='dd-preview-image'/><br />
+            ${sub_html}
             <div class='dd-control'>
                 <a href='/admin/media/download/${obj.id}' class='btn btn-outline-info btn-sm' title='ダウンロード'>ダウンロード</a>
                 <span class='j-dd-remove btn btn-outline-danger btn-sm' title='削除'>削除</span>

@@ -9,6 +9,9 @@
     <script type="text/javascript" src="/js/lesson/filter.js"></script>
     <script type="text/javascript" src="/js/ace.js"></script>
     <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
+    <script type="text/javascript">
+        $('.carousel').carousel()
+    </script>
 @endpush
 
 @section('content')

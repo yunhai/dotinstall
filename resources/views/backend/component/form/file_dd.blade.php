@@ -22,7 +22,6 @@
             @endforeach
             data-name="{{ $field_name }}"
         >
-
             <div class='dd-browser'>Upload / Drag and drop here
                 @if (!empty($field_intro))
                 <br />
@@ -60,6 +59,13 @@
                             </video>
                         @elseif ($target['type'] === 'image')
                             <img width="400" src="@media_path($media_path)" class='dd-preview-image' />
+                            <br />
+                            @if (!empty($field_attribute['data-type.url']))
+                                @if (!empty($field_attribute['data-type.url']))
+                                    <span>{{ $field_attribute['data-type.url_label'] }}</span>
+                                @endif
+                                <input name='{{ $field_name }}[{{ $id }}][url]' value='{{ $target['url'] ?? '' }}' class='dd-preview_input' />
+                            @endif
                         @endif
                         <div class='dd-control'>
                             <a href='/admin/media/download/{{ $target["id"] }}' class='btn btn-outline-info btn-sm' title='ダウンロード'>ダウンロード</a>
