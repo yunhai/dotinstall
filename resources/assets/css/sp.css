@@ -49,18 +49,17 @@ html, body {
     margin-top: 15px;
 }
 .box-panel-language {
-	/*height: 138px;*/
-	background-color: #1993FC;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	/*background-color: #1993FC;*/
+    background: linear-gradient(to bottom, #3CDFFF, #0372EB);
 }
 .card-panel-language {
-	background-color: #1993FC;
+	background: linear-gradient(to bottom, #3CDFFF, #0372EB);
 }
 .card-body-language-left {
 	width: 70%;
     text-align: center;
-    padding-top:10px;
+    padding-top:40px;
+    padding-bottom:30px;
 }
 .card-body-language-right {
 	width: 30%;

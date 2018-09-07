@@ -55,7 +55,8 @@ body #pc-col-7 {
 }
 .box-panel-language {
 	height: 255px;
-	background-color: #1993FC;
+	/*background-color: #1993FC;*/
+    background: linear-gradient(to bottom, #3CDFFF, #0372EB);
 }
 .card-body-language-left {
 	width: 60%;
