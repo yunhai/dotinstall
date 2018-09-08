@@ -46,6 +46,7 @@ class Top extends Base
         }
 
         $youtube_link = $this->youtube_link->random();
+        shuffle($youtube_link);
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
     }
 
