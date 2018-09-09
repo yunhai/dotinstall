@@ -32,17 +32,17 @@ class Lesson extends Base
             'lesson_details.resources'
         ];
         return $this::with($with)
-                    ->take(3)
+                    ->where('video_count', '>', 0)
                     ->enable()
                     ->orderBy('sort')
-                    ->get()
-                    ->toArray();
+                    ->paginate(2);
     }
 
     public function getLessons(array $filter = [])
     {
         $db = $this::with(['ms_categories'])
                         ->enable()
+                        ->where('video_count', '>', 0)
                         ->orderBy('sort');
 
         if ($filter) {
@@ -84,6 +84,9 @@ class Lesson extends Base
 
     public function countLesson()
     {
-        return $this->enable()->count();
+        return $this
+                    ->enable()
+                    ->where('video_count', '>', 0)
+                    ->count();
     }
 }
