@@ -35,6 +35,8 @@
         </div>
     @endif
 @endsp
+@php
+/*
 @pc
     @if (Auth::check() == false)
         @include('component.layout.panel_language_pc')
@@ -51,3 +53,5 @@
         @include('component.layout.panel_language_sp')
     @endnormal_user
 @endsp
+*/
+@endphp
