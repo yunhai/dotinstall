@@ -56,24 +56,53 @@
             @endphp
 
             @pc
-                <div id="j-player"
-                    data-plyr-provider="vimeo"
-                    data-plyr-embed-id="{{ $target['url'] }}"
-                    class='hidden {{ $video_css_class }}'>
+                @if ($target['url'])
+                <div class='j-maleContainer'>
+                    <div id="j-player"
+                        data-plyr-provider="vimeo"
+                        data-plyr-embed-id="{{ $target['url'] }}"
+                        class='{{ $video_css_class }}'>
+                    </div>
                 </div>
+                @endif
+                @if ($target['url_female'])
+                <div class='j-femaleContainer hidden'>
+                    <div id="j-playerFemale"
+                        data-plyr-provider="vimeo"
+                        data-plyr-embed-id="{{ $target['url_female'] }}"
+                        class='{{ $video_css_class }}'>
+                    </div>
+                </div>
+                @endif
             @else
-                <div id="j-vimeo_player"
-                    data-vimeo-url="{{ $target['url'] }}" 
-                    data-vimeo-title="0"
-                    data-vimeo-portrait="0"
-                    data-vimeo-byline="0"
-                    data-vimeo-responsive="1"
-                    class='{{ $video_css_class }}'>
+                @if ($target['url'])
+                <div class='j-maleContainer'>
+                    <div id="j-vimeo_player"
+                        data-vimeo-url="{{ $target['url'] }}" 
+                        data-vimeo-title="0"
+                        data-vimeo-portrait="0"
+                        data-vimeo-byline="0"
+                        data-vimeo-responsive="1"
+                        class='{{ $video_css_class }}'>
+                    </div>
                 </div>
+                @endif
+                @if ($target['url_female'])
+                <div class='j-femaleContainer hidden'>
+                    <div id="j-vimeo_player_female"
+                        data-vimeo-url="{{ $target['url_female'] }}" 
+                        data-vimeo-title="0"
+                        data-vimeo-portrait="0"
+                        data-vimeo-byline="0"
+                        data-vimeo-responsive="1"
+                        class='{{ $video_css_class }}'>
+                    </div>
+                </div>
+                @endif
             @endpc
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
-                    <div class="col-7 pl-0 pr-0">
+                    <div class="col-8 pl-0 pr-0">
                         @if (Auth::check())
                             @php
                                 if ($target['is_closeable']) {
@@ -113,9 +142,24 @@
                                 <span>月額会員に登録する</span>
                             </a>
                         @endnormal_user
+
+                        @if ($target['url_female'])
+                        @sp <br/>@endsp
+                        <span id='j-changeMale' class='lesson_detail--voice__male j-switchVoice'>男性ボイス</span>
+
+                        <span class='lesson_detail--voice__female j-switchVoice'
+                              @if ($female_voice)
+                                id='j-changeFemale' 
+                              @else
+                                data-toggle="modal" data-target="#modal_request_female_voice"
+                              @endif
+                         >
+                            女性ボイス
+                        </span>
+                        @endif
                     </div>
 
-                    <div class="col-5  pl-0 pr-0 text-right">
+                    <div class="col-4 pl-0 pr-0 text-right">
                         @if ($prev_video)
                         <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
                             前の動画
@@ -149,4 +193,6 @@
 @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
 @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @include('component.modal.resource_download_deny', ['modal_id' => 'modal_resource_download_deny'])
+@include('component.modal.request_female_voice', ['modal_id' => 'modal_request_female_voice'])
+
 @stop

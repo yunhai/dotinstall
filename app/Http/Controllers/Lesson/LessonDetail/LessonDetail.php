@@ -63,6 +63,8 @@ class LessonDetail extends Base
 
         $allow_access = ($target['free_mode'] === LESSON_DETAIL_FREE_MODE_FREE) ||
                         $user_id && Auth::user()->grade == USER_GRADE_DIAMOND;
+                        
+        $female_voice = ($user_id && Auth::user()->grade == USER_GRADE_DIAMOND);
 
         if ($user_id) {
             $this->updateLessonDetailMode($user_id, $lesson_id, $lesson_detail_id);
@@ -70,7 +72,6 @@ class LessonDetail extends Base
         }
 
         $filter_form = $this->form();
-
         return $this->render(
             'lesson.lesson_detail.detail',
             compact(
@@ -82,7 +83,8 @@ class LessonDetail extends Base
                 'prev_video',
                 'next_video',
                 'filter_form',
-                'allow_access'
+                'allow_access',
+                'female_voice'
             )
         );
     }

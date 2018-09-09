@@ -18,5 +18,21 @@ $(document).ready(function() {
                 }
             }
         })
+    });
+
+    $('#j-changeFemale').click((e) => {
+        const $target = $(e.target);
+        $('.j-maleContainer').addClass('hidden');
+        $('.j-femaleContainer').removeClass('hidden');
+    });
+
+    $('#j-changeMale').click((e) => {
+        const $target = $(e.target);
+        $('.j-maleContainer').removeClass('hidden');
+        $('.j-femaleContainer').addClass('hidden');
+    });
+
+    $('.j-switchVoice').click(function() {
+        $(document).trigger('switch_voice');
     })
 })

@@ -472,6 +472,7 @@ body {
     padding-top: 2px;
     padding-bottom: 1px;
     border-radius: .2rem;
+    margin-bottom: 5px;
 }
 .bg-button-complete {
 	display: inline-block;
@@ -492,6 +493,7 @@ body {
     padding-right: 1.44rem;
 	padding-top: 2px;
     padding-bottom: 1px;
+    margin-bottom: 5px;
 }
 .bg-button-user-diamond {
 	display: inline-block;
@@ -511,6 +513,7 @@ body {
     padding-right: .5rem;
 	padding-top: 2px;
     padding-bottom: 1px;
+    margin-bottom: 5px;
 }
 .bg-button-source-confirmation:hover,
 .bg-button-to-complete:hover,

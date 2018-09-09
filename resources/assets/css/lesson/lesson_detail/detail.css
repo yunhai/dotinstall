@@ -70,3 +70,19 @@
     margin-right: 5px;
     padding-bottom: 3px;
 }
+.lesson_detail--voice__male {
+    background: #0190ff;
+    border-radius: 5px;
+    padding: 1px 8px 3px;
+    color: #fefefe;
+    font-size: 13px;
+    cursor: pointer;
+}
+.lesson_detail--voice__female {
+    background: #f9306e;
+    border-radius: 5px;
+    padding: 1px 8px 3px;
+    color: #fdfdfd;
+    font-size: 13px;
+    cursor: pointer;
+}
