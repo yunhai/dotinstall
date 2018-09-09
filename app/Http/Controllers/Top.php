@@ -43,7 +43,6 @@ class Top extends Base
             $lesson_info = $this->lessonInfo($lessons);
         } else {
             $lessons = $this->getUnLogInLesson();
-            // dd($lessons);
         }
 
         $youtube_link = $this->youtube_link->random();

@@ -23,6 +23,8 @@
                                 <div class="carousel-item @if ($index === 0) active @endif">
                                     @if ($item['type'] == YOUTUBE_TYPE_VIDEO)
                                         <iframe width="480" height="240" src="https://www.youtube.com/embed/{{ $item['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    @elseif ($item['type'] == YOUTUBE_TYPE_VIMEO)
+                                        <iframe width="480" height="240" src="https://player.vimeo.com/video/{{ $item['youtube_id'] }}?autoplay=1&loop=1&autopause=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                     @elseif ($item['type'] == YOUTUBE_TYPE_IMAGE)
                                         @php $path = $item['path'] ?? ''; @endphp
                                         <a href='{{ $item['url'] }}'>

@@ -16,9 +16,11 @@
                   </ol>
                   <div class="carousel-inner">
                     @foreach($youtube_link as $index => $item)
-                    <div class="carousel-item @if ($index === 0) active @endif">
+                    <div class="carousel-item @if ($index === 0) active @endif" https://player.vimeo.com/video/286278638>
                         @if ($item['type'] == YOUTUBE_TYPE_VIDEO)
                             <iframe width="100%" height="211" src="https://www.youtube.com/embed/{{ $item['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        @elseif ($item['type'] == YOUTUBE_TYPE_VIMEO)
+                            <iframe src="https://player.vimeo.com/video/{{ $item['youtube_id'] }}?autoplay=1&loop=1&autopause=0" width="100%" height="211" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                         @elseif ($item['type'] == YOUTUBE_TYPE_IMAGE)
                             @php $path = $item['path'] ?? ''; @endphp
                             <a href='{{ $item['url'] }}'>
