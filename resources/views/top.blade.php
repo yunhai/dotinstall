@@ -11,10 +11,7 @@
     <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
     <script type="text/javascript" src="/js/jquery.bcSwipe.min.js"></script>
     <script type="text/javascript" src="/js/top.js"></script>
-    <script type="text/javascript">
-        $('.carousel').carousel({ interval: 8000 })
-        $('.carousel').bcSwipe({ threshold: 50 });
-    </script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 @endpush
 
 @section('content')

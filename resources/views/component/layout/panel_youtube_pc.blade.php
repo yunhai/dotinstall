@@ -22,9 +22,9 @@
                                 @foreach($youtube_link as $index => $item)
                                 <div class="carousel-item @if ($index === 0) active @endif">
                                     @if ($item['type'] == YOUTUBE_TYPE_VIDEO)
-                                        <iframe width="480" height="240" src="https://www.youtube.com/embed/{{ $item['youtube_id'] }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        <iframe class='youtube-video' width="480" height="240" src="https://www.youtube.com/embed/{{ $item['youtube_id'] }}?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     @elseif ($item['type'] == YOUTUBE_TYPE_VIMEO)
-                                        <iframe width="480" height="240" src="https://player.vimeo.com/video/{{ $item['youtube_id'] }}?autoplay=1&loop=1&autopause=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                        <iframe class='vimeo-video' width="480" height="240" src="https://player.vimeo.com/video/{{ $item['youtube_id'] }}?autoplay=1&loop=1&autopause=0&api=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                                     @elseif ($item['type'] == YOUTUBE_TYPE_IMAGE)
                                         @php $path = $item['path'] ?? ''; @endphp
                                         <a href='{{ $item['url'] }}'>
