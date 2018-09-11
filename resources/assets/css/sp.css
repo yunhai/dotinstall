@@ -250,5 +250,16 @@ html, body {
     overflow: hidden;
 }
 .lesson_detail--voice {
-    font-size: 12px !important;
+    font-size: 11px !important;
+    font-weight: bold;
+}
+.bg-button-to-complete,
+.bg-button-user-diamond {
+    margin-right: 3px;
+}
+.lesson_detail--voice {
+    margin-right: 6px !important;
+}
+.lesson_detail--voice.lesson_detail--voice__female {
+    margin-right: 0;
 }
