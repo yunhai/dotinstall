@@ -17,7 +17,7 @@ $(document).ready(function() {
             $('#j-lessonListPaginator').hide();
         }
     });
-    
+
     const $slider = $('.carousel');
     $slider.carousel({ interval: 8000 })
     $slider.bcSwipe({ threshold: 50 });

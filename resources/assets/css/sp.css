@@ -244,3 +244,11 @@ html, body {
     object-fit: contain;
     vertical-align: top;
 }
+
+.carousel-item {
+    height: 211px;
+    overflow: hidden;
+}
+.lesson_detail--voice {
+    font-size: 12px;
+}
