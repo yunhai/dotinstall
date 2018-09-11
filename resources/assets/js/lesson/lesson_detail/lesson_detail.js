@@ -22,12 +22,16 @@ $(document).ready(function() {
 
     $('#j-changeFemale').click((e) => {
         const $target = $(e.target);
+        $target.addClass('active');
+        $('#j-changeMale').removeClass('active');
         $('.j-maleContainer').addClass('hidden');
         $('.j-femaleContainer').removeClass('hidden');
     });
 
     $('#j-changeMale').click((e) => {
         const $target = $(e.target);
+        $target.addClass('active');
+        $('#j-changeFemale').removeClass('active');
         $('.j-maleContainer').removeClass('hidden');
         $('.j-femaleContainer').addClass('hidden');
     });

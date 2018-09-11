@@ -145,9 +145,11 @@
 
                         @if ($target['url_female'])
                         @sp <br/>@endsp
-                        <span id='j-changeMale' class='lesson_detail--voice__male j-switchVoice'>男性ボイス</span>
+                        <a href="javascript:;" id='j-changeMale' class='lesson_detail--voice lesson_detail--voice__male j-switchVoice active'>
+                            男性ボイス
+                        </a>
 
-                        <span class='lesson_detail--voice__female j-switchVoice'
+                        <a href="javascript:;" class='lesson_detail--voice lesson_detail--voice__female j-switchVoice'
                               @if ($female_voice)
                                 id='j-changeFemale' 
                               @else
@@ -155,7 +157,7 @@
                               @endif
                          >
                             女性ボイス
-                        </span>
+                        </a>
                         @endif
                     </div>
 

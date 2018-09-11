@@ -70,19 +70,30 @@
     margin-right: 5px;
     padding-bottom: 3px;
 }
-.lesson_detail--voice__male {
-    background: #0190ff;
+.lesson_detail--voice {
+    background: repeating-linear-gradient(
+        -45deg,
+        #bababa,
+        #bababa 5px,
+        #acacac 5px,
+        #acacac 10px
+    );
     border-radius: 5px;
-    padding: 1px 8px 3px;
-    color: #fefefe;
-    font-size: 13px;
+    color: #212529 !important;
     cursor: pointer;
+    font-size: 13px;
+    margin-right: 3px;
+    padding: 1px 8px 3px;
+    text-decoration: none !important;
+    text-align: center;
 }
-.lesson_detail--voice__female {
+.lesson_detail--voice__male.active,
+.lesson_detail--voice__male:hover {
+    background: #0190ff;
+    color: #fefefe !important;
+}
+.lesson_detail--voice__female.active,
+.lesson_detail--voice__female:hover {
     background: #f9306e;
-    border-radius: 5px;
-    padding: 1px 8px 3px;
-    color: #fdfdfd;
-    font-size: 13px;
-    cursor: pointer;
+    color: #fefefe !important;
 }
