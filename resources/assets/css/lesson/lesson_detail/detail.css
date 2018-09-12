@@ -83,7 +83,7 @@
     cursor: pointer;
     margin-right: 3px;
     font-size: 11px;
-    padding: 3px 4px 3px 8px;
+    padding: 4px 4px 3px 8px;
     font-weight: bold;
     opacity: 0.6;
     text-decoration: none !important;
@@ -91,7 +91,7 @@
 }
 
 .lesson_detail--voice__female{
-   padding-right: 7px;
+   padding-right: 9px;
 }
 
 .lesson_detail--voice__male.active,

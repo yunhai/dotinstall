@@ -78,7 +78,7 @@
                 @if ($target['url'])
                 <div class='j-maleContainer'>
                     <div id="j-vimeo_player"
-                        data-vimeo-url="{{ $target['url'] }}" 
+                        data-vimeo-url="{{ $target['url'] }}"
                         data-vimeo-title="0"
                         data-vimeo-portrait="0"
                         data-vimeo-byline="0"
@@ -90,7 +90,7 @@
                 @if ($target['url_female'])
                 <div class='j-femaleContainer hidden'>
                     <div id="j-vimeo_player_female"
-                        data-vimeo-url="{{ $target['url_female'] }}" 
+                        data-vimeo-url="{{ $target['url_female'] }}"
                         data-vimeo-title="0"
                         data-vimeo-portrait="0"
                         data-vimeo-byline="0"
@@ -143,14 +143,14 @@
                             </a>
                         @endnormal_user
 
-                        @if ($target['url_female'])
                         <a href="javascript:;" id='j-changeMale' class='lesson_detail--voice lesson_detail--voice__male j-switchVoice active'>
                             男性ボイス
                         </a>
 
+                        @if ($target['url_female'])
                         <a href="javascript:;" class='lesson_detail--voice lesson_detail--voice__female j-switchVoice'
                               @if ($female_voice)
-                                id='j-changeFemale' 
+                                id='j-changeFemale'
                               @else
                                 data-toggle="modal" data-target="#modal_request_female_voice"
                               @endif

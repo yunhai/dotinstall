@@ -258,8 +258,10 @@ html, body {
     margin-right: 3px;
 }
 .lesson_detail--voice {
+    padding: 5px 4px 5px 8px !important;
     margin-right: 6px !important;
 }
 .lesson_detail--voice.lesson_detail--voice__female {
     margin-right: 0;
+    padding-right: 8px !important;
 }

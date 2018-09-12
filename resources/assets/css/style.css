@@ -381,6 +381,8 @@ body {
     background-color: #ece8e9;
     padding-top: .65rem;
     padding-bottom: .64rem;
+    text-align: center;
+    font-weight:bold;
 }
 /* Stripe
 ------------------------------------------------------------ */
