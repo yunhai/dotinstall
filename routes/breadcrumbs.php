@@ -104,11 +104,12 @@ Breadcrumbs::for('lesson.detail', function ($trail, $name) {
 });
 
 // レッスン詳細
-Breadcrumbs::for('lesson_detail', function ($trail) {
+Breadcrumbs::for('lesson_detail', function ($trail, $lesson_detail, $text) {
     if (!empty(Auth::user())) {
         $trail->parent('mypage');
     } else {
         $trail->parent('top');
     }
     $trail->push('レッスン一覧', route('lesson'), ['enable_link' => true]);
+    $trail->push($text, route('lesson.detail', ['lesson_detail' => $lesson_detail['lesson_id']]), ['enable_link' => true]);
 });

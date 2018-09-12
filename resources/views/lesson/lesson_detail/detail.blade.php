@@ -1,6 +1,9 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
-@section('breadcrumbs', Breadcrumbs::render('lesson_detail'))
+@php
+    $page_intro = "【{$filter_form['difficulty'][$lessons['difficulty']]}】{$lessons['name']}　{$lessons['video_count']}本の動画で提供中";
+@endphp
+@section('breadcrumbs', Breadcrumbs::render('lesson_detail', $target, $page_intro))
 
 @push('css')
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
@@ -36,7 +39,7 @@
     }
 @endphp
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 px-5">【{{ $filter_form['difficulty'][$lessons['difficulty']] }}】{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
+    <div class="box ttlCommon border-bottom-0 mb-0 px-5">{{ $page_intro }}</div>
     <div class="box mb-0">
         <div class="card">
             <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>
