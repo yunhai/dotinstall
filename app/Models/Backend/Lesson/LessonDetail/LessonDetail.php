@@ -24,6 +24,7 @@ class LessonDetail extends Base
         'sort',
         'mode',
         'free_mode',
+        'new_mode',
     ];
 
     public function resources()

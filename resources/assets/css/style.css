@@ -310,15 +310,33 @@ body {
     outline: none;
     box-shadow: none;
 }
-.pickup {
+.pickup1 {
 	position: absolute;
     z-index: 3;
-	background-color: #fd0c56;
+    background-image: url("../img/free.png");
     color: #fff;
-	padding-top: 4px;
+	padding-top: 13px;
     padding-bottom: 2px;
-    padding-left: 25px;
+    padding-left: 43px;
     padding-right: 25px;
+}
+.free {
+    background-image: url("../img/free.png");
+    width: 70px;
+    height: 33px;
+    display: block;
+}
+.new {
+    background-image: url("../img/new.png");
+    width: 70px;
+    height: 33px;
+    display: block;
+}
+.new_free_info {
+	position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 0;
 }
 .card-sign-button {
     background: repeating-linear-gradient(

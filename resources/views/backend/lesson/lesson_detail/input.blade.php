@@ -50,6 +50,13 @@
                     'field_type' => 'radio',
                     'field_option' => $form['free_mode'],
                 ],
+                'new_mode' => [
+                    'field_label' => 'NEW状況',
+                    'field_name' => 'new_mode',
+                    'field_value' => array_get($target, 'new_mode', ''),
+                    'field_type' => 'radio',
+                    'field_option' => $form['new_mode'],
+                ],
                 'sort' => [
                     'field_label' => '表示順序',
                     'field_name' => 'sort',
