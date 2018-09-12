@@ -13,6 +13,7 @@ class PostInput extends Base
             'caption' => 'nullable',
             'sort' => 'integer',
             'free_mode' => 'required|integer',
+            'new_mode' => 'required|integer',
             'url' => 'required',
             'url_female' => 'nullable',
             'duration' => 'nullable',
