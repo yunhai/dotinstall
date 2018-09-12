@@ -163,7 +163,7 @@
                         @endif
                     </div>
 
-                    <div class="@sp col-12 @endsp @pc col-4 @endpc pl-0 pr-0 text-right">
+                    <div class="@sp col-12 @endsp @pc col-4 text-right @endpc pl-0 pr-0">
                         @if ($prev_video)
                         <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
                             前の動画
