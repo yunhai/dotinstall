@@ -32,4 +32,4 @@ ALTER TABLE `lesson_details` ADD `url_female` VARCHAR(256) NOT NULL AFTER `url`;
 ALTER TABLE `lesson_details` ADD `duration_female` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `duration`;
 
 //180912
-ALTER TABLE `lesson_details` ADD `new_mode` TINYINT UNSIGNED NOT NULL DEFAULT '2' AFTER `free_mode`;
+ALTER TABLE `lesson_details` ADD `new_mode` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `free_mode`;
