@@ -265,3 +265,9 @@ html, body {
     margin-right: 0;
     padding-right: 8px !important;
 }
+.new_free_info {
+	display: block;
+    height: 24px;
+    margin-bottom: 2px;
+    overflow: hidden;
+}

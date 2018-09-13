@@ -158,3 +158,9 @@ body #pc-col-7 {
     height: 240px;
     overflow: hidden;
 }
+.new_free_info {
+	display: block;
+    height: 24px;
+    margin-bottom: 2px;
+    overflow: hidden;
+}
