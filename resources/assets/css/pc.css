@@ -164,3 +164,8 @@ body #pc-col-7 {
     margin-bottom: 2px;
     overflow: hidden;
 }
+.lesson__status {
+	position: absolute;
+	top: 43%;
+	right: 0;
+}
