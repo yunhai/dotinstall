@@ -89,9 +89,10 @@ class LessonDetail extends Base
     {
         $mode = config('master.common.mode');
         $free_mode = config('master.lesson.lesson_detail.free_mode');
+        $new_mode = config('master.lesson.lesson_detail.new_mode');
 
         $language = $this->getLanguage(true);
-        return compact('mode', 'free_mode', 'language');
+        return compact('mode', 'free_mode', 'language', 'new_mode');
     }
 
     private function getLanguage($available_category = true)

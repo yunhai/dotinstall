@@ -1,8 +1,8 @@
-<div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
-    <div class="tab-content tab-content-resource pt-0" id="{{ $modal_id }}" style="border-top: 1px solid #bca9af;">
+<div class="col-12" style="border-right: 1px solid #bca9af;">
+    <div class="tab-content tab-content-resource pb-0" style="border-top: 1px solid #bca9af;">
         @if ($allow_access)
             @if (!empty($resources_item))
-                <div class="row-resource" style="border-bottom: 1px solid #bca9af;">
+                <div class="row-resource" style="border-bottom: 1px solid #bca9af; margin-left:-5px;">
                     <div class="col">
 	                    <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}"><img class="img-fluid img-file" src="/img/img_file.png"></a>
                         <a href="{{ route('lesson_detail.resource.download', compact('lesson_id', 'lesson_detail_id')) }}" class="btn btn-download-resource">素材を一括ダウンロードする</a>
@@ -15,7 +15,7 @@
                                 $media_id = $res['id'];
                                 $path = $res['path'];
                             @endphp
-                            <div class="col-thumbnail-2">
+                            <div class="col-thumbnail-2" style="padding-top: 20px;">
                                 <div class="card">
                                     <img class="img-thumbnail" src="@media_path($path)" style="height: 78px">
                                     <div class="card-body pl-1 pr-1 pt-1 pb-1">
@@ -29,9 +29,10 @@
             @endif
         @else
             <div class="row-resource">
-                <div class="col">
+                <div class="col" style="margin-left:-6px;">
 	                <img class="img-fluid img-file" src="/img/img_file.png">
-                    <a href="javascript:;" class="btn btn-download-resource" data-toggle="modal" data-target="#modal_resource_download_deny">素材を一括ダウンロードする</a>（有料会員になるとダウンロードできます。）
+                    <a href="javascript:;" class="btn btn-download-resource" data-toggle="modal" data-target="#modal_resource_download_deny">素材を一括ダウンロードする</a>
+                    <p class="card-text" style="margin-left:-5px;">（有料会員になるとダウンロードできます。）</p>
                 </div>
             </div>
         @endif
@@ -41,7 +42,7 @@
                     <div class="tab-pane-resource">
                         <div class="resource-primary"><img class="img-fluid" src="/img/img_electricity.png">{{ $item['filename'] }}</div>
                         <div class="tab-pane fade show active" id="{{ $item['id'] }}" role="tabpanel">
-                            <div class="modal-body @if ($loop->last) tab-pane-resource_tab-pane_modal-body_last @endif" style="height: 500px;">
+                            <div class="modal-body" style="height: 500px;">
                                 <div class='ace__item'>
                                     <div class='ace__item--body' data-id='ace_edit_{{ $item['id'] }}' data-language='{{ $item['language'] }}'>
                                         <div id='ace_edit_{{ $item['id'] }}' class='ace__item--editor'>{!! ($item['content']) !!}</div>
@@ -55,7 +56,7 @@
                 <div class="tab-pane-resource" @if (!empty($resources_item)) style="margin-top: 20px;" @endif>
                     <div class="resource-primary"><img class="img-fluid" src="/img/img_electricity.png">ソースコード</div>
                     <div class="tab-pane fade show active" role="tabpanel">
-                        <div class="modal-body">
+                        <div class="modal-body" style="padding-bottom:0px;">
                             <p class="text-center">このレッスンにはソースコードありません</p>
                         </div>
                     </div>
@@ -76,48 +77,55 @@
         @endif
     </div>
 </div>
-<div class="col-3 pl-0">
-    <div class="card">
-        <div class="card-header card-header-lesson-detail text-center">
-	        <img class="img-fluid img-file" src="/img/img_video_player.png">レッスン一覧
-	    </div>
-        <div class="card-body pb-0">
-            @foreach ($lesson_details as $target)
-                <div class="col-lesson mt-0 @sp col-sm-6 @endsp">
-                    <div class="card">
-                        @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-                            <span class="pickup">無料</span>
-                        @endif
-                        @php $path = $target['posters'][0]['path'] ?? ''; @endphp
+<div class="col-12">
+    <div class="card-header card-header-lesson-detail text-center">
+	    <img class="img-fluid img-file" src="/img/img_video_player.png">レッスン一覧
+	</div>
+    <div class="row card-video-list">
+        @foreach ($lesson_details as $target)
+            <div class="col-lesson col-sm-6 mt-0">
+                <div class="card">
+                    <div class='new_free_info'>
                         <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
-                        @if ($path)
-                            <img class="card-img-top card-img-video" src="@media_path($path)">
-                            <span class="play-btn">
-                                <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
-                            </span>
-                        @else
-                            @php
-                                $path = '';
-                                if (!empty($target['videos'])) {
-                                    $path = current($target['videos'])['path'];
-                                }
-                            @endphp
-                            @if ($path)
-                            <span class='j-captureVideo' data-url="@media_path($path)"></span>
+                            @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
+                            <img src='{{ asset('img/free.png') }}' width='50px' />
+                            <br />
                             @endif
-                        @endif
+                            @if ($target['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW'))
+                            <img src='{{ asset('img/new.png') }}' width='50px' />
+                            @endif
                         </a>
-                        <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:10px;">
-                            <p class="card-text card-text-name @pc mb-0 @endpc text-left">
-	                            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" style="color: #212529;">{{ $target['name'] }}</a>
-	                        </p>
-                            @if (empty($path))
-                                <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
-                            @endif
-                        </div>
+                    </div>
+                    @php $path = $target['posters'][0]['path'] ?? ''; @endphp
+                    <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
+                    @if ($path)
+                        <img class="card-img-top card-img-video" src="@media_path($path)">
+                        <span class="play-btn">
+                            <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                        </span>
+                    @else
+                        @php
+                            $path = '';
+                            if (!empty($target['videos'])) {
+                                $path = current($target['videos'])['path'];
+                            }
+                        @endphp
+                        @if ($path)
+                        <span class='j-captureVideo' data-url="@media_path($path)"></span>
+                        @endif
+                    @endif
+                    </a>
+                    <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:10px;">
+                        <p class="card-text-name text-left">
+	                        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" style="color: #212529;">{{ $target['name'] }}</a>
+	                    </p>
+
+                        @if (empty($path))
+                            <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>
+                        @endif
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 </div>

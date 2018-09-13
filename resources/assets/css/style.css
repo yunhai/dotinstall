@@ -339,16 +339,7 @@ body {
     outline: none;
     box-shadow: none;
 }
-.pickup {
-	position: absolute;
-    z-index: 3;
-	background-color: #fd0c56;
-    color: #fff;
-	padding-top: 4px;
-    padding-bottom: 2px;
-    padding-left: 25px;
-    padding-right: 25px;
-}
+
 .card-sign-button {
     background: repeating-linear-gradient(
         -45deg,
