@@ -1,5 +1,5 @@
 <div class="col-9 pr-0" style="border-right: 1px solid #bca9af;">
-    <div class="tab-content tab-content-resource pt-0" id="{{ $modal_id }}" style="border-top: 1px solid #bca9af;">
+    <div class="tab-content tab-content-resource pt-0" style="border-top: 1px solid #bca9af;">
         @if ($allow_access)
             @if (!empty($resources_item))
                 <div class="row-resource" style="border-bottom: 1px solid #bca9af;">
@@ -85,9 +85,17 @@
             @foreach ($lesson_details as $target)
                 <div class="col-lesson mt-0 @sp col-sm-6 @endsp">
                     <div class="card">
-                        @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-                            <span class="pickup">無料</span>
-                        @endif
+                        <div class='new_free_info'>
+                            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
+                                @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
+                                <img src='{{ asset('img/free.png') }}' width='65px' />
+                                <br />
+                                @endif
+                                @if ($target['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW'))
+                                <img src='{{ asset('img/new.png') }}' width='65px' />
+                                @endif
+                            </a>
+                        </div>
                         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
                         <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
                         @if ($path)

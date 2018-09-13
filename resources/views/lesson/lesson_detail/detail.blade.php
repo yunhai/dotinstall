@@ -133,12 +133,10 @@
     <div class="box">
         <div class="row">
             @pc
-                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                @include('component.lesson.lesson_detail.lesson_detail_info_pc', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
+                @include('component.lesson.lesson_detail.pc.detail_info', ['resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
             @endpc
             @sp
-                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                @include('component.lesson.lesson_detail.lesson_detail_info_sp', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
+                @include('component.lesson.lesson_detail.sp.detail_info', ['resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
             @endsp
         </div>
     </div>
