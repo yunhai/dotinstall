@@ -210,7 +210,7 @@
                                                                     有料会員<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
                                                                 </div>
                                                             </div>
-                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary">有料会員に登録する</button>
+                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6">有料会員に登録する</button>
                                                         </div>
                                                     </div>
                                                 </div>
