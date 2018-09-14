@@ -35,7 +35,7 @@ class Lesson extends Base
                     ->where('video_count', '>', 0)
                     ->enable()
                     ->orderBy('sort')
-                    ->paginate(2);
+                    ->paginate(3);
     }
 
     public function getLessons(array $filter = [])
