@@ -278,14 +278,13 @@ html, body {
 .lession--item__image {
     width: 120px; 
     height: 100%;
-    margin: 0 10px 5px;
+    margin: 0 10px 0 0;
     float: left;
 }
 .lesson--item__learning_count {
-    margin-top: 3px; 
-    display: block;
+    margin: 5px 0 0 10px; 
     width: 120px; 
-    text-align:center;
+    float: left;
 }
 .lesson--item__content {
     display: table-cell;
@@ -294,6 +293,11 @@ html, body {
 }
 .lesson--item__my_styding {
     display: block;
-    width: 120px; 
-    text-align:center;
+    margin-left: 10px;
+}
+.lesson--item__my_styding_finish {
+    text-align: right;
+    margin: 5px 10px 0 10px;
+    width: 120px;
+    float: right;
 }
