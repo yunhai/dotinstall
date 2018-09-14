@@ -13,10 +13,10 @@
         <div class='new_free_info'>
             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
                 @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-                <img src='{{ asset('img/free.png') }}' width='50px' />
+                <img src='{{ asset('img/free.png') }}' width='40px' />
                 @endif
                 @if ($target['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW'))
-                <img src='{{ asset('img/new.png') }}' width='50px' />
+                <img src='{{ asset('img/new.png') }}' width='40px' />
                 @endif
             </a>
         </div>
