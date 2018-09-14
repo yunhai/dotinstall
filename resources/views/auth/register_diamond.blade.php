@@ -180,14 +180,13 @@
                                                 </div>
                                                 <hr>
                                                 <div class="@pc row-group @endpc">
-                                                    <label class="mar_b20">月額制:￥９８０円（税別）</label>
                                                     <div class="form-group">
                                                         <div>
                                                             <div class='container' id='card-holder'>
                                                                 <div class='row' @sp style="padding-bottom:2px" @endsp>
-                                                                    <div id="card-number" class='@pc col-5 @endpc @sp col-7 @endsp card-element' @sp style="flex:0 0 60%; max-width:60%;" @endsp></div>
-                                                                    <div id="card-expiry" class='col-3 card-element'></div>
-                                                                    <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 55px;" @endpc @sp style="padding-right:5px;padding-left: 3px;" @endsp></div>
+                                                                    <div id="card-number" class='@pc col-7 @endpc @sp col-7 @endsp card-element' @sp style="flex:0 0 60%; max-width:60%;" @endsp></div>
+                                                                    <div id="card-expiry" class='@pc col-2 @endpc @sp col-3 @endsp card-element'></div>
+                                                                    <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 40px;" @endpc @sp style="padding-right:5px;padding-left: 3px;" @endsp></div>
                                                                 </div>
                                                             </div>
                                                             <div id="card-errors" role="alert" style="margin-top: .25rem; color: #dc3545;"></div>
