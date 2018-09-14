@@ -36,9 +36,7 @@
                                 }
                             @endphp
                             <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
-                                <div class='lession--item'>
-                                    <div class="lession--item__image">
-                                        @if ($first_lesson_detail['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE') ||
+ @if ($first_lesson_detail['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE') ||
                                             $first_lesson_detail['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW')
                                         )
                                         @php $width=40; @endphp
@@ -53,12 +51,13 @@
                                             </a>
                                         </div>
                                         @endif
+                                <div class='lession--item'>
+                                    <div class="lession--item__image">
+                                       
                                         <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" >
                                             <img src='@media_path($poster)' width='@pc 140 @endpc @sp 120 @endsp' />
                                         </a>
-                                        <span class='lesson--item__learning_count'>
-                                            {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
-                                        </span>
+                                        
                                     </div>
                                     <div class='lesson--item__content'>
                                         <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" >
@@ -67,6 +66,9 @@
                                         </a>
                                     </div>
                                 </div>
+<span class='lesson--item__learning_count'>
+                                            {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
+                                        </span>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0">
