@@ -108,7 +108,6 @@
                                         <div class="card-body">
                                             <ul class="card-info">
                                                 <li>・全ての動画が見放題となります。</li>
-                                                <li>・月額制:\980円（税込み）</li>
                                                 <li>・クレジットカード決済のみとなります。</li>
                                                 <li>・毎月自動決済されます。</li>
                                                 <li>・購入後、設定変更画面から自動更新を停止することもできます。</li>
@@ -180,6 +179,7 @@
                                                 </div>
                                                 <hr>
                                                 <div class="@pc row-group @endpc">
+                                                    <label class="mar_b20">月額制:￥９８０円（税別）</label>
                                                     <div class="form-group">
                                                         <div>
                                                             <div class='container' id='card-holder'>
