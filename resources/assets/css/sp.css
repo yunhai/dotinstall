@@ -271,3 +271,29 @@ html, body {
     margin-bottom: 2px;
     overflow: hidden;
 }
+.lession--item {
+    height: 100%;
+    display: table;
+}
+.lession--item__image {
+    width: 120px; 
+    height: 100%;
+    margin: 0 10px 5px;
+    float: left;
+}
+.lesson--item__learning_count {
+    margin-top: 3px; 
+    display: block;
+    width: 120px; 
+    text-align:center;
+}
+.lesson--item__content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+}
+.lesson--item__my_styding {
+    display: block;
+    width: 120px; 
+    text-align:center;
+}
