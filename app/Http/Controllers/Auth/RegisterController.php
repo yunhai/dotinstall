@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\User as UserController;
 use App\Http\Service\SocialAccountService;
 use App\Http\Service\ActivationService;
 use App\Models\Affiliator\Affiliator;
@@ -81,7 +82,7 @@ class RegisterController extends Controller
         if ($affiliator_token) {
             $input['token'] = $affiliator_token;
         }
-        return $this->makeRegister($input);
+        return $this->makeRegister($request, $input);
     }
 
     public function getRegisterDiamond()
@@ -92,12 +93,17 @@ class RegisterController extends Controller
     public function registerDiamond(Request $request)
     {
         $input = $request->all();
-        $input['grade'] = USER_GRADE_PENDING_DIAMOND;
 
-        return $this->makeRegister($input);
+        if (empty($input['stripeToken'])) {
+            $input['grade'] = USER_GRADE_PENDING_DIAMOND;
+        } else {
+            $input['grade'] = USER_GRADE_DIAMOND;
+        }
+        
+        return $this->makeRegister($request, $input);
     }
-
-    private function makeRegister(array $input)
+    
+    private function makeRegister(Request $request, array $input)
     {
         if (empty($input['password'])) {
             $input['password'] = env('APP_DEFAULT_PASSWORD');
@@ -105,9 +111,26 @@ class RegisterController extends Controller
         $this->validator($input)->validate();
 
         $user = $this->makeCreate($input);
-        $this->activationService->sendActivationMail($user);
 
-        return redirect()->route('register.done')->with('email', $user->email);
+        if (empty($input['stripeToken'])) {
+            $this->activationService->sendActivationMail($user);
+            return redirect()->route('register.done')->with('email', $user->email);
+        }
+
+        $error = [];
+        $update = [
+            'mode' => USER_MODE_ENABLE
+        ];
+
+        $model = new User();
+        $model->where('id', $user->id)->update($update);
+         
+        $user_controller = new UserController($model);
+        if ($user_controller->makeUpgrade($request, $user->toArray(), $error)) {
+            auth()->login($user);
+            return redirect()->back()->with('success', true);
+        }
+        return redirect()->back()->with('error', $error);
     }
 
     public function redirectToProvider($provider)
