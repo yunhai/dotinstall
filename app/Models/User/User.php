@@ -23,6 +23,7 @@ class User extends Authenticatable
         'provider_user_id',
         'affiliator_id',
         'grade',
+        'mode',
         'diamond_ends_at',
     ];
 
