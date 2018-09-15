@@ -9,13 +9,13 @@
     <script>var STRIPE_KEY = "{{ config('services.stripe.key') }}";</script>
     <script src="/js/payment.js"></script>
     @if (session('success'))
-    <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#success').modal('show');
-        });
-    </script>
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-sm" style="max-width:420px;">
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#success').modal('show');
+            });
+        </script>
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
                   <div class="modal-content rounded-0">
                       <div class="modal-body">
                           <p class="mb-0">月額会員ご登録ありがとうございます。</br>
