@@ -16,7 +16,7 @@
             });
         </script>
         <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-sm" style="max-width:420px;">
+              <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
                   <div class="modal-content rounded-0">
                       <div class="modal-body">
                           <p class="mb-0">アップグレードご登録ありがとうございます。</br>
@@ -153,7 +153,9 @@
                                                         <label for="password" class="col-md-4 col-form-label">パスワード</label>
 
                                                         <div class="col-md-8">
-                                                            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
+                                                            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                                                            value="{{ old('password') ? old('password') : app('request')->input('password') }}"
+                                                            >
 
                                                             @if ($errors->has('password'))
                                                                 <span class="invalid-feedback" role="alert">
@@ -166,7 +168,8 @@
                                                         <label for="password_confirmation" class="col-md-4 col-form-label">パスワード確認</label>
 
                                                         <div class="col-md-8">
-                                                            <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation">
+                                                            <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation"
+                                                            value="{{ old('password_confirmation') ? old('password_confirmation') : app('request')->input('password_confirmation') }}">
                                                             @if ($errors->has('password_confirmation'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('password_confirmation') }}</strong>

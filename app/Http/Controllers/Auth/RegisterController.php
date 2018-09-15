@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Socialite;
 use App\Rules\checkExistEmailRegistrationRule;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -110,10 +111,12 @@ class RegisterController extends Controller
         }
         $this->validator($input)->validate();
 
+        DB::beginTransaction();
         $user = $this->makeCreate($input);
 
         if (empty($input['stripeToken'])) {
             $this->activationService->sendActivationMail($user);
+            DB::commit();
             return redirect()->route('register.done')->with('email', $user->email);
         }
 
@@ -124,12 +127,15 @@ class RegisterController extends Controller
 
         $model = new User();
         $model->where('id', $user->id)->update($update);
-         
+
         $user_controller = new UserController($model);
         if ($user_controller->makeUpgrade($request, $user->toArray(), $error)) {
+            DB::commit();
             auth()->login($user);
             return redirect()->back()->with('success', true);
         }
+        
+        DB::rollBack();
         return redirect()->back()->with('error', $error);
     }
 
