@@ -132,6 +132,7 @@ class RegisterController extends Controller
 
         $user_controller = new UserController($model);
         if ($user_controller->makeUpgrade($request, $user->toArray(), $error)) {
+            $model->where('id', $user->id)->update(['grade' => USER_GRADE_DIAMOND]);
             DB::commit();
             auth()->login($user);
             return redirect()->back()->with('success', true);
