@@ -107,10 +107,10 @@
                                         <div class="card-header">【月額会員】</div>
                                         <div class="card-body">
                                             <ul class="card-info">
-                                                <li>・全ての動画が見放題となります。</li>
-                                                <li>・クレジットカード決済のみとなります。</li>
-                                                <li>・毎月自動決済されます。</li>
-                                                <li>・購入後、設定変更画面から自動更新を停止することもできます。</li>
+                                                <li>・ 全ての動画が見放題となります。</li>
+                                                <li>・ クレジットカード決済のみとなります。</li>
+                                                <li>・ 毎月自動決済されます。</li>
+                                                <li>・ 購入後、設定変更画面から自動更新を停止することもできます。</li>
                                             </ul>
                                             <hr>
                                             <form id='j-payment-form' method="post" aria-label="新規ユーザー登録">
@@ -167,7 +167,6 @@
 
                                                         <div class="col-md-8">
                                                             <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation">
-
                                                             @if ($errors->has('password_confirmation'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -200,17 +199,17 @@
                                                     </div>
                                                     <div class="form-group row mb-0">
                                                         <div class="col text-center">
-                                                            <img class="img-fluid" src="/img/i-card.png">
+                                                            <img class="img-fluid" src="/img/i-card.png" width="200px">
                                                             <div class="agree">
                                                                 <label>※ デビットカードご利用可能です。</label>
-                                                                <label>※ 有料会員利用規約に同意されたうえでご登録ください。</label>
+                                                                <label>※ アップグレード利用規約に同意されたうえでご登録ください。</label>
                                                                 <div class="form-check">
                                                                     <label class="form-check-label" for="agree">
                                                                     <input type="checkbox" class="form-check-input" id="agree" style='margin-top:3px;'>
-                                                                    有料会員<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
+                                                                    アップグレード<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
                                                                 </div>
                                                             </div>
-                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6">有料会員に登録する</button>
+                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 13px;">アップグレードに登録する</button>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -190,6 +190,11 @@ body {
 .card-register, .card-register-social {
     min-height: 360px;
 }
+.card-register-social .card-body a {
+    margin: 0 auto 1rem auto;
+    font-weight: 550;
+    height: 30px;
+}
 .card-password-forgot, .card-password-forgot-note {
     min-height: 167px;
 }
