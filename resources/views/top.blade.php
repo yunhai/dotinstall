@@ -31,7 +31,7 @@
                         data-current_page='{{ $lessons['current_page'] }}' 
                         data-last_page='{{ $lessons['last_page'] }}' 
                         data-url='{{ route('ajax.top.lesson') }}'>
-                        全てのレッスンを見る（{{ $global_total_lessons }}）
+                        もっと見る
                     </a>
                 </p>
             </div>

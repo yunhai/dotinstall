@@ -10,6 +10,7 @@
 <div id="content">
     @include('component.lesson.lesson', ['filter_form' => $filter_form, 'lessons' => $lessons])
 </div>
+<!--
 <div class="box mb-0">
     <div class="card-lesson-total text-center">
         <p class="card-text">
@@ -17,4 +18,5 @@
         </p>
     </div>
 </div>
+-->
 @stop

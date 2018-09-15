@@ -85,11 +85,10 @@
             @foreach ($lesson_details as $target)
                 <div class="col-lesson mt-0 @sp col-sm-6 @endsp">
                     <div class="card">
-                        <div class='new_free_info'>
+                        <div class='new_free_info' style="margin-bottom:-8px;">
                             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
                                 @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
                                 <img src='{{ asset('img/free.png') }}' width='40px' />
-                                <br />
                                 @endif
                                 @if ($target['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW'))
                                 <img src='{{ asset('img/new.png') }}' width='40px' />

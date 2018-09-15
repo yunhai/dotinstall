@@ -70,7 +70,7 @@
                                 @endpc
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0">
+                            <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                                 @sp
                                 <div class='lesson--item__learning_count'>
                                     {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
