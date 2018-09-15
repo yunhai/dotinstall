@@ -83,6 +83,8 @@
                                     @else
                                         完了 / {{ $lesson['lesson_detail_close_count'] }}
                                     @endif
+                                @else
+                                    完了 / 0
                                 @endif
                                 </div>
                             </div>
