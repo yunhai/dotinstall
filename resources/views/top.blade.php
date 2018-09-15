@@ -11,10 +11,7 @@
     <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
     <script type="text/javascript" src="/js/jquery.bcSwipe.min.js"></script>
     <script type="text/javascript" src="/js/top.js"></script>
-    <script type="text/javascript">
-        $('.carousel').carousel({ interval: 8000 })
-        $('.carousel').bcSwipe({ threshold: 50 });
-    </script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 @endpush
 
 @section('content')
@@ -29,12 +26,13 @@
         <div class="box mb-0" id='j-lessonListPaginator'>
             <div class="card-lesson-total text-center">
                 <p class="card-text">
-                    <a href="javascript:;" 
-                        class='j-paginate' 
-                        data-current_page='{{ $lessons['current_page'] }}' 
-                        data-last_page='{{ $lessons['last_page'] }}' 
+                    <a href="javascript:;"
+                        class='j-paginate'
+                        data-current_page='{{ $lessons['current_page'] }}'
+                        data-last_page='{{ $lessons['last_page'] }}'
                         data-url='{{ route('ajax.top.lesson') }}'>
-                        全てのレッスンを見る（{{ $global_total_lessons }}）
+                        <!--全てのレッスンを見る（{{ $global_total_lessons }}）-->
+                        もっと見る
                     </a>
                 </p>
             </div>

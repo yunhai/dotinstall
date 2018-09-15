@@ -5,9 +5,9 @@
     @section('list_header')
         <div class='statis'>
             <label>無料人数: </label>
-            <span>{{ $statis['member_diamond'] }}</span> <br />
+            <span>{{ $statis['member_normal'] }}</span><br />
             <label>有料人数: </label>
-            <span>{{ $statis['member_normal'] }}</span>
+            <span>{{ $statis['member_diamond'] }}</span>
         </div>
         @include('backend.component.filter.user.user', $filter_form ?? [])
     @stop

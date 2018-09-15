@@ -23,7 +23,7 @@
                 'field_type' => 'text'
             ],
             'link' => [
-                'field_label' => 'Youtube Link',
+                'field_label' => 'Link',
                 'field_name' => 'link',
                 'field_value' => array_get($target, 'link', ''),
                 'field_type' => 'text'
@@ -44,7 +44,7 @@
                     'data-download' => 1,
                     'data-query' => '{"media_type": "image", "thumbnail": 0, "width": 480}',
                     'data-type' => 'image',
-                    'data-type.url' => true,
+                    'data-type.url' => false,
                     'data-type.url_label' => 'URL',
                     'data-max_file_upload' => 100,
                     'data-width' => 400,

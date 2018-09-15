@@ -34,7 +34,7 @@ body #pc-col-7 {
 	min-width: 25%;
 }
 .card-img-panel {
-	height: 365px;
+	height: 380px;
 }
 .card-img-overlay-panel {
 	padding-left: 0;
@@ -48,7 +48,7 @@ body #pc-col-7 {
 }
 .box .card .card-text-header {
     font-size: 2rem;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
 }
 .box .card .card-body .row .card-sign .card-text-sign {
     font-size: 1.1rem;
@@ -153,4 +153,8 @@ body #pc-col-7 {
     width: 100%;
     object-fit: contain;
     vertical-align: top;
+}
+.carousel-item {
+    height: 240px;
+    overflow: hidden;
 }

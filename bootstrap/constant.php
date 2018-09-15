@@ -52,3 +52,4 @@ define('USER_UTM_A8', 1);
 
 define('YOUTUBE_TYPE_VIDEO', 1);
 define('YOUTUBE_TYPE_IMAGE', 2);
+define('YOUTUBE_TYPE_VIMEO', 3);

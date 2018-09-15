@@ -41,7 +41,7 @@ html, body {
     margin-top: 20px;
 }
 .card-body-text {
-	padding-top: 0px !important;
+	padding-top: 13px !important;
 }
 .box .card .card-body .row .card-sign {
     text-align: center;
@@ -243,4 +243,12 @@ html, body {
     width: 100%;
     object-fit: contain;
     vertical-align: top;
+}
+
+.carousel-item {
+    height: 211px;
+    overflow: hidden;
+}
+.lesson_detail--voice {
+    font-size: 12px;
 }

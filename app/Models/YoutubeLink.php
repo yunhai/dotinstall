@@ -22,7 +22,7 @@ class YoutubeLink extends Base
     public function random($quantity = 1)
     {
         $result = $this->with(['youtube_link_media'])
-                    ->select('id', 'youtube_id', 'media_id', 'type')
+                    ->select('id', 'youtube_id', 'media_id', 'type', 'link')
                     ->enable()
                     ->get();
 
@@ -33,7 +33,7 @@ class YoutubeLink extends Base
                     foreach ($item->youtube_link_media as $item2) {
                         $tmp = [
                             'id' => $item2->id,
-                            'url' => $item2->url,
+                            'url' => $item->link,
                             'path' => $item2->media->path,
                             'type' => $item->type
                         ];
@@ -49,6 +49,8 @@ class YoutubeLink extends Base
                 }
             }
         }
+
         return $slideshow;
     }
 }
+

@@ -90,7 +90,7 @@ class YoutubeLink extends Base
             foreach ($input['media_id'] as $media_id => $item) {
                 $input['youtube_link_media'][$media_id] = [
                     'media_id' => $media_id,
-                    'url' => $item['url']
+                    'url' => $item['url'] ?? ''
                 ];
             }
         }
