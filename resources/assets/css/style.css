@@ -191,7 +191,6 @@ body {
     min-height: 360px;
 }
 .card-register-social .card-body a {
-    max-width: 155px;
     margin: 0 auto 1rem auto;
     font-weight: 550;
     height: 30px;
