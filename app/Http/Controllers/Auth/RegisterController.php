@@ -97,12 +97,12 @@ class RegisterController extends Controller
         if (empty($input['stripeToken'])) {
             $input['grade'] = USER_GRADE_PENDING_DIAMOND;
         } else {
-            $input['grade'] = USER_GRADE_DIAMOND;
+            $input['grade'] = USER_GRADE_PENDING_DIAMOND;
         }
-        
+
         return $this->makeRegister($request, $input);
     }
-    
+
     private function makeRegister(Request $request, array $input)
     {
         if (empty($input['password'])) {
