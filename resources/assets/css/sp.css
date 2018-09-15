@@ -41,7 +41,8 @@ html, body {
     margin-top: 20px;
 }
 .card-body-text {
-	padding-top: 13px !important;
+	padding-top: 12px !important;
+
 }
 .box .card .card-body .row .card-sign {
     text-align: center;
@@ -250,5 +251,54 @@ html, body {
     overflow: hidden;
 }
 .lesson_detail--voice {
-    font-size: 12px;
+    font-size: 11px !important;
+    font-weight: bold;
+}
+.bg-button-to-complete,
+.bg-button-user-diamond {
+    margin-right: 3px;
+}
+.lesson_detail--voice {
+    padding: 5px 4px 5px 8px !important;
+    margin-right: 6px !important;
+}
+.lesson_detail--voice.lesson_detail--voice__female {
+    margin-right: 0;
+    padding-right: 8px !important;
+}
+.new_free_info {
+	display: block;
+    height: 24px;
+    margin-bottom: 2px;
+    overflow: hidden;
+}
+.lession--item {
+    height: 100%;
+    display: table;
+}
+.lession--item__image {
+    width: 120px; 
+    height: 100%;
+    margin: 0 10px 0 0;
+    float: left;
+}
+.lesson--item__learning_count {
+    margin: 5px 0 0 10px; 
+    width: 120px; 
+    float: left;
+}
+.lesson--item__content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align:left;
+}
+.lesson--item__my_styding {
+    display: block;
+    margin-left: 10px;
+}
+.lesson--item__my_styding_finish {
+    text-align: right;
+    margin: 5px 10px 0 10px;
+    width: 120px;
+    float: right;
 }

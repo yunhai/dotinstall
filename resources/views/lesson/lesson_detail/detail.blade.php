@@ -1,6 +1,9 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
-@section('breadcrumbs', Breadcrumbs::render('lesson_detail'))
+@php
+    $page_intro = "【{$filter_form['difficulty'][$lessons['difficulty']]}】{$lessons['name']}　{$lessons['video_count']}本の動画で提供中";
+@endphp
+@section('breadcrumbs', Breadcrumbs::render('lesson_detail', $target, $page_intro))
 
 @push('css')
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
@@ -36,7 +39,7 @@
     }
 @endphp
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 px-5">【{{ $filter_form['difficulty'][$lessons['difficulty']] }}】{{ $lessons['name'] }}　{{ $lessons['video_count'] }}本の動画で提供中</div>
+    <div class="box ttlCommon border-bottom-0 mb-0 px-5">{{ $page_intro }}</div>
     <div class="box mb-0">
         <div class="card">
             <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>
@@ -56,77 +59,72 @@
             @endphp
 
             @pc
-                <div id="j-player"
-                    data-plyr-provider="vimeo"
-                    data-plyr-embed-id="{{ $target['url'] }}"
-                    class='hidden {{ $video_css_class }}'>
+                @if ($target['url'])
+                <div class='j-maleContainer'>
+                    <div id="j-player"
+                        data-plyr-provider="vimeo"
+                        data-plyr-embed-id="{{ $target['url'] }}"
+                        class='{{ $video_css_class }}'>
+                    </div>
                 </div>
+                @endif
+                @if ($target['url_female'])
+                <div class='j-femaleContainer hidden'>
+                    <div id="j-playerFemale"
+                        data-plyr-provider="vimeo"
+                        data-plyr-embed-id="{{ $target['url_female'] }}"
+                        class='{{ $video_css_class }}'>
+                    </div>
+                </div>
+                @endif
             @else
-                <div id="j-vimeo_player"
-                    data-vimeo-url="{{ $target['url'] }}" 
-                    data-vimeo-title="0"
-                    data-vimeo-portrait="0"
-                    data-vimeo-byline="0"
-                    data-vimeo-responsive="1"
-                    class='{{ $video_css_class }}'>
+                @if ($target['url'])
+                <div class='j-maleContainer'>
+                    <div id="j-vimeo_player"
+                        data-vimeo-url="{{ $target['url'] }}"
+                        data-vimeo-title="0"
+                        data-vimeo-portrait="0"
+                        data-vimeo-byline="0"
+                        data-vimeo-responsive="1"
+                        class='{{ $video_css_class }}'>
+                    </div>
                 </div>
+                @endif
+                @if ($target['url_female'])
+                <div class='j-femaleContainer hidden'>
+                    <div id="j-vimeo_player_female"
+                        data-vimeo-url="{{ $target['url_female'] }}"
+                        data-vimeo-title="0"
+                        data-vimeo-portrait="0"
+                        data-vimeo-byline="0"
+                        data-vimeo-responsive="1"
+                        class='{{ $video_css_class }}'>
+                    </div>
+                </div>
+                @endif
             @endpc
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
-                    <div class="col-7 pl-0 pr-0">
-                        @if (Auth::check())
-                            @php
-                                if ($target['is_closeable']) {
-                                    $text = '完了する';
-                                    $css_class = 'bg-button-to-complete';
-                                } else {
-                                    $text = '完了';
-                                    $css_class = 'bg-button-complete';
-                                }
-                            @endphp
-                            @if ($allow_access)
-                                <a href="javascript:;" class="btn-sm {{ $css_class }}  j-lessonDetailCloseReopen"
-                                   data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
-                                   data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
-                                   data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
-                                 >
-                                    {{ $text }}
-                                </a>
-                            @else
-                                <a href="javascript:;" class="btn-sm {{ $css_class }}" data-toggle="modal" data-target="#modal_request_deny">
-                                    {{ $text }}
-                                </a>
-                            @endif
-                        @else
-                            <a href="javascript:;" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
-                        @endif
-
-                        @unlogin
-                            <a href="{{ route('register.diamond') }}" class="btn-sm bg-button-user-diamond">
-                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-                                <span>月額会員に登録する</span>
-                            </a>
-                        @endunlogin
-                        @normal_user
-                            <a href="{{ route('user.upgrade') }}" class="btn-sm bg-button-user-diamond">
-                                <img class="img-fluid" src="/img/charge_diamond.png" width="16px;">
-                                <span>月額会員に登録する</span>
-                            </a>
-                        @endnormal_user
-                    </div>
-
-                    <div class="col-5  pl-0 pr-0 text-right">
-                        @if ($prev_video)
-                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
-                            前の動画
-                        </a>
-                        @endif
-                        @if ($next_video)
-                        <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $next_video['lesson_id'], 'lesson_detail_id' => $next_video['id']]) }}" title="{{ $next_video['name'] }}">
-                            次の動画
-                        </a>
-                        @endif
-                    </div>
+                    @pc
+                        @include('component.lesson.lesson_detail.pc.video_control', 
+                            [
+                                'target' => $target,
+                                'prev_video' => $prev_video,
+                                'next_video' => $next_video,
+                                'allow_access' => $allow_access
+                            ]
+                        )
+                    @endpc
+                    @sp
+                        @include('component.lesson.lesson_detail.sp.video_control', 
+                            [
+                                'target' => $target,
+                                'prev_video' => $prev_video,
+                                'next_video' => $next_video,
+                                'allow_access' => $allow_access
+                            ]
+                        )
+                    @endsp
                 </div>
             </div>
         </div>
@@ -135,12 +133,10 @@
     <div class="box">
         <div class="row">
             @pc
-                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                @include('component.lesson.lesson_detail.lesson_detail_info_pc', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
+                @include('component.lesson.lesson_detail.pc.detail_info', ['resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
             @endpc
             @sp
-                @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                @include('component.lesson.lesson_detail.lesson_detail_info_sp', ['modal_id' => $model_id, 'resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
+                @include('component.lesson.lesson_detail.sp.detail_info', ['resources' => $target['resources'], 'resources_item' => $target['resources_item'] ?? [], 'content' => $target['source_code_contents'], 'lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id'], 'allow_access' => $allow_access])
             @endsp
         </div>
     </div>
@@ -149,4 +145,6 @@
 @include('component.modal.video_deny', ['modal_id' => 'modal_video_deny'])
 @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @include('component.modal.resource_download_deny', ['modal_id' => 'modal_resource_download_deny'])
+@include('component.modal.request_female_voice', ['modal_id' => 'modal_request_female_voice'])
+
 @stop

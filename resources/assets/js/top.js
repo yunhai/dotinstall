@@ -24,7 +24,7 @@ $(document).ready(function() {
 
     $slider.bind('slide.bs.carousel', function (e) {
         $('.youtube-video').each((i, target) => {
-            target.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+            target.contentWindow.postMessage('{"event":"command", "func":"' + 'pauseVideo' + '", "args":""}', '*');
         });
         $('.vimeo-video').each((i, target) => {
             const player_ptv = new Vimeo.Player(target);
@@ -32,3 +32,4 @@ $(document).ready(function() {
         });
     });
 });
+

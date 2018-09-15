@@ -35,23 +35,4 @@
         </div>
     @endif
 @endsp
-@php
-/*
-@pc
-    @if (Auth::check() == false)
-        @include('component.layout.panel_language_pc')
-    @endif
-    @normal_user
-        @include('component.layout.panel_language_pc')
-    @endnormal_user
-@endpc
-@sp
-    @if (Auth::check() == false)
-        @include('component.layout.panel_language_sp')
-    @endif
-    @normal_user
-        @include('component.layout.panel_language_sp')
-    @endnormal_user
-@endsp
-*/
-@endphp
+

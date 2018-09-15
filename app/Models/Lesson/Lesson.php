@@ -40,7 +40,11 @@ class Lesson extends Base
 
     public function getLessons(array $filter = [])
     {
-        $db = $this::with(['ms_categories'])
+        $with = [
+            'lesson_details',
+            'lesson_details.posters',
+        ];
+        $db = $this::with($with)
                         ->enable()
                         ->where('video_count', '>', 0)
                         ->orderBy('sort');

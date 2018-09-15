@@ -9,7 +9,7 @@
             data-name="{{ $field_name }}"
             @endif
         ></input>
-        <div class='j-vimeoContainer vimeo-container'>
+        <div class='j-vimeoContainer vimeo-container' id='{{ $field_attribute["data-callback_id"] }}'>
             @if ($field_value)
                 <div data-vimeo-url="{{ $field_value }}" 
                     data-vimeo-title="false"
@@ -17,7 +17,7 @@
                     data-vimeo-byline="false"
                     data-vimeo-width="640" id="j-video">
                 </div>
-                <input type='hidden' name='duration' value='{{ $field_attribute["data-video_duration"] }}' />
+                <input type='hidden' name='{{ $field_attribute["data-video_duration_name"] }}' value='{{ $field_attribute["data-video_duration"] }}' />
             @endif
         </div>
         @if (!empty($errors->first($field_name)))

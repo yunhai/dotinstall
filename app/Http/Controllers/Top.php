@@ -43,34 +43,33 @@ class Top extends Base
             $lesson_info = $this->lessonInfo($lessons);
         } else {
             $lessons = $this->getUnLogInLesson();
-            // dd($lessons);
         }
 
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
     }
-    
+
     public function AjaxLesson()
     {
         $filter_form = $this->filterForm();
         $lessons = $this->getUnLogInLesson();
         return $this->render('top/ajax_lesson', compact('lessons', 'filter_form'));
     }
-    
+
     private function getUnLogInLesson()
     {
         $paginator = $this->model->getLessonsForHome();
         if ($paginator->items()) {
             $lessons = $paginator->items();
-            
+
             $media = $this->getMedia($lessons);
             $user_id = Auth::id() ?: 0;
             foreach ($lessons as $index => $item) {
                 $item = $item->toArray();
                 $lessons[$index] = $this->format($item, $media, $user_id);
             }
-            
+
             $current_page = $paginator->currentPage();
             $last_page = $paginator->lastPage();
             return [

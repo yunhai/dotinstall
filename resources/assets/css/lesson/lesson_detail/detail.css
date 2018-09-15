@@ -70,3 +70,37 @@
     margin-right: 5px;
     padding-bottom: 3px;
 }
+.lesson_detail--voice {
+    background: repeating-linear-gradient(
+        -45deg,
+        #bababa,
+        #bababa 5px,
+        #acacac 5px,
+        #acacac 10px
+    );
+    border-radius: 5px;
+    color: #212529 !important;
+    cursor: pointer;
+    margin-right: 3px;
+    font-size: 11px;
+    padding: 4px 4px 3px 8px;
+    font-weight: bold;
+    opacity: 0.6;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+.lesson_detail--voice__female{
+   padding-right: 9px;
+}
+
+.lesson_detail--voice__male.active,
+.lesson_detail--voice__male:hover {
+    background: #0190ff;
+    color: #fefefe !important;
+}
+.lesson_detail--voice__female.active,
+.lesson_detail--voice__female:hover {
+    background: #f9306e;
+    color: #fefefe !important;
+}

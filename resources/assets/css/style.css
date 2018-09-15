@@ -90,6 +90,8 @@ body {
     text-align: left;
     width: 75%;
     background-color: #1da1f3;
+    padding-top: 6px;
+    padding-bottom: 4px;
 }
 .btn-twitter:hover {
     color: #fff;
@@ -188,6 +190,11 @@ body {
 .card-register, .card-register-social {
     min-height: 360px;
 }
+.card-register-social .card-body a {
+    margin: 0 auto 1rem auto;
+    font-weight: 550;
+    height: 30px;
+}
 .card-password-forgot, .card-password-forgot-note {
     min-height: 167px;
 }
@@ -239,7 +246,29 @@ body {
 .box .card-lesson-total {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.card-body hr {
     border-top: 1px solid #bca9af;
+    margin: 1.5rem 0;
+ }
+.card-body ul.card-info {
+    list-style: none;
+    padding: 0;
+    padding-left: 15px;
+}
+.card-body ul.card-info li {
+    padding: 5px 0;
+}
+.card-body span.card-note {
+    color: #ff3333;
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+}
+.card-body .row-group {
+    padding: 0 25px;
+}
+.card-body .agree label {
+    padding-bottom: 1.5rem;    
 }
 .lession-heading {
 	display: flex;
@@ -310,16 +339,7 @@ body {
     outline: none;
     box-shadow: none;
 }
-.pickup {
-	position: absolute;
-    z-index: 3;
-	background-color: #fd0c56;
-    color: #fff;
-	padding-top: 4px;
-    padding-bottom: 2px;
-    padding-left: 25px;
-    padding-right: 25px;
-}
+
 .card-sign-button {
     background: repeating-linear-gradient(
         -45deg,
@@ -381,6 +401,8 @@ body {
     background-color: #ece8e9;
     padding-top: .65rem;
     padding-bottom: .64rem;
+    text-align: center;
+    font-weight:bold;
 }
 /* Stripe
 ------------------------------------------------------------ */
@@ -472,6 +494,7 @@ body {
     padding-top: 2px;
     padding-bottom: 1px;
     border-radius: .2rem;
+    margin-bottom: 5px;
 }
 .bg-button-complete {
 	display: inline-block;
@@ -492,6 +515,7 @@ body {
     padding-right: 1.44rem;
 	padding-top: 2px;
     padding-bottom: 1px;
+    margin-bottom: 5px;
 }
 .bg-button-user-diamond {
 	display: inline-block;
@@ -511,6 +535,7 @@ body {
     padding-right: .5rem;
 	padding-top: 2px;
     padding-bottom: 1px;
+    margin-bottom: 5px;
 }
 .bg-button-source-confirmation:hover,
 .bg-button-to-complete:hover,

@@ -15,47 +15,7 @@
     <script src="/vendor/backend/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="/js/backend/common/select.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-    function vimeo(id) {
-        const option = {
-            title: 0,
-            portrait: 0,
-            byline: 0,
-        }
-        const player = new Vimeo.Player(id, option);
-
-        player.getDuration().then(function(duration) {
-            const html = `<input type='hidden' name='duration' value='${duration}' />`;
-            $('.j-vimeoContainer').append(html);
-        });
-    }
-
-    $('#url').change((e) => {
-        var date = new Date;
-        var seconds = date.getSeconds();
-        var minutes = date.getMinutes();
-        var hour = date.getHours();
-
-        const id = `${hour}${minutes}${seconds}`;
-        const $target = $(e.target);
-        const vimeo_path = $target.val();
-        
-        if (vimeo_path) {
-            const html = `
-                <div data-vimeo-url="${vimeo_path}" 
-                    data-vimeo-title="false"
-                    data-vimeo-portrait="false"
-                    data-vimeo-byline="false"
-                    data-vimeo-width="640" id="${id}">
-                </div>
-            `;
-            $('.j-vimeoContainer').html(html);
-            vimeo(id);
-        } else {
-            $('.j-vimeoContainer').html('');
-        }
-    })
-    </script>
+    <script src="/js/backend/lesson/lesson_detail/lesson_detail.js"></script>
 @endpush
 @section('content')
     <div class='hidden' id='j-template'>
@@ -90,6 +50,13 @@
                     'field_type' => 'radio',
                     'field_option' => $form['free_mode'],
                 ],
+                'new_mode' => [
+                    'field_label' => 'NEW状況',
+                    'field_name' => 'new_mode',
+                    'field_value' => array_get($target, 'new_mode', ''),
+                    'field_type' => 'radio',
+                    'field_option' => $form['new_mode'],
+                ],
                 'sort' => [
                     'field_label' => '表示順序',
                     'field_name' => 'sort',
@@ -97,12 +64,25 @@
                     'field_type' => 'text'
                 ],
                 'url' => [
-                    'field_label' => '動画',
+                    'field_label' => '動画(男性)',
                     'field_name' => 'url',
                     'field_value' => array_get($target, 'url', ''),
                     'field_type' => 'vimeo',
                     'field_attribute' => [
+                        'data-callback_id' => 'j-vimeoUrlContainer',
+                        'data-video_duration_name' => 'duration',
                         'data-video_duration' => @old('duration', array_get($target, 'duration', 0))
+                    ]
+                ],
+                'url_female' => [
+                    'field_label' => '動画(女性)',
+                    'field_name' => 'url_female',
+                    'field_value' => array_get($target, 'url_female', ''),
+                    'field_type' => 'vimeo',
+                    'field_attribute' => [
+                        'data-callback_id' => 'j-vimeoUrlFemaleContainer',
+                        'data-video_duration_name' => 'duration_female',
+                        'data-video_duration' => @old('duration_female', array_get($target, 'duration_female', 0))
                     ]
                 ],
                 'poster' => [

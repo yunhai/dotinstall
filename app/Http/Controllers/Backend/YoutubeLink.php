@@ -51,7 +51,6 @@ class YoutubeLink extends Base
     public function getCreate()
     {
         $form = $this->form();
-
         $target = [
             'mode' => MODE_ENABLE
         ];
@@ -62,7 +61,6 @@ class YoutubeLink extends Base
     {
         $input = $this->format($request->all());
         $target = $this->model->create($input);
-
         return redirect()
                   ->route('backend.youtube_link.index')
                   ->with('input.success', 'input.success');
