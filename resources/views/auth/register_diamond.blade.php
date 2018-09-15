@@ -138,7 +138,8 @@
                                                         <label for="email" class="col-md-4 col-form-label">メールアドレス</label>
 
                                                         <div class="col-md-8">
-                                                            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') ? old('email') : app('request')->input('email') }}">
+                                                            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" 
+                                                            value="{{ old('email') ? old('email') : session()->get('input.email') }}">
 
                                                             @if ($errors->has('email'))
                                                                 <span class="invalid-feedback" role="alert">
@@ -154,7 +155,7 @@
 
                                                         <div class="col-md-8">
                                                             <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
-                                                            value="{{ old('password') ? old('password') : app('request')->input('password') }}"
+                                                            value="{{ session()->get('input.password') }}"
                                                             >
 
                                                             @if ($errors->has('password'))
@@ -169,7 +170,7 @@
 
                                                         <div class="col-md-8">
                                                             <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation"
-                                                            value="{{ old('password_confirmation') ? old('password_confirmation') : app('request')->input('password_confirmation') }}">
+                                                            value="{{ session()->get('input.password_confirmation') }}">
                                                             @if ($errors->has('password_confirmation'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('password_confirmation') }}</strong>

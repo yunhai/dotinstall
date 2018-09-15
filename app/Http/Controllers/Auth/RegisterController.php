@@ -109,6 +109,8 @@ class RegisterController extends Controller
         if (empty($input['password'])) {
             $input['password'] = env('APP_DEFAULT_PASSWORD');
         }
+
+        $request->session()->flash('input', $input);
         $this->validator($input)->validate();
 
         DB::beginTransaction();
@@ -134,9 +136,9 @@ class RegisterController extends Controller
             auth()->login($user);
             return redirect()->back()->with('success', true);
         }
-        
+
         DB::rollBack();
-        return redirect()->back()->with('error', $error);
+        return redirect()->back()->with(['error' => $error, 'input' => $input]);
     }
 
     public function redirectToProvider($provider)
