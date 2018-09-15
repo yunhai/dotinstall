@@ -26,10 +26,10 @@
         <div class="box mb-0" id='j-lessonListPaginator'>
             <div class="card-lesson-total text-center">
                 <p class="card-text">
-                    <a href="javascript:;" 
-                        class='j-paginate' 
-                        data-current_page='{{ $lessons['current_page'] }}' 
-                        data-last_page='{{ $lessons['last_page'] }}' 
+                    <a href="javascript:;"
+                        class='j-paginate'
+                        data-current_page='{{ $lessons['current_page'] }}'
+                        data-last_page='{{ $lessons['last_page'] }}'
                         data-url='{{ route('ajax.top.lesson') }}'>
                         もっと見る
                     </a>

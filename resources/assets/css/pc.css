@@ -34,7 +34,11 @@ body #pc-col-7 {
     min-width: 25%;
 }
 .card-img-panel {
+<<<<<<< HEAD
+	height: 380px;
+=======
     height: 380px;
+>>>>>>> 1a7436e6648b684e45a93a6f6ef155a79ebb99c8
 }
 .card-img-overlay-panel {
     padding-left: 0;
