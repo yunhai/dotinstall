@@ -47,7 +47,6 @@ Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
 Route::get('ajax/lesson/filter', 'Lesson\Lesson@ajaxFilter')->name('ajax.lesson.filter');
 Route::get('ajax/top/lesson', 'Top@AjaxLesson')->name('ajax.top.lesson');
 
-
 Route::group(['middleware' => ['web']], function () {
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');
 
@@ -67,6 +66,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user/destroy', 'User@getDestroy')->name('user.destroy')->middleware('web.user');
 
     Route::get('logout', 'Auth\LoginController@getLogout')->name('logout')->middleware('web.user');
+    
+    Route::get('user/email', 'User@getChangeEmail')->name('user.change_email')->middleware('web.user');
+    Route::post('user/email', 'User@postChangeEmail')->middleware('web.user');
 });
 
 Route::get('affiliate', 'Page@getAffiliate')->name('affiliate');
+Route::get('user/email/confirm', 'User@getChangeEmailFinish')->name('user.change_email_finish');
