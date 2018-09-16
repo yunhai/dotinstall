@@ -54,7 +54,9 @@
         女性ボイス
     </a>
     @endif
-
+    @if ($prev_video || $next_video)
+        <br />
+    @endif
     @if ($prev_video)
     <a class="btn-sm bg-button-paginate" href="{{ route('lesson_detail.detail', ['lesson_id' => $prev_video['lesson_id'], 'lesson_detail_id' => $prev_video['id']]) }}" title="{{ $prev_video['name'] }}">
         前の動画
