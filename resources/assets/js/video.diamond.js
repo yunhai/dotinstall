@@ -30,25 +30,6 @@ function plyr(id) {
         speed: { selected: 0.75, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] },
     })
 
-    if ($(id).hasClass('j-video_deny')) {
-        player.on('playing', event => {
-            player.stop()
-            $('#modal_video_deny').modal()
-        })
-    }
-    
-    player.on('ready', event => {
-        $('[data-plyr="settings"]').click(e => {
-            e.preventDefault()
-            const $target = $(e.target)
-            $target
-                .parent()
-                .find('form')
-                .css('display', 'none')
-            $('#modal_diamond_user').modal()
-        })
-    });
-
     $(document).on('switch_voice', () => {
         player.pause();
     });
