@@ -8,7 +8,7 @@
             $('#modal').modal('show');
         });
     </script>
-    <div id="modal"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
             <div class="modal-content rounded-0">
                 <div class="modal-body">
@@ -56,7 +56,10 @@
                                             <label for="email" class="col-md-4 col-form-label text-md-right">新メールアドレス</label>
 
                                             <div class="col-md-7">
-                                                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email">
+                                                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
+                                                    name="email"
+                                                    value="{{ old('email') ? old('email') : session()->get('input.email') }}"
+                                                >
 
                                                 @if ($errors->has('email'))
                                                     <span class="invalid-feedback" role="alert">
