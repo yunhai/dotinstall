@@ -45,6 +45,11 @@
             <p class="card-text card-text-name @pc mb-0 @endpc text-left">
 	            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" style="color: #212529;">{{ $target['name'] }}</a>
             </p>
+            @pc
+            <p class="card-text card-text-caption text-left">
+                {{ $target['caption'] }}
+            </p>
+            @endpc
 
             @if (empty($path))
                 <p class="card-text mb-0">レッスンはまだありません。しばらくお待ちください。</p>

@@ -117,6 +117,11 @@ body #pc-col-7 {
 .col-lesson .card-text-name {
     height: 43px;
 }
+.col-lesson .card-text-caption {
+    height: 56px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
 .box .card .card-body .row .card-sign .card-sign-button {
     /*margin-left: 71px;*/
 }
@@ -184,11 +189,16 @@ body #pc-col-7 {
     width: 140px; 
     text-align:center;
 }
-.lesson--item__content {
+.lesson--item__content_title {
     display: table-cell;
     vertical-align: middle;
-    text-align:center;
+    width: 200px;
 }
+.lesson--item__content_caption {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .lesson--item__my_styding{
     position: absolute;
     top: 43%;
