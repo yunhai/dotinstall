@@ -34,11 +34,7 @@ body #pc-col-7 {
     min-width: 25%;
 }
 .card-img-panel {
-<<<<<<< HEAD
-	height: 380px;
-=======
     height: 380px;
->>>>>>> 1a7436e6648b684e45a93a6f6ef155a79ebb99c8
 }
 .card-img-overlay-panel {
     padding-left: 0;
@@ -118,7 +114,7 @@ body #pc-col-7 {
     height: 43px;
 }
 .col-lesson .card-text-caption {
-    height: 56px;
+    height: 54px;
     margin-bottom: 15px;
     overflow: hidden;
 }
@@ -134,7 +130,6 @@ body #pc-col-7 {
     max-width: 40px;
     height: auto;
 }
-
 .img-logo {
     height: 40px;
 }
