@@ -16,6 +16,7 @@ mix.js('resources/assets/jsx/backend/page/common/select.js', 'public/js/backend/
    .js('resources/assets/jsx/backend/page/common/upload.js', 'public/js/backend/common/upload.js')
    .js('resources/assets/jsx/backend/page/app.js', 'public/js/backend/app.js')
    .js('resources/assets/jsx/backend/page/youtube.js', 'public/js/backend/youtube.js')
+   .js('resources/assets/jsx/backend/page/lesson/lesson_detail/lesson_detail.js', 'public/js/backend/lesson/lesson_detail/lesson_detail.js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .copy('resources/assets/img', 'public/img', false)
    .copy('resources/assets/vendor', 'public/vendor', false)

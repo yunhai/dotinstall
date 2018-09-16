@@ -9,9 +9,9 @@ class YoutubeLink extends Base
         'link',
     ];
 
-    public function media()
+    public function youtube_link_media()
     {
-        return $this->hasOne(Media::class, 'id', 'media_id');
+        return $this->hasMany(YoutubeLinkMedia::class);
     }
 
     public function scopeEnable($query)
@@ -21,20 +21,36 @@ class YoutubeLink extends Base
 
     public function random($quantity = 1)
     {
-        $result = $this->with(['media'])
-                    ->select('id', 'youtube_id', 'media_id', 'type')
+        $result = $this->with(['youtube_link_media'])
+                    ->select('id', 'youtube_id', 'media_id', 'type', 'link')
                     ->enable()
-                    ->inRandomOrder()
-                    ->first();
-        
+                    ->get();
+
+        $slideshow = [];
         if ($result) {
-            return [
-                'id' => $result->id,
-                'youtube_id' => $result->youtube_id,
-                'media' => empty($result->media) ? '' : $result->media->path,
-                'type' => $result->type,
-            ];
+            foreach ($result as $item) {
+                if ($item->type == YOUTUBE_TYPE_IMAGE) {
+                    foreach ($item->youtube_link_media as $item2) {
+                        $tmp = [
+                            'id' => $item2->id,
+                            'url' => $item->link,
+                            'path' => $item2->media->path,
+                            'type' => $item->type
+                        ];
+                        array_push($slideshow, $tmp);
+                    }
+                } else {
+                    $tmp = [
+                        'id' => $item->id,
+                        'youtube_id' => $item->youtube_id,
+                        'type' => $item->type
+                    ];
+                    array_push($slideshow, $tmp);
+                }
+            }
         }
-        return [];
+
+        return $slideshow;
     }
 }
+

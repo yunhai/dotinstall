@@ -16,11 +16,15 @@ class LessonDetail extends Base
         'lesson_id',
         'video',
         'url',
+        'url_female',
+        'default_gender',
         'duration',
+        'duration_female',
         'poster',
         'sort',
         'mode',
         'free_mode',
+        'new_mode',
     ];
 
     public function resources()

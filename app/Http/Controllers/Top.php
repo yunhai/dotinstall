@@ -46,7 +46,44 @@ class Top extends Base
         }
 
         $youtube_link = $this->youtube_link->random();
+        shuffle($youtube_link);
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
+    }
+
+    public function AjaxLesson()
+    {
+        $filter_form = $this->filterForm();
+        $lessons = $this->getUnLogInLesson();
+        return $this->render('top/ajax_lesson', compact('lessons', 'filter_form'));
+    }
+
+    private function getUnLogInLesson()
+    {
+        $paginator = $this->model->getLessonsForHome();
+        if ($paginator->items()) {
+            $lessons = $paginator->items();
+
+            $media = $this->getMedia($lessons);
+            $user_id = Auth::id() ?: 0;
+            foreach ($lessons as $index => $item) {
+                $item = $item->toArray();
+                $lessons[$index] = $this->format($item, $media, $user_id);
+            }
+
+            $current_page = $paginator->currentPage();
+            $last_page = $paginator->lastPage();
+            return [
+                'data' => $lessons,
+                'current_page' => $current_page,
+                'last_page' => $last_page
+            ];
+        }
+
+        return [
+            'data' => [],
+            'current_page' => 0,
+            'total_page' => 0
+        ];
     }
 
     private function filterForm(array $input_value = [])
@@ -118,20 +155,6 @@ class Top extends Base
             $lesson_id = $item['id'];
             $item['lesson_learning_count'] = $lesson_user_count_list[$lesson_id] ?? 0;
             $item['lesson_detail_close_count'] = $lesson_detail_close_list[$lesson_id] ?? 0;
-        }
-
-        return $lessons;
-    }
-
-    private function getUnLogInLesson()
-    {
-        $lessons = $this->model->getLessonsForHome();
-        if ($lessons) {
-            $media = $this->getMedia($lessons);
-            $user_id = Auth::id() ?: 0;
-            foreach ($lessons as $index => $item) {
-                $lessons[$index] = $this->format($item, $media, $user_id);
-            }
         }
 
         return $lessons;

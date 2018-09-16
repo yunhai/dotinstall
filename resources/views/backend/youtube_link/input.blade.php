@@ -23,7 +23,7 @@
                 'field_type' => 'text'
             ],
             'link' => [
-                'field_label' => 'URL',
+                'field_label' => 'Link',
                 'field_name' => 'link',
                 'field_value' => array_get($target, 'link', ''),
                 'field_type' => 'text'
@@ -37,19 +37,21 @@
             'media_id' => [
                 'field_label' => '画像',
                 'field_name' => 'media_id',
-                'field_value' => array_get($target, 'media', ''),
+                'field_value' => array_get($target, 'youtube_link_media', ''),
                 'field_type' => 'file_dd',
                 'field_attribute' => [
                     'data-url' => route('backend.media.chuck'),
                     'data-download' => 1,
                     'data-query' => '{"media_type": "image", "thumbnail": 0, "width": 480}',
                     'data-type' => 'image',
-                    'data-max_file_upload' => 1,
+                    'data-type.url' => false,
+                    'data-type.url_label' => 'URL',
+                    'data-max_file_upload' => 100,
                     'data-width' => 400,
                 ],
                 'field_advance' => [
                 ],
-                'field_intro' => '(width: 480px, height: 240px)'
+                'field_intro' => '(サイズ：480x240)'
             ],
             'type' => [
                 'field_label' => 'Display',

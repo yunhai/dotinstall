@@ -25,7 +25,6 @@ class Lesson extends Base
         $this->user_lesson_detail_model = $user_lesson_detail_model;
     }
 
-
     public function ajaxFilter(GetFilter $request)
     {
         $fitler = $request->all();

@@ -45,6 +45,8 @@ Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
 Route::get('ajax/lesson/filter', 'Lesson\Lesson@ajaxFilter')->name('ajax.lesson.filter');
+Route::get('ajax/top/lesson', 'Top@AjaxLesson')->name('ajax.top.lesson');
+
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');

@@ -10,10 +10,10 @@
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 @normal_user
                 <li class="nav-item">
-                    <a class="nav-link text-lg-center" href="{{ route('user.upgrade') }}">
-                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="ダイヤモンド会員">
-                        <span class="d-lg-none">月額会員になる</span>
-                        <span class="d-none d-lg-block">月額会員になる</span>
+                    <a class="nav-link text-lg-center" href="{{ route('user.upgrade') }}" title='アップグレード'>
+                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="アップグレード">
+                        <span class="d-lg-none">アップグレード</span>
+                        <span class="d-none d-lg-block">アップグレード</span>
                     </a>
                 </li>
                 @endnormal_user
@@ -71,10 +71,10 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link text-lg-center" href="{{ route('register.diamond') }}">
-                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="月額会員になる">
-                        <span class="d-lg-none">月額会員になる</span>
-                        <span class="d-none d-lg-block">月額会員になる</span>
+                    <a class="nav-link text-lg-center" href="{{ route('register.diamond') }}" title='アップグレード'>
+                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="アップグレード">
+                        <span class="d-lg-none">アップグレード</span>
+                        <span class="d-none d-lg-block">アップグレード</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -93,9 +93,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="/register">
-                        <img class="img-party mb-2" src="/img/party.jpg" alt="新規登録">
-                        <span class="d-lg-none">新規登録</span>
-                        <span class="d-none d-lg-block">新規登録</span>
+                        <img class="img-party mb-2" src="/img/party.jpg" alt="無料会員">
+                        <span class="d-lg-none">無料会員</span>
+                        <span class="d-none d-lg-block">無料会員</span>
                     </a>
                 </li>
             @endif

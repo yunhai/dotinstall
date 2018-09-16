@@ -1,4 +1,4 @@
-@foreach ($lessons as $lesson)
+@foreach ($lessons['data'] as $lesson)
     @if (!empty($lesson['lesson_details']))
         <div class="box">
             <div class="card">

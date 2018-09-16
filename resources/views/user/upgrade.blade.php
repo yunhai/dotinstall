@@ -9,13 +9,13 @@
     <script>var STRIPE_KEY = "{{ config('services.stripe.key') }}";</script>
     <script src="/js/payment.js"></script>
     @if (session('success'))
-    <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#success').modal('show');
-        });
-    </script>
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-sm" style="max-width:420px;">
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#success').modal('show');
+            });
+        </script>
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
                   <div class="modal-content rounded-0">
                       <div class="modal-body">
                           <p class="mb-0">月額会員ご登録ありがとうございます。</br>
@@ -68,8 +68,8 @@
                         </div>
                         <div class="row border-bottom-0 justify-content-center @pc mx-auto @endpc mb-0">
                             <div class="@pc col-8 @endpc @sp col-12 px-0 @endsp">
+	                            <label for="card_number" class="col col-form-label">有料コース　　月額/￥９８０円（税別）</label>
                                 <label for="card_number" class="col col-form-label">クレジットカード番号</label>
-
                                 <div class="col">
                                     <div class='container' id='card-holder'>
                                         <div class='row' @sp style="padding-bottom:2px" @endsp>
@@ -104,10 +104,10 @@
                             </div>
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto mar_t10 mar_b20">
                                 <div class="col text-center">
-                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="agree" style='margin-top:3px;'>
-                                            <label class="form-check-label" for="agree">有料会員<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
-                                      </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="agree" style='margin-top:3px;'>
+                                        <label class="form-check-label" for="agree">有料会員<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row @pc col-8 @endpc @sp col-12 @endsp justify-content-center mx-auto">
