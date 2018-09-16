@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Socialite;
 use App\Rules\checkExistEmailRegistrationRule;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -97,23 +98,27 @@ class RegisterController extends Controller
         if (empty($input['stripeToken'])) {
             $input['grade'] = USER_GRADE_PENDING_DIAMOND;
         } else {
-            $input['grade'] = USER_GRADE_DIAMOND;
+            $input['grade'] = USER_GRADE_PENDING_DIAMOND;
         }
-        
+
         return $this->makeRegister($request, $input);
     }
-    
+
     private function makeRegister(Request $request, array $input)
     {
         if (empty($input['password'])) {
             $input['password'] = env('APP_DEFAULT_PASSWORD');
         }
+
+        $request->session()->flash('input', $input);
         $this->validator($input)->validate();
 
+        DB::beginTransaction();
         $user = $this->makeCreate($input);
 
         if (empty($input['stripeToken'])) {
             $this->activationService->sendActivationMail($user);
+            DB::commit();
             return redirect()->route('register.done')->with('email', $user->email);
         }
 
@@ -124,13 +129,17 @@ class RegisterController extends Controller
 
         $model = new User();
         $model->where('id', $user->id)->update($update);
-         
+
         $user_controller = new UserController($model);
         if ($user_controller->makeUpgrade($request, $user->toArray(), $error)) {
+            $model->where('id', $user->id)->update(['grade' => USER_GRADE_DIAMOND]);
+            DB::commit();
             auth()->login($user);
             return redirect()->back()->with('success', true);
         }
-        return redirect()->back()->with('error', $error);
+
+        DB::rollBack();
+        return redirect()->back()->with(['error' => $error, 'input' => $input]);
     }
 
     public function redirectToProvider($provider)
