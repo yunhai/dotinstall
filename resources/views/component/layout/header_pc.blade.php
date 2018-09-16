@@ -31,8 +31,11 @@
                             <div class="dropdown-message font_12">マイページ</div>
                         </a>
                         @if (!Auth::user()->provider)
-                        <a class="dropdown-item" href="{{ route('user.change_password') }}">
+                        <a class="dropdown-item" href="{{ route('user.change_password') }}" title='パスワード変更'>
                             <div class="dropdown-message font_12">パスワード変更</div>
+                        </a>
+                        <a class="dropdown-item" href="{{ route('user.change_email') }}" title='メールアドレス変更'>
+                            <div class="dropdown-message font_12">メールアドレス変更</div>
                         </a>
                         @endif
                         <div class="dropdown-divider"></div>
