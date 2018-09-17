@@ -111,8 +111,12 @@ body #pc-col-7 {
     max-width: 30%;
 }
 .col-lesson .card-text-name {
-    height: 43px;
+    height: 18px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 3px !important;
 }
+
 .col-lesson .card-text-caption {
     height: 54px;
     margin-bottom: 15px;
@@ -184,14 +188,14 @@ body #pc-col-7 {
     width: 140px; 
     text-align:center;
 }
-.lesson--item__content_title {
+.lesson--item__caption {
     display: table-cell;
     vertical-align: middle;
-    width: 200px;
 }
-.lesson--item__content_caption {
-    display: table-cell;
-    vertical-align: middle;
+.lesson--item__caption-content {
+    display: block;
+    max-height: 55px;
+    overflow: hidden;
 }
 
 .lesson--item__my_styding{

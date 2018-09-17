@@ -66,14 +66,14 @@
                                         </div>
                                     @endsp
                                     @pc
-                                    <div class='lesson--item__content_title'>
-                                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" >
+                                    <div class='lesson--item__caption'>
+                                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" title="{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回)">
                                             @php $is_all_finish = ($lesson['lesson_detail_close_count'] >= $lesson['video_count']) ; @endphp
                                             <span @if($is_all_finish) style='text-decoration: line-through' @endif>{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                                         </a>
-                                    </div>
-                                    <div class='lesson--item__content_caption'>
-                                        {{ $caption }}
+                                        <div class='lesson--item__caption-content'>
+                                            {{ $caption }}
+                                        </div>
                                     </div>
                                     @endpc
                                 </div>
