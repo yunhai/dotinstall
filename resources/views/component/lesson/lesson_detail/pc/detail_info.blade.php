@@ -17,7 +17,7 @@
                             @endphp
                             <div class="col-thumbnail-2">
                                 <div class="card">
-                                    <img class="img-thumbnail" src="@media_path($path)" style="height: 78px">
+                                    <img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
                                     <div class="card-body pl-1 pr-1 pt-1 pb-1">
                                         <p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
                                     </div>
@@ -114,7 +114,7 @@
                             @endif
                         @endif
                         </a>
-                        <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:10px;">
+                        <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:0px;">
                             <p class="card-text card-text-name @pc mb-0 @endpc text-left">
 	                            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" style="color: #212529;">{{ $target['name'] }}</a>
 	                        </p>
