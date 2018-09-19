@@ -12,7 +12,7 @@ class PostInput extends Base
             'name' => 'required|max:256',
             'link' => 'nullable|max:512',
             'media_id' => 'required',
-            'type' => 'required|integer',
+            // 'type' => 'required|integer',
             'mode' => 'required|integer',
         ];
     }
