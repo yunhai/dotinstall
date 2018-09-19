@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
+use App\Models\Announcement;
 use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Media as MediaModel;
 use App\Models\MsCategory as MsCategoryModel;
 use App\Models\User\UserLesson as UserLessonModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Models\YoutubeLink as YoutubeLink;
+
 use Auth;
 use Illuminate\Http\Request;
 use Storage;
@@ -47,7 +50,13 @@ class Top extends Base
 
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
-        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
+
+        $model = new Announcement();
+        $announcement = $model->list();
+        
+        $model = new Ad();
+        $ad = $model->random();
+        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
     }
 
     public function AjaxLesson()

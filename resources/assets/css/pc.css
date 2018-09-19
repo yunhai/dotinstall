@@ -203,3 +203,24 @@ body #pc-col-7 {
     top: 43%;
     right: 0;
 }
+.announcement--content {
+    max-height: 60px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#notice-content .heading {
+    background: #eaeaea;
+    line-height: 50px;
+    text-indent: 75px;
+}
+#notice-content .noitce-content {
+    padding: 25px 70px;
+    line-height: 30px;
+}
+#notice-content .noitce-content .right {
+    padding: 0;
+    width: 250px;
+    height: 250px;
+    border: solid 1px #fff;
+    overflow: hidden;
+}

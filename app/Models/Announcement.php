@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Notification extends Base
+class Announcement extends Base
 {
     public $fillable = [
         'title',
@@ -10,7 +10,7 @@ class Notification extends Base
         'post_date'
     ];
 
-    public function list($limit = 5)
+    public function list(int $limit = 4)
     {
         $list = $this
                     ->select('id', 'title', 'content', 'post_date')

@@ -683,17 +683,3 @@ body {
     border: 1px solid #FFF;
     background-color: transparent;
 }
-#notice-content .heading {
-    background: #eaeaea;
-    line-height: 50px;
-    text-indent: 75px;
-}
-#notice-content .noitce-content {
-    padding: 25px 70px;
-    line-height: 30px;
-}
-#notice-content .noitce-content .right {
-    padding: 60px;
-    background: #fa283c;
-    line-height: 20px;
-}

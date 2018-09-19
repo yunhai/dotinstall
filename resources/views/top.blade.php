@@ -19,41 +19,9 @@
         @include('component.top.logedin_lesson', ['lessons' => $lessons])
     @else
         @include('component.top.panel', ['youtube_link' => $youtube_link])
-        <div id="notice-content">
-            <div class="box mb-0">
-                <div class="heading">
-                    <span>【お知らせ】</span>
-                </div>
-                <div class="row noitce-content">
-                    <div class="col-sm-9">
-                        <div class="row">
-                            <div class="col-sm-2">2019/03/26</div>
-                            <div class="col-sm-9">本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-2">2019/03/26</div>
-                            <div class="col-sm-9">本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-2">2019/03/26</div>
-                            <div class="col-sm-9">本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-2">2019/03/26</div>
-                            <div class="col-sm-9">本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 right">
-                        <p>
-                        広告<br>
-                        無い場合は空白<br>
-                        アドセンス<br>
-                        画像＋ＵＲＬ<br>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @pc 
+            @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
+        @endpc
         <div id='j-lessonList'>
             @include('component.top.unlogin_lesson', ['lessons' => $lessons])
         </div>
