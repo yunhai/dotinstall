@@ -19,7 +19,6 @@
             'header' => [
                 '広告名',
                 '公開状況',
-                '表示',
                 '',
             ],
             'body' => [
@@ -31,14 +30,6 @@
                     'option' => $form['mode'],
                     'attr' => [
                         'style' => 'width:10%',
-                        'class' => 'text-center'
-                    ]
-                ],
-                'type' => [
-                    'field' => 'type',
-                    'option' => $form['type'],
-                    'attr' => [
-                        'style' => 'width:15%',
                         'class' => 'text-center'
                     ]
                 ],
