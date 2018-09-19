@@ -33,6 +33,9 @@ body #pc-col-7 {
     flex: 0 0 15px;
     min-width: 25%;
 }
+.col-lesson-item .card-body {
+	padding-top: 0px;
+}
 .card-img-panel {
     height: 380px;
 }
@@ -197,7 +200,6 @@ body #pc-col-7 {
     max-height: 55px;
     overflow: hidden;
 }
-
 .lesson--item__my_styding{
     position: absolute;
     top: 43%;

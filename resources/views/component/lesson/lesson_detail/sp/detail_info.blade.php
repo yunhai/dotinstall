@@ -115,7 +115,7 @@
                         @endif
                     @endif
                     </a>
-                    <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:10px;">
+                    <div class="card-body text-center pl-0 pr-0 pb-0" style="padding-top:0;">
                         <p class="card-text-name text-left">
 	                        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" style="color: #212529;">{{ $target['name'] }}</a>
 	                    </p>
