@@ -16,6 +16,7 @@ class WebGlobalVariable
         View::share('global_total_lessons', $lesson_model->countLesson());
 
         $setting_model = new Setting();
+        // dd($setting_model->getAll());
         View::share('global_setting', $setting_model->getAll());
         View::share('name', $this->userName());
 
