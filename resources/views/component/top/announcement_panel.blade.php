@@ -5,6 +5,7 @@
         </div>
         <div class="row noitce-content">
             <div class="col-sm-8">
+                @if ($announcement)
                 @foreach ($announcement as $item)
                 <div class="row">
                     <div class="col-sm-2">
@@ -18,12 +19,15 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
             </div>
             <div class="col-sm-4 right">
+                @if ($ad)
                 <a href="{{ $ad['link'] }}" title="{{ $ad['name'] }}">
                     @php $path = $ad['media']['path']; @endphp
                     <img src="@media_path($path)" alt="{{ $ad['name'] }}" width="100%" />
                 </a>
+                @endif
             </div>
         </div>
     </div>
