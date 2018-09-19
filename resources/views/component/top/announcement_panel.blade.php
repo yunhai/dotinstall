@@ -3,29 +3,26 @@
         <div class="heading">
             <span>【お知らせ】</span>
         </div>
-        <div class="row noitce-content">
-            <div class="col-sm-8">
+        <div class="notice-content">
+            <div class="notice-content--announcement">
                 @if ($announcement)
                 @foreach ($announcement as $item)
-                <div class="row">
-                    <div class="col-sm-2">
-                        @php
-                            echo Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item['post_date'])
-                                    ->format('Y/m/d');
-                        @endphp
-                    </div>
-                    <div class="col-sm-9 announcement--content" data-toggle="tooltip" data-placement="bottom" title="{{ $item['content'] }}">
+                    @php
+                        $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item['post_date'])
+                                ->format('Y年m月d日');
+                    @endphp
+                    <div class='announcement--date'>{{ $date }}</div>
+                    <div class="announcement--content" data-toggle="tooltip" data-placement="bottom" title="{{ $item['content'] }}">
                         {{ $item['content'] }}
                     </div>
-                </div>
                 @endforeach
                 @endif
             </div>
-            <div class="col-sm-4 right">
+            <div class="notice-content--ad">
                 @if ($ad)
                 <a href="{{ $ad['link'] }}" title="{{ $ad['name'] }}">
                     @php $path = $ad['media']['path']; @endphp
-                    <img src="@media_path($path)" alt="{{ $ad['name'] }}" width="100%" />
+                    <img src="@media_path($path)" alt="{{ $ad['name'] }}" class="notice-content--ad__img" />
                 </a>
                 @endif
             </div>

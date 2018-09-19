@@ -205,24 +205,44 @@ body #pc-col-7 {
     top: 43%;
     right: 0;
 }
-.announcement--content {
-    max-height: 60px;
-    overflow: hidden;
-    cursor: pointer;
-}
 #notice-content .heading {
     background: #eaeaea;
     line-height: 50px;
     text-indent: 75px;
 }
-#notice-content .noitce-content {
-    padding: 25px 70px;
+#notice-content .notice-content {
+    padding: 25px;
     line-height: 30px;
 }
-#notice-content .noitce-content .right {
+.notice-content--announcement {
+    width: 625px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+.announcement--date {
+    margin-right: 20px;
+    float: left;
+}
+.announcement--content {
+    margin-right: 10px;
+    max-height: 60px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.notice-content--ad {
     padding: 0;
     width: 250px;
     height: 250px;
     border: solid 1px #fff;
     overflow: hidden;
+    vertical-align: middle;
+}
+.notice-content--ad__img{
+    object-fit: contain;
+    vertical-align: middle;
+    display: block;
+    height: 250px;
+    width: 100%;
 }

@@ -41,13 +41,9 @@ class Top extends Base
         $user_id = Auth::id() ?: 0;
         $filter_form = $this->filterForm($input);
         $lesson_info = [];
-        if ($user_id) {
-            $lessons = $this->getLogedInLesson($input);
-            $lesson_info = $this->lessonInfo($lessons);
-        } else {
-            $lessons = $this->getUnLogInLesson();
-        }
-
+        $lessons = $this->getUnLogInLesson();
+        
+        // dd($lessons);
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
 
@@ -63,6 +59,7 @@ class Top extends Base
     {
         $filter_form = $this->filterForm();
         $lessons = $this->getUnLogInLesson();
+        
         return $this->render('top/ajax_lesson', compact('lessons', 'filter_form'));
     }
 
