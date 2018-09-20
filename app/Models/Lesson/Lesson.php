@@ -42,8 +42,8 @@ class Lesson extends Base
     {
         $with = [
             'lesson_details.posters',
-            'lesson_details.source_code_contents',
-            'lesson_details.resources'
+            // 'lesson_details.source_code_contents',
+            // 'lesson_details.resources'
         ];
         $db = $this::with($with)
                         ->enable()
