@@ -57,7 +57,7 @@ class Top extends Base
     private function getAnnouncement()
     {
         $model = new Announcement();
-        $announcement = $model->list();
+        $announcement = $model->list(3);
         $result = [];
         $group = [];
         foreach ($announcement as &$item) {

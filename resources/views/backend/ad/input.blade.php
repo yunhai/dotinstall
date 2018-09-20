@@ -45,7 +45,7 @@
                 ],
                 'field_advance' => [
                 ],
-                'field_intro' => '(サイズ：250x250)'
+                'field_intro' => '(サイズ：300x250)'
             ],
             'mode' => [
                 'field_label' => '表示',
