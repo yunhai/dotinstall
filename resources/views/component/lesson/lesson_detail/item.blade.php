@@ -38,7 +38,7 @@
         </a>
         <div class="card-body text-center pl-0 pr-0">
             <p class="card-text card-text-name @pc mb-0 @endpc text-left">
-	            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" style="color: #212529;">{{ $target['name'] }}</a>
+	            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}">{{ $target['name'] }}</a>
             </p>
             @pc
                 <p class="card-text card-text-caption text-left">
