@@ -8,7 +8,9 @@
                     <div class="pc-card-sign card-sign p-0" id="pc-panel-left">
                         <!--<p class="card-text card-text-sign">無料レッスンもいっぱいご用意！</p>-->
                         <p class="card-text card-text-sign last" style="padding-left:30px;">{!! nl2br($global_setting['page_caption']) !!}</p>
+                        @if (!Auth::check())
                         <a href="{{ route('register') }}" class="card-sign-button">新規登録はこちら！</a>
+                        @endif
                     </div>
                     <div class="card-video px-0" id="pc-panel-right">
                         @if (!empty($youtube_link))
