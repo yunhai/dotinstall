@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\Notification\PostInput;
+use App\Http\Requests\Backend\Annoucement\PostInput;
 use App\Models\Backend\Announcement as AnnouncementModel;
 
 class Announcement extends Base

@@ -9,7 +9,7 @@ class PostInput extends Base
     public function rules()
     {
         return [
-            'title' => 'required|max:256',
+            'title' => 'nullable',
             'content' => 'required',
         ];
     }

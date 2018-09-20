@@ -7,12 +7,6 @@
         'form_label' => 'お知らせ',
         'form_back_url' => route('backend.announcement.index'),
         'form_field' => [
-            'title' => [
-                'field_label' => '題名',
-                'field_name' => 'title',
-                'field_value' => array_get($target, 'title', ''),
-                'field_type' => 'text'
-            ],
             'content' => [
                 'field_label' => '内容',
                 'field_name' => 'content',

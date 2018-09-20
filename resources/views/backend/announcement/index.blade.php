@@ -17,18 +17,11 @@
         $table = [
             'title' => 'お知らせ',
             'header' => [
-                '題名',
                 '内容',
                 '作成日',
                 ''
             ],
             'body' => [
-                'title' => [
-                    'field' => 'title',
-                    'attr' => [
-                        'style' => 'width:25%',
-                    ]
-                ],
                 'name' => [
                     'field' => '',
                     'apply' => ['nl2br', 'apply_value'],
