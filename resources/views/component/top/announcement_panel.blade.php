@@ -7,11 +7,7 @@
             <div class="notice-content--announcement">
                 @if ($announcement)
                 @foreach ($announcement as $item)
-                    @php
-                        $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item['post_date'])
-                                ->format('Y年m月d日');
-                    @endphp
-                    <div class='announcement--date'>{{ $date }}</div>
+                    <div class='announcement--date'>{{ $item['post_date'] }}&nbsp;</div>
                     <div class="announcement--content" data-toggle="tooltip" data-placement="bottom" title="{{ $item['content'] }}">
                         {{ $item['content'] }}
                     </div>
