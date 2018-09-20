@@ -208,6 +208,7 @@ body #pc-col-7 {
 #notice-content {
     margin: 7px auto;
     clear: both;
+    padding: 0 40px;
 }
 #notice-content .heading {
     background: #eaeaea;
@@ -216,7 +217,7 @@ body #pc-col-7 {
     border-left: 10px solid #292f49;
 }
 .notice-content--announcement {
-    width: 625px;
+    width: 545px;
     display: inline-block;
     margin-right: 20px;
     border: 1px solid #e9e9e9;
