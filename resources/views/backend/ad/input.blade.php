@@ -23,10 +23,10 @@
                 'field_type' => 'text'
             ],
             'link' => [
-                'field_label' => 'Link',
+                'field_label' => 'リンク',
                 'field_name' => 'link',
                 'field_value' => array_get($target, 'link', ''),
-                'field_type' => 'text'
+                'field_type' => 'textarea'
             ],
             'media_id' => [
                 'field_label' => '画像',
@@ -47,10 +47,10 @@
                 ],
                 'field_intro' => '(サイズ：300x250)'
             ],
-            'mode' => [
-                'field_label' => '表示',
+            'type' => [
+                'field_label' => 'タイプ',
                 'field_name' => 'type',
-                'field_value' => constant('AD_TYPE_IMAGE'),
+                'field_value' => array_get($target, 'type', ''),
                 'field_type' => 'radio',
                 'field_option' => $form['type'],
             ],

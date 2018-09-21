@@ -10,9 +10,9 @@ class PostInput extends Base
     {
         return [
             'name' => 'required|max:256',
-            'link' => 'nullable|max:512',
-            'media_id' => 'required',
-            // 'type' => 'required|integer',
+            'link' => 'nullable|max:2048',
+            'media_id' => 'nullable',
+            'type' => 'required|integer',
             'mode' => 'required|integer',
         ];
     }

@@ -17,10 +17,14 @@
         </div>
         <div class="notice-content--ad">
             @if ($ad)
-            <a href="{{ $ad['link'] }}" title="{{ $ad['name'] }}">
-                @php $path = $ad['media']['path']; @endphp
-                <img src="@media_path($path)" alt="{{ $ad['name'] }}" class="notice-content--ad__img" />
-            </a>
+                @if ($ad['type'] == constant('AD_TYPE_IMAGE'))
+                <a href="{{ $ad['link'] }}" title="{{ $ad['name'] }}">
+                    @php $path = $ad['media']['path']; @endphp
+                    <img src="@media_path($path)" alt="{{ $ad['name'] }}" class="notice-content--ad__img" />
+                </a>
+                @else
+                    {!! $ad['link'] !!}
+                @endif
             @endif
         </div>
     </div>

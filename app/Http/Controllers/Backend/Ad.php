@@ -26,7 +26,11 @@ class Ad extends Base
         $target = $this->model->getWithRelation($id, false);
         $form = $this->form();
 
-        $ad_media = [$target->media->toArray()];
+        $ad_media = '';
+        if ($target->media) {
+            $ad_media = [$target->media->toArray()];
+        }
+
         $target = $target->toArray();
         $target['ad_media'] = $ad_media;
         return $this->render('ad.input', compact('target', 'form'));

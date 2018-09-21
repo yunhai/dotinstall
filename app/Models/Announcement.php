@@ -5,9 +5,6 @@ namespace App\Models;
 class Announcement extends Base
 {
     public $fillable = [
-        'title',
-        'content',
-        'post_date'
     ];
 
     public function list(int $limit = 4)

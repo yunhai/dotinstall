@@ -18,12 +18,24 @@
             'title' => '広告',
             'header' => [
                 '広告名',
+                'タイプ',
                 '公開状況',
                 '',
             ],
             'body' => [
                 'name' => [
                     'field' => 'name',
+                    'attr' => [
+                        'style' => 'width:20%',
+                    ]
+                ],
+                'type' => [
+                    'field' => 'type',
+                    'option' => $form['type'],
+                    'attr' => [
+                        'style' => 'width:10%',
+                        'class' => 'text-center'
+                    ]
                 ],
                 'mode' => [
                     'field' => 'mode',

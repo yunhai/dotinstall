@@ -48,7 +48,7 @@ class Top extends Base
         shuffle($youtube_link);
 
         $announcement = $this->getAnnouncement();
-        
+
         $model = new Ad();
         $ad = $model->random();
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
