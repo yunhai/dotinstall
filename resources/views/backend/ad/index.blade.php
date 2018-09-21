@@ -25,9 +25,6 @@
             'body' => [
                 'name' => [
                     'field' => 'name',
-                    'attr' => [
-                        'style' => 'width:20%',
-                    ]
                 ],
                 'type' => [
                     'field' => 'type',
