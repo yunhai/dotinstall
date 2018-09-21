@@ -14,7 +14,7 @@
     $form = [
         'form_btn' => '保存',
         'form_label' => '広告',
-        'form_back_url' => route('backend.youtube_link.index'),
+        'form_back_url' => route('backend.ad.index'),
         'form_field' => [
             'name' => [
                 'field_label' => '広告名',
