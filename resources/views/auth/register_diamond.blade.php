@@ -107,7 +107,7 @@
                             <div class="tab-pane-user row">
                                 <div class="col">
                                     <div class="card card-register">
-                                        <div class="card-header">【月額会員】</div>
+                                        <div class="card-header" style='padding-top: 15px;'>【月額会員】</div>
                                         <div class="card-body">
                                             <ul class="card-info">
                                                 <li>・ 全ての動画が見放題となります。</li>

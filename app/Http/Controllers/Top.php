@@ -58,20 +58,15 @@ class Top extends Base
     {
         $model = new Announcement();
         $announcement = $model->list(3);
+
         $result = [];
-        $group = [];
-        foreach ($announcement as &$item) {
+        foreach ($announcement as $item) {
             $post_date = substr($item['post_date'], 0, 10);
-            if (in_array($post_date, $group)) {
-                $item['post_date'] = '';
-            } else {
-                $item['post_date'] = Carbon::createFromFormat('Y-m-d', $post_date)
+            $item['post_date'] = Carbon::createFromFormat('Y-m-d', $post_date)
                                         ->format('Y年m月d日');
-            }
-            array_push($group, $post_date);
+            array_unshift($result, $item);
         }
-        return $announcement;
-        // dd($announcement);
+        return $result;
     }
 
     public function AjaxLesson()
