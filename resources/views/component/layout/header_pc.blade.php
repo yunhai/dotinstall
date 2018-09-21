@@ -7,12 +7,14 @@
         <ul class="navbar-nav ml-auto align-items-end">
             @if (Auth::check() && Auth::user()->role == constant('USER_ROLE_PUBLIC'))
                 @normal_user
+                <!--
                 <li class="nav-item">
                     <a class="nav-link text-center" href="{{ route('user.upgrade') }}" title='アップグレード'>
                         <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="アップグレード">
                         <span class="d-block">アップグレード</span>
                     </a>
                 </li>
+                -->
                 @endnormal_user
                 <li class="nav-item">
                     <a class="nav-link text-center" href="{{ route('lesson') }}">
@@ -46,9 +48,9 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="{{ route('register.diamond') }}" title="アップグレード">
-                        <img class="img-diamond mb-2" src="/img/diamond.jpg" alt="アップグレード">
-                        <span class="d-block">アップグレード</span>
+                    <a class="nav-link text-center" href="{{ route('register.diamond') }}" title="新規登録">
+                        <img class="img-party mb-2" src="/img/party.jpg" alt="新規登録">
+                        <span class="d-block">新規登録</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -63,12 +65,14 @@
                         <span class="d-block">ログイン</span>
                     </a>
                 </li>
+                <!--
                 <li class="nav-item">
                     <a class="nav-link text-center" href="/register">
                         <img class="img-party mb-2" src="/img/party.jpg" alt="無料会員">
                         <span class="d-block">無料会員</span>
                     </a>
                 </li>
+                -->
             @endif
         </ul>
     </div>

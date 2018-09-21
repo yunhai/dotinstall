@@ -8,7 +8,8 @@
                         <!--<p class="card-text card-text-sign">無料レッスンもいっぱいご用意！</p>-->
                         <p class="card-text card-text-sign last">{!! nl2br($global_setting['page_caption']) !!}</p>
                         @if (!Auth::check())
-                        <a href="{{ route('register') }}" class="card-sign-button" style='margin-right: 15px;'>新規登録はこちら！</a>
+                        <!-- <a href="{{ route('register') }}" class="card-sign-button" style='margin-right: 15px;'>新規登録はこちら！</a> -->
+                        <a href="{{ route('register.diamond') }}" class="card-sign-button" style='margin-right: 15px;'>新規登録はこちら！</a>
                         @endif
                     </div>
                 </div>

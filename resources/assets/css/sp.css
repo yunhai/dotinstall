@@ -303,3 +303,8 @@ html, body {
     width: 120px;
     float: right;
 }
+.img-party {
+    width: 23px;
+    max-width: 23px;
+    height: auto;
+}
