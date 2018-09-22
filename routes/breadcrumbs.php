@@ -75,6 +75,12 @@ Breadcrumbs::for('user.change_password', function ($trail) {
     $trail->push('パスワードの変更');
 });
 
+// メールアドレスの変更
+Breadcrumbs::for('user.change_email', function ($trail) {
+    $trail->parent('mypage');
+    $trail->push('メールアドレスの変更');
+});
+
 // クレジットカード決済
 Breadcrumbs::for('user.upgrade', function ($trail) {
     $trail->parent('top');
