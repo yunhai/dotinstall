@@ -7,6 +7,12 @@ use Carbon\Carbon;
 
 class UserActivation extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'token',
+    ];
+
+
     protected function getToken()
     {
         return hash_hmac('sha256', str_random(40), config('app.key'));
@@ -47,7 +53,6 @@ class UserActivation extends Model
     {
         return UserActivation::where('user_id', $user->id)->first();
     }
-
 
     public function getActivationByToken($token)
     {
