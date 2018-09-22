@@ -216,7 +216,7 @@
                                                                     新規登録<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
                                                                 </div>
                                                             </div>
-                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 13px;">新規登録</button>
+                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 13px;padding-bottom: 10px;">新規登録</button>
                                                         </div>
                                                     </div>
                                                 </div>

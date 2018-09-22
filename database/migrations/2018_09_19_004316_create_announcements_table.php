@@ -16,8 +16,8 @@ class CreateAnnouncementsTable extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->string('title', 256);
-            $table->text('content');
+            $table->string('title', 256)->nullable();
+            $table->text('content')->nullable();
             $table->dateTime('post_date')->nullable();
             $table->unsignedInteger('created_user_id')->default(0);
             $table->unsignedInteger('updated_user_id')->default(0);
