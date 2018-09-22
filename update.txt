@@ -33,3 +33,7 @@ ALTER TABLE `lesson_details` ADD `duration_female` INT UNSIGNED NOT NULL DEFAULT
 
 //180912
 ALTER TABLE `lesson_details` ADD `new_mode` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `free_mode`;
+
+//180919
+ALTER TABLE `settings` ADD `type` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `mode`;
+INSERT INTO `settings` (`id`, `key`, `show_name`, `value`, `mode`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES (NULL, 'page_caption', 'Caption', '', '1', '1', '53', '2018-08-30 00:09:21', '2018-08-30 22:39:37', NULL);

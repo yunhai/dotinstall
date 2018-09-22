@@ -31,7 +31,7 @@
                 'field_label' => '設定値',
                 'field_name' => 'value',
                 'field_value' => array_get($target, 'value', ''),
-                'field_type' => 'text'
+                'field_type' => $target['type'] == 1 ? 'text' : 'textarea'
             ]
         ],
         'form_attribute' => [

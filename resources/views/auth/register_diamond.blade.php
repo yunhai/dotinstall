@@ -19,7 +19,7 @@
               <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
                   <div class="modal-content rounded-0">
                       <div class="modal-body">
-                          <p class="mb-0">アップグレードご登録ありがとうございます。</br>
+                          <p class="mb-0">ご登録ありがとうございます。</br>
                             マイページより購入履歴がご確認できます。</br>
                             何かご不明な事がありましたら、お問い合わせよりご連絡ください。</p>
                       </div>
@@ -92,8 +92,11 @@
                 <div class="col-2 pr-0">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                         <a class="nav-link" href="{{ route('login') }}" role="tab">ログイン</a>
-                        <a class="nav-link" href="{{ route('register') }}" role="tab">新規登録</a>
-                        <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register.diamond') }}" role="tab"><span class="mr-2"><img class="img-fluid" style="padding-bottom: 3px;" src="/img/charge_diamond.png" width="15px;"></span>アップグレード</a>
+                        <!--<a class="nav-link" href="{{ route('register') }}" role="tab">新規登録</a>-->
+                        <a class="bg-nav-link nav-link active show" data-toggle="pill" href="{{ route('register.diamond') }}" role="tab">
+                            <img class="img-fluid signup--icon" src="/img/party.png" width="20px;">
+                            新規登録
+                        </a>
                         <a class="nav-link" href="{{ route('password.request') }}" role="tab">パスワードを忘れた？</a>
                     </div>
                 </div>
@@ -104,7 +107,7 @@
                             <div class="tab-pane-user row">
                                 <div class="col">
                                     <div class="card card-register">
-                                        <div class="card-header">【月額会員】</div>
+                                        <div class="card-header" style='padding-top: 15px;'>【月額会員】</div>
                                         <div class="card-body">
                                             <ul class="card-info">
                                                 <li>・ 全ての動画が見放題となります。</li>
@@ -210,10 +213,10 @@
                                                                 <div class="form-check">
                                                                     <label class="form-check-label" for="agree">
                                                                     <input type="checkbox" class="form-check-input" id="agree" style='margin-top:3px;'>
-                                                                    アップグレード<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
+                                                                    新規登録<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
                                                                 </div>
                                                             </div>
-                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 13px;">アップグレードする</button>
+                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 13px;">新規登録</button>
                                                         </div>
                                                     </div>
                                                 </div>
