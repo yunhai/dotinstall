@@ -14,6 +14,13 @@ http {
 
 glupgp1@gmail.com
 gg551129
+
+php artisan optimize
+php artisan cache:clear
+php artisan route:cache
+php artisan view:clear
+php artisan config:cache
+
 ############################################
 
 #ln -s "$(pwd)/storage/app/media" "$(pwd)/public/media"

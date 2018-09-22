@@ -51,10 +51,10 @@ Breadcrumbs::for('register', function ($trail) {
     $trail->push('新規登録', route('register'));
 });
 
-// 月額会員
+// 新規登録
 Breadcrumbs::for('register.diamond', function ($trail) {
     $trail->parent('top');
-    $trail->push('月額会員', route('register.diamond'));
+    $trail->push('新規登録', route('register.diamond'));
 });
 
 // パスワード再設定手続き

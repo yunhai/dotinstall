@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-@section('title', 'Youtubeリンク編集')
+@section('title', '広告')
 @push('js')
     <script src="/js/backend/youtube.js"></script>
     <script src="/js/backend/common/upload.js"></script>
@@ -13,31 +13,25 @@
 
     $form = [
         'form_btn' => '保存',
-        'form_label' => 'Youtubeリンク',
-        'form_back_url' => route('backend.youtube_link.index'),
+        'form_label' => '広告',
+        'form_back_url' => route('backend.ad.index'),
         'form_field' => [
             'name' => [
-                'field_label' => 'Video名',
+                'field_label' => '広告名',
                 'field_name' => 'name',
                 'field_value' => array_get($target, 'name', ''),
                 'field_type' => 'text'
             ],
             'link' => [
-                'field_label' => 'Link',
+                'field_label' => 'リンク',
                 'field_name' => 'link',
                 'field_value' => array_get($target, 'link', ''),
-                'field_type' => 'text'
-            ],
-            'youtube_id' => [
-                'field_label' => '',
-                'field_name' => 'youtube_id',
-                'field_value' => array_get($target, 'youtube_id', ''),
-                'field_type' => 'hidden'
+                'field_type' => 'textarea'
             ],
             'media_id' => [
                 'field_label' => '画像',
                 'field_name' => 'media_id',
-                'field_value' => array_get($target, 'youtube_link_media', ''),
+                'field_value' => array_get($target, 'ad_media', ''),
                 'field_type' => 'file_dd',
                 'field_attribute' => [
                     'data-url' => route('backend.media.chuck'),
@@ -51,10 +45,10 @@
                 ],
                 'field_advance' => [
                 ],
-                'field_intro' => '(サイズ：480x240)'
+                'field_intro' => '(サイズ：300x250)'
             ],
             'type' => [
-                'field_label' => '表示',
+                'field_label' => 'タイプ',
                 'field_name' => 'type',
                 'field_value' => array_get($target, 'type', ''),
                 'field_type' => 'radio',
