@@ -212,11 +212,11 @@
                                                                 <label>※ アップグレード利用規約に同意されたうえでご登録ください。</label>
                                                                 <div class="form-check">
                                                                     <label class="form-check-label" for="agree">
-                                                                    <input type="checkbox" class="form-check-input" id="agree" style='@sp margin-top:1px; @endsp @pc margin-top: 4px; @endpc'>
+                                                                    <input type="checkbox" class="form-check-input" id="agree" style='@sp margin-top:1px; @endsp @pc margin-top: 3px; @endpc'>
                                                                     新規登録<a target="_blank" href="{{ route('terms') }}">利用規約</a>に同意</label>
                                                                 </div>
                                                             </div>
-                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 15px;padding-bottom: 10px;">新規登録</button>
+                                                            <button id='j-submit' type="submit" class="btn btn-lg btn-primary"  style="opacity: 0.6; margin-bottom: 15px;padding-bottom: 4px;">新規登録</button>
                                                         </div>
                                                     </div>
                                                 </div>
