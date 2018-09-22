@@ -16,8 +16,8 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->increments('id');
-            $table->string('name', 256);
-            $table->string('link', 2048);
+            $table->string('name', 256)->nullable();
+            $table->string('link', 2048)->nullable();
             $table->unsignedInteger('media_id')->default(0);
             $table->unsignedTinyInteger('type')->default(1);
             $table->unsignedTinyInteger('mode')->default(1);
