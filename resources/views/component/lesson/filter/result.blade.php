@@ -79,7 +79,7 @@
                                 </div>
                                 @pc
                                 <span class='lesson--item__learning_count'>
-                                    {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
+                                    {{ number_format(($lesson['lesson_learning_count']) + 381) }} 人が学習中
                                 </span>
                                 @endpc
                                 <div class="clearfix"></div>
@@ -87,7 +87,7 @@
                             <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                                 @sp
                                 <div class='lesson--item__learning_count'>
-                                    {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
+                                    {{ number_format(($lesson['lesson_learning_count']) + 381) }} 人が学習中
                                 </div>
                                 @endsp
                                 <div class='lesson--item__my_styding_finish'>
