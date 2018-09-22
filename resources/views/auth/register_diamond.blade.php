@@ -76,7 +76,25 @@
             $provider_lbl = '';
         @endphp
     @endif
+
+    @sp
     <div class="box ttlCommon mb-0 px-5">{{ $provider_ttl }}</div>
+    @endsp
+    @pc
+    <div class="box ttlCommon mb-0 px-5">
+        <div class="card">
+            <div class="w-100 px-5 d-flex align-items-center">
+                <div class="col-5 pl-0 pr-0">
+                    <span>{{ $provider_ttl }}</span>
+                </div>
+                    <div class="col-7 pr-0 text-right">
+                        <span>レッスン一覧 {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+    @endpc
+
     <div class="box-user px-5">
         <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
             @if (!empty(app('request')->input('provider')))

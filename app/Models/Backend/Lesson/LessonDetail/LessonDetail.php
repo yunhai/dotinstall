@@ -4,6 +4,7 @@ namespace App\Models\Backend\Lesson\LessonDetail;
 
 use App\Models\Backend\Base;
 use App\Models\Backend\Media;
+use App\Models\Backend\Setting;
 use App\Models\Backend\Traits\Lesson\LessonDetail\UpdateLessonVideoCount;
 
 class LessonDetail extends Base
@@ -91,5 +92,21 @@ class LessonDetail extends Base
 
         (new LessonDetailAttachment)->editMany($input, $id);
         return $result;
+    }
+
+    public function statLessonDetail()
+    {
+        $list = $this->all()->toArray();
+
+        $total_video = count($list);
+        $total_enable_video = count(array_filter($list, function ($item) {
+            return $item['mode'] == MODE_ENABLE;
+        }));
+
+        $setting_model = new Setting();
+        $setting_model->where('key', 'total_video')
+                    ->update(['value' => $total_video]);
+        $setting_model->where('key', 'total_enable_video')
+                    ->update(['value' => $total_enable_video]);
     }
 }

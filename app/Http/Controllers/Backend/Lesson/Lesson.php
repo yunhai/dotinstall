@@ -49,6 +49,7 @@ class Lesson extends Base
     {
         $input = $this->makeInput($request, $lesson_id, MODE_EDIT);
         $this->model->edit($lesson_id, $input);
+        $this->model->statLesson();
 
         return redirect()
                   ->route('backend.lesson.index')
@@ -67,6 +68,7 @@ class Lesson extends Base
     {
         $input = $this->makeInput($request);
         $target = $this->model->create($input);
+        $this->model->statLesson();
 
         return redirect()
                   ->route('backend.lesson.index')
@@ -76,6 +78,8 @@ class Lesson extends Base
     public function getDelete($id)
     {
         $this->model->remove($id);
+        $this->model->statLesson();
+
         return redirect()
                   ->route('backend.lesson.index')
                   ->with('delete.success', 'delete.success');
