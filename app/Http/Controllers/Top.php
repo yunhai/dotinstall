@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
+use App\Models\Announcement;
 use App\Models\Lesson\Lesson as LessonModel;
 use App\Models\Media as MediaModel;
 use App\Models\MsCategory as MsCategoryModel;
 use App\Models\User\UserLesson as UserLessonModel;
 use App\Models\User\UserLessonDetail as UserLessonDetailModel;
 use App\Models\YoutubeLink as YoutubeLink;
+
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -38,22 +42,38 @@ class Top extends Base
         $user_id = Auth::id() ?: 0;
         $filter_form = $this->filterForm($input);
         $lesson_info = [];
-        if ($user_id) {
-            $lessons = $this->getLogedInLesson($input);
-            $lesson_info = $this->lessonInfo($lessons);
-        } else {
-            $lessons = $this->getUnLogInLesson();
-        }
+        $lessons = $this->getUnLogInLesson();
 
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
-        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info'));
+
+        $announcement = $this->getAnnouncement();
+
+        $model = new Ad();
+        $ad = $model->random();
+        return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
+    }
+    
+    private function getAnnouncement()
+    {
+        $model = new Announcement();
+        $announcement = $model->list(4);
+
+        $result = [];
+        foreach ($announcement as $item) {
+            $post_date = substr($item['post_date'], 0, 10);
+            $item['post_date'] = Carbon::createFromFormat('Y-m-d', $post_date)
+                                        ->format('Y年m月d日');
+            array_unshift($result, $item);
+        }
+        return $result;
     }
 
     public function AjaxLesson()
     {
         $filter_form = $this->filterForm();
         $lessons = $this->getUnLogInLesson();
+        
         return $this->render('top/ajax_lesson', compact('lessons', 'filter_form'));
     }
 

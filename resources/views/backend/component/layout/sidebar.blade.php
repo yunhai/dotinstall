@@ -29,6 +29,12 @@
                     <span class="nav-link-text">Youtubeリンク</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="広告">
+                <a class="nav-link" href="{{ route('backend.ad.index') }}">
+                    <i class="fa fa-book fa-fw"></i>
+                    <span class="nav-link-text">広告</span>
+                </a>
+            </li>
             <li class="nav-item" data-toggle="" data-placement="right" title="アフィリエイター">
                 <a class="nav-link" href="{{ route('backend.affiliator.index') }}">
                     <i class="fa fa-book fa-fw"></i>
@@ -39,6 +45,12 @@
                 <a class="nav-link" href="{{ route('backend.notification.index') }}">
                     <i class="fa fa-book fa-fw"></i>
                     <span class="nav-link-text">通知</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="お知らせ">
+                <a class="nav-link" href="{{ route('backend.announcement.index') }}">
+                    <i class="fa fa-book fa-fw"></i>
+                    <span class="nav-link-text">お知らせ</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="" data-placement="right" title="設定">

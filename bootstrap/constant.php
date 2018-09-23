@@ -1,5 +1,8 @@
 <?php
 
+define('AD_TYPE_IMAGE', 1);
+define('AD_TYPE_LINK', 2);
+
 define('LESSON_DIFFICULTY_NEWBIE', 1);
 define('LESSON_DIFFICULTY_BEGINNER', 2);
 define('LESSON_DIFFICULTY_INTERMEDIATE', 3);

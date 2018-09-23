@@ -94,6 +94,7 @@ html, body {
 .card-text-name {
 	height: 36px;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 .input-group-difficulty, .input-group-category {
 	margin-bottom: 1rem;
@@ -117,7 +118,7 @@ html, body {
     margin-top: 0px;
 }
 .col-lesson-item .card-body {
-	padding-top: 10px;
+	padding-top: 0px;
 }
 .card-video-list {
 	margin-top: 20px;
@@ -301,4 +302,9 @@ html, body {
     margin: 5px 10px 0 10px;
     width: 120px;
     float: right;
+}
+.img-party {
+    width: 23px;
+    max-width: 23px;
+    height: auto;
 }

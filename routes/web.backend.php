@@ -66,6 +66,20 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('notification/{notification_id}/edit', 'Notification@postEdit');
     Route::get('notification/{notification_id}/delete', 'Notification@getDelete')->name('backend.notification.delete');
 
+    Route::get('announcement', 'Announcement@getIndex')->name('backend.announcement.index');
+    Route::get('announcement/create', 'Announcement@getCreate')->name('backend.announcement.create');
+    Route::post('announcement/create', 'Announcement@postCreate');
+    Route::get('announcement/{announcement_id}/edit', 'Announcement@getEdit')->name('backend.announcement.edit');
+    Route::post('announcement/{announcement_id}/edit', 'Announcement@postEdit');
+    Route::get('announcement/{announcement_id}/delete', 'Announcement@getDelete')->name('backend.announcement.delete');
+
+    Route::get('ad', 'Ad@getIndex')->name('backend.ad.index');
+    Route::get('ad/create', 'Ad@getCreate')->name('backend.ad.create');
+    Route::post('ad/create', 'Ad@postCreate');
+    Route::get('ad/{announcement_id}/edit', 'Ad@getEdit')->name('backend.ad.edit');
+    Route::post('ad/{announcement_id}/edit', 'Ad@postEdit');
+    Route::get('ad/{announcement_id}/delete', 'Ad@getDelete')->name('backend.ad.delete');
+
     Route::get('setting', 'Setting@getIndex')->name('backend.setting.index');
     Route::get('setting/create', 'Setting@getCreate')->name('backend.setting.create');
     Route::post('setting/create', 'Setting@postCreate');

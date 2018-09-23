@@ -10,5 +10,6 @@ class Setting extends Base
         'key',
         'show_name',
         'value',
+        'type',
     ];
 }

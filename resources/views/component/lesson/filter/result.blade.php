@@ -33,6 +33,7 @@
                                 $first_lesson_detail = $lesson['lesson_details'][0] ?? ['free_mode' => 0, 'new_mode' => 0];
                                 if ($first_lesson_detail) {
                                     $poster = $first_lesson_detail['posters'][0]['path'] ?? '';
+                                    $caption = $first_lesson_detail['caption'] ?? '';
                                 }
                             @endphp
                             <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
@@ -56,16 +57,29 @@
                                             <img src='@media_path($poster)' width='@pc 140 @endpc @sp 120 @endsp' />
                                         </a>
                                     </div>
-                                    <div class='lesson--item__content'>
-                                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" >
+                                    @sp
+                                        <div class='lesson--item__content'>
+                                            <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" >
+                                                @php $is_all_finish = ($lesson['lesson_detail_close_count'] >= $lesson['video_count']) ; @endphp
+                                                <span @if($is_all_finish) style='text-decoration: line-through' @endif>{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
+                                            </a>
+                                        </div>
+                                    @endsp
+                                    @pc
+                                    <div class='lesson--item__caption'>
+                                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" title="{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回)">
                                             @php $is_all_finish = ($lesson['lesson_detail_close_count'] >= $lesson['video_count']) ; @endphp
                                             <span @if($is_all_finish) style='text-decoration: line-through' @endif>{{ $lesson['name'] }}（全{{ $lesson['video_count'] }}回）</span>
                                         </a>
+                                        <div class='lesson--item__caption-content'>
+                                            {{ $caption }}
+                                        </div>
                                     </div>
+                                    @endpc
                                 </div>
                                 @pc
                                 <span class='lesson--item__learning_count'>
-                                    {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
+                                    {{ number_format(($lesson['lesson_learning_count']) + 381) }} 人が学習中
                                 </span>
                                 @endpc
                                 <div class="clearfix"></div>
@@ -73,7 +87,7 @@
                             <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                                 @sp
                                 <div class='lesson--item__learning_count'>
-                                    {{ number_format($lesson['lesson_learning_count']) }} 人が学習中
+                                    {{ number_format(($lesson['lesson_learning_count']) + 381) }} 人が学習中
                                 </div>
                                 @endsp
                                 <div class='lesson--item__my_styding_finish'>
