@@ -1,7 +1,8 @@
 @extends('layout.master')
-@section('title', 'プライバシーポリシー')
-@section('content')
+@section('title', 'プライバシーポリシー | プログラミングＧＯ')
+@section('meta_description', 'プライバシーポリシー')
 @section('breadcrumbs', Breadcrumbs::render('privacy'))
+@section('content')
 <div id="mainContents">
     <div class="box ttlCommon mb-0 px-5">プライバシーポリシー</div>
     <div class="row">

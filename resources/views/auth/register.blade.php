@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', '新規登録')
+@section('title', '新規登録完了 | プログラミングＧＯ')
+@section('meta_description', '新規登録完了')
 @section('breadcrumbs', Breadcrumbs::render('register'))
 @section('content')
 <div id="content">

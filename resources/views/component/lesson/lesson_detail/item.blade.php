@@ -13,17 +13,17 @@
         <div class='new_free_info'>
             <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href">
                 @if ($target['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-                <img src='{{ asset('img/free.png') }}' width='40px' />
+                <img src='{{ asset('img/free.png') }}' width='40px' alt="無料" />
                 @endif
                 @if ($target['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW'))
-                <img src='{{ asset('img/new.png') }}' width='40px' />
+                <img src='{{ asset('img/new.png') }}' width='40px' alt="NEW" />
                 @endif
             </a>
         </div>
         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
-        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href" title="{{ $target['name'] }}">
+        <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href" title="{{ $target['name'] }}" rel="nofollow">
         @if ($path)
-            <img class="card-img-top card-img-video" src="@media_path($path)">
+            <img class="card-img-top card-img-video" src="@media_path($path)" alt="{{ $target['name'] }}">
         @else
             @php
                 $path = '';
@@ -38,7 +38,7 @@
         </a>
         <div class="card-body text-center pl-0 pr-0">
             <p class="card-text card-text-name @pc mb-0 @endpc text-left">
-	            <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}">{{ $target['name'] }}</a>
+                <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}">{{ $target['name'] }}</a>
             </p>
             @pc
                 <p class="card-text card-text-caption text-left">
@@ -54,12 +54,12 @@
                 @if ($allow_access)
                     @if (!empty($target['popup']))
                         @php $model_id = 'modal_' . $target['lesson_id'] . $target['id']; @endphp
-                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/素材</a>
+                        <a href="javascript:;" rel="nofollow" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#{{ $model_id }}">ソース/素材</a>
                     @else
-                        <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/素材</a>
+                        <a href="javascript:;" rel="nofollow" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target=".no-lesson-modal-sm" style="opacity: .6;">ソース/素材</a>
                     @endif
                 @else
-                    <a href="javascript:;" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#modal_request_login"  style="opacity: 0.6;">ソース/素材</a>
+                    <a href="javascript:;" rel="nofollow" class="btn-sm bg-button-source-confirmation" data-toggle="modal" data-target="#modal_request_login"  style="opacity: 0.6;">ソース/素材</a>
                 @endif
 
                 @if (Auth::check())
@@ -73,7 +73,7 @@
                         }
                     @endphp
                     @if ($allow_access)
-                        <a href="javascript:;" class="btn-sm {{ $css_class }}  j-lessonDetailCloseReopen"
+                        <a href="javascript:;" rel="nofollow" class="btn-sm {{ $css_class }}  j-lessonDetailCloseReopen"
                            data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
                            data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}'
                            data-action='{{ $target['is_closeable'] ? 'close' : 'reopen' }}'
@@ -81,12 +81,12 @@
                             {{ $text }}
                         </a>
                     @else
-                        <a href="javascript:;" class="btn-sm {{ $css_class }}" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">
+                        <a href="javascript:;" rel="nofollow" class="btn-sm {{ $css_class }}" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">
                             {{ $text }}
                         </a>
                     @endif
                 @else
-                    <a href="javascript:;" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
+                    <a href="javascript:;" rel="nofollow" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
                 @endif
             </p>
         </div>
