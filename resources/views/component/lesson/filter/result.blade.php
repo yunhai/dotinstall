@@ -43,10 +43,10 @@
                                 <div class='new_free_info'>
                                     <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}">
                                         @if ($first_lesson_detail['free_mode'] == constant('LESSON_DETAIL_FREE_MODE_FREE'))
-                                        <img src='{{ asset('img/free.png') }}' width='@pc 40 @endpc @sp 45 @endsp' />
+                                        <img src='{{ asset('img/free.png') }}' width='@pc 40 @endpc @sp 45 @endsp' alt="無料" />
                                         @endif
                                         @if ($first_lesson_detail['new_mode'] == constant('LESSON_DETAIL_NEW_MODE_NEW'))
-                                        <img src='{{ asset('img/new.png') }}' width='@pc 40 @endpc @sp 45 @endsp' />
+                                        <img src='{{ asset('img/new.png') }}' width='@pc 40 @endpc @sp 45 @endsp' alt="NEW" />
                                         @endif
                                     </a>
                                 </div>

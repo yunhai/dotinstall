@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', '新規登録')
+@section('title', '新規登録 | プログラミングＧＯ')
+@section('meta_description', '新規登録')
 @section('breadcrumbs', Breadcrumbs::render('register.diamond'))
 @push('css')
     <link rel="stylesheet" href="/css/payment.css">

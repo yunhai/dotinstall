@@ -5,7 +5,8 @@
         <meta name="robots" content="noydir,noodp,index,follow">
         <meta content='IE=edge' http-equiv='X-UA-Compatible' />
         <meta content='width=device-width, initial-scale=1, user-scalable=no' name='viewport' />
-        <meta name=”description” content=” 小学生から大人までＩＰＨＯＮＥアプリ開発レッスン動画。swift言語レッスン動画見放題！” />
+        <link rel="canonical" href="{{ request()->url() }}" />
+        <meta name="description" content="@yield('meta_description')">
 
         <title>@yield('title')</title>
         <link rel="icon" href="/img/favicon.png">
