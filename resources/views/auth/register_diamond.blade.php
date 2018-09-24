@@ -10,26 +10,19 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script>var STRIPE_KEY = "{{ config('services.stripe.key') }}";</script>
     <script src="/js/payment.js"></script>
+
     @if (session('success'))
         <script type="text/javascript">
             $(window).on('load',function(){
-                $('#success').modal('show');
+                $('#registry_finish').modal('show');
             });
         </script>
-        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
-                  <div class="modal-content rounded-0">
-                      <div class="modal-body">
-                          <p class="mb-0">ご登録ありがとうございます。</br>
-                            マイページより購入履歴がご確認できます。</br>
-                            何かご不明な事がありましたら、お問い合わせよりご連絡ください。</p>
-                      </div>
-                      <div class="modal-footer" style="padding: 0; justify-content:center;">
-                          <a href="{{ route('top') }}" class="btn">OK</a>
-                      </div>
-                  </div>
-              </div>
-        </div>
+    @elseif (Auth::check())
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#logined_warning_popup').modal('show');
+            });
+        </script>
     @endif
     <script type="text/javascript">
         $('#agree').change(function() {
@@ -282,4 +275,7 @@
         </div>
     </div>
 </div>
+@include('component.modal.auth.registry')
+@include('component.modal.auth.registry_finish')
+@include('component.modal.auth.spin')
 @endsection
