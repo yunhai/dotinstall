@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', 'お問い合わせ')
+@section('title', 'お問い合わせ | プログラミングＧＯ')
+@section('meta_description', 'お問い合わせ')
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('contact.contact'))
 <div id="content">
