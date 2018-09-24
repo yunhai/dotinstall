@@ -186,11 +186,11 @@
                                                 </div>
                                                 <hr>
                                                 <div class="@pc row-group @endpc">
-                                                    <label class="mar_b20">月額制:￥９８０円（税別）</label>
+                                                    <label class="mar_b20">月額制:￥{{ constant('MEMBERSHIP_FEE') }}円（税別）</label>
                                                     <div class="form-group">
                                                         <div>
                                                             <div class='container' id='card-holder'>
-                                                                <div class='row' @sp style="padding-bottom:2px" @endsp>
+                                                                <div class='row' @sp style="padding-top:2px" @endsp>
                                                                     <div id="card-number" class='@pc col-7 @endpc @sp col-7 @endsp card-element' @sp style="flex:0 0 60%; max-width:60%;" @endsp></div>
                                                                     <div id="card-expiry" class='@pc col-2 @endpc @sp col-3 @endsp card-element'></div>
                                                                     <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 35px;" @endpc @sp style="padding-right:5px;padding-left: 3px;" @endsp></div>
