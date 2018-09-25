@@ -7,7 +7,13 @@
                 <div class="row @pc align-items-center @endpc">
                     <div class="pc-card-sign card-sign p-0" id="pc-panel-left">
                         <!--<p class="card-text card-text-sign">無料レッスンもいっぱいご用意！</p>-->
-                        <p class="card-text card-text-sign last" style="padding-left:28px;">{!! nl2br($global_setting['page_caption']) !!}</p>
+                        <p class="card-text card-text-sign last" style="padding-left:28px;">
+                            @if (Auth::check())
+                            {!! nl2br($global_setting['page_caption_after_login']) !!}
+                            @else
+                            {!! nl2br($global_setting['page_caption_before_login']) !!}
+                            @endif
+                        </p>
                         @if (!Auth::check())
                         <!--<a href="{{ route('register') }}" class="card-sign-button">新規登録はこちら！</a>-->
                         <a href="{{ route('register.diamond') }}" class="card-sign-button" style="margin-top:0px;">新規登録はこちら！</a>
