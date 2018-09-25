@@ -47,4 +47,4 @@ INSERT INTO `settings` (`key`, `show_name`, `value`, `mode`, `type`, `created_us
 
 //180925:
 UPDATE `settings` SET `key` = 'page_caption_before_login', `deleted_at` = NULL WHERE `settings`.`id` = 2;
-INSERT INTO `settings` (`id`, `key`, `show_name`, `value`, `mode`, `type`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES (NULL, 'page_caption_after_login', 'Caption after login', 'Swiftレッスン動画見放題！\r\n月額￥５００円で学べる！', '1', '2', '1', '53', NOW(), , NOW(), NULL);
+INSERT INTO `settings` (`id`, `key`, `show_name`, `value`, `mode`, `type`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES (NULL, 'page_caption_after_login', 'Caption after login', 'Swiftレッスン動画見放題！\r\n月額￥５００円で学べる！', '1', '2', '1', '53', NOW(), NOW(), NULL);
