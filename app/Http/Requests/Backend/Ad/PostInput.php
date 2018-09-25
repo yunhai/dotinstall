@@ -14,6 +14,7 @@ class PostInput extends Base
             'media_id' => 'nullable',
             'type' => 'required|integer',
             'mode' => 'required|integer',
+            'login_mode' => 'required|integer',
         ];
     }
 }

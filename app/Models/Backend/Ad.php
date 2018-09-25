@@ -12,6 +12,7 @@ class Ad extends Base
         'media_id',
         'type',
         'mode',
+        'login_mode'
     ];
 
     public function media()

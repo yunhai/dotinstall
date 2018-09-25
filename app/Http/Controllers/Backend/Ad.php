@@ -77,6 +77,7 @@ class Ad extends Base
         return [
             'mode' => config('master.common.mode'),
             'type' => config('master.ad.type'),
+            'login_mode' => config('master.ad.login_mode'),
         ];
     }
 

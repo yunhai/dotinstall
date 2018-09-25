@@ -60,6 +60,13 @@
                 'field_value' => array_get($target, 'mode', ''),
                 'field_type' => 'radio',
                 'field_option' => $form['mode'],
+            ],
+            'login_mode' => [
+                'field_label' => 'LOGIN_MODE',
+                'field_name' => 'login_mode',
+                'field_value' => array_get($target, 'login_mode', ''),
+                'field_type' => 'radio',
+                'field_option' => $form['login_mode'],
             ]
         ],
     ];

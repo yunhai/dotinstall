@@ -49,8 +49,11 @@ class Top extends Base
 
         $announcement = $this->getAnnouncement();
 
+
         $model = new Ad();
-        $ad = $model->random();
+        $login_mode = Auth::id() ? AD_AFTER_LOGIN_MODE : AD_BEFORE_LOGIN_MODE;
+        $ad = $model->where('login_mode', $login_mode)->get()->random();
+        
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
     }
     

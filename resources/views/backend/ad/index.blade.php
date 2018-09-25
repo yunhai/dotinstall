@@ -20,6 +20,7 @@
                 '広告名',
                 'タイプ',
                 '公開状況',
+                'LOGIN_MODE',
                 '',
             ],
             'body' => [
@@ -37,6 +38,14 @@
                 'mode' => [
                     'field' => 'mode',
                     'option' => $form['mode'],
+                    'attr' => [
+                        'style' => 'width:10%',
+                        'class' => 'text-center'
+                    ]
+                ],
+                'login_mode' => [
+                    'field' => 'login_mode',
+                    'option' => $form['login_mode'],
                     'attr' => [
                         'style' => 'width:10%',
                         'class' => 'text-center'
