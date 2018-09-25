@@ -16,8 +16,10 @@ class Ad extends Base
 
     public function random($quantity = 1)
     {
+        $login_mode = \Auth::id() ? AD_AFTER_LOGIN_MODE : AD_BEFORE_LOGIN_MODE;
         $result = $this->with(['media'])
                     ->select('id', 'name', 'media_id', 'type', 'link')
+                    ->where('login_mode', $login_mode)
                     ->enable()
                     ->inRandomOrder()
                     ->first();
