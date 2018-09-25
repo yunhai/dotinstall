@@ -62,7 +62,7 @@
                 'field_option' => $form['mode'],
             ],
             'login_mode' => [
-                'field_label' => 'LOGIN_MODE',
+                'field_label' => 'ログン状況',
                 'field_name' => 'login_mode',
                 'field_value' => array_get($target, 'login_mode', ''),
                 'field_type' => 'radio',
