@@ -86,17 +86,19 @@ $('#j-submit').on('click', function(event) {
     $target = $(event.currentTarget)
 
     if ($('#agree').is(':checked')) {
+        $('#registry_spin_popup').modal('show');
         stripe.createToken(card).then(function(result) {
             if (result.error) {
-                var errorElement = document.getElementById('card-errors')
-                errorElement.textContent = result.error.message
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+                $('#registry_spin_popup').modal('hide');
             } else {
-                const enable = $target.data('enable')
+                const enable = $target.data('enable');
                 if (typeof enable === 'undefined') {
-                    stripeTokenHandler(result.token)
+                    stripeTokenHandler(result.token);
                 }
-                $target.attr('data-enable', 0)
+                $target.attr('data-enable', 0);
             }
-        })
+        });
     }
 })
