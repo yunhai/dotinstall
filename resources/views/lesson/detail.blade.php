@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', $target['name'])
+@section('title', $target['name'] . ' | プログラミングＧＯ')
+@section('meta_description', $target['name'])
 @section('breadcrumbs', Breadcrumbs::render('lesson.detail', $target['name']))
 @push('css')
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">

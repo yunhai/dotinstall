@@ -1,5 +1,8 @@
 @extends('layout.master')
-@section('title', 'プログラミングＧＯ')
+
+@section('title', $target['name'] . ' | プログラミングＧＯ')
+@section('meta_description', $target['name'])
+
 @php
     $page_intro = "【{$filter_form['difficulty'][$lessons['difficulty']]}】{$lessons['name']}　{$lessons['video_count']}本の動画で提供中";
 @endphp

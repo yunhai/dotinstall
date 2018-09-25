@@ -25,7 +25,7 @@ define('MAIL_SUBJECT_USER_ACTIVATION', 'メール認証');
 define('MAIL_SUBJECT_USER_RESET_PASSWORD', 'パスワード再設定手続きのご案内');
 define('MAIL_SUBJECT_CONTACT', 'お問い合わせ');
 
-define('MEMBERSHIP_FEE', 980);
+define('MEMBERSHIP_FEE', 500);
 
 define('MODE_CREATE', 1);
 define('MODE_EDIT', 2);

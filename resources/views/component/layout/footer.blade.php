@@ -4,17 +4,19 @@
             <div class="col-lg-6 col-md-6 text-center footer-container-left">
                 <h6 class="mar_b10" style="white-space: nowrap;">5分動画で実践的にプログラミングを習得！</h6>
                 <h4 class="title-widget">
-                    <a class="" href="/"><img class="img-logo" src="/img/footer.png" alt="cogwheel"></a>
+                    <a href="/" title="プログラミングゴーPrograming Go">
+                        <img class="img-logo" src="/img/footer.png" alt="プログラミングゴーPrograming Go">
+                    </a>
                 </h4>
             </div>
             <div class="col-lg-3 col-md-3">
                 <h6 class="title-widget">ご利用にあたって</h6>
                 <hr>
                 <ul class="pad_l20">
-                    <li class="pb-1"><a href="{{ route('terms') }}">利用規約</a></li>
-                    <li class="pb-1"><a href="{{ route('privacy') }}">プライバシーポリシー</a></li>
-                    <li class="pb-1"><a href="{{ route('company') }}">運営企業情報</a></li>
-                    <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
+                    <li class="pb-1"><a href="{{ route('terms') }}" title="利用規約">利用規約</a></li>
+                    <li class="pb-1"><a href="{{ route('privacy') }}" title="プライバシーポリシー">プライバシーポリシー</a></li>
+                    <li class="pb-1"><a href="{{ route('company') }}" title="運営企業情報">運営企業情報</a></li>
+                    <li><a href="{{ route('contact.contact') }}" title="お問い合わせ">お問い合わせ</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3">

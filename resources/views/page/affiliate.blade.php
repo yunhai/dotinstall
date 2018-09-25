@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', 'レッスン一覧')
+@section('title', 'アフィリエイト | プログラミングＧＯ')
+@section('meta_description', 'アフィリエイト')
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('affiliate'))
 <div id="content">
