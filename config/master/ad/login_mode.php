@@ -1,0 +1,6 @@
+<?php
+
+return [
+    AD_BEFORE_LOGIN_MODE => 'AD_BEFORE_LOGIN_MODE',
+    AD_AFTER_LOGIN_MODE => 'AD_AFTER_LOGIN_MODE',
+];
