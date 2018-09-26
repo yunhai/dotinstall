@@ -52,3 +52,5 @@ ALTER TABLE `ads` ADD `login_mode` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `
 
 //180926
 ALTER TABLE `settings` ADD `backend_mode` TINYINT(0) UNSIGNED NOT NULL DEFAULT '1' AFTER `type`;
+ALTER TABLE `lessons` ADD `name_alias` VARCHAR(256) NULL DEFAULT '' AFTER `video_count`;
+ALTER TABLE `lesson_details` ADD `name_alias` VARCHAR(256) NULL DEFAULT NULL AFTER `lesson_id`;
