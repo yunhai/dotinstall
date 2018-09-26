@@ -53,5 +53,11 @@ ALTER TABLE `ads` ADD `login_mode` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `
 
 
 //180926
-ALTER TABLE `lessons` ADD `name_alias` VARCHAR(256) NULL DEFAULT '' AFTER `learn_count`;
+ALTER TABLE `lessons` ADD `name_alias` VARCHAR(256) NULL DEFAULT '' AFTER `video_count`;
 ALTER TABLE `lesson_details` ADD `name_alias` VARCHAR(256) NULL DEFAULT NULL AFTER `lesson_id`;
+ALTER TABLE `lesson_details` CHANGE `name_alias` `name_alias` VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+ALTER TABLE `lessons` CHANGE `name_alias` `name_alias` VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+
+
+
+

@@ -15,7 +15,7 @@ class Setting extends Base
 
     public function getIndex()
     {
-        $data = $this->model->orderBy('id')->paginate(20);
+        $data = $this->model->orderBy('id')->where('backend_mode', MODE_ENABLE)->paginate(20);
         return $this->render('setting.index', compact('data'));
     }
 
