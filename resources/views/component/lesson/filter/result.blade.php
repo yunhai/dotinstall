@@ -53,8 +53,8 @@
                                 @endif
                                 <div class='lession--item'>
                                     <div class="lession--item__image">
-                                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']] ) }}" >
-                                            <img src='@media_path($poster)' width='@pc 140 @endpc @sp 120 @endsp' />
+                                        <a href="{{ route('lesson.detail', ['lesson_id' => $lesson['id']]) }}" >
+                                            <img src='@media_path($poster)' width='@pc 140 @endpc @sp 120 @endsp' alt="{{ $lesson['name_alias'] ?: $lesson['name'] }}"/>
                                         </a>
                                     </div>
                                     @sp
