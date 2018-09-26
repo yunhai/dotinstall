@@ -197,7 +197,7 @@
                                                 </div>
                                                 <hr>
                                                 <div class="@pc row-group @endpc">
-                                                    <label class="mar_b20">月額制:￥{{ constant('MEMBERSHIP_FEE') }}円（税別）</label>
+                                                    <label class="mar_b20">月額制:￥{{ constant('MEMBERSHIP_FEE') }}円（税込み）</label>
                                                     <div class="form-group">
                                                         <div>
                                                             <div class='container' id='card-holder'>
