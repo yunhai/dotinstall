@@ -23,7 +23,7 @@
         @php $path = $target['posters'][0]['path'] ?? ''; @endphp
         <a href="{{ route('lesson_detail.detail', ['lesson_id' => $target['lesson_id'], 'lesson_detail_id' => $target['id']]) }}" title="{{ $target['name'] }}" class="lesson_href" title="{{ $target['name'] }}" rel="nofollow">
         @if ($path)
-            <img class="card-img-top card-img-video" src="@media_path($path)" alt="{{ $target['name'] }}">
+            <img class="card-img-top card-img-video" src="@media_path($path)" alt="{{ $target['name_alias'] ?: $target['name'] }}">
         @else
             @php
                 $path = '';
