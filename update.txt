@@ -44,3 +44,6 @@ INSERT INTO `settings` (`key`, `show_name`, `value`, `mode`, `type`, `created_us
 ('total_enable_lesson', 'total enable lesson', '0', 1, 1, 1, 53, NOW(), NOW(), NULL),
 ('total_video', 'total video', '0', 1, 1, 1, 53, NOW(), NOW(), NULL),
 ('total_enable_video', 'total enable video', '0', 1, 1, 1, 53, NOW(), NOW(), NULL);
+
+//180926
+ALTER TABLE `settings` ADD `backend_mode` TINYINT(0) UNSIGNED NOT NULL DEFAULT '1' AFTER `type`;
