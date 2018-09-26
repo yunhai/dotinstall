@@ -125,4 +125,6 @@
         </div>
     </div>
 </div>
+
+@include('component.modal.auth.spin')
 @stop
