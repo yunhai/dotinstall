@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', 'マイページ')
+@section('title', 'マイページ | プログラミングＧＯ')
+@section('meta_description', 'マイページ')
 @section('content')
 @section('breadcrumbs', Breadcrumbs::render('mypage'))
 @php

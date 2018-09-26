@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', 'ログイン')
+@section('title', 'ログイン | プログラミングＧＯ')
+@section('meta_description', 'ログイン')
 @push('js')
     <script type="text/javascript">
         @if (session('error'))

@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', '新規登録')
+@section('title', '新規登録 | プログラミングＧＯ')
+@section('meta_description', '新規登録')
 @section('breadcrumbs', Breadcrumbs::render('register.diamond'))
 @push('css')
     <link rel="stylesheet" href="/css/payment.css">
@@ -9,26 +10,19 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script>var STRIPE_KEY = "{{ config('services.stripe.key') }}";</script>
     <script src="/js/payment.js"></script>
+
     @if (session('success'))
         <script type="text/javascript">
             $(window).on('load',function(){
-                $('#success').modal('show');
+                $('#registry_finish').modal('show');
             });
         </script>
-        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="success"  data-keyboard="false" data-backdrop="static">
-              <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
-                  <div class="modal-content rounded-0">
-                      <div class="modal-body">
-                          <p class="mb-0">ご登録ありがとうございます。</br>
-                            マイページより購入履歴がご確認できます。</br>
-                            何かご不明な事がありましたら、お問い合わせよりご連絡ください。</p>
-                      </div>
-                      <div class="modal-footer" style="padding: 0; justify-content:center;">
-                          <a href="{{ route('top') }}" class="btn">OK</a>
-                      </div>
-                  </div>
-              </div>
-        </div>
+    @elseif (Auth::check())
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#logined_warning_popup').modal('show');
+            });
+        </script>
     @endif
     <script type="text/javascript">
         $('#agree').change(function() {
@@ -76,7 +70,25 @@
             $provider_lbl = '';
         @endphp
     @endif
+
+    @sp
     <div class="box ttlCommon mb-0 px-5">{{ $provider_ttl }}</div>
+    @endsp
+    @pc
+    <div class="box ttlCommon mb-0 px-5">
+        <div class="card">
+            <div class="w-100 px-5 d-flex align-items-center">
+                <div class="col-5 pl-0 pr-0">
+                    <span>{{ $provider_ttl }}</span>
+                </div>
+                    <div class="col-7 pr-0 text-right">
+                        <span>レッスン一覧 {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+    @endpc
+
     <div class="box-user px-5">
         <div class="col-12 mar_t20 mar_b20 pl-0 pr-0">
             @if (!empty(app('request')->input('provider')))
@@ -185,11 +197,11 @@
                                                 </div>
                                                 <hr>
                                                 <div class="@pc row-group @endpc">
-                                                    <label class="mar_b20">月額制:￥９８０円（税別）</label>
+                                                    <label class="mar_b20">月額制:￥{{ constant('MEMBERSHIP_FEE') }}円（税込み）</label>
                                                     <div class="form-group">
                                                         <div>
                                                             <div class='container' id='card-holder'>
-                                                                <div class='row' @sp style="padding-bottom:2px" @endsp>
+                                                                <div class='row' @sp style="padding-top:2px" @endsp>
                                                                     <div id="card-number" class='@pc col-7 @endpc @sp col-7 @endsp card-element' @sp style="flex:0 0 60%; max-width:60%;" @endsp></div>
                                                                     <div id="card-expiry" class='@pc col-2 @endpc @sp col-3 @endsp card-element'></div>
                                                                     <div id="card-cvc" class='col card-element' @pc style="max-width:90%; padding-left: 35px;" @endpc @sp style="padding-right:5px;padding-left: 3px;" @endsp></div>
@@ -263,4 +275,7 @@
         </div>
     </div>
 </div>
+@include('component.modal.auth.registry')
+@include('component.modal.auth.registry_finish')
+@include('component.modal.auth.spin')
 @endsection

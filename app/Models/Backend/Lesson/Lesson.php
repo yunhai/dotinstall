@@ -5,6 +5,7 @@ namespace App\Models\Backend\Lesson;
 use App\Models\Backend\Base;
 use App\Models\Backend\Media;
 use App\Models\Backend\Lesson\LessonDetail\LessonDetail;
+use App\Models\Backend\Setting;
 
 class Lesson extends Base
 {
@@ -71,5 +72,21 @@ class Lesson extends Base
         $this->where('sort', '>', $target->sort)
              ->decrement('sort', 1);
         return true;
+    }
+
+    public function statLesson()
+    {
+        $list = $this->all()->toArray();
+
+        $total_lesson = count($list);
+        $total_enable_lesson = count(array_filter($list, function ($item) {
+            return $item['mode'] == MODE_ENABLE && $item['video_count'];
+        }));
+
+        $setting_model = new Setting();
+        $setting_model->where('key', 'total_lesson')
+                    ->update(['value' => $total_lesson]);
+        $setting_model->where('key', 'total_enable_lesson')
+                    ->update(['value' => $total_enable_lesson]);
     }
 }

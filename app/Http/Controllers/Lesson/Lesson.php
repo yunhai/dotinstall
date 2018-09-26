@@ -43,15 +43,13 @@ class Lesson extends Base
     {
         $lessons = $this->model->getLessons($fitler);
         $lesson_id = data_get($lessons, '*.id');
-        $lesson_info = [];
         if ($lessons) {
             $lessons = $this->lessonStat($lessons, $lesson_id);
             $lessons = $this->groupLesson($lessons);
-            $lesson_info = $this->lessonInfo($lessons);
         }
 
         $filter_form = $this->form($fitler);
-        return compact('lessons', 'lesson_info', 'filter_form');
+        return compact('lessons', 'filter_form');
     }
 
     private function lessonStat(array $lessons = [], array $lesson_id_list = [])
@@ -123,21 +121,6 @@ class Lesson extends Base
             }
         }
         return $result;
-    }
-
-    private function lessonInfo(array $lessons = [])
-    {
-        $lesson_total = $video_total = 0;
-        foreach ($lessons as $item) {
-            foreach ($item as $item_detail) {
-                $lesson_total += count($item_detail);
-                foreach ($item_detail as $detail) {
-                    $video_total += $detail['video_count'];
-                };
-            };
-        };
-
-        return compact('lesson_total', 'video_total');
     }
 
     public function getDetail($lesson_id)

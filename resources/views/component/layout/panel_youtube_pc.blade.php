@@ -1,6 +1,6 @@
 <div class="box box-panel mb-0">
     <div class="card">
-        <img class="card-img card-img-panel" src="/img/panel.jpg">
+        <img class="card-img card-img-panel" src="/img/panel.jpg" alt="パソコンで入力している画像">
         <div class="card-img-overlay px-5">
             <div class="card-body" @pc style="padding-top: .5rem; padding-left: 70px; padding-right: 70px;" @endpc>
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">{{ $global_setting['slogan'] }}</h5>
@@ -31,7 +31,7 @@
                                     @elseif ($item['type'] == YOUTUBE_TYPE_IMAGE)
                                         @php $path = $item['path'] ?? ''; @endphp
                                         <a href='{{ $item['url'] }}'>
-                                            <img src="@media_path($path)" width="480" height="240" />
+                                            <img src="@media_path($path)" width="480" height="240" alt="{{ $item['name'] }}"/>
                                         </a>
                                     @endif
                                 </div>

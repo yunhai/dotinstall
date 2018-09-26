@@ -21,7 +21,7 @@
                             @endphp
                             <div class="@pc col-2 @endpc @sp col-4 @endsp">
                                 <div class="card">
-                                    <img class="img-thumbnail" src="@media_path($path)" style="height: 78px;">
+                                    <img class="img-thumbnail" src="@media_path($path)" style="height: 78px;" alt="背景画像">
                                     <div class="card-body p-1">
                                         <p class="card-text text-center"><a href="{{ route('media.download', $media_id) }}">ダウンロード</a></p>
                                     </div>

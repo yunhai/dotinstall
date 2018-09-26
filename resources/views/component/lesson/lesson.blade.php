@@ -17,7 +17,7 @@
             </div>
             @pc
                 <div class="col-7 pr-0 text-right">
-                    <span>レッスン一覧 {{ isset($lesson_info['lesson_total']) ? $lesson_info['lesson_total'] : 0 }}レッスン　{{ isset($lesson_info['video_total']) ? $lesson_info['video_total'] : 0 }}本の動画で提供中</span>
+                    <span>レッスン一覧 {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</span>
                 </div>
             @endpc
         </div>

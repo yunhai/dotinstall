@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title', 'プログラミングＧＯ')
+@section('title', '子供から大人まで、動画で楽しく学べるプログラミングGO')
+@section('meta_description', '「プログラミングは苦手」「子共の将来の為にプログラミングを学ばなさい」と思っている方は、子供から大人まで、動画を見ながらiPhoneアプリの開発ができるプログラミングGO。無料会員ならアプリ開発言語「swift」のレッスン動画も見放題！')
 @push('css')
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
 @endpush
@@ -27,6 +28,7 @@
         <div class="card-lesson-total text-center">
             <p class="card-text">
                 <a href="javascript:;"
+                    rel="nofollow" 
                     class='j-paginate'
                     data-current_page='{{ $lessons['current_page'] }}'
                     data-last_page='{{ $lessons['last_page'] }}'

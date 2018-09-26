@@ -1,7 +1,9 @@
 <!-- /HEADER -->
 <h1 class="d-block px-5 py-2 mb-0 text-left text-bold text-white old-bv font_12">小学生から大人まで簡単な実戦でプログラミングを習得５分動画学習</h1>
 <nav class="navbar navbar-expand navbar-light px-5 pt-0 pb-0">
-    <a class="navbar-brand" href="/"><img class="img-logo" src="/img/logo_header.png" alt="cogwheel"></a>
+    <a class="navbar-brand" href="/">
+        <img class="img-logo" src="/img/logo_header.png" alt="プログラミングゴーPrograming Go">
+    </a>
 
     <div class="navbar-collapse">
         <ul class="navbar-nav ml-auto align-items-end">
@@ -17,7 +19,7 @@
                 -->
                 @endnormal_user
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="{{ route('lesson') }}">
+                    <a class="nav-link text-center" href="{{ route('lesson') }}" title="レッスン一覧">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
                         <span class="d-block">レッスン一覧</span>
                     </a>
@@ -25,7 +27,7 @@
 
                 <li class="nav-item nav-item-user dropdown">
                     <a class="nav-link text-center dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img class="img-user mb-2" src="/img/user.jpg" alt="">
+                        <img class="img-user mb-2" src="/img/user.jpg" alt="{{ $name }}">
                         <span class="d-block">{{ $name }}</span>
                     </a>
                     <div class="dropdown-menu rounded-0" style="right: 0; left: auto;">
@@ -41,7 +43,7 @@
                         </a>
                         @endif
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}">
+                        <a class="dropdown-item" href="{{ route('logout') }}" title="ログアウト">
                             <div class="dropdown-message font_12">ログアウト</div>
                         </a>
                     </div>
@@ -54,13 +56,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="{{ route('lesson') }}">
+                    <a class="nav-link text-center" href="{{ route('lesson') }}" title="レッスン一覧">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
                         <span class="d-block">レッスン一覧</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="/login">
+                    <a class="nav-link text-center" href="/login" title="ログイン">
                         <img class="img-user mb-2" src="/img/user.jpg" alt="ログイン">
                         <span class="d-block">ログイン</span>
                     </a>
