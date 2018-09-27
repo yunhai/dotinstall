@@ -33,7 +33,7 @@
                     data-current_page='{{ $lessons['current_page'] }}'
                     data-last_page='{{ $lessons['last_page'] }}'
                     data-url='{{ route('ajax.top.lesson') }}'>
-                    もっと見る
+                    全てのレッスンを見る（５０）
                 </a>
             </p>
         </div>

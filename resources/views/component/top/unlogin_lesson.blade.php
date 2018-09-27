@@ -3,7 +3,7 @@
     <div class="col-md-6 col-xs-6 text-right hidden-xs"><b>レッスン一覧</b> 〇〇レッスン　〇〇本の動画で提供中</div>
 </div>
 <div class="form__search row">
-    <div class="col-sm-2"></div>
+    <div class="col-md-2 col-sm-1"></div>
     <form class="form-inline">
         <div class="form-group">
             <label for="inputPassword6">段階</label>
@@ -28,7 +28,7 @@
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="動画検索" />
                     <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
+                        <button class="btn btn-info btn-lg" type="button" onclick="document.location.href='/search';">
                             検索
                         </button>
                     </span>
