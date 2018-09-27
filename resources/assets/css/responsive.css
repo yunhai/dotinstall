@@ -1,4 +1,7 @@
 @media only screen and (max-width: 768px) {
+	.form__search {
+		padding-left: 55px;
+	}
     .fields-left, .fields-right {
 	    padding-right: 15px;
 	    padding-left: 15px;
