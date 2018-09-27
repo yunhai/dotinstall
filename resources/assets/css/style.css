@@ -244,8 +244,8 @@ body {
     margin-top: 10%;
 }
 .box .card-lesson-total {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 170px;
+    padding-bottom: 30px;
 }
 .card-body hr {
     border-top: 1px solid #bca9af;
@@ -698,3 +698,184 @@ body {
     margin-top: 10px; 
     padding-top: 15px; 
 }
+.title__gray {
+    background: #ece8e9;
+}
+.title__gray a {
+    color: #33a6ff;
+}
+.title-gray--50 {
+    line-height: 50px;
+}
+/* oOo*/
+
+/* form__search */
+.form__search form{
+    padding: 20px 0;
+}
+.form__search form .form-group {
+    margin-left: 20px;
+}
+#pg-search-input {
+    padding: 0px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#pg-search-input .input-group {
+    padding: 0;
+}
+#pg-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#pg-search-input button{
+    margin: 0;
+    background: #837f80;
+    box-shadow: none;
+    border: 0;
+    color: #fff;
+    height: 100%
+}
+
+#pg-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#pg-search-input .glyphicon-search{
+    font-size: 23px;
+}
+/* !form__search */
+/* blog */
+.blog-group {
+    margin-bottom: 20px;
+}
+.blog-group .blog {
+    display: flex; /* equal height of the children */
+}
+.blog-group .col-md-6 {
+    flex: 1;
+}
+.blog_title {
+    color: #fff;
+    height: 122px;
+    padding-top: 30px;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 1.6rem;
+    margin: -1px -1px 0 -1px;
+}
+.blog_title_bottom {
+    background: #eaeaea;
+    font-size: 14px;
+    line-height: 45px;
+}
+.blog_title.pink {
+    background: url(../img/title-pink.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.blog_title.blue {
+    background: url(../img/title-blue.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.blog_title.pastel-green {
+    background: url(../img/title-pastel-green.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.blog_title.orange {
+    background: url(../img/title-orange.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.blog-content {
+    border: 1px solid #b7b7b7;
+    margin-top: 10px;
+    height: 100%;
+    min-height: 710px;
+}
+ul.list-content {
+    list-style: none;
+    padding: 0 10px;
+}
+ul.list-content li {
+    border-bottom: 1px solid #000;
+    padding: 15px;
+}
+/* ! blog */
+/* result-search */
+.result-search {
+    padding: 0 30px;
+}
+.result-search .row
+{
+    padding: 20px 0;
+    border-bottom: 1px solid #837f80;
+}
+.title-resultSearch {
+    background: #77e3f8;
+    line-height: 45px;
+    color: #fff;
+    text-align: center;
+}
+.result-search .row div.search-content {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 3px;
+    padding-left: 15px;
+}
+.i__color__result {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    color: #fff;
+    padding-top: 15px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-shadow: 0px 0px 11px 0px rgba(156,156,156,1);
+    -moz-box-shadow: 0px 0px 11px 0px rgba(156,156,156,1);
+    box-shadow: 0px 0px 11px 0px rgba(156,156,156,1);
+    float: left;
+}
+.i__color__result.pink {
+    background: linear-gradient(#ff92dc, #ff498a);
+}
+.i__color__result.blue {
+    background: linear-gradient(#30d3fe, #0270eb);
+}
+.i__color__result.pastel-green {
+    background: linear-gradient(#9cf2c3, #7cefb0);
+}
+.i__color__result.orange {
+    background: linear-gradient(#ff9f3e, #ff7001);
+}
+/* !result-search */
+/* fields 2 column */
+.fields-left {
+    padding-right: 3.5px;
+    padding-left: 10px;
+}
+.fields-right {
+    padding-left: 3.5px;
+    padding-right: 10px;
+}
+/* !fields 2 column */
+/* button */
+.btn-action {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.btn-action button {
+    background: linear-gradient(#2fd2fe, #016fea);
+    padding: 10px 60px;
+    -webkit-box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
+    -moz-box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
+    box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+/* !button */
+/**/
