@@ -23,23 +23,13 @@
     <div id='j-lessonList'>
         @include('component.top.unlogin_lesson', ['lessons' => $lessons])
     </div>
-    @if($lessons['last_page'])
-    <div class="box mb-0" id='j-lessonListPaginator'>
+    <div class="box mb-0">
         <div class="card-lesson-total text-center">
             <p class="card-text">
-                <a href="javascript:;"
-                    rel="nofollow" 
-                    class='j-paginate'
-                    data-current_page='{{ $lessons['current_page'] }}'
-                    data-last_page='{{ $lessons['last_page'] }}'
-                    data-url='{{ route('ajax.top.lesson') }}'>
-                    全てのレッスンを見る（５０）
+                <a href="{{ route('lesson') }}" title="全てのレッスンを見る">
+                    全てのレッスンを見る（{{ $global_setting['total_enable_lesson'] }}）
                 </a>
             </p>
         </div>
     </div>
-    @endif
-
-    @include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
-    @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @stop
