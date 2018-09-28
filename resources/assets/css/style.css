@@ -878,3 +878,6 @@ ul.list-content li {
 }
 /* !button */
 /**/
+.pull-right {
+  float: right;
+}
