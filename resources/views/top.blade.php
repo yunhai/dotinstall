@@ -17,19 +17,10 @@
 
 @section('content')
     @include('component.top.panel', ['youtube_link' => $youtube_link])
-    @pc 
+    @pc
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
     <div id='j-lessonList'>
         @include('component.top.unlogin_lesson', ['lessons' => $lessons])
-    </div>
-    <div class="box mb-0">
-        <div class="card-lesson-total text-center">
-            <p class="card-text">
-                <a href="{{ route('lesson') }}" title="全てのレッスンを見る">
-                    全てのレッスンを見る（{{ $global_setting['total_enable_lesson'] }}）
-                </a>
-            </p>
-        </div>
     </div>
 @stop
