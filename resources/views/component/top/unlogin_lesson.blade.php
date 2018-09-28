@@ -54,9 +54,8 @@
                             <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                                 {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                             </a>
-                            <div class="clearfix"></div>
                         </div>
-                        <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
+                        <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0">
                             @if (!empty(Auth::check()))
                                 @if ($item['is_finished'])
                                     全て完了
@@ -67,6 +66,7 @@
                                 完了 / 0
                             @endif
                         </div>
+                        <div class="clearfix"></div>
                     </li>
                     @endforeach
                 </ul>
@@ -83,7 +83,6 @@
                             <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                                 {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                             </a>
-                            <div class="clearfix"></div>
                         </div>
                         <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                             @if (!empty(Auth::check()))
@@ -96,6 +95,7 @@
                                 完了 / 0
                             @endif
                         </div>
+                        <div class="clearfix"></div>
                     </li>
                     @endforeach
                 </ul>
@@ -116,7 +116,6 @@
                             <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                                 {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                             </a>
-                            <div class="clearfix"></div>
                         </div>
                         <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                             @if (!empty(Auth::check()))
@@ -129,6 +128,7 @@
                                 完了 / 0
                             @endif
                         </div>
+                        <div class="clearfix"></div>
                     </li>
                     @endforeach
                 </ul>
@@ -145,7 +145,6 @@
                                 <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                                     {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                                 </a>
-                                <div class="clearfix"></div>
                             </div>
                             <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                                 @if (!empty(Auth::check()))
@@ -158,6 +157,7 @@
                                     完了 / 0
                                 @endif
                             </div>
+                            <div class="clearfix"></div>
                         </li>
                     @endforeach
                 </ul>
