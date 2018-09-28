@@ -6,7 +6,7 @@
     <div class="col-md-2 col-sm-1"></div>
     <form class="form-inline">
         <div class="form-group">
-            <label for="inputPassword6">段階</label>
+            <label for="">段階</label>
             <select class="form-control mx-sm-3" id="inlineFormCustomSelect">
                 <option selected>初級編</option>
                 <option value="1">One</option>
@@ -15,7 +15,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="inputPassword6">カテゴリ</label>
+            <label for="">カテゴリ</label>
             <select class="form-control mx-sm-3" id="inlineFormCustomSelect">
                 <option selected>ＩＯＳアプリ</option>
                 <option value="1">One</option>
@@ -39,7 +39,7 @@
 </div>
 <div class="row title__gray title-gray--50">
     <div class="col-md-6 col-xs-6">簡単な実戦でプログラムを覚えよう！</div>
-    <div class="col-md-6 col-xs-6 text-right hidden-xs"><b> レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
+    <div class="col-md-6 col-xs-6 text-right hidden-xs"></div>
 </div>
 <div class="blog-group">
     <div class="row blog">

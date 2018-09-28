@@ -244,7 +244,7 @@ body {
     margin-top: 10%;
 }
 .box .card-lesson-total {
-    padding-top: 170px;
+    padding-top: 20px;
     padding-bottom: 30px;
 }
 .card-body hr {
@@ -705,7 +705,7 @@ body {
     color: #33a6ff;
 }
 .title-gray--50 {
-    line-height: 50px;
+    padding: 16px 15px
 }
 /* oOo*/
 
@@ -716,9 +716,12 @@ body {
 .form__search form .form-group {
     margin-left: 20px;
 }
+.form__search select {
+    border: solid 1px #837f80;
+}
 #pg-search-input {
     padding: 0px;
-    border: solid 1px #E4E4E4;
+    border: solid 1px #837f80;
     border-radius: 6px;
     background-color: #fff;
 }
@@ -738,12 +741,9 @@ body {
     border: 0;
     color: #fff;
     height: 100%
-}
-
-#pg-search-input button:hover{
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding-right: 0.9rem;
 }
 
 #pg-search-input .glyphicon-search{
@@ -766,13 +766,13 @@ body {
     padding-top: 30px;
     margin-bottom: 0;
     font-weight: normal;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin: -1px -1px 0 -1px;
 }
 .blog_title_bottom {
     background: #eaeaea;
     font-size: 14px;
-    line-height: 45px;
+    padding: 15px 10px;
 }
 .blog_title.pink {
     background: url(../img/title-pink.jpg) no-repeat;
