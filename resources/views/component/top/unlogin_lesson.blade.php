@@ -49,11 +49,14 @@
                 <h2 class="blog_title_bottom pink text-center">swiftを基礎からマスターしよう！子供～大人の方</h2>
                 <ul class="list-content">
                     @foreach ($lessons[LESSON_DIFFICULTY_NEWBIE] as $item)
-                    <li>
-                        <a href="{{ route('lesson.detail', ['id' => $item['id']]) }}" title="{{ $item['name'] }}">
-                            {{ $item['name'] }}（全{{ $item['video_count'] }}回）
-                        </a>
-                        <span class="pull-right">
+                    <li class="list-group-item list-group-item-lesson px-0">
+                        <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
+                            <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                                {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
                             @if (!empty(Auth::check()))
                                 @if ($item['is_finished'])
                                     全て完了
@@ -63,7 +66,7 @@
                             @else
                                 完了 / 0
                             @endif
-                        </span>
+                        </div>
                     </li>
                     @endforeach
                 </ul>
@@ -75,7 +78,25 @@
                 <h2 class="blog_title_bottom pink text-center">解らない事があったらGoogleで検索する力も身につけよう</h2>
                 <ul class="list-content">
                     @foreach ($lessons[LESSON_DIFFICULTY_BEGINNER] as $item)
-                    <li><a href="{{ route('lesson.detail', ['id' => $item['id']]) }}" title="{{ $item['name'] }}">{{ $item['name'] }}（全{{ $item['video_count'] }}回）</a><span class="pull-right">完了 / 0</span></li>
+                    <li class="list-group-item list-group-item-lesson px-0">
+                        <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
+                            <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                                {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
+                            @if (!empty(Auth::check()))
+                                @if ($item['is_finished'])
+                                    全て完了
+                                @else
+                                    完了 / {{ $item['lesson_detail_close_count'] }}
+                                @endif
+                            @else
+                                完了 / 0
+                            @endif
+                        </div>
+                    </li>
                     @endforeach
                 </ul>
             </div>
@@ -90,7 +111,25 @@
                 <h2 class="blog_title_bottom text-center">swiftを基礎からマスターしよう！子供～大人の方</h2>
                 <ul class="list-content">
                     @foreach ($lessons[LESSON_DIFFICULTY_INTERMEDIATE] as $item)
-                    <li><a href="{{ route('lesson.detail', ['id' => $item['id']]) }}" title="{{ $item['name'] }}">{{ $item['name'] }}（全{{ $item['video_count'] }}回）</a><span class="pull-right">完了 / 0</span></li>
+                    <li class="list-group-item list-group-item-lesson px-0">
+                        <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
+                            <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                                {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
+                            @if (!empty(Auth::check()))
+                                @if ($item['is_finished'])
+                                    全て完了
+                                @else
+                                    完了 / {{ $item['lesson_detail_close_count'] }}
+                                @endif
+                            @else
+                                完了 / 0
+                            @endif
+                        </div>
+                    </li>
                     @endforeach
                 </ul>
             </div>
@@ -99,9 +138,27 @@
             <div class="blog-content">
                 <h2 class="blog_title orange text-center">swift入門<br>上級コース　</h2>
                 <h2 class="blog_title_bottom text-center">解らない事があったらGoogleで検索する力も身につけよう</h2>
-                <ul class="list-content">
+                <ul class="list-group w-100 list-content">
                     @foreach ($lessons[LESSON_DIFFICULTY_ADVANCE] as $item)
-                        <li><a href="{{ route('lesson.detail', ['id' => $item['id']]) }}" title="{{ $item['name'] }}">{{ $item['name'] }}（全{{ $item['video_count'] }}回）</a><span class="pull-right">完了 / 0</span></li>
+                        <li class="list-group-item list-group-item-lesson px-0">
+                            <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
+                                <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                                    {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                                </a>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
+                                @if (!empty(Auth::check()))
+                                    @if ($item['is_finished'])
+                                        全て完了
+                                    @else
+                                        完了 / {{ $item['lesson_detail_close_count'] }}
+                                    @endif
+                                @else
+                                    完了 / 0
+                                @endif
+                            </div>
+                        </li>
                     @endforeach
                 </ul>
             </div>
