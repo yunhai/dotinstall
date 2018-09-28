@@ -181,15 +181,15 @@ body #pc-col-7 {
     display: table;
 }
 .lession--item__image {
-    width: 140px; 
+    width: 140px;
     height: 100%;
     margin: 0 20px 5px 0;
     float: left;
 }
 .lesson--item__learning_count {
-    margin-top: 3px; 
+    margin-top: 3px;
     display: block;
-    width: 140px; 
+    width: 140px;
     text-align:center;
 }
 .lesson--item__caption {
@@ -247,7 +247,8 @@ body #pc-col-7 {
 .notice-content--ad {
     padding: 0;
     width: 300px;
-    height: auto;
+    height: 250px;
+    overflow: hidden;
     border: solid 1px #fff;
     overflow: hidden;
     display: inline-block;
