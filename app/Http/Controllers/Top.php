@@ -53,6 +53,30 @@ class Top extends Base
         $ad = $model->random();
         return $this->render('top', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
     }
+
+    public function search(Request $request) 
+    {
+        $input = $request->all();
+
+        if (!empty($input['token'])) {
+            $affiliator_token = $input['token'];
+            session(compact('affiliator_token'));
+        }
+
+        $user_id = Auth::id() ?: 0;
+        $filter_form = $this->filterForm($input);
+        $lesson_info = [];
+        $lessons = $this->getUnLogInLesson();
+
+        $youtube_link = $this->youtube_link->random();
+        shuffle($youtube_link);
+
+        $announcement = $this->getAnnouncement();
+
+        $model = new Ad();
+        $ad = $model->random();
+        return $this->render('search', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
+    }
     
     private function getAnnouncement()
     {

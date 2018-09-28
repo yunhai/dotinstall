@@ -21,7 +21,10 @@
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
     <div id='j-lessonList'>
-        @include('component.top.unlogin_lesson', ['lessons' => $lessons])
+        @include('component.top.search', ['lessons' => $lessons])
+    </div>
+    <div class="btn-action text-center">
+        <button id="j-submit" type="submit" class="btn btn-lg btn-primary">新規登録はこちら</button>
     </div>
     @if($lessons['last_page'])
     <div class="box mb-0" id='j-lessonListPaginator'>
@@ -39,7 +42,6 @@
         </div>
     </div>
     @endif
-
     @include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
     @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @stop

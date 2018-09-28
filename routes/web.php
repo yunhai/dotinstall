@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::get('', 'Top@index')->name('top');
+Route::get('search', 'Top@search')->name('search');
 Route::get('?token={token}', 'Top@index')->name('landing_page');
 
 Route::post('login', 'Auth\LoginController@postLogin');
