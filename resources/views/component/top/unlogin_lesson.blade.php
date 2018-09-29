@@ -55,12 +55,12 @@
               <ul class="list-group w-100 list-content">
                   @foreach ($lessons[LESSON_DIFFICULTY_NEWBIE] as $item)
                   <li class="top-category--item px-0">
-                      <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
+                      <div class="px-0" style='padding-top: 5px;'>
                           <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                               {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                           </a>
                       </div>
-                      <div class="top-category--item__right @pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
+                      <div class="top-category--item__right @sp col-sm-12 @endsp px-0">
                           @if (!empty(Auth::check()))
                               @if ($item['is_finished'])
                                   全て完了
@@ -89,12 +89,12 @@
               <ul class="list-group w-100 list-content">
                   @foreach ($lessons[LESSON_DIFFICULTY_BEGINNER] as $item)
                   <li class="top-category--item px-0">
-                      <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
+                      <div class="px-0" style='padding-top: 5px;'>
                           <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                               {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                           </a>
                       </div>
-                      <div class="top-category--item__right @pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
+                      <div class="top-category--item__right @sp col-sm-12 @endsp px-0">
                           @if (!empty(Auth::check()))
                               @if ($item['is_finished'])
                                   全て完了
@@ -126,25 +126,25 @@
               <span class="blog_title_bottom text-center">コードを書くのが一番近道！頑張ろう！</span>
               <ul class="list-group w-100 list-content">
                   @foreach ($lessons[LESSON_DIFFICULTY_INTERMEDIATE] as $item)
-                      <li class="top-category--item px-0">
-                          <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
-                              <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
-                                  {{ $item['name'] }}（全{{ $item['video_count'] }}回）
-                              </a>
-                          </div>
-                          <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
-                              @if (!empty(Auth::check()))
-                                  @if ($item['is_finished'])
-                                      全て完了
-                                  @else
-                                      完了 / {{ $item['lesson_detail_close_count'] }}
-                                  @endif
+                  <li class="top-category--item px-0">
+                      <div class="px-0" style='padding-top: 5px;'>
+                          <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                              {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                          </a>
+                      </div>
+                      <div class="top-category--item__right @sp col-sm-12 @endsp px-0">
+                          @if (!empty(Auth::check()))
+                              @if ($item['is_finished'])
+                                  全て完了
                               @else
-                                  完了 / 0
+                                  完了 / {{ $item['lesson_detail_close_count'] }}
                               @endif
-                          </div>
-                          <div class="clearfix"></div>
-                      </li>
+                          @else
+                              完了 / 0
+                          @endif
+                      </div>
+                      <div class="clearfix"></div>
+                  </li>
                   @endforeach
               </ul>
           </div>
