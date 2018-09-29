@@ -271,6 +271,12 @@ body #pc-col-7 {
     vertical-align:middle;
     margin-right: 5px;
 }
+.form__search form{
+    padding: 20px 0;
+}
+.form__search form .form-group {
+    margin-left: 20px;
+}
 .top-category--item{
   display:table;
   height:100%;

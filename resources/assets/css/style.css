@@ -709,12 +709,6 @@ body {
 /* oOo*/
 
 /* form__search */
-.form__search form{
-    padding: 20px 0;
-}
-.form__search form .form-group {
-    margin-left: 20px;
-}
 .form__search select {
     border: solid 1px #ece8e9;
     padding-right: 10px;

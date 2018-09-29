@@ -15,7 +15,6 @@
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/responsive.css" media="all" rel="stylesheet" type="text/css" />
         @pc
             <link href="/css/pc.css" media="all" rel="stylesheet" type="text/css" />
         @endpc

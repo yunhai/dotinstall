@@ -3,8 +3,8 @@
     <div class="col-md-6 col-xs-6 text-right hidden-xs"><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
 </div>
 <div class="form__search row">
-    <div class="col-md-2 col-sm-1"></div>
-    <form class="form-inline top-search">
+    <form class="@pc offset-md-2 form-inline @endpc @sp col-sm-12 @endsp top-search">
+      @pc
         <div class="form-group">
             <label for="">段階</label>
             <select class="form-control mx-sm-3" id="inlineFormCustomSelect">
@@ -23,6 +23,7 @@
                 <option value="3">Three</option>
             </select>
         </div>
+        @endpc
         <div class="form-group">
             <div id="pg-search-input">
                 <div class="input-group col-md-12">

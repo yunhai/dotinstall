@@ -317,3 +317,23 @@ html, body {
     max-width: 23px;
     height: auto;
 }
+
+.fields-left, .fields-right {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.blog-group .blog {
+    display: block;
+}
+.blog-group .col-md-6 {
+    flex: 1;
+}
+.hidden-xs {
+  display: none;
+}
+.form__search form{
+    padding: 10px 0;
+}
+.form__search form .form-group {
+    margin: 0 20px;
+}
