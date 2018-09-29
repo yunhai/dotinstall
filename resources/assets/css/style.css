@@ -747,8 +747,8 @@ body {
     border: 0;
     color: #fff;
     height: 100%;
-    border-radius: .25rem;
-    padding: 3px 10px 0px
+    border-radius: 3px;
+    padding: 3px 10px 0px;
 }
 
 #pg-search-input .glyphicon-search{
