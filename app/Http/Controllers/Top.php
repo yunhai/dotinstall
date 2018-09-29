@@ -43,7 +43,7 @@ class Top extends Base
         $filter_form = $this->filterForm($input);
         $lesson_info = [];
         $lessons = $this->getUnLogInLesson();
-
+        
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
 
