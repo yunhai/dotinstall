@@ -26,9 +26,9 @@
         <div class="form-group">
             <div id="pg-search-input">
                 <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg top-search--keyword" placeholder="動画検索" />
+                    <input type="text" class="form-control input-lg top-search--keyword" placeholder="動画検索" style='margin-top: 5px;'/>
                     <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
+                        <button class="btn btn-info btn-lg" type="button" >
                             検索
                         </button>
                     </span>
