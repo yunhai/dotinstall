@@ -97,7 +97,7 @@ body {
     color: #fff;
 }
 .btn-facebook {
-	display: flex;
+    display: flex;
     align-items: end;
     color: #fff;
     background-color: #3b579d;
@@ -111,7 +111,7 @@ body {
 	margin-top: -2px;
 }
 .btn-facebook span img {
-	vertical-align: top;
+	  vertical-align: top;
     width: 12px;
     display: inline-block;
 }
@@ -719,24 +719,33 @@ body {
     border: solid 1px #ece8e9;
     padding-right: 10px;
     padding-top: 8px;
-    color: #aaa;
+    color: #888;
 }
 #pg-search-input {
     padding: 0px;
     border: solid 1px #ece8e9;
-    border-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-radius: .25rem;
     background-color: #fff;
 }
 #pg-search-input .input-group {
     padding: 0;
 }
-#pg-search-input input{
+#pg-search-input input {
     border: 0;
     box-shadow: none;
-    color: #aaa;
 }
+.top-search--keyword {
+    color: #888 !important;
+}
+.top-search--keyword::placeholder {
+  color: #888;
+}
+.top-search--keyword::-webkit-input-placeholder { color: #888 !important; }  /* WebKit, Blink, Edge */
+.top-search--keyword:-moz-placeholder { color: #888 !important; }  /* Mozilla Firefox 4 to 18 */
+.top-search--keyword::-moz-placeholder { color: #888 !important; }  /* Mozilla Firefox 19+ */
+.top-search--keyword:-ms-input-placeholder { color: #888 !important; }  /* Internet Explorer 10-11 */
+.top-search--keyword::-ms-input-placeholder { color: #888 !important; }  /* Microsoft Edge */
+
 #pg-search-input button{
     margin: 0;
     background: #837f80;
@@ -744,11 +753,8 @@ body {
     border: 0;
     color: #fff;
     height: 100%;
-    border-radius: 6px;
-    padding-right: 0.9rem;
-}
-.top-search .form-control {
-  /* border-radius: 1px; */
+    border-radius: .25rem;
+    padding: 3px 10px 0px
 }
 
 #pg-search-input .glyphicon-search{
@@ -894,10 +900,10 @@ ul.list-content li {
     padding-left: 10px !important;
 }
 .top-category--item__level{
-  display: block;
-  font-size: 1.2rem;
-  text-align: center;
-  width: 100%;
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
 }
 .top-category--item__title{
     text-align: center;

@@ -1,5 +1,5 @@
 <div class="row title__gray title-gray--50">
-    <div class="col-md-6 col-xs-6"><a href="#">トップ　/　レッスン一覧</a></div>
+    <div class="col-md-6 col-xs-6" style='margin-top: 3px;'><a href="#">トップ　/　レッスン一覧</a></div>
     <div class="col-md-6 col-xs-6 text-right hidden-xs"><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
 </div>
 <div class="form__search row">
@@ -26,7 +26,7 @@
         <div class="form-group">
             <div id="pg-search-input">
                 <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="動画検索" />
+                    <input type="text" class="form-control input-lg top-search--keyword" placeholder="動画検索" />
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button">
                             検索
@@ -38,7 +38,7 @@
     </form>
 </div>
 <div class="row title__gray title-gray--50">
-    <div class="col-md-6 col-xs-6">簡単な実戦でプログラムを覚えよう！</div>
+    <div class="col-md-6 col-xs-6" style='margin-top: 3px;'>簡単な実戦でプログラムを覚えよう！</div>
     <div class="col-md-6 col-xs-6 text-right hidden-xs"></div>
 </div>
 <div class="blog-group">
@@ -54,25 +54,25 @@
               <span class="blog_title_bottom text-center">swiftを基礎からマスターしよう！子供～大人の方</span>
               <ul class="list-group w-100 list-content">
                   @foreach ($lessons[LESSON_DIFFICULTY_NEWBIE] as $item)
-                      <li class="top-category--item px-0">
-                          <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
-                              <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
-                                  {{ $item['name'] }}（全{{ $item['video_count'] }}回）
-                              </a>
-                          </div>
-                          <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
-                              @if (!empty(Auth::check()))
-                                  @if ($item['is_finished'])
-                                      全て完了
-                                  @else
-                                      完了 / {{ $item['lesson_detail_close_count'] }}
-                                  @endif
+                  <li class="top-category--item px-0">
+                      <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
+                          <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                              {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                          </a>
+                      </div>
+                      <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
+                          @if (!empty(Auth::check()))
+                              @if ($item['is_finished'])
+                                  全て完了
                               @else
-                                  完了 / 0
+                                  完了 / {{ $item['lesson_detail_close_count'] }}
                               @endif
-                          </div>
-                          <div class="clearfix"></div>
-                      </li>
+                          @else
+                              完了 / 0
+                          @endif
+                      </div>
+                      <div class="clearfix"></div>
+                  </li>
                   @endforeach
               </ul>
           </div>
@@ -88,31 +88,28 @@
               <span class="blog_title_bottom text-center">覚えるまで何度もコードを書いてみよう</span>
               <ul class="list-group w-100 list-content">
                   @foreach ($lessons[LESSON_DIFFICULTY_BEGINNER] as $item)
-                      <li class="top-category--item px-0">
-                          <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
-                              <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
-                                  {{ $item['name'] }}（全{{ $item['video_count'] }}回）
-                              </a>
-                          </div>
-                          <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
-                              @if (!empty(Auth::check()))
-                                  @if ($item['is_finished'])
-                                      全て完了
-                                  @else
-                                      完了 / {{ $item['lesson_detail_close_count'] }}
-                                  @endif
+                  <li class="top-category--item px-0">
+                      <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
+                          <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                              {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                          </a>
+                      </div>
+                      <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
+                          @if (!empty(Auth::check()))
+                              @if ($item['is_finished'])
+                                  全て完了
                               @else
-                                  完了 / 0
+                                  完了 / {{ $item['lesson_detail_close_count'] }}
                               @endif
-                          </div>
-                          <div class="clearfix"></div>
-                      </li>
+                          @else
+                              完了 / 0
+                          @endif
+                      </div>
+                      <div class="clearfix"></div>
+                  </li>
                   @endforeach
               </ul>
           </div>
-
-
-
         </div>
     </div>
 </div>
@@ -130,12 +127,12 @@
               <ul class="list-group w-100 list-content">
                   @foreach ($lessons[LESSON_DIFFICULTY_INTERMEDIATE] as $item)
                       <li class="top-category--item px-0">
-                          <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
+                          <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
                               <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                                   {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                               </a>
                           </div>
-                          <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
+                          <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
                               @if (!empty(Auth::check()))
                                   @if ($item['is_finished'])
                                       全て完了
@@ -163,25 +160,25 @@
                 <span class="blog_title_bottom text-center">解からないことがあったらGoogleで検索する力も身につけよう</span>
                 <ul class="list-group w-100 list-content">
                     @foreach ($lessons[LESSON_DIFFICULTY_ADVANCE] as $item)
-                        <li class="top-category--item px-0">
-                            <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0">
-                                <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
-                                    {{ $item['name'] }}（全{{ $item['video_count'] }}回）
-                                </a>
-                            </div>
-                            <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
-                                @if (!empty(Auth::check()))
-                                    @if ($item['is_finished'])
-                                        全て完了
-                                    @else
-                                        完了 / {{ $item['lesson_detail_close_count'] }}
-                                    @endif
+                    <li class="top-category--item px-0">
+                        <div class="@pc col-9 float-left @endpc @sp col-12 @endsp px-0" style='padding-top: 5px;'>
+                            <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
+                                {{ $item['name'] }}（全{{ $item['video_count'] }}回）
+                            </a>
+                        </div>
+                        <div class="@pc col-3 text-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;color: #888;">
+                            @if (!empty(Auth::check()))
+                                @if ($item['is_finished'])
+                                    全て完了
                                 @else
-                                    完了 / 0
+                                    完了 / {{ $item['lesson_detail_close_count'] }}
                                 @endif
-                            </div>
-                            <div class="clearfix"></div>
-                        </li>
+                            @else
+                                完了 / 0
+                            @endif
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
                     @endforeach
                 </ul>
             </div>
