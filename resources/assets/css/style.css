@@ -913,3 +913,9 @@ ul.list-content li {
 .top-category--item:last-of-type {
     border-bottom: none;
 }
+.top-category--item__right {
+  padding-right:15px !important;
+  color: #888;
+  width: 100px;
+  overflow: hidden;
+}
