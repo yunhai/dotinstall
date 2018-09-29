@@ -719,7 +719,7 @@ body {
     border: solid 1px #ece8e9;
     padding-right: 10px;
     padding-top: 8px;
-    color: #888;
+    color: #555 !important;
 }
 #pg-search-input {
     padding: 0px;
@@ -735,16 +735,16 @@ body {
     box-shadow: none;
 }
 .top-search--keyword {
-    color: #888 !important;
+    color: #555 !important;
 }
 .top-search--keyword::placeholder {
-  color: #888;
+    color: #555 !important;
 }
-.top-search--keyword::-webkit-input-placeholder { color: #888 !important; }  /* WebKit, Blink, Edge */
-.top-search--keyword:-moz-placeholder { color: #888 !important; }  /* Mozilla Firefox 4 to 18 */
-.top-search--keyword::-moz-placeholder { color: #888 !important; }  /* Mozilla Firefox 19+ */
-.top-search--keyword:-ms-input-placeholder { color: #888 !important; }  /* Internet Explorer 10-11 */
-.top-search--keyword::-ms-input-placeholder { color: #888 !important; }  /* Microsoft Edge */
+.top-search--keyword::-webkit-input-placeholder { color: #555 !important; }  /* WebKit, Blink, Edge */
+.top-search--keyword:-moz-placeholder { color: #555 !important; }  /* Mozilla Firefox 4 to 18 */
+.top-search--keyword::-moz-placeholder { color: #555 !important; }  /* Mozilla Firefox 19+ */
+.top-search--keyword:-ms-input-placeholder { color: #555 !important; }  /* Internet Explorer 10-11 */
+.top-search--keyword::-ms-input-placeholder { color: #555 !important; }  /* Microsoft Edge */
 
 #pg-search-input button{
     margin: 0;
@@ -918,4 +918,5 @@ ul.list-content li {
   color: #888;
   width: 100px;
   overflow: hidden;
+  padding-top: 5px;
 }
