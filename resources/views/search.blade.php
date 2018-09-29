@@ -17,10 +17,31 @@
 
 @section('content')
     @include('component.top.panel', ['youtube_link' => $youtube_link])
-    @pc
+    @pc 
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
     <div id='j-lessonList'>
-        @include('component.top.unlogin_lesson', ['lessons' => $lessons])
+        @include('component.top.search', ['lessons' => $lessons])
     </div>
+    <div class="btn-action text-center">
+        <button id="j-submit" type="submit" class="btn btn-lg btn-primary">新規登録はこちら</button>
+    </div>
+    @if($lessons['last_page'])
+    <div class="box mb-0" id='j-lessonListPaginator'>
+        <div class="card-lesson-total text-center">
+            <p class="card-text">
+                <a href="javascript:;"
+                    rel="nofollow" 
+                    class='j-paginate'
+                    data-current_page='{{ $lessons['current_page'] }}'
+                    data-last_page='{{ $lessons['last_page'] }}'
+                    data-url='{{ route('ajax.top.lesson') }}'>
+                    全てのレッスンを見る（５０）
+                </a>
+            </p>
+        </div>
+    </div>
+    @endif
+    @include('component.modal.request_login', ['modal_id' => 'modal_request_login'])
+    @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
 @stop

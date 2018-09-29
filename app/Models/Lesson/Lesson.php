@@ -38,6 +38,15 @@ class Lesson extends Base
                     ->paginate(3);
     }
 
+    public function getLessonForTop()
+    {
+        return $this::where('video_count', '>', 0)
+                    ->enable()
+                    ->orderBy('sort')
+                    ->get()
+                    ->toArray();
+    }
+
     public function getLessons(array $filter = [])
     {
         $with = [
