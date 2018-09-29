@@ -716,14 +716,14 @@ body {
     margin-left: 20px;
 }
 .form__search select {
-    /* border: solid 1px #837f80; */
+    border: solid 1px #ece8e9;
     padding-right: 10px;
+    padding-top: 8px;
 }
 #pg-search-input {
     padding: 0px;
-    border: solid 1px #ced4da;
-    border-right: solid 1px #ced4da;
-    border-radius: 1px;
+    border: solid 1px #ece8e9;
+    border-radius: 6px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     background-color: #fff;
@@ -742,11 +742,11 @@ body {
     border: 0;
     color: #fff;
     height: 100%;
-    border-radius: 3px;
+    border-radius: 6px;
     padding-right: 0.9rem;
 }
 .top-search .form-control {
-  border-radius: 1px;
+  /* border-radius: 1px; */
 }
 
 #pg-search-input .glyphicon-search{
@@ -766,7 +766,7 @@ body {
 .blog_title {
     color: #fff;
     height: 110px;
-    padding-top: 30px;
+    padding-top: 32px;
     margin-bottom: 0;
     font-weight: normal;
     font-size: 1.4rem;
@@ -775,7 +775,7 @@ body {
 .blog_title_bottom {
     background: #eaeaea;
     font-size: 14px;
-    padding: 15px 10px;
+    padding: 15px 10px 13px;
     display: block;
 }
 .blog_title.pink {
