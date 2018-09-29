@@ -288,3 +288,6 @@ body #pc-col-7 {
     vertical-align: middle;
     text-align: right;
 }
+.top-search--keyword {
+    margin-top: 5px;
+}
