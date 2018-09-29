@@ -32,7 +32,7 @@ html, body {
 	background-image: url("/img/panel.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 198px;
+	height: 230px;
 }
 .box-yt {
 	height: 211px;
@@ -40,10 +40,19 @@ html, body {
 .row .container-fluid.container-divider .divider {
     margin-top: 20px;
 }
-.card-body-text {
-	padding-top: 12px !important;
-
+.top--caption {
+    display: block;
+    height:230px;
+    line-height:230px;
+    padding: 0;
 }
+.top--caption__text {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    width: 100%;
+}
+
 .box .card .card-body .row .card-sign {
     text-align: center;
     width: 100%;
