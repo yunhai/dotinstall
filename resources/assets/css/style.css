@@ -709,12 +709,6 @@ body {
 /* oOo*/
 
 /* form__search */
-.form__search form{
-    padding: 20px 0;
-}
-.form__search form .form-group {
-    margin-left: 20px;
-}
 .form__search select {
     border: solid 1px #ece8e9;
     padding-right: 10px;
@@ -753,8 +747,8 @@ body {
     border: 0;
     color: #fff;
     height: 100%;
-    border-radius: .25rem;
-    padding: 3px 10px 0px
+    border-radius: 3px;
+    padding: 3px 10px 0px;
 }
 
 #pg-search-input .glyphicon-search{

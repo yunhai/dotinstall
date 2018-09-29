@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="noydir,noodp,index,follow">
         <meta content='IE=edge' http-equiv='X-UA-Compatible' />
-        <meta content='width=device-width, initial-scale=1, user-scalable=no' name='viewport' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="canonical" href="{{ request()->url() }}" />
         <meta name="description" content="@yield('meta_description')">
 
@@ -15,7 +15,6 @@
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/responsive.css" media="all" rel="stylesheet" type="text/css" />
         @pc
             <link href="/css/pc.css" media="all" rel="stylesheet" type="text/css" />
         @endpc

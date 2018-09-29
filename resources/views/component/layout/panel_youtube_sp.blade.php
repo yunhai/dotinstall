@@ -1,7 +1,7 @@
 <div class="box box-panel box-panel-yt mb-0">
     <div class="card">
-        <div class="card-img-overlay px-5">
-            <div class="card-body card-body-text">
+        <div class="card-img-overlay px-5 top--caption">
+            <div class="card-body card-body-text top--caption__text">
                 <h5 class="card-text card-text-header text-center font-weight-bold mb-0">{{ $global_setting['slogan'] }}</h5>
                 <div class="row">
                     <div class="card-sign p-0" id="pc-panel-left">
