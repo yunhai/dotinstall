@@ -278,14 +278,14 @@ html, body {
     display: table;
 }
 .lession--item__image {
-    width: 120px; 
+    width: 120px;
     height: 100%;
     margin: 0 10px 0 0;
     float: left;
 }
 .lesson--item__learning_count {
-    margin: 5px 0 0 10px; 
-    width: 120px; 
+    margin: 5px 0 0 10px;
+    width: 120px;
     float: left;
 }
 .lesson--item__content {
