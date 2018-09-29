@@ -308,7 +308,3 @@ html, body {
     max-width: 23px;
     height: auto;
 }
-
-.top-category--item:last-of-type {
-    border-bottom: none;
-}
