@@ -721,7 +721,7 @@ body {
 }
 #pg-search-input {
     padding: 0px;
-    /* border: solid 1px #837f80; */
+    border: solid 1px #ced4da;
     border-radius: 1px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
