@@ -719,6 +719,7 @@ body {
     border: solid 1px #ece8e9;
     padding-right: 10px;
     padding-top: 8px;
+    color: #aaa;
 }
 #pg-search-input {
     padding: 0px;
@@ -734,6 +735,7 @@ body {
 #pg-search-input input{
     border: 0;
     box-shadow: none;
+    color: #aaa;
 }
 #pg-search-input button{
     margin: 0;
