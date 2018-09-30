@@ -287,9 +287,19 @@ body #pc-col-7 {
     vertical-align: middle;
     text-align: right;
 }
+
+
 .top-search--keyword {
-    margin-top: 2px;
+    margin-top: 5px;
+    /*margin-bottom: 4px !important; */
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* Safari-Opera specific declarations here */
+   .top-search--keyword {
+       margin-top: 2px;
     margin-bottom: 4px !important;
+} 
 }
 .top-search--select {
   padding-left:0;
