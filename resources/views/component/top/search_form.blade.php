@@ -7,7 +7,7 @@
     @endphp
     <div class="form-group">
         <label for="filter-difficulty">段階</label>
-        <select id='filter-difficulty' name="difficulty" class="form-control mx-sm-3 j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
+        <select id='filter-difficulty' name="difficulty" class="form-control mx-sm-3 j-lessonFilter top-search--select">
             <option value="" @if (empty($diff)) selected @endif>全ての動画</option>
             @foreach ($filter_form['difficulty'] as $difficulty_id => $difficulty)
                 <option value="{{ $difficulty_id }}" @if ($diff == $difficulty_id) selected @endif>{{ $difficulty }}</option>
@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         <label for="filter-category">カテゴリ</label>
-        <select id='filter-category' name="category" class="form-control mx-sm-3 j-lessonFilter" style="padding-left:0px;padding-top: 2px;">
+        <select id='filter-category' name="category" class="form-control mx-sm-3 j-lessonFilter top-search--select">
             <option value="" @if (empty($cate)) selected @endif>全ての動画</option>
             @foreach ($filter_form['category'] as $cat_id => $cat)
                 <option value="{{ $cat_id }}" @if ($cate == $cat_id) selected @endif>{{ $cat }}</option>

@@ -282,12 +282,16 @@ body #pc-col-7 {
   height:100%;
   overflow:hidden;
 }
-
 .top-category--item__right {
     display:table-cell;
     vertical-align: middle;
     text-align: right;
 }
 .top-search--keyword {
-    margin-top: 3px;
+    margin-top: 2px;
+    margin-bottom: 4px !important;
+}
+.top-search--select {
+  padding-left:0;
+  padding-top: 4px !important;
 }
