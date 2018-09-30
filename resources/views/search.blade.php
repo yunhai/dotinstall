@@ -17,7 +17,7 @@
 
 @section('content')
     @include('component.top.panel', ['youtube_link' => $youtube_link])
-    @pc 
+    @pc
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
     <div id='j-lessonList'>
@@ -31,7 +31,7 @@
         <div class="card-lesson-total text-center">
             <p class="card-text">
                 <a href="javascript:;"
-                    rel="nofollow" 
+                    rel="nofollow"
                     class='j-paginate'
                     data-current_page='{{ $lessons['current_page'] }}'
                     data-last_page='{{ $lessons['last_page'] }}'
