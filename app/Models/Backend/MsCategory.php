@@ -46,6 +46,7 @@ class MsCategory extends Base
         $relations = [
             'media',
         ];
+
         return $this
                 ->with($relations)
                 ->findOrFail($id);
