@@ -22,8 +22,12 @@ class MsCategory extends Base
 
     public function getEdit($id)
     {
-        $target = $this->model->get($id);
         $form = $this->form();
+
+        $target = $this->model->getWithRelation($id);
+        $media = $target->media->toArray();
+        $target = $target->toArray();
+        $target['media'] = [$media];
         return $this->render('ms_category.input', compact('target', 'form'));
     }
 
@@ -44,6 +48,7 @@ class MsCategory extends Base
     public function postCreate(PostInput $request)
     {
         $input = $this->makeInput($request);
+        // dd($input);
         $target = $this->model->create($input);
         return redirect()->route('backend.ms_category.index')->with('input.success', 'input.success');
     }
@@ -57,7 +62,8 @@ class MsCategory extends Base
     protected function form()
     {
         return [
-            'mode' => config('master.common.mode')
+            'mode' => config('master.common.mode'),
+            'level' => config('master.ms_category.level')
         ];
     }
 
@@ -66,6 +72,10 @@ class MsCategory extends Base
         $input = $request->all();
         $input['mode'] = 1;
         $input['sort'] = 1;
+
+        if (!empty($input['media_id'])) {
+            $input['media_id'] = key($input['media_id']);
+        }
 
         return $input;
     }

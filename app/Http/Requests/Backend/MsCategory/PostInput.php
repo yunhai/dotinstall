@@ -8,9 +8,11 @@ class PostInput extends Base
 {
     public function rules()
     {
-        $id = $this->route()->parameter('ms_category_id');
         return [
-            'name' => 'required|max:256|unique:ms_categories,name,' . $id,
+            'name' => 'required|max:256',
+            'level' => 'required|integer',
+            'caption' => 'nullable|max:256',
+            'media_id' => 'nullable',
         ];
     }
 }

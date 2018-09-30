@@ -24,19 +24,19 @@ class Lesson extends Base
         $query->where('mode', MODE_ENABLE);
     }
 
-    public function getLessonsForHome()
-    {
-        $with = [
-            'lesson_details.posters',
-            'lesson_details.source_code_contents',
-            'lesson_details.resources'
-        ];
-        return $this::with($with)
-                    ->where('video_count', '>', 0)
-                    ->enable()
-                    ->orderBy('sort')
-                    ->paginate(3);
-    }
+    // public function getLessonsForHome()
+    // {
+    //     $with = [
+    //         'lesson_details.posters',
+    //         'lesson_details.source_code_contents',
+    //         'lesson_details.resources'
+    //     ];
+    //     return $this::with($with)
+    //                 ->where('video_count', '>', 0)
+    //                 ->enable()
+    //                 ->orderBy('sort')
+    //                 ->paginate(3);
+    // }
 
     public function getLessonForTop()
     {

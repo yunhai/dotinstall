@@ -6,6 +6,9 @@ class MsCategory extends Base
 {
     public $fillable = [
         'name',
+        'caption',
+        'media_id',
+        'level',
         'sort',
         'mode',
     ];
@@ -31,5 +34,20 @@ class MsCategory extends Base
             ->get()
             ->pluck('name', 'id')
             ->toArray();
+    }
+
+    public function media()
+    {
+        return $this->hasOne(Media::class, 'id', 'media_id');
+    }
+
+    public function getWithRelation($id)
+    {
+        $relations = [
+            'media',
+        ];
+        return $this
+                ->with($relations)
+                ->findOrFail($id);
     }
 }

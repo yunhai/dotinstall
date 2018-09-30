@@ -144,7 +144,7 @@ class Top extends Base
         $ad = $model->random();
         return $this->render('search', compact('lessons', 'youtube_link', 'filter_form', 'lesson_info', 'announcement', 'ad'));
     }
-    
+
     // public function AjaxLesson()
     // {
     //     $filter_form = $this->filterForm();
@@ -153,34 +153,34 @@ class Top extends Base
     //     return $this->render('top/ajax_lesson', compact('lessons', 'filter_form'));
     // }
 
-    // private function getUnLogInLesson()
-    // {
-    //     $paginator = $this->model->getLessonsForHome();
-    //     if ($paginator->items()) {
-    //         $lessons = $paginator->items();
-    //
-    //         $media = $this->getMedia($lessons);
-    //         $user_id = Auth::id() ?: 0;
-    //         foreach ($lessons as $index => $item) {
-    //             $item = $item->toArray();
-    //             $lessons[$index] = $this->format($item, $media, $user_id);
-    //         }
-    //
-    //         $current_page = $paginator->currentPage();
-    //         $last_page = $paginator->lastPage();
-    //         return [
-    //             'data' => $lessons,
-    //             'current_page' => $current_page,
-    //             'last_page' => $last_page
-    //         ];
-    //     }
-    //
-    //     return [
-    //         'data' => [],
-    //         'current_page' => 0,
-    //         'total_page' => 0
-    //     ];
-    // }
+    private function getUnLogInLesson()
+    {
+        // $paginator = $this->model->getLessonsForHome();
+        // if ($paginator->items()) {
+        //     $lessons = $paginator->items();
+        //
+        //     $media = $this->getMedia($lessons);
+        //     $user_id = Auth::id() ?: 0;
+        //     foreach ($lessons as $index => $item) {
+        //         $item = $item->toArray();
+        //         $lessons[$index] = $this->format($item, $media, $user_id);
+        //     }
+        //
+        //     $current_page = $paginator->currentPage();
+        //     $last_page = $paginator->lastPage();
+        //     return [
+        //         'data' => $lessons,
+        //         'current_page' => $current_page,
+        //         'last_page' => $last_page
+        //     ];
+        // }
+
+        return [
+            'data' => [],
+            'current_page' => 0,
+            'last_page' => 0
+        ];
+    }
 
     private function filterForm(array $input_value = [])
     {

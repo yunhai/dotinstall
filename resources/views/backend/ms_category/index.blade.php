@@ -18,11 +18,23 @@
             'title' => 'カテゴリー',
             'header' => [
                 'カテゴリー名',
+                'レベル',
+                'カテゴリについて',
                 '',
             ],
             'body' => [
                 'name' => [
                     'field' => 'name',
+                ],
+                'level' => [
+                    'field' => 'level',
+                    'option' => $form['level'],
+                ],
+                'caption' => [
+                    'field' => 'caption',
+                    'attr' => [
+                        'style' => 'width:40%',
+                    ]
                 ],
                 'button' => [
                     'field' => '',

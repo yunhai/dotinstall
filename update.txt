@@ -51,13 +51,11 @@ UPDATE `settings` SET `key` = 'page_caption_before_login', `deleted_at` = NULL W
 INSERT INTO `settings` (`id`, `key`, `show_name`, `value`, `mode`, `type`, `created_user_id`, `updated_user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES (NULL, 'page_caption_after_login', 'Caption after login', 'Swiftレッスン動画見放題！\r\n月額￥５００円で学べる！', '1', '2', '1', '53', NOW(), NOW(), NULL);
 ALTER TABLE `ads` ADD `login_mode` TINYINT UNSIGNED NOT NULL DEFAULT '1' AFTER `mode`;
 
-
 //180926
 ALTER TABLE `lessons` ADD `name_alias` VARCHAR(256) NULL DEFAULT '' AFTER `video_count`;
 ALTER TABLE `lesson_details` ADD `name_alias` VARCHAR(256) NULL DEFAULT NULL AFTER `lesson_id`;
 ALTER TABLE `lesson_details` CHANGE `name_alias` `name_alias` VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
 ALTER TABLE `lessons` CHANGE `name_alias` `name_alias` VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
 
-
-
-
+//180929
+ALTER TABLE `ms_categories` ADD `level` TINYINT UNSIGNED NOT NULL DEFAULT '0' AFTER `name`, ADD `caption` VARCHAR(256) NULL DEFAULT NULL AFTER `level`, ADD `media_id` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `caption`;
