@@ -109,7 +109,7 @@
         @endforeach
     @endforeach
 @else
-    <div class="card" style='text-align: -webkit-center; padding-top:0; padding-bottom: 20px; border: 0;'>
+    <div class="card" style='text-align: center; padding: 10px 0 20px; border: 0;'>
         検索結果はありません
     </div>
 @endif

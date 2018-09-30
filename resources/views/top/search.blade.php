@@ -29,7 +29,7 @@
     <div class="row title__gray title-gray--50">
         <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'>簡単な実戦でプログラムを覚えよう！</div>
     </div>
-    <div class='row blog mar_t20'>
+    <div class='row blog mar_t10'>
       <div id='j-lessonFilterResult' style='width: 100%; display: block;'>
           @include('component.lesson.filter.result', ['filter_form' => $filter_form, 'lessons' => $lessons])
       </div>

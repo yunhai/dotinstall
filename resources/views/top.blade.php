@@ -20,7 +20,7 @@
     @pc
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
-    <div id='j-lessonList'>
+    <div>
         @include('component.top.unlogin_lesson', ['lessons' => $lessons])
     </div>
 @stop
