@@ -19,16 +19,37 @@
     @pc
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
+
+    @sp
     <div class="row title__gray title-gray--50">
-        <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'><a href="{{ route('top') }}">トップ / レッスン一覧</a></div>
-        <div class="col-md-6 col-xs-6 text-right hidden-xs" @pc style='margin-top: 3px;' @endpc><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
+        <div style='margin-top: 3px;'><a href="{{ route('top') }}">トップ / レッスン一覧</a></div>
     </div>
     <div class="form__search row">
         @include('component.top.search_form', ['filter_form' => $filter_form])
     </div>
-    <div class="row title__gray title-gray--50">
-        <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'>簡単な実戦でプログラムを覚えよう！</div>
+    <div class="row title__gray title-gray--50" style='margin-bottom: 10px;'>
+        <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'>レッスン一覧</div>
     </div>
+    @endsp
+
+    @pc
+    <div class="row title__gray title-gray--50" style='margin-bottom: 10px;'>
+        <div class="col-md-3" style='height: 30px; line-height: 30px;'>レッスン一覧</div>
+        <div class="col-md-6" style='margin-left: 20px;'>
+            <form action="{{ route('top.search') }}" class="top-search">
+                <div class="input-group">
+                    <div class="input-group-prepend" style=''>
+                      <div class="input-group-text" style='background: #fff;border: solid 1px #ece8e9;border-top-left-radius: 6px;border-bottom-left-radius: 6px;'>
+                          <i class="fa fa-search"></i>
+                      </div>
+                    </div>
+                    <input style='border: solid 1px #ece8e9; border-left: 0;padding-left: 0;padding-top:2px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;' type="text" class="form-control form-control-search j-lessonFilter" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
+                    <button class="btn-search" style='padding: 0 15px;border-radius: 8px;'>検索</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endpc
     <div class='row blog mar_t10'>
       <div id='j-lessonFilterResult' style='width: 100%; display: block;'>
           @include('component.lesson.filter.result', ['filter_form' => $filter_form, 'lessons' => $lessons])
