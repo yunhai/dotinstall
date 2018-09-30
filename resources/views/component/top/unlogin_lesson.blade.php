@@ -1,5 +1,5 @@
 <div class="row title__gray title-gray--50">
-    <div class="col-md-6 col-xs-6" style='margin-top: 3px;'><a href="{{ route('top') }}">トップ / レッスン一覧</a></div>
+    <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'><a href="{{ route('top') }}">トップ / レッスン一覧</a></div>
     <div class="col-md-6 col-xs-6 text-right hidden-xs" @pc style='margin-top: 3px;' @endpc><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
 </div>
 <div class="form__search row">
