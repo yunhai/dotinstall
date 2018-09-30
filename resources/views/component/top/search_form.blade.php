@@ -27,7 +27,7 @@
     <div class="form-group">
         <div id="pg-search-input">
             <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg top-search--keyword" placeholder="動画検索"/>
+                <input type="text" name='keyword' class="form-control input-lg top-search--keyword j-lessonFilter" placeholder="動画検索" value="@if (!empty($keyword)) {{ $keyword }} @endif"/>
                 <span class="input-group-btn">
                     <button class="btn btn-info btn-lg" type="submit">
                         検索
