@@ -3,40 +3,7 @@
     <div class="col-md-6 col-xs-6 text-right hidden-xs" @pc style='margin-top: 3px;' @endpc><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
 </div>
 <div class="form__search row">
-    <form class="@pc offset-md-2 form-inline @endpc @sp col-sm-12 @endsp top-search">
-      @pc
-        <div class="form-group">
-            <label for="">段階</label>
-            <select class="form-control mx-sm-3" id="inlineFormCustomSelect">
-                <option selected>初級編</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="">カテゴリ</label>
-            <select class="form-control mx-sm-3" id="inlineFormCustomSelect">
-                <option selected>ＩＯＳアプリ</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        @endpc
-        <div class="form-group">
-            <div id="pg-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg top-search--keyword" placeholder="動画検索"/>
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button" >
-                            検索
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </form>
+    @include('component.top.search_form', ['filter_form' => $filter_form])
 </div>
 <div class="row title__gray title-gray--50">
     <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'>簡単な実戦でプログラムを覚えよう！</div>
