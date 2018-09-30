@@ -21,7 +21,7 @@
                       <i class="fa fa-search"></i>
                   </div>
                 </div>
-                <input style='border: solid 1px #ece8e9; border-left: 0;padding-left: 0;padding-top:2px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;' type="text" class="form-control form-control-search j-lessonFilter" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
+                <input style='border: solid 1px #ece8e9; border-left: 0;padding-left: 0;padding-top:5px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;' type="text" class="form-control form-control-search j-lessonFilter" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
                 <button class="btn-search" style='padding: 0 15px;border-radius: 8px;'>検索</button>
             </div>
         </form>
