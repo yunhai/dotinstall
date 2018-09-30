@@ -1,6 +1,6 @@
 <div class="row title__gray title-gray--50">
-    <div class="col-md-6 col-xs-6" style='margin-top: 3px;'><a href="{{ route('top') }}">トップ　/　レッスン一覧</a></div>
-    <div class="col-md-6 col-xs-6 text-right hidden-xs"><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
+    <div class="col-md-6 col-xs-6" style='margin-top: 3px;'><a href="{{ route('top') }}">トップ / レッスン一覧</a></div>
+    <div class="col-md-6 col-xs-6 text-right hidden-xs" @pc style='margin-top: 3px;' @endpc><b>レッスン一覧</b> {{ $global_setting['total_enable_lesson'] }}レッスン　{{ $global_setting['total_enable_video'] }}本の動画で提供中</div>
 </div>
 <div class="form__search row">
     <form class="@pc offset-md-2 form-inline @endpc @sp col-sm-12 @endsp top-search">
@@ -39,8 +39,7 @@
     </form>
 </div>
 <div class="row title__gray title-gray--50">
-    <div class="col-md-6 col-xs-6" style='margin-top: 3px;'>簡単な実戦でプログラムを覚えよう！</div>
-    <div class="col-md-6 col-xs-6 text-right hidden-xs"></div>
+    <div @pc class="col-md-6 col-xs-6" @endpc style='margin-top: 3px;'>簡単な実戦でプログラムを覚えよう！</div>
 </div>
 <div class="blog-group">
     <div class="row blog">
@@ -158,7 +157,7 @@
                   </h2>
                   <span class='top-category--item__level' style=''>上級コース</span>
                 </div>
-                <span class="blog_title_bottom text-center">解からないことがあったらGoogleで検索する力も身につけよう</span>
+                <span class="blog_title_bottom text-center">解らなことはGoogleで検索してみよう！</span>
                 <ul class="list-group w-100 list-content">
                     @foreach ($lessons[LESSON_DIFFICULTY_ADVANCE] as $item)
                     <li class="top-category--item px-0">

@@ -338,8 +338,8 @@ html, body {
     margin: 0 15px;
 }
 .top-search--keyword {
-    margin-top: 2px;
+    margin-top: 1px;
 }
 #pg-search-input button {
-    padding-top: 0;
+    padding-top: 2px;
 }
