@@ -3,7 +3,7 @@
 @section('meta_description', '新規登録')
 @section('breadcrumbs', Breadcrumbs::render('register.diamond'))
 
-@php $time = time(); @endphp;
+@php $time = time(); @endphp
 @push('css')
     <link rel="stylesheet" href="/css/payment.css?{{ $time }}">
 @endpush
