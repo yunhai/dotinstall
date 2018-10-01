@@ -1,4 +1,4 @@
-<h1 class="d-block py-2 px-5 mb-0 text-left text-bold text-white old-bv font_12">小学生から大人まで簡単な実戦でプログラミングを習得５分動画学習</h1>
+<h1 class="d-block py-2 px-5 mb-0 text-left text-bold text-white old-bv font_12">小学生の子供から大人まで簡単な実戦でプログラミングを習得できる５分動画学習</h1>
 <nav class="navbar navbar-expand-sm navbar-light px-5">
     <a class="navbar-brand" href="/">
         <img class="img-logo" src="/img/logo_header.png" alt="プログラミングゴーPrograming Go">

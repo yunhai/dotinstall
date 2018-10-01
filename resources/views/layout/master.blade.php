@@ -14,7 +14,7 @@
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
 
-        @php $time = time(); @endphp;
+        @php $time = time(); @endphp
 
         <link href="/css/common.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/style.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
