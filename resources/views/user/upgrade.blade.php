@@ -1,7 +1,8 @@
 @extends('layout.master')
 @section('title', 'プログラミングＧＯ')
+@php $time = time(); @endphp
 @push('css')
-    <link rel="stylesheet" href="/css/payment.css">
+    <link rel="stylesheet" href="/css/payment.css?{{ $time }}">
 @endpush
 
 @push('js')

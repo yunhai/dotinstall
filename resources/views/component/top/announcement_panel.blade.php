@@ -7,9 +7,11 @@
             <div class="content--announcement">
             @if ($announcement)
             @foreach ($announcement as $item)
-                <div class='announcement--date'>{{ $item['post_date'] }}&nbsp;</div>
-                <div class="announcement--content" data-toggle="tooltip" data-placement="bottom" title="{{ $item['content'] }}">
-                    {{ $item['content'] }}
+                <div style="border-bottom:solid 1px #e9e9e9; margin-top: 8px;">
+                    <div class='announcement--date'>{{ $item['post_date'] }}&nbsp;</div>
+                    <div class="announcement--content" data-toggle="tooltip" data-placement="bottom" title="{{ $item['content'] }}">
+                        {{ $item['content'] }}
+                    </div>
                 </div>
             @endforeach
             @endif
