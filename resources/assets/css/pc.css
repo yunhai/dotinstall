@@ -305,3 +305,13 @@ body #pc-col-7 {
   padding-left: 0;
   padding-top: 5px !important;
 }
+/* !result-search */
+/* fields 2 column */
+.fields-left {
+    padding-right: 3.5px;
+    padding-left: 0px;
+}
+.fields-right {
+    padding-left: 3.5px;
+    padding-right: 0px;
+}
