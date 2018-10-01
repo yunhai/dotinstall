@@ -281,6 +281,7 @@ body #pc-col-7 {
   display:table;
   height:100%;
   overflow:hidden;
+  width: 100%;
 }
 .top-category--item__right {
     display:table-cell;
