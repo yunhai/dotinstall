@@ -2,14 +2,16 @@
 @section('title', $target['name'] . ' | プログラミングＧＯ')
 @section('meta_description', $target['name'])
 @section('breadcrumbs', Breadcrumbs::render('lesson.detail', $target['name']))
+
+@php $time = time(); @endphp
 @push('css')
-    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
+    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css?{{ $time }}">
 @endpush
 
 @push('js')
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
-    <script type="text/javascript" src="/js/ace.js"></script>
-    <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js"></script>
+    <script type="text/javascript" src="/js/ace.js?{{ $time }}"></script>
+    <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js?{{ $time }}"></script>
 @endpush
 
 @section('content')
