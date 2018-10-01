@@ -860,11 +860,11 @@ ul.list-content li {
 /* fields 2 column */
 .fields-left {
     padding-right: 3.5px;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 .fields-right {
     padding-left: 3.5px;
-    padding-right: 10px;
+    padding-right: 0px;
 }
 /* !fields 2 column */
 /* button */
