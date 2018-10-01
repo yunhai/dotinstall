@@ -13,15 +13,18 @@
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/vendor/fontawesome/css/all.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/common.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
+
+        @php $time = time(); @endphp;
+
+        <link href="/css/common.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
         @pc
-            <link href="/css/pc.css" media="all" rel="stylesheet" type="text/css" />
+            <link href="/css/pc.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
         @endpc
         @sp
-            <link href="/css/sp.css" media="all" rel="stylesheet" type="text/css" />
+            <link href="/css/sp.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
         @endsp
-        <link href="/css/privacy.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/css/privacy.css?{{ $time }}" media="all" rel="stylesheet" type="text/css" />
         @stack('css')
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123965724-1"></script>
@@ -53,7 +56,7 @@
         <script type="text/javascript" src="/vendor/backend/jquery/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/jquery/jquery.easing.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="/js/app.js?{{ $time }}"></script>
         @stack('js')
     </body>
 </html>

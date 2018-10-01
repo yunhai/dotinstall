@@ -2,8 +2,10 @@
 @section('title', '新規登録 | プログラミングＧＯ')
 @section('meta_description', '新規登録')
 @section('breadcrumbs', Breadcrumbs::render('register.diamond'))
+
+@php $time = time(); @endphp;
 @push('css')
-    <link rel="stylesheet" href="/css/payment.css">
+    <link rel="stylesheet" href="/css/payment.css?{{ $time }}">
 @endpush
 
 @push('js')
@@ -153,7 +155,7 @@
                                                         <label for="email" class="col-md-4 col-form-label">メールアドレス</label>
 
                                                         <div class="col-md-8">
-                                                            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" 
+                                                            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                                                             value="{{ old('email') ? old('email') : session()->get('input.email') }}">
 
                                                             @if ($errors->has('email'))
