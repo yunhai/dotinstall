@@ -44,7 +44,7 @@
 	                  </div>
 	                </div>
 	                <input style='border: solid 1px #ece8e9; border-left: 0;padding-left: 0;padding-top:6px;border-top-right-radius: 6px;border-bottom-right-radius: 6px; font-size: 11px' type="text" class="form-control form-control-search j-lessonFilter" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="動画検索">
-	                <button class="btn-search" style='padding: 0 10px;border-radius: 8px; padding-top:2px; border: solid 1px #ece8e9; font-size:12px;'>検索</button>
+	                <button class="btn-search" style='padding: 0 10px;border-radius: 8px; padding-top:2px; border: solid 1px #ece8e9; font-size:11px;'>検索</button>
 	            </div>
 	        </form>
 	    </div>
