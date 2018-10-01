@@ -109,7 +109,7 @@
         @endforeach
     @endforeach
 @else
-    <div class="card" style='text-align: -webkit-center; padding-top:100px; padding-bottom:100px'>
-        <p>検索結果はありません</p>
+    <div class="card" style='text-align: center; padding: 10px 0 20px; border: 0;'>
+        検索結果はありません
     </div>
 @endif

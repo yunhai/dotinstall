@@ -23,6 +23,6 @@
         </div>
     </div>
 </div>
-<div class="box mar_t20" id='j-lessonFilterResult'>
+<div class="box mar_t10" id='j-lessonFilterResult'>
     @include('component.lesson.filter.result', ['filter_form' => $filter_form, 'lessons' => $lessons])
 </div>

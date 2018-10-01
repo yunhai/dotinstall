@@ -3,6 +3,7 @@
 @section('meta_description', '「プログラミングは苦手」「子共の将来の為にプログラミングを学ばなさい」と思っている方は、子供から大人まで、動画を見ながらiPhoneアプリの開発ができるプログラミングGO。無料会員ならアプリ開発言語「swift」のレッスン動画も見放題！')
 @push('css')
     <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endpush
 
 @push('js')
@@ -20,7 +21,5 @@
     @pc
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
     @endpc
-    <div id='j-lessonList'>
-        @include('component.top.unlogin_lesson', ['lessons' => $lessons])
-    </div>
+    @include('component.top.unlogin_lesson', ['lessons' => $lessons])
 @stop

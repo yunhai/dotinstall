@@ -712,7 +712,7 @@ body {
 .form__search select {
     border: solid 1px #ece8e9;
     padding-right: 10px;
-    padding-top: 8px;
+    padding-top: 11px;
     color: #555 !important;
 }
 #pg-search-input {
@@ -798,7 +798,7 @@ body {
 }
 .blog-content {
     border: 1px solid #b7b7b7;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* height: 100%; */
 }
 ul.list-content {
@@ -890,8 +890,8 @@ ul.list-content li {
     border-radius: 0;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
+    margin-right: 10px !important;
+    margin-left: 10px !important;
 }
 .top-category--item__level{
     display: block;
@@ -908,7 +908,7 @@ ul.list-content li {
     border-bottom: none;
 }
 .top-category--item__right {
-  padding-right:15px !important;
+/*  padding-right:15px !important;*/
   color: #888;
   width: 100px;
   overflow: hidden;
