@@ -17,6 +17,7 @@ class MsCategory extends Base
     {
         $ms_categories = $this->model->orderBy('id')->paginate(20);
         $form = $this->form();
+        
         return $this->render('ms_category.index', compact('ms_categories', 'form'));
     }
 

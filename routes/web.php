@@ -13,7 +13,9 @@
 Auth::routes();
 
 Route::get('', 'Top@index')->name('top');
-Route::get('search', 'TopSearch@search')->name('top.search');
+Route::get('search', 'Top@search')->name('top.search');
+Route::get('ajax/top/lesson', 'Top@AjaxLesson')->name('ajax.top.lesson');
+#Route::get('search', 'TopSearch@search')->name('top.search');
 Route::get('?token={token}', 'Top@index')->name('landing_page');
 
 Route::post('login', 'Auth\LoginController@postLogin');
@@ -46,7 +48,7 @@ Route::get('privacy', 'Page@getPrivacy')->name('privacy');
 Route::get('terms', 'Page@getTerms')->name('terms');
 Route::post('payment/webhook', 'Stripe@handleWebhook')->name('payment.webhook');
 Route::get('ajax/lesson/filter', 'Lesson\Lesson@ajaxFilter')->name('ajax.lesson.filter');
-Route::get('ajax/top/lesson', 'Top@AjaxLesson')->name('ajax.top.lesson');
+
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('mypage', 'MyPage@getMyPage')->name('mypage')->middleware('web.user');

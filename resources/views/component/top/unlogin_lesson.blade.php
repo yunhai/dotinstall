@@ -34,7 +34,7 @@
     @include('component.top.search')
 @else
 <div class='row'>
-  <div id='j-lessonFilterResult' style='width: 100%; display: block;'>
+  <div id='j-lessonFilterResult11111' style='width: 100%; display: block;'>
       @foreach($category as $list)
       @foreach($list as $list1)
       <div class="blog-group">
@@ -48,7 +48,7 @@
                             {{ $filter_form['category'][$category_attribute['ms_category_id']] }}
                         </h2>
                         <span class='top-category--item__level'>
-                            {{ $filter_form['difficulty'][$category_attribute['level']] }}
+                            {{ $filter_form['difficulty'][$category_attribute['level']] }}コース
                         </span>
                     </div>
                     <span class="blog_title_bottom text-center">{{ $category_attribute['caption'] }}</span>

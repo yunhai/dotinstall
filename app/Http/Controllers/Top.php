@@ -53,16 +53,56 @@ class Top extends Base
         $model = new Ad();
         $ad = $model->random();
         $category = $this->getCategoryAttribute();
+        $category = $this->formatCategoryAttribute($category);
+        $page = 'top';
         $option = compact(
                     'lessons',
                     'youtube_link',
                     'filter_form',
                     'announcement',
                     'ad',
-                    'category'
+                    'category',
+                    'page'
                 );
 
         return $this->render('top', $option);
+    }
+
+    public function search(Request $request)
+    {
+        $filter_form = $this->filterForm();
+
+        $lessons = $this->searchLesson();
+        // dd($lessons);
+        $youtube_link = $this->youtube_link->random();
+        shuffle($youtube_link);
+
+        $announcement = $this->getAnnouncement();
+
+        $model = new Ad();
+        $ad = $model->random();
+        $category = $this->getCategoryAttribute();
+
+        $page = 'search';
+        $option = compact(
+                    'lessons',
+                    'youtube_link',
+                    'filter_form',
+                    'announcement',
+                    'ad',
+                    'page'
+                );
+
+        return $this->render('top', $option);
+    }
+
+    private function searchLesson()
+    {
+        $data = $this->model->getLessonForTop();
+        if ($data) {
+            $data = $this->lessonStat($data);
+        }
+        return $data;
     }
 
     private function getLesson()
@@ -137,7 +177,11 @@ class Top extends Base
     private function getCategoryAttribute()
     {
         $model = new MsCategoryAttributeModel();
-        $data = $model->getAll();
+        return $model->getAll();
+    }
+
+    private function formatCategoryAttribute(array $data = [])
+    {
         $result = [];
         foreach ($data as $item) {
             $category_id = $item['ms_category_id'];
@@ -148,39 +192,11 @@ class Top extends Base
         foreach ($result as &$list) {
             $list = array_chunk($list, 2);
         }
+
         return $result;
     }
 
-    ///////////////
 
-    public function search(Request $request)
-    {
-        $filter_form = $this->filterForm();
-
-        $lessons = $this->getLesson();
-
-        $youtube_link = $this->youtube_link->random();
-        shuffle($youtube_link);
-
-        $announcement = $this->getAnnouncement();
-
-        $model = new Ad();
-        $ad = $model->random();
-        $category = $this->getCategoryAttribute();
-
-        $page = 'search';
-        $option = compact(
-                    'lessons',
-                    'youtube_link',
-                    'filter_form',
-                    'announcement',
-                    'ad',
-                    'category',
-                    'page'
-                );
-
-        return $this->render('top', $option);
-    }
 
     private function filterForm(array $input_value = [])
     {
