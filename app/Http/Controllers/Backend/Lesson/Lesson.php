@@ -107,7 +107,7 @@ class Lesson extends Base
         $category = $this->getAvailableCategory($available_category);
         $mode = config('master.common.mode');
 
-        $level = config('master.lesson.level');
+        $level = config('master.lesson.difficulty');
 
         return compact('category', 'mode', 'level');
     }
