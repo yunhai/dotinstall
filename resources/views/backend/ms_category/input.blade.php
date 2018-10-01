@@ -27,41 +27,6 @@ category  name          level          image                      caption
                 'field_value' => array_get($target, 'name', ''),
                 'field_type' => 'text'
             ],
-            'level' => [
-                'field_label' => 'レベル',
-                'field_name' => 'level',
-                'field_value' => array_get($target, 'level', ''),
-                'field_type' => 'select',
-                'field_option' => $form['level'],
-                'field_attribute' => [
-                    'title' => '選択なし'
-                ]
-            ],
-            'caption' => [
-                'field_label' => 'このカテゴリについて',
-                'field_name' => 'caption',
-                'field_value' => array_get($target, 'caption', ''),
-                'field_type' => 'text'
-            ],
-            'media_id' => [
-                'field_label' => '画像',
-                'field_name' => 'media_id',
-                'field_value' => array_get($target, 'media', ''),
-                'field_type' => 'file_dd',
-                'field_attribute' => [
-                    'data-url' => route('backend.media.chuck'),
-                    'data-download' => 1,
-                    'data-query' => '{"media_type": "image", "thumbnail": 0, "width": 110}',
-                    'data-type' => 'image',
-                    'data-type.url' => false,
-                    'data-type.url_label' => 'URL',
-                    'data-max_file_upload' => 1,
-                    'data-width' => 110,
-                ],
-                'field_advance' => [
-                ],
-                'field_intro' => '(サイズ：460x110)'
-            ],
         ],
         'form_attribute' => [
         ]

@@ -35,7 +35,7 @@
                     'field_name' => 'difficulty',
                     'field_value' => array_get($target, 'difficulty', ''),
                     'field_type' => 'select',
-                    'field_option' => $form['difficulty'],
+                    'field_option' => $form['level'],
                     'field_attribute' => [
                         'title' => '選択なし'
                     ]

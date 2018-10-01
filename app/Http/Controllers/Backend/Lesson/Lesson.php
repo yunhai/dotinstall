@@ -61,6 +61,7 @@ class Lesson extends Base
         $option = [
             'form' => $this->form()
         ];
+
         return $this->render('lesson.input', $option);
     }
 
@@ -88,7 +89,7 @@ class Lesson extends Base
     protected function makeInput(PostInput $request, int $id = 0, int $mode = MODE_CREATE)
     {
         $input = $request->all();
-    
+
         $input['poster'] = 0;
         $input['caption'] = '';
         $input['note'] = '';
@@ -106,14 +107,16 @@ class Lesson extends Base
         $category = $this->getAvailableCategory($available_category);
         $mode = config('master.common.mode');
 
-        $difficulty = config('master.lesson.difficulty');
-        return compact('category', 'mode', 'difficulty');
+        $level = config('master.lesson.level');
+
+        return compact('category', 'mode', 'level');
     }
 
     private function getAvailableCategory($available_category = true)
     {
         $func = $available_category ? 'availableList' : 'allList';
         $model = new MsCategoryModel();
+
         return $model->$func();
     }
 }

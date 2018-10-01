@@ -12,6 +12,7 @@
         <link href="/vendor/backend/sb-admin/sb-admin.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/common.css" media="all" rel="stylesheet" type="text/css" />
         <link href="/css/backend/dataTables.bootstrap4.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/vendor/backend/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         @stack('css')
     </head>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top" data-class="sidenav-toggled">
@@ -35,7 +36,10 @@
         <script type="text/javascript" src="/vendor/backend/bootstrap/js/popper.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/vendor/backend/sb-admin/sb-admin.min.js"></script>
+        <script src="/vendor/backend/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="/js/backend/common/select.js"></script>
         <script type="text/javascript" src="/js/backend/app.js"></script>
+
         @stack('js')
     </body>
 </html>

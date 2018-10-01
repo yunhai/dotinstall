@@ -36,7 +36,7 @@
                     'tpl' => '<span id="j-title--:id" data-tpl="【:difficulty】【＃<sort>】:name">【:difficulty】【＃:sort】:name</span>',
                     'tpl_arg' => [
                         ':id' => 'id',
-                        ':difficulty' => [$form['difficulty'], 'difficulty'],
+                        ':difficulty' => [$form['level'], 'difficulty'],
                         ':sort' => 'sort',
                         ':name' => 'name',
                     ]

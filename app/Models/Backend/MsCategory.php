@@ -35,20 +35,4 @@ class MsCategory extends Base
             ->pluck('name', 'id')
             ->toArray();
     }
-
-    public function media()
-    {
-        return $this->hasOne(Media::class, 'id', 'media_id');
-    }
-
-    public function getWithRelation($id)
-    {
-        $relations = [
-            'media',
-        ];
-
-        return $this
-                ->with($relations)
-                ->findOrFail($id);
-    }
 }

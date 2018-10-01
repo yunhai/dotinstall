@@ -23,6 +23,12 @@
                     <span class="nav-link-text">カテゴリー</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="" data-placement="right" title="カテゴリーの属性">
+                <a class="nav-link" href="{{ route('backend.ms_category.attribute.index') }}">
+                    <i class="fa fa-cog fa-fw"></i>
+                    <span class="nav-link-text">カテゴリーの属性</span>
+                </a>
+            </li>
             <li class="nav-item" data-toggle="" data-placement="right" title="Youtubeリンク">
                 <a class="nav-link" href="{{ route('backend.youtube_link.index') }}">
                     <i class="fa fa-book fa-fw"></i>

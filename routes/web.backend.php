@@ -52,12 +52,19 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('media/upload', 'Media@postUpload')->name('backend.media.upload');
     Route::post('media/content', 'Media@postContent')->name('backend.media.content');
 
-    Route::get('ms_category', 'MsCategory@getIndex')->name('backend.ms_category.index');
-    Route::get('ms_category/create', 'MsCategory@getCreate')->name('backend.ms_category.create');
-    Route::post('ms_category/create', 'MsCategory@postCreate');
-    Route::get('ms_category/{ms_category_id}/edit', 'MsCategory@getEdit')->name('backend.ms_category.edit');
-    Route::post('ms_category/{ms_category_id}/edit', 'MsCategory@postEdit');
-    Route::get('ms_category/{ms_category_id}/delete', 'MsCategory@getDelete')->name('backend.ms_category.delete');
+    Route::get('ms_category', 'MsCategory\MsCategory@getIndex')->name('backend.ms_category.index');
+    Route::get('ms_category/create', 'MsCategory\MsCategory@getCreate')->name('backend.ms_category.create');
+    Route::post('ms_category/create', 'MsCategory\MsCategory@postCreate');
+    Route::get('ms_category/{ms_category_id}/edit', 'MsCategory\MsCategory@getEdit')->name('backend.ms_category.edit');
+    Route::post('ms_category/{ms_category_id}/edit', 'MsCategory\MsCategory@postEdit');
+    Route::get('ms_category/{ms_category_id}/delete', 'MsCategory\MsCategory@getDelete')->name('backend.ms_category.delete');
+
+    Route::get('ms_category/attribute', 'MsCategory\Attribute@getIndex')->name('backend.ms_category.attribute.index');
+    Route::get('ms_category/attribute/create', 'MsCategory\Attribute@getCreate')->name('backend.ms_category.attribute.create');
+    Route::post('ms_category/attribute/create', 'MsCategory\Attribute@postCreate');
+    Route::get('ms_category/attribute/{ms_category_attribute_id}/edit', 'MsCategory\Attribute@getEdit')->name('backend.ms_category.attribute.edit');
+    Route::post('ms_category/attribute/{ms_category_attribute_id}/edit', 'MsCategory\Attribute@postEdit');
+    Route::get('ms_category/attribute/{ms_category_attribute_id}/delete', 'MsCategory\Attribute@getDelete')->name('backend.ms_category.attribute.delete');
 
     Route::get('notification', 'Notification@getIndex')->name('backend.notification.index');
     Route::get('notification/create', 'Notification@getCreate')->name('backend.notification.create');
