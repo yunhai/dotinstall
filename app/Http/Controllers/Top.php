@@ -115,6 +115,11 @@ class Top extends Base
     {
         $lesson = $this->model->searchLessonForTop($input);
         $lesson_detail = $this->lesson_detail_model->searchLessonDetailForTop($input);
+        foreach ($lesson_detail as $id => $item) {
+            if ($item['lesson']['deleted_at']) {
+                unset($lesson_detail[$id]);
+            }
+        }
         return compact('lesson', 'lesson_detail');
     }
 
