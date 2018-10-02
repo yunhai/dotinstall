@@ -2,7 +2,10 @@
 
 @section('title', $target['name'] . ' | プログラミングＧＯ')
 @section('meta_description', $target['name'])
-
+@section('meta')
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+@stop
 @php
     $page_intro = "【{$filter_form['difficulty'][$lessons['difficulty']]}】{$lessons['name']}　{$lessons['video_count']}本の動画で提供中";
 @endphp
