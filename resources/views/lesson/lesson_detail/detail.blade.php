@@ -7,9 +7,9 @@
     $page_intro = "【{$filter_form['difficulty'][$lessons['difficulty']]}】{$lessons['name']}　{$lessons['video_count']}本の動画で提供中";
 @endphp
 @section('breadcrumbs', Breadcrumbs::render('lesson_detail', $target, $page_intro))
-
+@php $time = time(); @endphp
 @push('css')
-    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css">
+    <link rel="stylesheet" href="/css/lesson/lesson_detail/detail.css?{{ $time }}">
     @pc
         <link rel="stylesheet" href="https://cdn.plyr.io/3.3.20/plyr.css">
     @endpc
@@ -19,9 +19,9 @@
 @pc
     <script src="https://cdn.plyr.io/3.3.20/plyr.js"></script>
     @diamond_user
-        <script type="text/javascript" src="/js/video.diamond.js"></script>
+        <script type="text/javascript" src="/js/video.diamond.js?{{ $time }}"></script>
     @else
-        <script type="text/javascript" src="/js/video.normal.js"></script>
+        <script type="text/javascript" src="/js/video.normal.js?{{ $time }}"></script>
     @enddiamond_user
 @else
     <script src="https://player.vimeo.com/api/player.js"></script>
@@ -109,7 +109,7 @@
             <div class="container-fluid">
                 <div class="row box-request" @if (count($lesson_details) == 0) style="border-bottom: 0;" @endif>
                     @pc
-                        @include('component.lesson.lesson_detail.pc.video_control', 
+                        @include('component.lesson.lesson_detail.pc.video_control',
                             [
                                 'target' => $target,
                                 'prev_video' => $prev_video,
@@ -119,7 +119,7 @@
                         )
                     @endpc
                     @sp
-                        @include('component.lesson.lesson_detail.sp.video_control', 
+                        @include('component.lesson.lesson_detail.sp.video_control',
                             [
                                 'target' => $target,
                                 'prev_video' => $prev_video,
