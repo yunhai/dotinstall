@@ -321,6 +321,10 @@ html, body {
 .fields-left, .fields-right {
     padding-right: 15px;
     padding-left: 15px;
+    padding-bottom: 15px;
+}
+.blog-group {
+    margin-bottom: 0px;
 }
 .blog-group .blog {
     display: block;
