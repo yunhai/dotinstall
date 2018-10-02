@@ -16,9 +16,9 @@
 
 @section('content')
 @php
-    $count = 0;
+    $count = 381;
     if (!empty($stat[$target['id']])) {
-        $count = number_format($stat[$target['id']]);
+        $count = number_format($stat[$target['id']] + 381);
     }
 @endphp
 <div id="content">
