@@ -56,3 +56,9 @@
 @endforeach
 </div>
 @endif
+
+@if (empty($lessons['lesson']) && empty($lessons['lesson_detail']))
+<div class="card" style="text-align: center; padding: 10px 0 20px; border: 0;">
+    検索結果はありません
+</div>
+@endif
