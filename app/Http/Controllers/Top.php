@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ad;
 use App\Models\Announcement;
 use App\Models\Lesson\Lesson as LessonModel;
+use App\Models\Lesson\LessonDetail\LessonDetail as LessonDetailModel;
 use App\Models\Media as MediaModel;
 use App\Models\MsCategory as MsCategoryModel;
 use App\Models\User\UserLesson as UserLessonModel;
@@ -21,11 +22,13 @@ class Top extends Base
 {
     public function __construct(
         LessonModel $lesson_model,
+        LessonDetailModel $lesson_detail_model,
         UserLessonDetailModel $user_lesson_detail_model,
         UserLessonModel $user_lesson_model,
         YoutubeLink $youtube_link
     ) {
         $this->model = $lesson_model;
+        $this->lesson_detail_model = $lesson_detail_model;
         $this->user_lesson_detail_model = $user_lesson_detail_model;
         $this->user_lesson_model = $user_lesson_model;
         $this->youtube_link = $youtube_link;
@@ -41,7 +44,7 @@ class Top extends Base
         }
 
         $user_id = Auth::id() ?: 0;
-        $filter_form = $this->filterForm($input);
+        $filter_form = $this->filterForm();
 
         $lessons = $this->getLesson();
 
@@ -70,10 +73,10 @@ class Top extends Base
 
     public function search(Request $request)
     {
-        $filter_form = $this->filterForm();
+        $input = $request->all();
+        $filter_form = $this->filterForm($input);
 
-        $lessons = $this->searchLesson();
-        // dd($lessons);
+        $lessons = $this->searchLesson($input);
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
 
@@ -96,13 +99,23 @@ class Top extends Base
         return $this->render('top', $option);
     }
 
-    private function searchLesson()
+    public function ajaxFilterLesson(Request $request)
     {
-        $data = $this->model->getLessonForTop();
-        if ($data) {
-            $data = $this->lessonStat($data);
-        }
-        return $data;
+        $fitler = $request->all();
+        $lessons = $this->searchLesson($fitler);
+        $filter_form = $this->filterForm();
+        $option = compact(
+                    'lessons',
+                    'filter_form'
+                );
+        return $this->render('ajax.top.filter', $option);
+    }
+
+    private function searchLesson(array $input = [])
+    {
+        $lesson = $this->model->searchLessonForTop($input);
+        $lesson_detail = $this->lesson_detail_model->searchLessonDetailForTop($input);
+        return compact('lesson', 'lesson_detail');
     }
 
     private function getLesson()
@@ -198,7 +211,7 @@ class Top extends Base
 
 
 
-    private function filterForm(array $input_value = [])
+    private function filterForm()
     {
         $model = new MsCategoryModel();
         $category = $model->getList();

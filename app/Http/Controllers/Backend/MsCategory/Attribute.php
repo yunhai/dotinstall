@@ -28,7 +28,10 @@ class Attribute extends Base
     public function getEdit($id)
     {
         $target = $this->model->getWithRelation($id);
-        $media = $target->media->toArray();
+        $media = [];
+        if (!empty($target->media)) {
+            $media = $target->media->toArray();
+        }
 
         $target = $target->toArray();
         $target['media'] = [$media];
@@ -84,7 +87,10 @@ class Attribute extends Base
         $input['mode'] = 1;
         $input['sort'] = 1;
 
-        $input['media_id'] = is_array($input['media_id']) ? key($input['media_id']) : 0;
+        $input['media_id'] = 0;
+        if (!empty($input['media_id']) && is_array($input['media_id'])) {
+            $input['media_id'] = key($input['media_id']);
+        }
 
         return $input;
     }

@@ -10,9 +10,7 @@
 
 @push('js')
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js'></script>
-    <script type="text/javascript" src="/js/lesson/filter.js?{{ $time }}"></script>
     <script type="text/javascript" src="/js/ace.js?{{ $time }}"></script>
-    <script type="text/javascript" src="/js/lesson/lesson_detail/lesson_detail.js?{{ $time }}"></script>
     <script type="text/javascript" src="/js/jquery.bcSwipe.min.js?{{ $time }}"></script>
     <script type="text/javascript" src="/js/top.js?{{ $time }}"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
@@ -20,8 +18,27 @@
 
 @section('content')
     @include('component.top.panel', ['youtube_link' => $youtube_link])
+
+    @sp
+        @include('component.top.search_form_sp', ['filter_form' => $filter_form])
+    @endsp
+
     @pc
         @include('component.top.announcement_panel', ['announcement' => $announcement, 'ad' => $ad])
+        @include('component.top.search_form_pc', ['filter_form' => $filter_form])
     @endpc
-    @include('component.top.unlogin_lesson', ['lessons' => $lessons])
+
+    @if ($page === 'search')
+        <div id='j-lessonFilterResult' class="result-search" style='padding: 0;width: 100%; display: block;'>
+            @include('component.top.search')
+        </div>
+    @else
+        <div class='row'>
+            <div id='j-topPage' style='width: 100%; display: block;'>
+                @include('component.top.top', ['lessons' => $lessons])
+            </div>
+        </div>
+        <div id='j-lessonFilterResult' class="result-search" style='padding: 0;width: 100%; display: block;'>
+        </div>
+    @endif
 @stop

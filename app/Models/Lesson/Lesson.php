@@ -24,19 +24,20 @@ class Lesson extends Base
         $query->where('mode', MODE_ENABLE);
     }
 
-    // public function getLessonsForHome()
-    // {
-    //     $with = [
-    //         'lesson_details.posters',
-    //         'lesson_details.source_code_contents',
-    //         'lesson_details.resources'
-    //     ];
-    //     return $this::with($with)
-    //                 ->where('video_count', '>', 0)
-    //                 ->enable()
-    //                 ->orderBy('sort')
-    //                 ->paginate(3);
-    // }
+    public function searchLessonForTop(array $input = [])
+    {
+        $keyword = '';
+        $input['keyword'] ?? '';
+        return $this::where('video_count', '>', 0)
+                    ->where(function ($query) use ($keyword) {
+                        $query->where('name', 'like', "%{$keyword}%")
+                        ->orWhere('caption', 'like', "%{$keyword}%");
+                    })
+                    ->enable()
+                    ->orderBy('sort')
+                    ->get()
+                    ->toArray();
+    }
 
     public function getLessonForTop()
     {
@@ -51,8 +52,6 @@ class Lesson extends Base
     {
         $with = [
             'lesson_details.posters',
-            // 'lesson_details.source_code_contents',
-            // 'lesson_details.resources'
         ];
         $db = $this::with($with)
                         ->enable()

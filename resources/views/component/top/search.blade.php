@@ -1,11 +1,21 @@
-<div class="row title-resultSearch">
-    <div class="col-md-12 col-xs-12">検索結果</div>
+@php
+    $css_class = [
+        LESSON_DIFFICULTY_NEWBIE => 'pink',
+        LESSON_DIFFICULTY_BEGINNER => 'blue',
+        LESSON_DIFFICULTY_INTERMEDIATE => 'pastel-green',
+        LESSON_DIFFICULTY_ADVANCE => 'orange',
+    ];
+@endphp
+
+@if (!empty($lessons['lesson']))
+<div class="row title-resultSearch" style='line-height: normal; border-bottom: 0;'>
+    <div class="col-md-12 col-xs-12">レッスンの検索結果</div>
 </div>
-<div id='j-lessonFilterResult11111111' class="result-search" style='padding: 0'>
-    @foreach($lessons as $item)
+<div class='top-search--item'>
+@foreach($lessons['lesson'] as $item)
     <div class="row">
         <div class="lession--item">
-            <div class="i__color__result pastel-green">
+            <div class="i__color__result {{ $css_class[$item['difficulty']] }}">
                 <span>
                     {{ $filter_form['category'][$item['category_id']] }}<br/>
                     {{ $filter_form['difficulty'][$item['difficulty']] }}編
@@ -18,29 +28,31 @@
             </div>
         </div>
     </div>
-    @endforeach
-    <!-- <div class="row">
-        <div class="lession--item">
-            <div class="i__color__result blue">
-                <span>swift<br>小学生</span>
-            </div>
-            <div class="search-content"><a href="#"> ステージ１　xcode説明と使い方（全１０）</a></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="lession--item">
-            <div class="i__color__result pastel-green">
-                <span>swift<br>中級編</span>
-            </div>
-            <div class="search-content"><a href="#"> ステージ１　xcode説明と使い方（全１０）</a></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="lession--item">
-            <div class="i__color__result orange">
-                <span>swift<br>上級編</span>
-            </div>
-            <div class="search-content"><a href="#"> ステージ１　xcode説明と使い方（全１０）</a></div>
-        </div>
-    </div> -->
+@endforeach
 </div>
+@endif
+
+@if (!empty($lessons['lesson_detail']))
+<div class="row title-resultSearch" style='line-height: normal; border-bottom: 0;'>
+    <div class="col-md-12 col-xs-12">動画の検索結果</div>
+</div>
+<div class='top-search--item'>
+@foreach($lessons['lesson_detail'] as $item)
+    <div class="row">
+        <div class="lession--item">
+            <div class="i__color__result  {{ $css_class[$item['lesson']['difficulty']] }}">
+                <span>
+                    {{ $filter_form['category'][$item['lesson']['category_id']] }}<br/>
+                    {{ $filter_form['difficulty'][$item['lesson']['difficulty']] }}編
+                </span>
+            </div>
+            <div class="search-content">
+                <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}">
+                    {{ $item['name'] }}
+                </a>
+            </div>
+        </div>
+    </div>
+@endforeach
+</div>
+@endif

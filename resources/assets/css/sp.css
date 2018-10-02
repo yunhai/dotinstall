@@ -347,3 +347,7 @@ html, body {
 #pg-search-input button {
     padding-top: 2px;
 }
+.result-search .row{
+    margin-left: 0;
+    margin-right: 0;
+}

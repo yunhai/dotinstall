@@ -8,7 +8,6 @@
     <link href="/css/backend/upload/chunk.css" rel="stylesheet">
 @endpush
 @php
-
     $target = $target ?? [];
     $form = [
         'form_btn' => '保存',
@@ -41,6 +40,7 @@
                 'field_value' => array_get($target, 'caption', ''),
                 'field_type' => 'text'
             ],
+            /*
             'media_id' => [
                 'field_label' => '画像',
                 'field_name' => 'media_id',
@@ -60,6 +60,7 @@
                 ],
                 'field_intro' => '(サイズ：460x110)'
             ],
+            */
         ],
         'form_attribute' => [
         ]

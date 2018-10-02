@@ -907,3 +907,6 @@ ul.list-content li {
   overflow: hidden;
   padding-top: 5px;
 }
+.top-search--item .row:last-child{
+    border-bottom: 0px;
+}

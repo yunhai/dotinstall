@@ -4,6 +4,7 @@ namespace App\Models\Lesson\LessonDetail;
 
 use App\Models\Base;
 use App\Models\Media;
+use App\Models\Lesson\Lesson;
 
 class LessonDetail extends Base
 {
@@ -31,6 +32,11 @@ class LessonDetail extends Base
         return $this->hasMany(Media::class, 'id', 'poster');
     }
 
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
     public function scopeEnable($query)
     {
         $query->where('mode', MODE_ENABLE);
@@ -45,5 +51,21 @@ class LessonDetail extends Base
                         ->enable()
                         ->get()
                         ->toArray();
+    }
+
+    public function searchLessonDetailForTop(array $input = [])
+    {
+        $keyword = '';
+        $input['keyword'] ?? '';
+        return $this::with(['lesson'])
+                    ->where('mode', MODE_ENABLE)
+                    ->where(function ($query) use ($keyword) {
+                        $query->where('name', 'like', "%{$keyword}%")
+                            ->orWhere('caption', 'like', "%{$keyword}%");
+                    })
+                    ->enable()
+                    ->orderBy('sort')
+                    ->get()
+                    ->toArray();
     }
 }

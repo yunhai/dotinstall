@@ -12,4 +12,15 @@ $(document).ready(function() {
             player_ptv.pause();
         });
     });
+
+    $('.j-lessonFilter').on('change', (e) => {
+        const difficulty = $('#filter-difficulty').val();
+        const category = $('#filter-category').val();
+        const keyword = $('#filter-keyword').val();
+        const data = {difficulty, category, keyword};
+        $.get('/ajax/top/filter', data, (result) => {
+            $('#j-lessonFilterResult').html(result);
+            $('#j-topPage').hide();
+        })
+    });
 });
