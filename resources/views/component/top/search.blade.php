@@ -15,7 +15,7 @@
 @foreach($lessons['lesson'] as $item)
     <div class="row">
         <div class="lession--item">
-            <div class="i__color__result {{ $css_class[$item['difficulty']] }}">
+            <div class="i__color__result {{ $css_class[$item['difficulty']] ?? '' }}">
                 <span>
                     {{ $filter_form['category'][$item['category_id']] }}<br/>
                     {{ $filter_form['difficulty'][$item['difficulty']] }}編
@@ -40,7 +40,7 @@
 @foreach($lessons['lesson_detail'] as $item)
     <div class="row">
         <div class="lession--item">
-            <div class="i__color__result  {{ $css_class[$item['lesson']['difficulty']] }}">
+            <div class="i__color__result  {{ $css_class[$item['lesson']['difficulty']] ?? '' }}">
                 <span>
                     {{ $filter_form['category'][$item['lesson']['category_id']] }}<br/>
                     {{ $filter_form['difficulty'][$item['lesson']['difficulty']] }}編

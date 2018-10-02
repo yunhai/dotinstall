@@ -55,8 +55,7 @@ class LessonDetail extends Base
 
     public function searchLessonDetailForTop(array $input = [])
     {
-        $keyword = '';
-        $input['keyword'] ?? '';
+        $keyword = $input['keyword'] ?? '';
         return $this::with(['lesson'])
                     ->where('mode', MODE_ENABLE)
                     ->where(function ($query) use ($keyword) {
