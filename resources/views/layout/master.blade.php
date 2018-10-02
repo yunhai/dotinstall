@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="canonical" href="{{ request()->url() }}" />
         <meta name="description" content="@yield('meta_description')">
-
+        @yield('meta')
         <title>@yield('title')</title>
         <link rel="icon" href="/img/favicon.png">
 
