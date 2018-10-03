@@ -102,6 +102,7 @@ class Top extends Base
     public function ajaxFilterLesson(Request $request)
     {
         $fitler = $request->all();
+        
         $lessons = $this->searchLesson($fitler);
         $filter_form = $this->filterForm();
         $option = compact(

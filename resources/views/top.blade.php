@@ -35,7 +35,9 @@
         </div>
         @endif
         <div id='j-lessonFilterResult' class="result-search" style='padding: 0;width: 100%; display: block;'>
+            @if ($page === 'search')
             @include('component.top.search')
+            @endif
         </div>
     </div>
 @stop

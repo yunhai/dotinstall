@@ -52,13 +52,13 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
+                <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:10px !important;margin-left: 0;">
                     @sp
-                    <div class='lesson--item__learning_count'>
-                        {{ number_format(($lesson['lesson_learning_count']) + 381) }} 人が学習中
+                    <div class='lesson--item__learning_count' style='margin-left: 0;'>
+                        {{ number_format(($lesson['lesson_learning_count'] + 381)) }} 人が学習中
                     </div>
                     @endsp
-                    <div class='lesson--item__my_styding_finish'>
+                    <div class='lesson--item__my_styding_finish' style='margin-right: 0;'>
                     @if (!empty(Auth::check()))
                         @if ($lesson['is_finished'])
                             全て完了
@@ -68,6 +68,8 @@
                     @else
                         完了 / 0
                     @endif
+                    </div>
+                    <div class='clearfix'></div>
                 </div>
             </li>
         @endforeach
@@ -113,13 +115,19 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:15px !important;">
-                    <div class='lesson--item__my_styding_finish'>
-                    @if ($lesson['is_finished'])
-                        完了
-                    @else
-                        未完了
-                    @endif
+                <div class="lesson--item__my_styding @pc col-3 text-right float-right d-flex align-items-center justify-content-end @endpc @sp col-12 @endsp px-0" style="padding-right:10px !important;margin-right: 0;">
+                    @sp
+                    <div class='lesson--item__learning_count' style='margin-left: 0;'>
+                        {{ number_format(($lesson['lesson_detail_learning_count'] + 381) ) }} 人が学習中
+                    </div>
+                    @endsp
+                    <div class='lesson--item__my_styding_finish' style='margin-right: 0;'>
+                        @if ($lesson['is_finished'])
+                            完了
+                        @else
+                            未完了
+                        @endif
+                    </div>
                 </div>
             </li>
         @endforeach
