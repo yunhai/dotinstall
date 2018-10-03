@@ -47,7 +47,6 @@ class Lesson extends Base
             $lessons = $this->lessonStat($lessons, $lesson_id);
             $lessons = $this->groupLesson($lessons);
         }
-
         $filter_form = $this->form($fitler);
         return compact('lessons', 'filter_form');
     }

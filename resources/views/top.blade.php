@@ -28,17 +28,14 @@
         @include('component.top.search_form_pc', ['filter_form' => $filter_form])
     @endpc
 
-    @if ($page === 'search')
+    <div class='row'>
+        @if ($page === 'top')
+        <div id='j-topPage' style='width: 100%; display: block;'>
+            @include('component.top.top', ['lessons' => $lessons])
+        </div>
+        @endif
         <div id='j-lessonFilterResult' class="result-search" style='padding: 0;width: 100%; display: block;'>
             @include('component.top.search')
         </div>
-    @else
-        <div class='row'>
-            <div id='j-topPage' style='width: 100%; display: block;'>
-                @include('component.top.top', ['lessons' => $lessons])
-            </div>
-        </div>
-        <div id='j-lessonFilterResult' class="result-search" style='padding: 0;width: 100%; display: block;'>
-        </div>
-    @endif
+    </div>
 @stop

@@ -21,6 +21,7 @@
                 </li>
                 -->
                 @endnormal_user
+                <!--
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('lesson') }}">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
@@ -28,6 +29,7 @@
                         <span class="d-none d-lg-block">レッスン一覧</span>
                     </a>
                 </li>
+                -->
                 <!--
                 <li class="nav-item nav-item-user dropdown">
                     <a class="nav-link text-lg-center dropdown-toggle" data-toggle="dropdown" href="#">
@@ -81,6 +83,7 @@
                         <span class="d-none d-lg-block">新規登録</span>
                     </a>
                 </li>
+                <!--
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="{{ route('lesson') }}">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
@@ -88,6 +91,7 @@
                         <span class="d-none d-lg-block">レッスン一覧</span>
                     </a>
                 </li>
+                -->
                 <li class="nav-item">
                     <a class="nav-link text-lg-center" href="/login">
                         <img class="img-user" src="/img/user.jpg" alt="ログイン" style="margin-top:-10px;">

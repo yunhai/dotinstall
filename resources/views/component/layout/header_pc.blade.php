@@ -18,13 +18,14 @@
                 </li>
                 -->
                 @endnormal_user
+                <!--
                 <li class="nav-item">
                     <a class="nav-link text-center" href="{{ route('lesson') }}" title="レッスン一覧">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
                         <span class="d-block">レッスン一覧</span>
                     </a>
                 </li>
-
+                -->
                 <li class="nav-item nav-item-user dropdown">
                     <a class="nav-link text-center dropdown-toggle" data-toggle="dropdown" href="#">
                         <img class="img-user mb-2" src="/img/user.jpg" alt="{{ $name }}">
@@ -55,12 +56,14 @@
                         <span class="d-block">新規登録</span>
                     </a>
                 </li>
+                <!--
                 <li class="nav-item">
                     <a class="nav-link text-center" href="{{ route('lesson') }}" title="レッスン一覧">
                         <img class="img-video mb-2" src="/img/video-header.jpg" alt="レッスン一覧">
                         <span class="d-block">レッスン一覧</span>
                     </a>
                 </li>
+                -->
                 <li class="nav-item">
                     <a class="nav-link text-center" href="/login" title="ログイン">
                         <img class="img-user mb-2" src="/img/user.jpg" alt="ログイン">

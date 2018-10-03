@@ -13,6 +13,10 @@ $(document).ready(function() {
         });
     });
 
+    $('#j-topSearchBtn').on('click', (e) => {
+        $('.j-lessonFilter').trigger('change');
+    });
+
     $('.j-lessonFilter').on('change', (e) => {
         const difficulty = $('#filter-difficulty').val();
         const category = $('#filter-category').val();

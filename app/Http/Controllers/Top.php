@@ -114,7 +114,10 @@ class Top extends Base
     private function searchLesson(array $input = [])
     {
         $lesson = $this->model->searchLessonForTop($input);
+        $lesson = $this->lessonStat($lesson);
         $lesson_detail = $this->lesson_detail_model->searchLessonDetailForTop($input);
+        $lesson_detail = $this->lessonDetailStat($lesson_detail);
+
         foreach ($lesson_detail as $id => $item) {
             if ($item['lesson']['deleted_at']) {
                 unset($lesson_detail[$id]);
@@ -177,6 +180,28 @@ class Top extends Base
         return $lessons;
     }
 
+    private function lessonDetailStat(array $lesson_details = [])
+    {
+        $lesson_detail_id_list = data_get($lesson_details, '*.id');
+        $lesson_detail_user_count_list = $this->user_lesson_detail_model->countUserByLessonDetailIdList($lesson_detail_id_list);
+
+        $user_id = Auth::id() ?: 0;
+        $lesson_detail_user_list = $this->user_lesson_detail_model->getByLessonDetailId($user_id, $lesson_detail_id_list);
+
+        foreach ($lesson_details as &$item) {
+            $lesson_detail_id = $item['id'];
+            $item['lesson_detail_learning_count'] = $lesson_detail_user_count_list[$lesson_detail_id] ?? 0;
+            $item['is_finished'] = 0;
+            if (isset($lesson_detail_user_list[$lesson_detail_id]) &&
+                $lesson_detail_user_list[$lesson_detail_id] == USER_LESSON_DETAIL_MODE_CLOSE
+            ) {
+                $item['is_finished'] = 1;
+            }
+        }
+
+        return $lesson_details;
+    }
+
     private function getAnnouncement()
     {
         $model = new Announcement();
@@ -213,8 +238,6 @@ class Top extends Base
 
         return $result;
     }
-
-
 
     private function filterForm()
     {

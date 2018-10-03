@@ -6,6 +6,7 @@ use App\Models\Base;
 use App\Models\Lesson\Lesson;
 use App\Models\User\UserLearningLog;
 use Carbon\Carbon;
+use DB;
 
 class UserLessonDetail extends Base
 {
@@ -16,6 +17,32 @@ class UserLessonDetail extends Base
         'close_date',
         'mode',
     ];
+
+    public function countUserByLessonDetailIdList(array $lesson_id_list = [])
+    {
+        return $this
+                  ->select('lesson_detail_id', DB::raw('count(id) as total'))
+                  ->whereIn('lesson_detail_id', $lesson_id_list)
+                  ->groupBy('lesson_detail_id')
+                  ->get()
+                  ->pluck('total', 'lesson_detail_id')
+                  ->toArray();
+    }
+
+    public function getByLessonDetailId(int $user_id, array $lesson_detail_id)
+    {
+        $fields = [
+          'user_lesson_details.lesson_detail_id',
+          'user_lesson_details.mode',
+        ];
+
+        return $this->select($fields)
+                    ->where('user_id', $user_id)
+                    ->whereIn('lesson_detail_id', $lesson_detail_id)
+                    ->get()
+                    ->pluck('mode', 'lesson_detail_id')
+                    ->toArray();
+    }
 
     public function lessons()
     {

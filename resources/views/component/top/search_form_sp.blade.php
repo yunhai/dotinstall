@@ -11,7 +11,7 @@
                 <div class="input-group col-md-12">
                     <input type="text" name='keyword' class="form-control input-lg top-search--keyword j-lessonFilter" placeholder="動画検索" value="@if (!empty($keyword)) {{ $keyword }} @endif"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="submit">
+                        <button id='j-topSearchBtn' class="btn btn-info btn-lg" type="button">
                             検索
                         </button>
                     </span>

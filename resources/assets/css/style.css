@@ -833,17 +833,16 @@ ul.list-content li {
     padding-left: 15px;
 }
 .i__color__result {
+    display: table-cell;
     width: 70px;
     height: 70px;
     border-radius: 5px;
     color: #fff;
-    padding-top: 15px;
     text-align: center;
     vertical-align: middle;
     -webkit-box-shadow: 0px 0px 11px 0px rgba(156,156,156,1);
     -moz-box-shadow: 0px 0px 11px 0px rgba(156,156,156,1);
     box-shadow: 0px 0px 11px 0px rgba(156,156,156,1);
-    float: left;
 }
 .i__color__result.pink {
     background: linear-gradient(#ff92dc, #ff498a);

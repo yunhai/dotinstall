@@ -26,8 +26,12 @@ class Lesson extends Base
 
     public function searchLessonForTop(array $input = [])
     {
+        $with = [
+            'lesson_details'
+        ];
         $keyword = $input['keyword'] ?? '';
-        return $this::where('video_count', '>', 0)
+        return $this::with($with)
+                    ->where('video_count', '>', 0)
                     ->where(function ($query) use ($keyword) {
                         $query->where('name', 'like', "%{$keyword}%")
                         ->orWhere('caption', 'like', "%{$keyword}%");
