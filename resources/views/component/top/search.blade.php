@@ -7,7 +7,7 @@
     ];
 @endphp
 
-@if (!empty($lessons['lesson']))
+@if (empty($lessons['lesson']))
 <div class="title-resultSearch" style='line-height: normal; border-bottom: 0; padding: 20px 0;'>
     レッスンの検索結果
 </div>
@@ -122,10 +122,35 @@
                     </div>
                     @endsp
                     <div class='lesson--item__my_styding_finish' style='margin-right: 0;'>
-                        @if ($lesson['is_finished'])
-                            完了
+                        @if (Auth::check())
+                            @php
+                                $allow_access = ($lesson['free_mode'] === LESSON_DETAIL_FREE_MODE_FREE) ||
+                                            Auth::user()->grade == USER_GRADE_DIAMOND;
+
+                                if ($lesson['is_finished']) {
+                                    $text = '完了';
+                                    $btn_css_class = 'bg-button-complete';
+
+                                } else {
+                                    $text = '完了する';
+                                    $btn_css_class = 'bg-button-to-complete';
+                                }
+                            @endphp
+                            @if ($allow_access)
+                                <a href="javascript:;" class="btn-sm {{ $btn_css_class }}  j-lessonDetailCloseReopen"
+                                   data-href-close='{{ route('lesson_detail.close', ['lesson_id' => $lesson['lesson_id'], 'lesson_detail_id' => $lesson['id']]) }}'
+                                   data-href-reopen='{{ route('lesson_detail.reopen', ['lesson_id' => $lesson['lesson_id'], 'lesson_detail_id' => $lesson['id']]) }}'
+                                   data-action='{{ $lesson['is_finished'] ? 'reopen' : 'close' }}'
+                                 >
+                                    {{ $text }}
+                                </a>
+                            @else
+                                <a href="javascript:;" class="btn-sm {{ $btn_css_class }}" data-toggle="modal" data-target="#modal_request_deny">
+                                    {{ $text }}
+                                </a>
+                            @endif
                         @else
-                            未完了
+                            <a href="javascript:;" class="btn-sm bg-button-to-complete" style="opacity: .6;" data-toggle="modal" data-target="#modal_request_deny">完了する</a>
                         @endif
                     </div>
                 </div>
