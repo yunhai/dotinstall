@@ -22,7 +22,7 @@ $(document).ready(function() {
         const category = $('#filter-category').val();
         const keyword = $('#filter-keyword').val();
         const data = {difficulty, category, keyword};
-
+        $('#j-topPage').hide();
         const html = `
             <div style="padding: 10px 20px 20px;">
               <div class="loader"></div>
@@ -31,7 +31,7 @@ $(document).ready(function() {
         $('#j-lessonFilterResult').html(html);
         $.get('/ajax/top/filter', data, (result) => {
             $('#j-lessonFilterResult').html(result);
-            $('#j-topPage').hide();
+
         })
     });
 
