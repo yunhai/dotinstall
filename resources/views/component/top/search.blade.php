@@ -7,7 +7,7 @@
     ];
 @endphp
 
-@if (empty($lessons['lesson']))
+@if (!empty($lessons['lesson']))
 <div class="title-resultSearch" style='line-height: normal; border-bottom: 0; padding: 20px 0;'>
     レッスンの検索結果
 </div>
