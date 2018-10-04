@@ -36,8 +36,10 @@
         @endif
         <div id='j-lessonFilterResult' class="result-search" style='padding: 0;width: 100%; display: block;'>
             @if ($page === 'search')
-            @include('component.top.search')
+                @include('component.top.search')
             @endif
         </div>
     </div>
+    @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
+    @include('component.modal.spin', ['modal_id' => 'loading'])
 @stop
