@@ -57,6 +57,7 @@ class LessonDetail extends Base
     {
         $keyword = $input['keyword'] ?? '';
         return $this::with(['lesson'])
+                    ->select('lesson_details.*')
                     ->join('lessons', 'lessons.id', '=', 'lesson_details.lesson_id')
                     ->where('lesson_details.mode', MODE_ENABLE)
                     ->where('lessons.mode', MODE_ENABLE)
