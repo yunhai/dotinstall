@@ -872,7 +872,7 @@ ul.list-content li {
     box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
     border: none;
     font-size: 0.7rem;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     color: #fff;
     border-radius: 5px;
 }
