@@ -167,5 +167,9 @@
 @endif
 
 <div style='line-height: normal; border-bottom: 0; padding: 20px 0;text-align: center;'>
-    <a href="{{ route('top') }}">トップページ</a>
+    @if (Auth::check())
+        <a class="back-search-button" href="{{ route('top') }}">戻る</a>
+    @else
+        <a class="back-search-button" href="{{ route('register.diamond') }}">新規登録</a>
+    @endif
 </div>

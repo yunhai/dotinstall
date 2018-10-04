@@ -195,7 +195,6 @@ body #pc-col-7 {
 .lesson--item__caption {
     display: table-cell;
     vertical-align: middle;
-    padding-bottom:3px;
 }
 .lesson--item__caption-content {
     display: block;

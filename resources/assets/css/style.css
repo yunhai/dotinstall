@@ -362,6 +362,29 @@ body {
     text-decoration: none;
     color: #fff;
 }
+.back-search-button {
+    background: repeating-linear-gradient(
+        -45deg,
+        #49a9bb,
+        #49a9bb 5px,
+        #4fafc1 5px,
+        #4fafc1 10px
+    );
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 50px;
+    border: 4px solid #2da7be;
+    margin: 0 0 0 0;
+    /*-webkit-box-shadow: 0 10px 16px 0 #acabab,0 6px 20px 0 #acabab;
+            box-shadow: 0 10px 16px 0 #acabab,0 6px 20px 0 #acabab;*/
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.back-search-button:hover {
+    text-decoration: none;
+    color: #fff;
+}
 .lesson_href {
     position: relative;
 }

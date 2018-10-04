@@ -25,7 +25,7 @@
                 <ul class="list-group w-100 list-content">
                     @foreach ($lessons[$category_attribute['ms_category_id']][$category_attribute['level']] as $item)
                     <li class="top-category--item px-0">
-                        <div class="px-0" style='padding-top: 5px;'>
+                        <div class="px-0" style='padding-top: 3px;'>
                             <a href="{{ route('lesson.detail', ['lesson_id' => $item['id']]) }}" title="{{ $item['name'] }}（全{{ $item['video_count'] }}回)">
                                 {{ $item['name'] }}（全{{ $item['video_count'] }}回）
                             </a>

@@ -45,12 +45,6 @@
     }
 @endphp
 <div id="content">
-    <div class="box ttlCommon border-bottom-0 mb-0 px-5">{{ $page_intro }}</div>
-    <div class="box mb-0">
-        <div class="card">
-            <div class="lession-nar w-100 px-5"><span>{{ $target['name'] }}</span></div>
-        </div>
-    </div>
     <div class="box px-5 mb-0 mar_t20">
         @if ($target['url'])
         <div class="@sp player @endsp @pc player-yt @endpc">
