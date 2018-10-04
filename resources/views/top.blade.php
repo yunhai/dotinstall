@@ -41,5 +41,4 @@
         </div>
     </div>
     @include('component.modal.request_deny', ['modal_id' => 'modal_request_deny'])
-    @include('component.modal.spin', ['modal_id' => 'loading'])
 @stop
