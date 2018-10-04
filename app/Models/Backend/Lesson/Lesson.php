@@ -62,7 +62,6 @@ class Lesson extends Base
     public function remove(int $id)
     {
         parent::remove($id);
-
         $target = $this
                     ->select(['id', 'sort'])
                     ->withTrashed()
@@ -71,6 +70,10 @@ class Lesson extends Base
 
         $this->where('sort', '>', $target->sort)
              ->decrement('sort', 1);
+
+        $lesson_detail_model = new LessonDetail();
+        $lesson_detail_model->where('lesson_id', $id)->delete();
+
         return true;
     }
 

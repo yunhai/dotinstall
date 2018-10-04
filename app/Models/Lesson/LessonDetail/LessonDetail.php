@@ -59,6 +59,7 @@ class LessonDetail extends Base
         return $this::with(['lesson'])
                     ->join('lessons', 'lessons.id', '=', 'lesson_details.lesson_id')
                     ->where('lesson_details.mode', MODE_ENABLE)
+                    ->where('lessons.mode', MODE_ENABLE)
                     ->whereNull('lessons.deleted_at')
                     ->where(function ($query) use ($keyword) {
                         $query->where('lesson_details.name', 'like', "%{$keyword}%")
