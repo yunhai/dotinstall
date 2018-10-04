@@ -57,13 +57,14 @@ class LessonDetail extends Base
     {
         $keyword = $input['keyword'] ?? '';
         return $this::with(['lesson'])
-                    ->where('mode', MODE_ENABLE)
+                    ->join('lessons', 'lessons.id', '=', 'lesson_details.lesson_id')
+                    ->where('lesson_details.mode', MODE_ENABLE)
+                    ->whereNull('lessons.deleted_at')
                     ->where(function ($query) use ($keyword) {
-                        $query->where('name', 'like', "%{$keyword}%")
-                            ->orWhere('caption', 'like', "%{$keyword}%");
+                        $query->where('lesson_details.name', 'like', "%{$keyword}%")
+                            ->orWhere('lesson_details.caption', 'like', "%{$keyword}%");
                     })
-                    ->enable()
-                    ->orderBy('sort')
+                    ->orderBy('difficulty')
                     ->get()
                     ->toArray();
     }

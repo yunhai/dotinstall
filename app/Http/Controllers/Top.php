@@ -102,7 +102,7 @@ class Top extends Base
     public function ajaxFilterLesson(Request $request)
     {
         $fitler = $request->all();
-        
+
         $lessons = $this->searchLesson($fitler);
         $filter_form = $this->filterForm();
         $option = compact(
@@ -119,11 +119,6 @@ class Top extends Base
         $lesson_detail = $this->lesson_detail_model->searchLessonDetailForTop($input);
         $lesson_detail = $this->lessonDetailStat($lesson_detail);
 
-        foreach ($lesson_detail as $id => $item) {
-            if ($item['lesson']['deleted_at']) {
-                unset($lesson_detail[$id]);
-            }
-        }
         return compact('lesson', 'lesson_detail');
     }
 
