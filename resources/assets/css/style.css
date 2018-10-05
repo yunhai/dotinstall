@@ -869,7 +869,7 @@ ul.list-content li {
 .btn-action button, 
 .btn-action a.btn-pg {
     background: linear-gradient(#2fd2fe, #016fea);
-    padding: 2px 50px 4px 50px;
+    padding: 8px 50px 10px 50px;
     -webkit-box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
     -moz-box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
     box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
