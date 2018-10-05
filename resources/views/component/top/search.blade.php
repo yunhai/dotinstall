@@ -167,6 +167,7 @@
 @endif
 
 <div class="btn-action">
+    <hr>
     @if (Auth::check())
         <a class="btn-pg" href="{{ route('top') }}">戻る</a>
     @else

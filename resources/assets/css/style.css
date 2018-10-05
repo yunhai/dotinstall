@@ -859,19 +859,22 @@ ul.list-content li {
 /* !fields 2 column */
 /* button */
 .btn-action {
-    margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
+}
+.btn-action hr {
+    border-top: 1px solid #bca9af;
+    margin: 0 0 50px 0;
 }
 .btn-action button, 
 .btn-action a.btn-pg {
     background: linear-gradient(#2fd2fe, #016fea);
-    padding: 2px 50px;
+    padding: 5px 50px 7px 50px;
     -webkit-box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
     -moz-box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
     box-shadow: 5px 5px 13px 0px rgba(156,156,156,1);
     border: none;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
     color: #fff;
     border-radius: 5px;
