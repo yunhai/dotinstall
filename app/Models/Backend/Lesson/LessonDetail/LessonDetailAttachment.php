@@ -68,7 +68,7 @@ class LessonDetailAttachment extends Base
                 $this->where('id', $item['id'])->update($data);
             }
         }
-        
+
         foreach ($source_code_content as $item) {
             $item['ref_id'] = $ref[$item['ref_media_id']] ?? 0;
             $this->create($item);
@@ -88,5 +88,14 @@ class LessonDetailAttachment extends Base
         $this->whereIn('ref_id', $delete_id)
             ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT)
             ->delete();
+    }
+
+    public function getByLessonDetailId(int $lesson_detail_id)
+    {
+        return $this->with($with)
+                    ->where('lesson_detail_id', $lesson_detail_id)
+                    ->where('ref_id', '<>', 0)
+                    ->where('type', LESSON_DETAIL_ATTACHMENT_TYPE_SOURCE_CODE_CONTENT)
+                    ->get();
     }
 }

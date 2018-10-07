@@ -64,7 +64,8 @@ class LessonDetail extends Base
                     ->whereNull('lessons.deleted_at')
                     ->where(function ($query) use ($keyword) {
                         $query->where('lesson_details.name', 'like', "%{$keyword}%")
-                            ->orWhere('lesson_details.caption', 'like', "%{$keyword}%");
+                            ->orWhere('lesson_details.caption', 'like', "%{$keyword}%")
+                            ->orWhere('lesson_details.editor_content', 'like', "%{$keyword}%");
                     })
                     ->orderBy('difficulty')
                     ->get()

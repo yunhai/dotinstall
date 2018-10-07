@@ -59,3 +59,6 @@ ALTER TABLE `lessons` CHANGE `name_alias` `name_alias` VARCHAR(256) CHARACTER SE
 
 //180929
 ALTER TABLE `ms_categories` ADD `level` TINYINT UNSIGNED NOT NULL DEFAULT '0' AFTER `name`, ADD `caption` VARCHAR(256) NULL DEFAULT NULL AFTER `level`, ADD `media_id` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `caption`;
+
+//181008
+ALTER TABLE `lesson_details` ADD `source_code_content` TEXT NULL DEFAULT NULL AFTER `video`;

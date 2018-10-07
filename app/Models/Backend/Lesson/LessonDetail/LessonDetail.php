@@ -7,6 +7,8 @@ use App\Models\Backend\Media;
 use App\Models\Backend\Setting;
 use App\Models\Backend\Traits\Lesson\LessonDetail\UpdateLessonVideoCount;
 
+use Storage;
+
 class LessonDetail extends Base
 {
     use UpdateLessonVideoCount;
@@ -77,10 +79,12 @@ class LessonDetail extends Base
     public function create($input)
     {
         $result = parent::create($input);
+        $lesson_detail_id = $result->id;
         if (!empty($input['lesson_detail_attachments'])) {
-            $input = data_set($input['lesson_detail_attachments'], '*.lesson_detail_id', $result->id);
+            $input = data_set($input['lesson_detail_attachments'], '*.lesson_detail_id', $lesson_detail_id);
             (new LessonDetailAttachment)->createMany($input);
         }
+        $this->updateSourceCodeContent($lesson_detail_id);
         return $result;
     }
 
@@ -91,7 +95,26 @@ class LessonDetail extends Base
         $input = data_set($input['lesson_detail_attachments'], '*.lesson_detail_id', $id);
 
         (new LessonDetailAttachment)->editMany($input, $id);
+        $this->updateSourceCodeContent($id);
         return $result;
+    }
+
+    public function updateSourceCodeContent(int $id)
+    {
+        $model = new LessonDetailAttachment();
+        $list = $model->getByLessonDetailId($id);
+
+        $storage = Storage::disk('media');
+        $content = '';
+        foreach ($list as $item) {
+            $media_path = $item->media->path;
+            if ($media_path && $storage->exists($media_path)) {
+                $content .= $storage->get($media_path);
+            }
+        }
+
+        $content = trim(preg_replace('/\s\s+/', ' ', html_entity_decode($content)));
+        $this->where('id', $id)->update(['source_code_content' => $content]);
     }
 
     public function statLessonDetail()

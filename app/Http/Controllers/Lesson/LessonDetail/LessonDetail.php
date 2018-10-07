@@ -63,7 +63,7 @@ class LessonDetail extends Base
 
         $allow_access = ($target['free_mode'] === LESSON_DETAIL_FREE_MODE_FREE) ||
                         $user_id && Auth::user()->grade == USER_GRADE_DIAMOND;
-                        
+
         $female_voice = ($user_id && Auth::user()->grade == USER_GRADE_DIAMOND);
 
         if ($user_id) {
