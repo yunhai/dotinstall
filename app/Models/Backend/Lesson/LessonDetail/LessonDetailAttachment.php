@@ -92,6 +92,7 @@ class LessonDetailAttachment extends Base
 
     public function getByLessonDetailId(int $lesson_detail_id)
     {
+        $with = ['media'];
         return $this->with($with)
                     ->where('lesson_detail_id', $lesson_detail_id)
                     ->where('ref_id', '<>', 0)
