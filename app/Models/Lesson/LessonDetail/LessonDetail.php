@@ -65,7 +65,7 @@ class LessonDetail extends Base
                     ->where(function ($query) use ($keyword) {
                         $query->where('lesson_details.name', 'like', "%{$keyword}%")
                             ->orWhere('lesson_details.caption', 'like', "%{$keyword}%")
-                            ->orWhere('lesson_details.editor_content', 'like', "%{$keyword}%");
+                            ->orWhere('lesson_details.source_code_content', 'like', "%{$keyword}%");
                     })
                     ->orderBy('difficulty')
                     ->get()
