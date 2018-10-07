@@ -56,7 +56,8 @@ class Top extends Base
         $model = new Ad();
         $ad = $model->random();
         $category = $this->getCategoryAttribute();
-        $category = $this->formatCategoryAttribute($category);
+        $category = $this->formatCategoryAttribute($category, $lessons);
+
         $page = 'top';
         $option = compact(
                     'lessons',
@@ -219,12 +220,15 @@ class Top extends Base
         return $model->getAll();
     }
 
-    private function formatCategoryAttribute(array $data = [])
+    private function formatCategoryAttribute(array $data = [], array $lesson = [])
     {
         $result = [];
         foreach ($data as $item) {
             $category_id = $item['ms_category_id'];
             $level = $item['level'];
+            if (empty($lesson[$category_id][$level])) {
+                continue;
+            }
             $result[$category_id][$level] = $item;
         }
 
