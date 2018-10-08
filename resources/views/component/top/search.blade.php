@@ -8,7 +8,7 @@
 @endphp
 
 @if (!empty($lessons['lesson']))
-<div class="title-resultSearch" style='line-height: normal; border-bottom: 0; padding: 20px 0;'>
+<div class="title-resultSearch" style='line-height: normal; border-bottom: 0; padding: 10px 0; margin-top:-10px;'>
     レッスンの検索結果
 </div>
 <div class='top-search--item'>
@@ -78,7 +78,7 @@
 @endif
 
 @if (!empty($lessons['lesson_detail']))
-<div class="title-resultSearch" style='line-height: normal; border-bottom: 0; padding: 20px 0;'>
+<div class="title-resultSearch" style='line-height: normal; border-bottom: 0; padding: 10px 0;'>
     <div class="col-md-12 col-xs-12">動画の検索結果</div>
 </div>
 <div class='top-search--item'>
@@ -166,11 +166,9 @@
 </div>
 @endif
 
+@if (!Auth::check())
 <div class="btn-action">
     <hr>
-    @if (Auth::check())
-        <a class="btn-pg" href="{{ route('top') }}">戻る</a>
-    @else
         <a class="btn-pg" href="{{ route('register.diamond') }}">新規登録</a>
-    @endif
 </div>
+@endif
