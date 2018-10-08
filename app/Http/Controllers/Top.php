@@ -58,6 +58,7 @@ class Top extends Base
         $category = $this->getCategoryAttribute();
         $category = $this->formatCategoryAttribute($category, $lessons);
 
+        $search_input =[];
         $page = 'top';
         $option = compact(
                     'lessons',
@@ -66,7 +67,8 @@ class Top extends Base
                     'announcement',
                     'ad',
                     'category',
-                    'page'
+                    'page',
+                    'search_input'
                 );
 
         return $this->render('top', $option);
@@ -74,10 +76,9 @@ class Top extends Base
 
     public function search(Request $request)
     {
-        $input = $request->all();
-        $filter_form = $this->filterForm($input);
-
-        $lessons = $this->searchLesson($input);
+        $search_input = $request->all();
+        $filter_form = $this->filterForm($search_input);
+        $lessons = $this->searchLesson($search_input);
         $youtube_link = $this->youtube_link->random();
         shuffle($youtube_link);
 
@@ -94,8 +95,10 @@ class Top extends Base
                     'filter_form',
                     'announcement',
                     'ad',
-                    'page'
+                    'page',
+                    'search_input'
                 );
+
 
         return $this->render('top', $option);
     }

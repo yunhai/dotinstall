@@ -1,3 +1,6 @@
+@php
+    $keyword = array_get($search_input, 'keyword');
+@endphp
 <div class="row title__gray title-gray--50" style='margin-bottom: 10px;'>
     <div class="col-md-2" style='position:relative; padding-top: 8px;'>レッスン一覧</div>
     <div class="col-md-6" style='margin-left: 20px; flex: 0 0 48%;'>
@@ -9,7 +12,7 @@
                   </div>
                 </div>
                 <input id='filter-keyword' style='border: solid 1px #ece8e9; border-left: 0;padding-left: 0;padding-top:7px;border-top-right-radius: 6px;border-bottom-right-radius: 6px; font-size: 11px;' type="text" class="form-control form-control-search j-lessonFilter" name="keyword" value="@if (!empty($keyword)) {{ $keyword }} @endif" placeholder="ソースコード、レッスン検索">
-                <button id='j-topSearchBtn' class="btn-search" style='padding: 0 10px;border-radius: 8px; border: solid 1px #ece8e9; font-size:12px; padding-top:2px;' type='button'>検索</button>
+                <button id='j-topSearchBtn' class="btn-search" style='padding: 0 10px;border-radius: 8px; border: solid 1px #ece8e9; font-size:12px; padding-top:2px;' type='submit'>検索</button>
             </div>
         </form>
     </div>

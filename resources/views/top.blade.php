@@ -14,6 +14,9 @@
     <script type="text/javascript" src="/js/jquery.bcSwipe.min.js?{{ $time }}"></script>
     <script type="text/javascript" src="/js/top.js?{{ $time }}"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
+    @if ($page === 'search')
+        <script type="text/javascript" src="/js/top-search.js?{{ $time }}"></script>
+    @endif
 @endpush
 
 @section('content')
